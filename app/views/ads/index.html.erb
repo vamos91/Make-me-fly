@@ -1,0 +1,6 @@
+<h1>afficher de toutes les annonces</h1>
+<% @ads.each do |a| %>
+  <p><%= a.price %></p>
+  <p><%= a.description %></p>
+  <p><%= a.flight_date %></p>
+<% end %>

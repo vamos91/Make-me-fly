@@ -1,0 +1,11 @@
+<h1>publiez une nouvelle annonce</h1>
+
+<%= simple_form_for(@ad) do |f| %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :flight_date %>
+  <%= f.button :submit %>
+<% end %>
+
+
+

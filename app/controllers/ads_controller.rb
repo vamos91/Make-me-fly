@@ -13,16 +13,16 @@ class AdsController < ApplicationController
    @ad = Ad.find(params[:id])
  end
 
-  # def new
-  #   @ad = Ad.new
-  #   @user = User.find(find_user)
-  # end
+  def new
+    @ad = Ad.new
+  end
 
-  # def create
-  #   @ad = @user.ads.build(param_ad)
-  #   @ad.save
-  #   redirect_to user_path(@user)
-  # end
+  def create
+    @ad = Ad.new(ad_params)
+    # @ad.user = current_user
+    @ad.save
+    redirect_to ads_path
+  end
 
   # def edit
   #   @ad = Ad.find(params[:id])
@@ -46,15 +46,15 @@ class AdsController < ApplicationController
 #--------------------------------------------------------
 
 
-#   private
+  private
 # # update et create
-#   def param_ad
-#     params.require(:ad).permit(:description, :date, :price)
-#   end
+  def ad_params
+    params.require(:ad).permit(:description, :date, :price, :flight_date)
+  end
 
-#   def find_user
-#     @ad = Ad.find(params[:user_id])
-#   end
+  # def find_user
+  #   @ad = Ad.find(params[:user_id])
+  # end
 
 
 
