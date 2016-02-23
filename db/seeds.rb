@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+100.times do
+
+  annonce = Ad.create(description: Faker::Lorem.paragraph, prix: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today))
+  annonce.save
+  user = User.create(name: Faker::Name.last_name)
+  user.save
+
+end
