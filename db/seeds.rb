@@ -6,12 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
+Ad.destroy_all
 
-100.times do
+10.times do
 
-  annonce = Ad.create(description: Faker::Lorem.paragraph, prix: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today))
-  annonce.save
   user = User.create(name: Faker::Name.last_name)
   user.save
 
+  10.times do
+    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today))
+    annonce.user = user
+    annonce.save
+  end
 end
+
+puts "#{User.count} user et #{Ad.count} annonces crées !"
