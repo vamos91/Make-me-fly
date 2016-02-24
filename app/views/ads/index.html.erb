@@ -1,9 +1,15 @@
-<h1>afficher de toutes les annonces</h1>
-<p><%= link_to "créer une nouvelle annonce" , new_ad_path %></p>
-<% @ads.each do |a| %>
-  <p><%= a.price %></p>
-  <p><%= a.description %></p>
-  <p><%= a.flight_date %></p>
-  <p><%= a.flight_time %></p>
-  <p><%= a.address %></p>
-<% end %>
+<h1 class="text-center">Choisissez votre vol :</h1>
+
+<div class="container">
+  <div class="row">
+    <% @ads.each do |ad| %>
+    <%= render ad %>
+    <% end %>
+  </div>
+</div>
+<div class="container text-center">
+<%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %>
+</div>
+<div class="container padded-basket text-center">
+<%= link_to "Créez une annonce", new_ad_path, :class => "btn btn-danger" %>
+</div>
