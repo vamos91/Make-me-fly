@@ -14,8 +14,9 @@
     <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
-
+    <div class="container" style="margin-bottom:25px">
     <%= yield %>
+    </div>
     <%= render "shared/footer" %>
 
     <%= javascript_include_tag 'application' %>
