@@ -1,6 +1,20 @@
-<h1>afficher de toutes les annonces</h1>
-<% @ads.each do |a| %>
-  <p><%= a.price %></p>
-  <p><%= a.description %></p>
-  <p><%= a.flight_date %></p>
+<h1 class="text-center">Choisissez votre vol :</h1>
+
+<div class="container">
+  <div class="row">
+  <% @ads.each do |ad| %>
+   <div class="col-xs-12 col-sm-4">
+        <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.survoldefrance.fr/photos/highdef/4/4548.jpg');">
+        <div class="card-category">A ne pas rater !</div>
+        <div class="card-description">
+        <p class ="text-center"><%= ad.price %>€</p>
+          <h4><%= ad.user.name %> le <%= ad.flight_date %></h4>
+          <p> <%= ad.description %></p>
+        </div>
+        <div class="card-user">
+          <img src="https://avatars0.githubusercontent.com/u/16140249?v=3&s=460" class="avatar-large"/>
+        </div>
+        <a href="http://localhost:3000/detail" class="card-link"></a>
+      </div>
+    </div>
 <% end %>

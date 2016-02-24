@@ -11,13 +11,15 @@ Ad.destroy_all
 
 10.times do
 
-  user = User.create(name: Faker::Name.last_name)
-  user.save
+  user = User.create(name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "77777777")
+  user.save!
 
   10.times do
     annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today))
     annonce.user = user
-    annonce.save
+    annonce.save!
   end
 end
 

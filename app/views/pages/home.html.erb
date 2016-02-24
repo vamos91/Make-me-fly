@@ -12,9 +12,8 @@
     <!-- SEARCH BAR -->
 
     <form action="" class="form-inline text-center">
-      <input type="text" class="form-control" placeholder="Où voulez-vous aller ?">
-      <input type="text" class="form-control" placeholder="Où voulez-vous aller ?">
-      <input type="text" class="form-control" placeholder="Où voulez-vous aller ?">
+      <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
+      <input type="text" class="form-control text-center" placeholder="Quel jour ?">
       <input type="submit" value = "Validez" class="btn btn-danger">
     </form>
 
@@ -32,7 +31,6 @@
 <div class="container">
   <div class="row">
   <% @ads.each do |ad| %>
-
    <div class="col-xs-12 col-sm-4">
         <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.survoldefrance.fr/photos/highdef/4/4548.jpg');">
         <div class="card-category">A ne pas rater !</div>
@@ -43,20 +41,19 @@
         <div class="card-user">
           <img src="https://avatars0.githubusercontent.com/u/16140249?v=3&s=460" class="avatar-large"/>
         </div>
-        <a href="#" class="card-link"></a>
+        <a href="http://localhost:3000/detail" class="card-link"></a>
       </div>
     </div>
-
 <% end %>
+  </div>
+</div>
+</div>
 
-
-
-
-    </div>
-    </div>
-    </div>
+<div class="btn-group padded-basket">
+    <%= link_to "Voir tous les vols disponibles", ads_path, :class => "btn btn-danger" %>
+</div>
 
 <h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
 
-<div class = "text-center padded" class="newsletter-input" data-reactid=".0.1.1"><input placeholder="Votre adresse email" class="newsletter-input-email" type="email" name="email" data-reactid=".0.1.1.0"><button type="submit" class="navbar-wagon-item navbar-wagon-button btn" data-reactid=".0.1.1.1">M'inscrire</button>
+<div class = "text-center padded-newsletter" class="newsletter-input" data-reactid=".0.1.1"><input placeholder="Votre adresse email" class="newsletter-input-email" type="email" name="email" data-reactid=".0.1.1.0"><button type="submit" class="navbar-wagon-item navbar-wagon-button btn" data-reactid=".0.1.1.1">M'inscrire</button>
 </div>
