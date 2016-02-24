@@ -15,7 +15,6 @@ class AdsController < ApplicationController
   end
 
   def create
-
     @ad = Ad.new(ad_params)
     # @ad.user = current_user
     @ad.save

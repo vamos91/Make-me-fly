@@ -10,6 +10,19 @@
   padding-bottom: 5em;
 }
 
+.padded-newsletter{
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.padded-basket {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -22,4 +35,10 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.vertical-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

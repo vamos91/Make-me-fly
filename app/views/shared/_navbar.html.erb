@@ -1,2 +1,53 @@
-<!-- BEWARE: navbar template using devise helpers THIS WAS MESSAGE FROM DAVIDOV2-->
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <img src="http://pouduciel.free.fr/images/divers/ewen.gif" />
+  </a>MakeMeFly ©
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Search form -->
+    <form action="" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Votre recherche">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
+    <!-- Text link -->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
+
+    <!-- Text link -->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Notre équipe</a>
+
+    <!-- Notification link-->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">
+      <div class="badge-container">
+        <i class="fa fa-envelope-o"></i>
+        <div class="badge badge-blue">3</div>
+      </div>
+    </a>
+
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Profil</a></li>
+          <li><a href="#">Tableau de bord</a></li>
+          <li><%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Button (call-to-action) -->
+          <%= link_to "Inscription", new_user_registration_path, :class => "navbar-wagon-item navbar-wagon-button btn" %>
+          <%= link_to "Connexion", new_user_session_path, :class => "navbar-wagon-item navbar-wagon-button btn" %>
+          </div>
+  </div>
+
+
+
+</div>
 
