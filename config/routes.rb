@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
   resources :ads
   resources :users, only: [:index, :show]
+  root to: 'pages#home'
+  get "detail" => "pages#detail"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

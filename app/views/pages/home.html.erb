@@ -1,63 +1,6 @@
 
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <img src="http://pouduciel.free.fr/images/divers/ewen.gif" />
-  </a>MakeMeFly ©
+    <!-- BANNER HOME -->
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Votre recherche">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
-
-    <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Contactez-nous</a>
-
-    <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Notre équipe</a>
-
-    <!-- Notification link-->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">
-      <div class="badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
-      </div>
-    </a>
-
-    <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profil</a></li>
-          <li><a href="#">Tableau de bord</a></li>
-          <li><a href="#">Deconnexion</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Post stuff</a>
-  </div>
-
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
 <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.survoldefrance.fr/photos/highdef/45/45313.jpg');">
   <div class="banner-content">
     <h1>EN ROUTE POUR L'AVENTURE !</h1>
@@ -67,8 +10,6 @@
 </div>
 
     <!-- SEARCH BAR -->
-
-
 
     <form action="" class="form-inline text-center">
       <input type="text" class="form-control" placeholder="Où voulez-vous aller ?">
@@ -82,29 +23,22 @@
 
 <br>
 
- <!-- CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARDS -->
+ <!-- CARDS -->
+
+
+
+ <!-- CARDS -->
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.survoldefrance.fr/photos/highdef/4/4549.jpg');">
-        <div class="card-category">Exclu de la semaine !</div>
-        <div class="card-description">
-          <h2>Aix En Provence</h2>
-          <p>Survolez Aix en toute sécurité</p>
-        </div>
-        <div class="card-user">
-          <img src="https://avatars2.githubusercontent.com/u/16485992?v=3&s=460" class="avatar-large"/>
-        </div>
-        <a href="#" class="card-link"></a>
-      </div>
-    </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.survoldefrance.fr/photos/highdef/4/4548.jpg');">
+  <% @ads.each do |ad| %>
+
+   <div class="col-xs-12 col-sm-4">
+        <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.survoldefrance.fr/photos/highdef/4/4548.jpg');">
         <div class="card-category">A ne pas rater !</div>
         <div class="card-description">
-          <h2>Aix Les Milles</h2>
-          <p>Redécouvrez les zones d'activités</p>
+          <h2><%= ad.user.name %></h2>
+          <p> <%= ad.description %></p>
         </div>
         <div class="card-user">
           <img src="https://avatars0.githubusercontent.com/u/16140249?v=3&s=460" class="avatar-large"/>
@@ -112,46 +46,17 @@
         <a href="#" class="card-link"></a>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.survoldefrance.fr/photos/highdef/0/689.jpg');">
-        <div class="card-category">Immanquable !</div>
-        <div class="card-description">
-          <h2>Aix la Durane</h2>
-          <p>Découvrez les derniers aménagements</p>
-        </div>
-        <div class="card-user">
-          <img src="https://avatars.githubusercontent.com/u/16645022?v=3" class="avatar-large"/>
-        </div>
-        <a href="#" class="card-link"></a>
-      </div>
+
+<% end %>
+
+
+
+
     </div>
     </div>
     </div>
 
 <h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
 
-<div class = "text-center" class="newsletter-input" data-reactid=".0.1.1"><input placeholder="Votre adresse email" class="newsletter-input-email" type="email" name="email" data-reactid=".0.1.1.0"><button type="submit" class="navbar-wagon-item navbar-wagon-button btn" data-reactid=".0.1.1.1">M'inscrire</button></div>
-
- <!-- FOOOOOOOOOOOOOOOOOOOOOOOOOOOO000000000000000000000OTER -->
-<br>
-
-
-<div class="footer">
-<div class="container">
-  <div class="share-links">
-    <a href="#" class="share-link bg-facebook">
-      <i class="fa fa-facebook"></i>
-    </a>
-    <a href="#" class="share-link bg-twitter">
-      <i class="fa fa-twitter"></i>
-    </a>
-    <a href="#" class="share-link bg-email">
-      <i class="fa fa-envelope-o"></i>
-    </a>
-    <a href="#" class="share-link bg-text">
-      <i class="fa fa-mobile"></i>
-    </a>
-  </div>
-</div>
-<p id="p-footer" class="text-center"> © MakeMeFly, Inc.</p>
+<div class = "text-center padded" class="newsletter-input" data-reactid=".0.1.1"><input placeholder="Votre adresse email" class="newsletter-input-email" type="email" name="email" data-reactid=".0.1.1.0"><button type="submit" class="navbar-wagon-item navbar-wagon-button btn" data-reactid=".0.1.1.1">M'inscrire</button>
 </div>

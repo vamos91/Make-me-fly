@@ -16,25 +16,4 @@ class UsersController < ApplicationController
  end
 
 
-
-
-
-
-#--------------------------------------------------------
-
-
-
-
-
-
-  private
-
-
-  def ad_params
-    params.require(:user).permit(:name)
-  end
-
-
-
-
 end
