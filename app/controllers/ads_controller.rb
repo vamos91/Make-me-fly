@@ -1,7 +1,5 @@
 class AdsController < ApplicationController
 
-
-
  def index
   @ads = Ad.all
  end
@@ -38,11 +36,7 @@ class AdsController < ApplicationController
     redirect_to ads_path
   end
 
-
-
 #--------------------------------------------------------
-
-
   private
 # # update et create
   def ad_params
@@ -52,8 +46,5 @@ class AdsController < ApplicationController
   def find_ad
     @ad = Ad.find(params[:id])
   end
-
-
-
 
 end
