@@ -10,12 +10,13 @@ User.destroy_all
 Ad.destroy_all
 
 10.times do
-
-  user = User.create(name: Faker::Name.last_name)
+  address = Faker::Address.street_address + ' ' +Faker::Address.city
+  password = Faker::Internet.password(8)
+  user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password)
   user.save
 
   10.times do
-    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today))
+    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today), flight_time: Faker::Number.number(2), address: address)
     annonce.user = user
     annonce.save
   end
