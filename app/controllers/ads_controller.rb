@@ -2,15 +2,12 @@ class AdsController < ApplicationController
 
 
 
-
- #before_action :find_user, only: [:new, :create]
-
  def index
   @ads = Ad.all
  end
 
  def show
-   @ad = Ad.find(params[:id])
+   find_ad
  end
 
   def new
@@ -24,22 +21,22 @@ class AdsController < ApplicationController
     redirect_to ads_path
   end
 
-  # def edit
-  #   @ad = Ad.find(params[:id])
-  #   @user = User.find(find_user)
-  # end
+  def edit
+    find_ad
+  end
 
-  # def update
-  #   @ad = @user.ads.build(param_ad)
-  #   @ad.save
-  #   redirect_to user_path(@user)
-  # end
+  def update
+    find_ad
+    @ad.update(ad_params)
+    @ad.save
+    redirect_to ads_path
+  end
 
-  # def destroy
-  #   @ad = Ad.find(params[:id])
-  #   @ad.destroy
-  #   redirect_to users_path
-  # end
+  def destroy
+    find_ad
+    @ad.destroy
+    redirect_to ads_path
+  end
 
 
 
@@ -52,9 +49,9 @@ class AdsController < ApplicationController
     params.require(:ad).permit(:description, :date, :price, :flight_date)
   end
 
-  # def find_user
-  #   @ad = Ad.find(params[:user_id])
-  # end
+  def find_ad
+    @ad = Ad.find(params[:id])
+  end
 
 
 
