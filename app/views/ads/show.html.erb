@@ -1,15 +1,44 @@
-<h1>entrez un id d'annonce</h1>
+
+<h1 class="text-center">Voici les détails de votre vol :</h1>
+
+<div class="padded">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <img src="http://placehold.it/400x300">
+      </div>
+      <div class="col-xs-12 col-md-6">
+          <p><strong>Annonce mise en ligne par :</strong> "<%= @ad.user.name %>"</p>
+          <p><strong>Description de l'annonce :</strong><br><%= @ad.description %></p>
+          <p><strong>Prix : </strong><%= @ad.price %>€</p>
+          <p><strong>Date : </strong><%= @ad.flight_date %></p>
+          <div class="btn-group padded-product">
+
+            <%= link_to "Réservez dès maintenant", "#", :class => "btn btn-danger" %>
+<!--             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %> <-->      </div>
+          <div class="padded-product">
+            <%= link_to "Voir toutes les annonces", ads_path, :class => "btn btn-danger" %>
+          </div>
+          <div class="padded-product">
+            <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-warning" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+<!-- <h1>entrez un id d'annonce</h1>
 
-<p><%= @ad.price %></p>
-      <p><%= @ad.description %></p>
-      <p><%= @ad.flight_date %></p>
-
-
+  <p><%= @ad.price %></p>
+  <p><%= @ad.description %></p>
+  <p><%= @ad.flight_date %></p>
 
 <%= link_to @ad, method: :delete do %>
   <p>Supprimer cette annonce</p>
 <% end %>
 
 <p><%= link_to "retour aux annonces" , ads_path %></p>
+
+ -->
