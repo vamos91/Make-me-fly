@@ -42,6 +42,11 @@ class AdsController < ApplicationController
     redirect_to ads_path
   end
 
+  def search
+    city = params[:q]
+    @ads = Ad.near(city, 100)
+  end
+
 #--------------------------------------------------------
   private
 # # update et create
