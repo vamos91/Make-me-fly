@@ -46,7 +46,7 @@ class AdsController < ApplicationController
   private
 # # update et create
   def ad_params
-    params.require(:ad).permit(:description, :date, :price, :flight_date)
+    params.require(:ad).permit(:description, :date, :price, :flight_date, :photo, :photo_cache)
   end
 
   def find_ad
