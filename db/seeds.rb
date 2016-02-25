@@ -10,6 +10,8 @@ User.destroy_all
 Ad.destroy_all
 
 3.times do
+
+
   password = Faker::Internet.password(8)
   user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password)
   user.save

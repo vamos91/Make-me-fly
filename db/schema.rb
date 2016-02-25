@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20160225123748) do
     t.text     "description"
     t.integer  "price"
     t.date     "flight_date"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "address"
     t.integer  "flight_time"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
