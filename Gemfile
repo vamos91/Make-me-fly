@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem "geocoder"
+gem 'cloudinary'
+gem 'carrierwave'
 
 
 gem "coffee-rails"
