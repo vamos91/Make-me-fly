@@ -14,9 +14,12 @@ class AdsController < ApplicationController
 
   def create
     @ad = Ad.new(ad_params)
-    # @ad.user = current_user
-    @ad.save
-    redirect_to ads_path
+    @ad.user = current_user
+    if @ad.save
+      redirect_to ads_path, notice: 'Annonce créée avec succès'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,8 +29,11 @@ class AdsController < ApplicationController
   def update
     find_ad
     @ad.update(ad_params)
-    @ad.save
-    redirect_to ads_path
+    if @ad.save
+      redirect_to ads_path, notice: 'Annonce updatée avec succès'
+    else
+      render :edit
+    end
   end
 
   def destroy
