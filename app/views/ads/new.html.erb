@@ -1,16 +1,20 @@
 <h1 class="text-center">Publiez une nouvelle annonce</h1>
 
-<div class="container text-center">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
+<div class="padded">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
         <%= simple_form_for(@ad) do |f| %>
         <%= f.input :price %>
         <%= f.input :description %>
         <%= f.input :flight_date %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :flight_time %>
+        <%= f.input :address %>
         <%= f.button :submit %>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
