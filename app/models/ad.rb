@@ -1,13 +1,13 @@
 class Ad < ActiveRecord::Base
 
-geocoded_by :address
-after_validation :geocode, if: :address_changed?
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
-validates :flight_date, :price, :description, presence: true
-validates :user_id, presence: true
+  validates :flight_date, :price, :description, :address, presence: true
+  validates :user, presence: true
 
-belongs_to :user
+  belongs_to :user
 
-mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 
 end
