@@ -11,9 +11,8 @@
 
     <!-- SEARCH BAR -->
 
-    <form action="" class="form-inline text-center">
-      <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
-      <input type="text" class="form-control text-center" placeholder="Quel jour ?">
+    <form action="<%= search_ads_path %>" class="form-inline text-center">
+      <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?" name="q">
       <input type="submit" value = "Validez" class="btn btn-danger">
     </form>
 

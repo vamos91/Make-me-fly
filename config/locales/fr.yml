@@ -1,0 +1,348 @@
+# French translations for Ruby on Rails
+# by Christian Lescuyer (christian@flyingcoders.com)
+# contributors:
+#  - Sebastien Grosjean - ZenCocoon.com
+#  - Bruno Michel - http://github.com/nono
+#  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
+# Emended by Benjamin des Gachons and Patrick Chew : <http://www.fitima.org/docs/fiche.pdf>
+
+fr:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+    day_names:
+      - dimanche
+      - lundi
+      - mardi
+      - mercredi
+      - jeudi
+      - vendredi
+      - samedi
+    abbr_day_names:
+      - dim
+      - lun
+      - mar
+      - mer
+      - jeu
+      - ven
+      - sam
+    month_names:
+      - ~
+      - janvier
+      - février
+      - mars
+      - avril
+      - mai
+      - juin
+      - juillet
+      - août
+      - septembre
+      - octobre
+      - novembre
+      - décembre
+    abbr_month_names:
+      - ~
+      - jan.
+      - fév.
+      - mar.
+      - avr.
+      - mai
+      - juin
+      - juil.
+      - août
+      - sept.
+      - oct.
+      - nov.
+      - déc.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M:%S"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "une demi-minute"
+      less_than_x_seconds:
+        zero:  "moins d'une seconde"
+        one:   "moins d'une seconde"
+        other: "moins de %{count} secondes"
+      x_seconds:
+        one:   "1 seconde"
+        other: "%{count} secondes"
+      less_than_x_minutes:
+        zero:  "moins d'une minute"
+        one:   "moins d'une minute"
+        other: "moins de %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "environ une heure"
+        other: "environ %{count} heures"
+      x_days:
+        one:   "1 jour"
+        other: "%{count} jours"
+      about_x_months:
+        one:   "environ un mois"
+        other: "environ %{count} mois"
+      x_months:
+        one:   "1 mois"
+        other: "%{count} mois"
+      about_x_years:
+        one:   "environ un an"
+        other: "environ %{count} ans"
+      over_x_years:
+        one:   "plus d'un an"
+        other: "plus de %{count} ans"
+      almost_x_years:
+        one:   "presqu'un an"
+        other: "presque %{count} ans"
+    prompts:
+      year:   "Année"
+      month:  "Mois"
+      day:    "Jour"
+      hour:   "Heure"
+      minute: "Minute"
+      second: "Seconde"
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: ","
+        delimiter: " "
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "octet"
+            other: "octets"
+          kb: "ko"
+          mb: "Mo"
+          gb: "Go"
+          tb: "To"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "millier"
+          million: "million"
+          billion: "milliard"
+          trillion: "billion"
+          quadrillion: "million de milliards"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " et "
+      last_word_connector: " et "
+
+  helpers:
+    select:
+      prompt: "Veuillez sélectionner"
+    submit:
+      create: "Créer un(e) %{model}"
+      update: "Modifier ce(tte) %{model}"
+      submit: "Enregistrer ce(tte) %{model}"
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Aucun %{entry_name} trouvé"
+          one: ""
+          other: "Affichage des <b>%{count}</b> %{entry_name}"
+      more_page:
+        display_entries: "Affichage des %{entry_name} <b>%{first}&nbsp;à&nbsp;%{last}</b> sur <b>%{total}</b>"
+  errors: &errors
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      extension_white_list_error: "Vous ne pouvez pas uploader des fichiers du type %{extension}, types autorisés: %{allowed_types}"
+      inclusion: "n'est pas inclus(e) dans la liste"
+      exclusion: "n'est pas disponible"
+      invalid: "n'est pas valide"
+      confirmation: "ne concorde pas avec la confirmation"
+      accepted: "doit être accepté(e)"
+      empty: "doit être rempli(e)"
+      blank: "doit être rempli(e)"
+      too_long:
+        one: "est trop long (pas plus d'un caractère)"
+        other: "est trop long (pas plus de %{count} caractères)"
+      too_short:
+        one: "est trop court (au moins un caractère)"
+        other: "est trop court (au moins %{count} caractères)"
+      wrong_length:
+        one: "ne fait pas la bonne longueur (doit comporter un seul caractère)"
+        other: "ne fait pas la bonne longueur (doit comporter %{count} caractères)"
+      not_a_number: "n'est pas un nombre"
+      not_an_integer: "doit être un nombre entier"
+      greater_than: "doit être supérieur à %{count}"
+      greater_than_or_equal_to: "doit être supérieur ou égal à %{count}"
+      equal_to: "doit être égal à %{count}"
+      less_than: "doit être inférieur à %{count}"
+      less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
+      odd: "doit être impair"
+      even: "doit être pair"
+      taken: "n'est pas disponible"
+      record_invalid: "La validation a échoué : %{errors}"
+
+    template: &errors_template
+      header:
+        one:   "Impossible d'enregistrer ce(tte) %{model} : 1 erreur"
+        other: "Impossible d'enregistrer ce(tte) %{model} : %{count} erreurs"
+      body: "Veuillez vérifier les champs suivants : "
+
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+    attributes:
+      user:
+        email: "Votre email"
+        lastname: "Votre nom"
+        firstname: "Votre prénom"
+        telephone: "Téléphone"
+        mobilephone: "Téléphone portable"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+        remember_me: "Se souvenir de moi"
+        qualified_investor_wallet: "Détention d'un portefeuille d'instruments financiers d'une valeur supérieur à 500 000 €"
+        qualified_investor_operations: "La réalisation d'opérations d'un montant supérieur à 600 euros par opération sur des instruments financiers, à raison d'au moins dix par trimestre en moyenne sur les quatre trimestres précédents"
+        qualified_investor_pro: "Occupation d'une position professionnelle dans le secteur financier exigeant une connaissance de l'investissement en instruments financiers pendant au moins un an"
+        amf_number: "Numéro délivré par l'AMF"
+        isf: "Etes-vous assujetti à l’ISF ?"
+        insfin_actions_cotees: "Actions côtées"
+        insfin_actions_non_cotees: "Actions non côtées"
+        insfin_opcvm_actions: "OPCVM Actions"
+        insfin_opcvm_obligataires: "OPCVM Obligataires"
+        insfin_opcvm_monetaire: "OPCVM Monétaires"
+        insfin_fcpi: "FCPI"
+        insfin_fcpr: "FCPR"
+        insfin_fcpr_allege: "FCPR Allegé"
+        insfin_fip: "FIP"
+        insfin_autres: "Autres"
+        epargne_annuelle: "Votre situation financière vous permet d'épargner un minimum de"
+        optin_perte_capital: "Je suis conscient qu’il existe un risque de perte en capital pouvant aller jusqu’à sa totalité et un risque de liquidité qui ne permettra pas toujours de céder ces instruments financiers au moment souhaité"
+        optin_fin_perte_capital: "Je suis financièrement capable de faire face au risque de perte totale du capital"
+        optin_patrimoine: "Le montant de l’investissement que je projette de réaliser représente moins de 10 % de mon patrimoine total"
+        origine_revenu: "Vos revenus proviennent principalement de"
+        montant_patrimoine: "Montant de votre patrimoine"
+        repart_liquidite: "Liquidités"
+        repart_placement: "Placement à revenu fixe, produits bancaires"
+        repart_immobilier: "Biens immobiliers"
+        repart_assurance: "Contrats d’assurance (vie, décès, capitalisation)"
+        repart_comptes_titres: "Comptes titres"
+        repart_autres: "Autres"
+        origine_compte_bancaire: "Les fonds que vous souhaitez investir proviennent-ils de comptes bancaires ouverts auprès d’un établissement bancaire agréé en France ?"
+        optin_cgu: "J'ai lu et j'accepte les conditions générales d'utilisation de Crowdstone et celles de son prestataire de paiement MANGOPAY, pour l'ouverture du compte de paiement."
+        optin_infos_exacts: "Je certifie l'exactitude des informations communiquées ci-dessus et confirme mon inscription"
+        optin_new_projects: "Je souhaite être informé de la mise en ligne de nouveaux projets"
+        company_address: "Adresse de l'entreprise"
+        company_postal_code: "Code postal"
+        company_city: "Ville"
+        company_country: "Pays"
+      article:
+        category_id: "Catégorie"
+        article_type_id: "Type de contenu"
+        author_list: "Liste des auteurs"
+        tag_list: "Tags"
+        title: "Titre"
+        sticky: "Epingler en haut des listes"
+        promote: "Afficher sur l'accueil"
+        status: "Publié"
+        excerpt: "Extrait"
+      project:
+        title: "Nom du projet"
+        user_id: "Promoteur"
+        project_type_id: "Type de projet"
+        financial_setup: "Montage financier"
+        local_market: "Marché local"
+        project_details: "Détail du projet"
+        pictures: "Photos du projet"
+        status: "Statut"
+        invest_duration: "Durée de l'investissement"
+        promote: "Mettre en avant"
+        amount: "Montant"
+        financial_performance: "Performance financière"
+        completion: "Pourcentage de réalisation"
+        minimum_amout: "Montant minimum"
+        bond_value: "Valeur d'une obligation"
+        minimum_bond_number: "Nombre minimum d'obligation"
+        end_date: "Date de fin"
+        rating: "Note"
+        rating_global: "Note global"
+        territory: "Territoire"
+        rating_territory: "Note territoire"
+        neighborhood: "Quartier"
+        rating_neighborhood: "Note quartier"
+        admin_risk: "Risque administratif"
+        rating_admin_risk: "Note risque administratif"
+        legal_risk: "Risque juridique"
+        rating_legal_risk: "Note risque juridique"
+        financial_risk: "Risque financier"
+        rating_financial_risk: "Note risque financier"
+        commercial_risk: "Risque commercial"
+        rating_commercial_risk: "Note risque commercial"
+        technical_risk: "Risque technique"
+        rating_technical_risk: "Note risque technique"
+        real_estate_company: "Références du promoteur"
+        rating_real_estate_company: "Note promoteur"
+        sustainable_development: "Dévelopement durable"
+        rating_sustainable_development: "Note dévelopement durable"
+        keyfigures: "Les chiffres clés du projet"
+        players: "Intervenants"
+        marketingfacts: "Avancement de la commercialisation"
+        dirs: 'Document d’information réglementaire synthétique (DIRS)'
+        contract_investment: 'Contrat d’investissement'
+      project_type:
+        name: "Type de projet"
+      article_type:
+        name: "Type d'article"
+  views:
+    pagination:
+      last: '<i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'
+      next: '<i class="glyphicon glyphicon-chevron-right "></i>'
+      first: '<i class="glyphicon glyphicon-chevron-left"></i><i class="glyphicon glyphicon-chevron-left"></i>'
+      previous: '<i class="glyphicon glyphicon-chevron-left"></i>'
+      truncate: '...'
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Aucune entrée"
+          one: "<b>1</b> %{entry_name}"
+          other: "<b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "%{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> sur <b>%{total}</b>"
