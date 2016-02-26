@@ -1,14 +1,13 @@
 <div class="col-xs-12 col-sm-4">
-
   <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
     <div class="card-category">A ne pas rater !</div>
     <div class="card-description">
       <p class ="text-center"><%= ad.price %>€</p>
-      <h4><%= ad.user.name %> le <%= ad.flight_date %></h4>
+      <h4><%= ad.address %> le <%= I18n.l(ad.flight_date, format: :short) %></h4>
       <p><%= ad.description %></p>
     </div>
     <div class="card-user">
-      <img src="https://avatars0.githubusercontent.com/u/16140249?v=3&s=460" class="avatar-large"/>
+      <img src="<%= ad.user.picture %>" class="avatar-large"/>
     </div>
   </div>
 </div>

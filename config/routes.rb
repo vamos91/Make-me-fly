@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :ads
+  resources :ads  do
+    collection do                      # collection => no restaurant id in URL
+      get 'search', to: "ads#search"  # RestaurantsController#top
+    end
+  end
+
   resources :users, only: [:index, :show]
   root to: 'pages#home'
-  get "detail" => "pages#detail"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ads, dependent: :destroy
+<<<<<<< HEAD
 
   after_create :send_welcome_email
 
@@ -13,5 +14,7 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
+=======
+>>>>>>> 64227d72e3b7678b86410e84801c443fa43b212e
 
 end
