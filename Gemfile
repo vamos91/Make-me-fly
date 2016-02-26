@@ -19,7 +19,7 @@ gem 'devise'
 gem "geocoder"
 gem 'cloudinary'
 gem 'carrierwave'
-
+gem 'omniauth-facebook'
 
 gem "coffee-rails"
 gem "gmaps4rails"
