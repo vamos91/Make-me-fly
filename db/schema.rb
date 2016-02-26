@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20160226132634) do
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
 
+  create_table "tests", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                          null: false

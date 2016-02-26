@@ -13,11 +13,9 @@
 
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
-    <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-    <div class="container" style="margin-bottom:25px">
+
     <%= yield %>
-    </div>
+
     <%= render "shared/footer" %>
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?sensor=false" %>
     <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>

@@ -3,27 +3,51 @@
 
 <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.survoldefrance.fr/photos/highdef/45/45313.jpg');">
   <div class="banner-content">
-    <h1>EN ROUTE POUR L'AVENTURE !</h1>
-    <p>Organisez votre prochain weekend d'exception en ULM !</p>
-    <a class="navbar-wagon-item navbar-wagon-button btn"> Je Découvre</a>
+    <h1>ENVOLEZ VOUS AVEC MAKE ME FLY !</h1>
+    <h2>Organisez votre prochain weekend d'exception en ULM !</h2>
+    <%= link_to t(".sign_in", default: "S'inscrire et voler"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <!-- SEARCH BAR -->
+    <div class="padded">
+      <form action="<%= search_ads_path %>" class="form-inline text-center">
+        <input name="q" type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
+        <input type="submit" value="Recherchez" class="btn btn-danger">
+      </form>
+    </div>
+
   </div>
 </div>
 
-    <!-- SEARCH BAR -->
 
-    <form action="<%= search_ads_path %>" class="form-inline text-center">
-      <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?" name="q">
-      <input type="submit" value = "Validez" class="btn btn-danger">
-    </form>
+<!-- FEATURES -->
+
+<div class="wrapper-grey padded">
+  <div class="container">
+  <h2 class ="text-center">Pimentez votre prochain weekend !</h2>
+  <br>
+    <div class="row">
+      <div class="col-md-4 col-xs-12 text-center">
+        <%= image_tag "search-logo.png" %>
+        <h2 class="text-center">PASSAGERS</h2>
+        <p class="text-center" >Profitez de notre communauté de passionnés</p>
+      </div>
+      <div class="col-md-4 col-xs-12 text-center">
+        <%= image_tag "search-logo.png" %>
+        <h2 class="text-center">PILOTES</h2>
+        <p class="text-center">Partagez vos frais de vol </p>
+      </div>
+      <div class="col-md-4 col-xs-12 text-center">
+        <%= image_tag "search-logo.png" %>
+        <h2 class="text-center">SECURITE</h2>
+        <p class="text-center">100% plaisir 100% secure</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h2 class ="text-center">Pimentez votre prochain weekend !</h2>
 <p class ="text-center">Découvrez de nouveaux vols incroyables près de chez vous !</p>
 
 <br>
-
- <!-- CARDS -->
-
-
 
  <!-- CARDS -->
 
@@ -37,17 +61,37 @@
 </div>
 
 <div class="container text-center">
-<div class="btn-group padded-basket">
-  <div class="row">
-    <%= link_to "Voir tous les vols disponibles", ads_path, :class => "btn btn-danger" %>
-<div class="btn-group padded-basket">
-    <%= link_to "Voir tous les pilotes disponibles", users_path, :class => "btn btn-danger" %>
+  <div class="btn-group padded-basket">
+    <div class="row">
+      <%= link_to "Voir tous les vols", ads_path, :class => "btn btn-danger" %>
+      <%= link_to "Voir tous les pilotes", users_path, :class => "btn btn-danger" %>
+      <%= link_to "Créez une annonce", new_ad_path, :class => "btn btn-danger" %>
     </div>
   </div>
 </div>
+
+<div class="container text-center">
+
+  <h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
+
+  <form class="form-inline">
+  <input placeholder="Votre adresse email" class="form-control" type="email" name="email">
+  <button type="submit" class="navbar-wagon-item navbar-wagon-button btn">M'inscrire</button>
+  </form>
+
 </div>
 
-<h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
-
-<div class = "text-center padded-newsletter" class="newsletter-input" data-reactid=".0.1.1"><input placeholder="Votre adresse email" class="newsletter-input-email" type="email" name="email" data-reactid=".0.1.1.0"><button type="submit" class="navbar-wagon-item navbar-wagon-button btn" data-reactid=".0.1.1.1">M'inscrire</button>
+<div class="wrapper-grey padded text-center">
+  <div class="container">
+    <h2>En téléchargement gratuit dès maintenant !</h2>
+    <br>
+      <div class="row">
+        <div class="col-xs-offset-2 col-sm-4 ">
+          <%= image_tag 'appstore' %>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <%= image_tag 'googleplay' %>
+        </div>
+      </div>
+  </div>
 </div>

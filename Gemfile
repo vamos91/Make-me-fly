@@ -36,6 +36,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
   gem 'faker'
+  gem "letter_opener"
 end
 
 group :production do
