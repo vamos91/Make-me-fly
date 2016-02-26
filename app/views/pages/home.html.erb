@@ -8,9 +8,9 @@
     <%= link_to t(".sign_in", default: "S'inscrire et voler"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <!-- SEARCH BAR -->
     <div class="padded">
-      <form action="" class="form-inline text-center">
-        <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
-        <input type="submit" value = "Recherchez" class="btn btn-danger">
+      <form action="<%= search_ads_path %>" class="form-inline text-center">
+        <input name="q" type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
+        <input type="submit" value="Recherchez" class="btn btn-danger">
       </form>
     </div>
 
