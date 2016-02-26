@@ -44,7 +44,7 @@ class AdsController < ApplicationController
 
   def search
     city = params[:q]
-    @ads = Ad.near(city, 150)
+    @ads = Ad.near(city, 50, :units => :km)
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|
       marker.lat ad.latitude

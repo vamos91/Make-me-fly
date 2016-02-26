@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225151247) do
+ActiveRecord::Schema.define(version: 20160226132634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,20 +23,14 @@ ActiveRecord::Schema.define(version: 20160225151247) do
     t.text     "description"
     t.integer  "price"
     t.date     "flight_date"
-    t.string   "address"
-    t.integer  "flight_time"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "address"
+    t.integer  "flight_time"
     t.string   "photo"
   end
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
-
-  create_table "tests", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160225151247) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "picture"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
