@@ -4,39 +4,41 @@
 <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.survoldefrance.fr/photos/highdef/45/45313.jpg');">
   <div class="banner-content">
     <h1>ENVOLEZ VOUS AVEC MAKE ME FLY !</h1>
-    <h2>Organisez votre prochain weekend d'exception en avion !</h2>
+    <h2>Organisez votre prochain weekend d'exception en ULM !</h2>
     <%= link_to t(".sign_in", default: "S'inscrire et voler"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <!-- SEARCH BAR -->
+    <div class="padded">
+      <form action="" class="form-inline text-center">
+        <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
+        <input type="submit" value = "Recherchez" class="btn btn-danger">
+      </form>
+    </div>
+
   </div>
 </div>
 
-    <!-- SEARCH BAR -->
 
-    <form action="" class="form-inline text-center">
-      <input type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
-      <input type="submit" value = "Recherchez" class="btn btn-danger">
-    </form>
-
- <!-- FEATURES -->
+<!-- FEATURES -->
 
 <div class="wrapper-grey padded">
   <div class="container">
   <h2 class ="text-center">Pimentez votre prochain weekend !</h2>
   <br>
     <div class="row">
-      <div class="col-md-4 col-xs-12">
-        <img src="search-logo.png" alt="">
+      <div class="col-md-4 col-xs-12 text-center">
+        <%= image_tag "search-logo.png" %>
         <h2 class="text-center">PASSAGERS</h2>
         <p class="text-center" >Profitez de notre communauté de passionnés</p>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <img src="search-logo.png" alt="">
+      <div class="col-md-4 col-xs-12 text-center">
+        <%= image_tag "search-logo.png" %>
         <h2 class="text-center">PILOTES</h2>
         <p class="text-center">Partagez vos frais de vol </p>
       </div>
-      <div class="col-md-4 col-xs-12">
-        <img src="search-logo.png" alt="">
-        <h2 class="text-center">100% PLAISIR !</h2>
-        <p class="text-center"></p>
+      <div class="col-md-4 col-xs-12 text-center">
+        <%= image_tag "search-logo.png" %>
+        <h2 class="text-center">SECURITE</h2>
+        <p class="text-center">100% plaisir 100% secure</p>
       </div>
     </div>
   </div>
@@ -68,9 +70,15 @@
   </div>
 </div>
 
-<h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
+<div class="container text-center">
 
-<div class = "text-center padded-newsletter" class="newsletter-input" data-reactid=".0.1.1"><input placeholder="Votre adresse email" class="newsletter-input-email" type="email" name="email" data-reactid=".0.1.1.0"><button type="submit" class="navbar-wagon-item navbar-wagon-button btn" data-reactid=".0.1.1.1">M'inscrire</button>
+  <h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
+
+  <form class="form-inline">
+  <input placeholder="Votre adresse email" class="form-control" type="email" name="email">
+  <button type="submit" class="navbar-wagon-item navbar-wagon-button btn">M'inscrire</button>
+  </form>
+
 </div>
 
 <div class="wrapper-grey padded text-center">
@@ -79,10 +87,10 @@
     <br>
       <div class="row">
         <div class="col-xs-offset-2 col-sm-4 ">
-          <img src="airbnb-clone/app/images/appstore.png" alt="">
+          <%= image_tag 'appstore' %>
         </div>
         <div class="col-md-4 col-xs-12">
-          <img src="googleplay.png" alt="">
+          <%= image_tag 'googleplay' %>
         </div>
       </div>
   </div>
