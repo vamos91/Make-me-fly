@@ -247,8 +247,8 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth-facebook
   letter_opener
+  omniauth-facebook
   pg
   pry-byebug
   pry-rails

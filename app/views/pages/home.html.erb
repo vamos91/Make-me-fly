@@ -1,15 +1,15 @@
 
     <!-- BANNER HOME -->
 
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.survoldefrance.fr/photos/highdef/45/45313.jpg');">
+<div class="banner">
   <div class="banner-content">
-    <h1>ENVOLEZ VOUS AVEC MAKE ME FLY !</h1>
-    <h2>Organisez votre prochain weekend d'exception en ULM !</h2>
-    <%= link_to t(".sign_in", default: "S'inscrire et voler"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <h1>MAKE ME FLY</h1>
+    <h2>Vivez une expérience de vol exceptionnelle en ULM !</h2>
+
     <!-- SEARCH BAR -->
     <div class="padded">
       <form action="<%= search_ads_path %>" class="form-inline text-center">
-        <input name="q" type="text" class="form-control text-center" placeholder="Où voulez-vous voler ?">
+        <input name="q" type="text" class="form-control text-center" placeholder="Exemple 'Nîmes'">
         <input type="submit" value="Recherchez" class="btn btn-danger">
       </form>
     </div>
@@ -22,30 +22,60 @@
 
 <div class="wrapper-grey padded">
   <div class="container">
-  <h2 class ="text-center">Pimentez votre prochain weekend !</h2>
+  <h2 class ="text-center">Simple et rapide</h2>
   <br>
     <div class="row">
-      <div class="col-md-4 col-xs-12 text-center">
-        <%= image_tag "search-logo.png" %>
-        <h2 class="text-center">PASSAGERS</h2>
-        <p class="text-center" >Profitez de notre communauté de passionnés</p>
+      <div class="col-md-3 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-search-plus"></i>
+        </div>
+        <h2 class="text-center">SIMPLE</h2>
+        <p class="text-center" >Choisissez où vous voulez voler</p>
       </div>
-      <div class="col-md-4 col-xs-12 text-center">
-        <%= image_tag "search-logo.png" %>
-        <h2 class="text-center">PILOTES</h2>
-        <p class="text-center">Partagez vos frais de vol </p>
+      <div class="col-md-3 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-lock"></i>
+        </div>
+        <h2 class="text-center">SECURISE</h2>
+        <p class="text-center">Réservez en ligne</p>
       </div>
-      <div class="col-md-4 col-xs-12 text-center">
-        <%= image_tag "search-logo.png" %>
-        <h2 class="text-center">SECURITE</h2>
-        <p class="text-center">100% plaisir 100% secure</p>
+       <div class="col-md-3 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-clock-o"></i>
+        </div>
+        <h2 class="text-center">FIABLE</h2>
+        <p class="text-center">Recevez une confirmation rapide</p>
+      </div>
+      <div class="col-md-3 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-paper-plane"></i>
+        </div>
+        <h2 class="text-center">CONVIVIAL</h2>
+        <p class="text-center">Volez !</p>
       </div>
     </div>
   </div>
 </div>
 
-<h2 class ="text-center">Pimentez votre prochain weekend !</h2>
-<p class ="text-center">Découvrez de nouveaux vols incroyables près de chez vous !</p>
+
+
+<div class="banner banner-parallax banner-parallax1" data-stellar-background-ratio="0.5">
+  <div class="banner-filter"></div>
+  <div class="banner-content-parallax text-center">
+    <span>Découvrez les vols en ULM prés de chez vous.</span>
+    <p>Les ULM ont été conçus comme un moyen de loisirs aérien, plus simple et moins couteux que l'aviation de tourisme habituelle.</p>
+    <p class="italic"> Donnez vous la chance d'esasayer.</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+<h2 class ="text-center">Voici les vols planifiés près de chez vous</h2>
+<p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
 
 <br>
 
@@ -81,17 +111,27 @@
 
 </div>
 
-<div class="wrapper-grey padded text-center">
-  <div class="container">
-    <h2>En téléchargement gratuit dès maintenant !</h2>
-    <br>
-      <div class="row">
-        <div class="col-xs-offset-2 col-sm-4 ">
-          <%= image_tag 'appstore' %>
-        </div>
-        <div class="col-md-4 col-xs-12">
-          <%= image_tag 'googleplay' %>
-        </div>
+
+
+
+
+ <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag ""%>
+      <div class="carousel-caption">
+        <h2>...</h2>
       </div>
+    </div>
+    <div class="item">
+    <%= image_tag ""%>
+      <div class="carousel-caption">
+        <h2>...</h2>
+      </div>
+    </div>
+    <div class="item">
+    <%= image_tag ""%>
+      <div class="carousel-caption">
+        <h2>...</h2>
+      </div>
+    </div>
   </div>
-</div>

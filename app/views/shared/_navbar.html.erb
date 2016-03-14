@@ -2,7 +2,8 @@
   <!-- Logo -->
   <div class="container padded">
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo2.png" %>
+    <%= image_tag "logo.png" %>
+
   </div>
   <% end %>
 
@@ -11,7 +12,7 @@
 
     <!-- Search form -->
     <form action="<%= search_ads_path %>" class="navbar-wagon-search">
-      <input name="q" type="text" class="navbar-wagon-search-input" placeholder="Recherchez">
+      <input name="q" type="text" class="navbar-wagon-search-input" placeholder="Exemple 'Marseille'">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
@@ -55,7 +56,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Inscription"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
 
     <% end %>
 
