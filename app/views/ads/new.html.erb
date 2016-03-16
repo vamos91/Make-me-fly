@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h1 class="text-center">Publiez une nouvelle annonce</h1>
 
 <div class="padded">
@@ -18,3 +19,9 @@
     </div>
   </div>
 </div>
+
+  <% else %>
+
+  <%= link_to new_user_session_path %>
+
+  <% end %>
