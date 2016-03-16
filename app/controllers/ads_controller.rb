@@ -14,7 +14,14 @@ class AdsController < ApplicationController
  end
 
   def new
-    @ad = Ad.new
+      #@ad = Ad.new
+      #si le user est un pilote il peut faire une annonce sinon il doit s'identifier comme pilote et remplir son profil
+    if user_signed_in? && current_user.pilote?
+      @ad = Ad.new
+    else
+      redirect_to new_user_registration_path
+    end
+
   end
 
   def create
