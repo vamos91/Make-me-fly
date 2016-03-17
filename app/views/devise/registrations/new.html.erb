@@ -4,7 +4,7 @@
     <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <%= image_tag "logo.png", class: "navbar-wagon-brand"%>
+        <%= image_tag "logo2.png", class: "card"%>
       </div>
       <div class="col-xs-12 col-sm-4">
        <h2 class = "text-center">Formulaire d'inscription</h2>
@@ -16,7 +16,7 @@
             <%= f.input :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
             <%= f.input :password_confirmation, required: true %>
           </div>
-
+          <input type="hidden" name="toto" value="1">
           <div class="form-actions class-center text-center">
             <%= f.button :submit, "S'inscrire" %>
           </div>
@@ -25,7 +25,20 @@
         <%= render "devise/shared/links" %>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= image_tag "logo.png", class: "navbar-wagon-brand"%>
+        <div class="card-look" >
+                  <div class="card-name">Je suis pilote</div>
+                  <div class="card-filter">
+                    <%= image_tag "logo2.png", class: "size-image"  %>
+                  </div>
+                  <div class="card-hover hide">
+                    <!--     <p>Je suis une super look qui déchire </p> -->
+                    <p><span>Envolons nous !</span></p>
+                  </div>
+                  <div class="card-check <%= 'hide'%>">
+                    <i class="fa fa-check"></i>
+                  </div>
+                  <!-- <input type="hidden" name="toto" value="1"> --> recuperer la valeur et savoir ou elle est recuper pour etre sauver  dans la bd
+                </div>
       </div>
     </div>
 </div>
@@ -35,3 +48,31 @@
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+<% content_for :after_js do %>
+    <script>
+      $(function(){
+        $('.card-look').click(function() {
+          $(this).children(".card-check").toggleClass('hide');
+          var el = $(this).children('input[type=hidden]');
+          el.val(el.val() == 0 ? 1 : 0);
+        });
+
+        $(".card-look").on("mouseover", function() {
+          $(this).children(".card-hover").removeClass('hide');
+        })
+
+        $(".card-look").on("mouseout", function() {
+          $(this).children(".card-hover").addClass('hide');
+        })
+
+      });
+    </script>
+<% end  %>
