@@ -74,6 +74,29 @@
 
 
 
+
+
+<div id="shiva"><span class="count">200</span></div>
+<script>
+
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+</script>
+
+
+
+
+
+
 <h2 class ="text-center">Voici les vols planifiés près de chez vous</h2>
 <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
 
