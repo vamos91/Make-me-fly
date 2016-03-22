@@ -12,8 +12,11 @@
         <input name="q" type="text" class="form-control text-center" placeholder="Exemple 'Nîmes'">
         <input type="submit" value="Recherchez" class="btn btn-danger">
       </form>
+      <div class="compteur">
+         <span class="count"><%= Ad.count %></span>
+         <p>vols disponibles</p>
+      </div>
     </div>
-
   </div>
 </div>
 
@@ -67,6 +70,58 @@
     <p class="italic"> Donnez vous la chance d'essayer.</p>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+</script>
+
+
+
+
+
+<!-- <div class="progress" id="progress"></div>
+<script>
+
+window.onload = function onLoad() {
+    var circle = new ProgressBar.Circle('#progress', {
+        color: '#FCB03C',
+        duration: 3000,
+        easing: 'easeOut'
+    });
+
+    circle.animate(1);
+};
+</script> -->
+
+
+
+
+
+
+
+
+
+
 
 
 
