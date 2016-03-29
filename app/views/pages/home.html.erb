@@ -75,60 +75,6 @@
 
 
 
-
-
-
-
-
-<script>
-
-$('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
-        duration: 4000,
-        easing: 'swing',
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-</script>
-
-
-
-
-
-<!-- <div class="progress" id="progress"></div>
-<script>
-
-window.onload = function onLoad() {
-    var circle = new ProgressBar.Circle('#progress', {
-        color: '#FCB03C',
-        duration: 3000,
-        easing: 'easeOut'
-    });
-
-    circle.animate(1);
-};
-</script> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <h2 class ="text-center">Voici les vols planifiés près de chez vous</h2>
 <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
 
