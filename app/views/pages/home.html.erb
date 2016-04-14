@@ -13,7 +13,7 @@
         <input type="submit" value="Recherchez" class="btn btn-danger">
       </form>
       <div class="compteur">
-         <span class="count"><%= Ad.count %></span>
+         <span class="count"><%= @ads_counter %></span>
          <p>vols disponibles</p>
       </div>
     </div>
@@ -100,9 +100,8 @@
 <div class="container text-center">
   <div class="btn-group padded-basket">
     <div class="row">
-      <%= link_to "Voir tous les vols", ads_path, :class => "btn btn-danger" %>
+      <%= link_to "Voir toutes mes annonces", ads_path, :class => "btn btn-danger" %>
       <%= link_to "Voir tous les pilotes", users_path, :class => "btn btn-danger" %>
-      <%= link_to "Créez une annonce", new_ad_path, :class => "btn btn-danger" %>
     </div>
   </div>
 </div>
