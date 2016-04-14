@@ -27,7 +27,7 @@ before_action :authenticate_user!
 
       #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :name) }
 
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :pilote) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :pilote, :picture) }
 
       # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :name) }
    # devise_parameter_sanitizer.for(:sign_up) << :user

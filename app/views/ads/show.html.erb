@@ -1,6 +1,6 @@
 <div class="header">
 </div>
-<h1 class="text-center">Voici les détails de votre vol :</h1>
+<h1 class="text-center">Ce que te propose <%= @ad.user.name %></h1>
 
 <div class="padded">
   <div class="container">
@@ -13,11 +13,30 @@
 
         <div class="card-show card-padded">
 
+          <% case @ad.category %>
+            <% when 'Paramoteur' %>
+             <%= image_tag "paramoteur.jpg", :class => "header-show"%>
+            <% when 'Multiaxe' %>
+              <%= image_tag "multiaxe.jpg", :class => "header-show"%>
+            <% when 'Pendulaire' %>
+              <%= image_tag "pendulaire.jpeg", :class => "header-show"%>
+          <% end %>
+
+
+
+
+
+
           <div class="card-picture"><p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
-            <p><%= @ad.user.name %></p>
-            <p>Rating</p>
+            <p><h2><%= @ad.user.name %></h2></p>
+            <p>Pilote de <%= @ad.category %></p>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
           </div>
-          <div class="date-show"><p><strong>Je te propose de voler le : </strong><%= @ad.flight_date %></p></div>
+          <div class="padded">
+          <div class="date-show"><p><i class="fa fa-calendar" aria-hidden="true"></i><strong> Je te propose de voler avec moi le : <%= @ad.flight_date %></strong></p>
+          </div>
+          <p><i class="fa fa-map-marker fa-fw text-muted"></i><strong>Nous décollerons de <%= @ad.address %></strong></p>
+
           <div class="card-show-description"><p><%= @ad.description %></p></div>
           <div class="price-show"><p><%= @ad.price %>€</p></div>
           <div class="btn-group padded-product button-show ">
@@ -28,15 +47,15 @@
 
               <% if policy(@ad).update? %>
                <div class="padded-product">
-                <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-warning" %>
+                <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-warning btn-lg btn-block" %>
                </div>
               <% end %>
              <% if policy(@ad).destroy? %>
               <div class="padded-product">
-                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger" %>
+                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger btn-lg btn-block" %>
               </div>
             <% end %>
-
+            </div>
           </div>
 
         </div>
