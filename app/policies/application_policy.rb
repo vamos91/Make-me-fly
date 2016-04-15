@@ -22,6 +22,10 @@ class ApplicationPolicy
     create?
   end
 
+  def search?
+    false
+  end
+
   def update?
     false
   end
