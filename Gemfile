@@ -25,6 +25,7 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'devise-i18n'
 gem "pundit"
+gem "money-rails"
 
 
 source 'https://rails-assets.org' do

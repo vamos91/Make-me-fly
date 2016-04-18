@@ -1,11 +1,12 @@
 <div class="header">
 </div>
-<h1 class="text-center">Ce que te propose <%= @ad.user.name %></h1>
 
 <div class="padded">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
+      <p>Voici le vol de <%= @ad.user.name %></p>
+      <p>Annonce publié le : <%= @ad.user.created_at.strftime("%d-%b-%Y")%></p>
         <%= cl_image_tag @ad.photo, height: 300, width: 400, crop: :fill %>
 
       </div>
