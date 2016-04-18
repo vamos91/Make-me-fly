@@ -1,6 +1,8 @@
 <div class="header">
 </div>
 
+
+
 <div class="padded">
   <div class="container">
     <div class="row">
@@ -39,11 +41,22 @@
           <p><i class="fa fa-map-marker fa-fw text-muted"></i><strong>Nous décollerons de <%= @ad.address %></strong></p>
 
           <div class="card-show-description"><p><%= @ad.description %></p></div>
-          <div class="price-show"><p><%= @ad.price %>€</p></div>
+          <div class="price-show"><p><%= humanized_money_with_symbol(@ad.price) %></p></div>
           <div class="btn-group padded-product button-show ">
 
-            <%= link_to "Réservez dès maintenant", "#", :class => "btn btn-success btn-lg btn-block" %>
-<!--             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %> <-->      </div>
+
+
+
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'ad_id', @ad.id %>
+              <%= submit_tag 'Réservez dès maintenant' , :class => "btn btn-success btn-lg btn-block"%>
+            <% end %>
+
+
+
+
+<!--             <%= link_to "Réservez dès maintenant", "#", :class => "btn btn-success btn-lg btn-block" %>
+ --><!--             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %> <-->      </div>
 
 
               <% if policy(@ad).update? %>
