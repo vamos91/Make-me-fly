@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
   get 'orders/show'
 
   devise_for :users
-  resources :orders, only: [:show, :create]
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
+
   resources :ads  do
     collection do                      # collection => no ads id in URL
       get 'search', to: "ads#search"  # RestaurantsController#top
