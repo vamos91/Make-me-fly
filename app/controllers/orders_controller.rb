@@ -1,6 +1,15 @@
 class OrdersController < ApplicationController
+  # skip_before_action :authenticate_user!
+  # skip_after_action :verify_authorized
+  #
+  #
+
+
+
+
   def show
-  @order = Order.where(state: 'paid').find(params[:id])
+  @order = Order.where(status: 'paid').find(params[:id])
+  authorize @order
   end
 
 
