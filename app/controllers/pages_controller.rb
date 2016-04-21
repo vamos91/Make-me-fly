@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   def home
     ad = Ad.count
     #@ads = Ad.all.sort[ad-9..ad].reverse
-    @ads = Ad.order(id: :desc).limit(9)
-
+    #@ads = Ad.order(id: :desc).limit(9)
+    @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
   #si la date du vol est supérieur à la date.now on incremente un conmpteur de 1 dans une boucle
   @ads_counter = 0
   Ad.all.each do |c|
@@ -16,5 +16,8 @@ class PagesController < ApplicationController
     end
   end
    return @ads_counter
+
+
+
   end
 end
