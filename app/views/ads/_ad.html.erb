@@ -1,5 +1,5 @@
-<div class="col-xs-12 col-sm-4">
-  <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
+<!-- <div class="col-xs-12 col-sm-4">
+ -->  <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
     <div class="card-category"><%= ad.category %></div>
     <div class="card-description">
       <h4><%= ad.address %> le <%= I18n.l(ad.flight_date, format: :short) %></h4>
@@ -10,4 +10,5 @@
       <img src="<%= ad.user.picture %>" class="avatar-large"/>
     </div>
   </div>
-</div>
+<!-- </div>
+ -->
