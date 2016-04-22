@@ -1,17 +1,35 @@
-<h1>Réservez un vol <%= @order.ad_sku %></h1>
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-    data-name="Réserver votre vol"
-    data-description="Vol num <%= @order.ad_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="EUR">
-  </script>
+<div class="wrapper padded banner-payment">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="centeredPrompt">
+          <div class="centeredPrompt__item centeredPromptIcon">
+            <div class="icon fa fa-smile-o"></div>
+          </div>
+          <div class="centeredPrompt__item centeredPromptLabel">Welcome to the payment page!</div>
+          <div class="centeredPrompt__item centeredPromptDetails">Réservez le vol <%= @order.ad_sku%></div>
+          <div class="centeredPrompt__item button">
 
-<% end %>
+            <%= form_tag order_payments_path(@order) do %>
+              <article>
+                <label class="amount">
+                  <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+                </label>
+              </article>
+
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key= "<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="Réserver votre vol"
+                data-description="Vol num <%= @order.ad_sku %>"
+                data-amount="<%= @order.amount_cents %>"
+                data-currency="EUR">
+              </script>
+
+            <% end %>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+</div>

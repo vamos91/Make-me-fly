@@ -88,9 +88,11 @@
 
 <div class="container">
   <div class="row">
-  <% @ads.each do |ad| %>
-  <%= render ad %>
-  <% end %>
+      <% @ads.each do |ad| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render ad %>
+        </div>
+      <% end %>
   </div>
 </div>
 </div>
