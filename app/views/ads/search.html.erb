@@ -1,48 +1,29 @@
 
+<div class="wrapper-search">
+  <div class="container">
 
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="liste">
-     <div class="col-xs-12 col-md-6">
-        <% @ads.each do |ad| %>
-            <%= render ad %>
-            <% end %>
+      <div class="row">
+      <div class="liste">
+       <div class="col-xs-12 col-md-6">
+          <% @ads.each do |ad| %>
+              <%= render ad %>
+              <% end %>
+        </div>
       </div>
-    </div>
 
 
-    <div class="col-xs-12 col-md-6">
-     <div id="carte">
-      <div id="map"></div>
-     </div>
-    </div>
+      <div class="col-xs-12 col-md-6">
+       <div id="carte">
+       <div class="title-show text-center">
+         <p>il y a <%= @ads.size %> vol à <%= @city %></p>
+        </div>
+        <div id="map"></div>
+       </div>
+      </div>
 
+  </div>
+  </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
