@@ -1,6 +1,5 @@
 class RemoveTypetoAds < ActiveRecord::Migration
   def change
-    add_column :ads, :ulm_type, :string
-
+   # add_column :ads, :ulm_type, :string
   end
 end
