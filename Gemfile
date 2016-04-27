@@ -20,6 +20,8 @@ gem "geocoder"
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'omniauth-facebook'
+gem "rails_admin"
+
 
 gem "coffee-rails"
 gem "gmaps4rails"
