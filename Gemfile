@@ -21,7 +21,6 @@ gem 'cloudinary'
 gem 'carrierwave'
 gem 'omniauth-facebook'
 gem "rails_admin"
-gem 'postmark-rails'
 
 gem "coffee-rails"
 gem "gmaps4rails"
