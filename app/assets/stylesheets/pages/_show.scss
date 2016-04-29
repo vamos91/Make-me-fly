@@ -1,13 +1,16 @@
 
 .card-show {
-  background-color: $gray-lighter;
+  font-size:12px;
+  background-color: white;
   height: 100%;
 /*  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 */  background-size: cover !important;
-  color: grey;
+  color: #86969C;
   //padding: 40px;
   position: relative;
-  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+  //box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  border: #D7DBDD 1px solid;
 
 }
 
@@ -71,3 +74,68 @@ color: blue;
   /*position: absolute;*/
   bottom: 0;
 }
+
+
+
+
+
+.featureListItem {
+  /**
+   * Lay out the children of this container with
+   * flexbox, which is horizontal by default.
+   */
+  display: flex;
+
+  /**
+   * Align the children in the center, along
+   * the main axis, which is horizontal in this case.
+   */
+  align-items: center;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.featureListItem + .featureListItem {
+  border-top: 1px solid #D7DBDD;
+
+
+
+}
+
+.featureListItem--reverse {
+  /**
+   * We can specify the flex-direction so that
+   * the children elements are displayed in the
+   * reverse order of how they appear in the
+   * markup.
+   */
+  flex-direction: row-reverse;
+}
+
+  .featureListItem__icon,
+  .featureListItem__description {
+    padding: 5px 15px;
+  }
+
+  .featureListItem__icon {
+    font-size: 50px;
+    line-height: 0;
+  }
+
+  .featureListItem__description {
+    color: #86969C;
+    font-size: 12px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+

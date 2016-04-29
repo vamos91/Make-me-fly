@@ -35,10 +35,13 @@
     height: 250px;
     padding: 200px;
     margin-top: 30px;
+    max-width: 100%;
+    //display:block;
 }
 
 .banner-parallax1 {
-  background-image: image-url("image-parallax.jpg")
+  background-image: image-url("image-parallax.jpg");
+
 }
 
 // .banner-filter {

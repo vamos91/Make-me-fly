@@ -7,10 +7,18 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
-      <p>Voici le vol de <%= @ad.user.name %></p>
-      <p>Annonce publié le : <%= @ad.user.created_at.strftime("%d-%b-%Y")%></p>
-        <%= cl_image_tag @ad.photo, height: 300, width: 400, crop: :fill %>
-      <div id="map" style="width: 100%; height: 600px;"></div>
+
+    <div class="card-show card-padded padded text-center">
+      <p>Voici le vol proposé par <%= @ad.user.name %></p>
+      <p>Annonce publié le <%= @ad.user.created_at.strftime("%d-%b-%Y")%></p>
+    </div>
+
+      <div class="card-show card-padded">
+          <%= cl_image_tag @ad.photo, height: 300, width: 400, crop: :fill %>
+        <div id="map" style="width: 100%; height: 600px;"></div>
+      </div>
+
+
 
       </div>
       <div class="col-xs-12 col-md-6">
@@ -26,22 +34,68 @@
               <%= image_tag "pendulaire.jpeg", :class => "header-show"%>
           <% end %>
 
-
-
-
-
-
           <div class="card-picture"><p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
-            <p><h2><%= @ad.user.name %></h2></p>
+            <p><%= @ad.user.name %></p>
             <p>Pilote de <%= @ad.category %></p>
             <i class="fa fa-star-o" aria-hidden="true"></i>
           </div>
-          <div class="padded">
-          <div class="date-show"><p><i class="fa fa-calendar" aria-hidden="true"></i><strong> Je te propose de voler avec moi le : <%= @ad.flight_date %></strong></p>
-          </div>
-          <p><i class="fa fa-map-marker fa-fw text-muted"></i><strong>Nous décollerons de <%= @ad.address %></strong></p>
 
-          <div class="card-show-description"><p><%= @ad.description %></p></div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card-show card-padded">
+
+          <div class="featureListItem">
+            <div class="featureListItem__icon">
+              <div class="icon fa fa-calendar"></div>
+            </div>
+            <div class="featureListItem__description"> Je te propose de voler avec moi le : <%= @ad.flight_date %></div>
+          </div>
+          <div class="featureListItem featureListItem--reverse">
+            <div class="featureListItem__icon">
+              <div class="icon fa fa-dashboard"></div>
+            </div>
+            <div class="featureListItem__description">Nous décollerons de <%= @ad.address %></div>
+          </div>
+          <div class="featureListItem">
+            <div class="featureListItem__icon">
+              <div class="icon fa fa-envelope"></div>
+            </div>
+            <div class="featureListItem__description"><%= @ad.description %></div>
+          </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="card-show card-padded padded">
+
+
           <div class="price-show"><p><%= humanized_money_with_symbol(@ad.price) %></p></div>
           <div class="btn-group padded-product button-show ">
 
@@ -65,11 +119,14 @@
                 <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-warning btn-lg btn-block" %>
                </div>
               <% end %>
-             <% if policy(@ad).destroy? %>
-              <div class="padded-product">
+               <% if policy(@ad).destroy? %>
+                <div class="padded-product">
                 <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger btn-lg btn-block" %>
               </div>
             <% end %>
+
+           </div>
+
             </div>
           </div>
 
