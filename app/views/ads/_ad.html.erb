@@ -7,7 +7,13 @@
     </div>
     <p class="card-price"><%= ad.price %>€</p>
     <div class="card-user">
+     <% if ad.user.picture? %>
       <img src="<%= ad.user.picture %>" class="avatar-large"/>
+     <% else %>
+          <%= image_tag "pilot.png", class: "avatar-large"%>
+      <% end %>
+
+
     </div>
   </div>
 <!-- </div>

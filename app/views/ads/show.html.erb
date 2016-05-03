@@ -14,7 +14,7 @@
     </div>
 
       <div class="card-show card-padded">
-          <%= cl_image_tag @ad.photo, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @ad.photo, height: 300, width: 533, crop: :fill %>
         <div id="map" style="width: 100%; height: 600px;"></div>
       </div>
 
@@ -34,7 +34,14 @@
               <%= image_tag "pendulaire.jpeg", :class => "header-show"%>
           <% end %>
 
-          <div class="card-picture"><p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
+          <div class="card-picture">
+
+            <% if @ad.user.picture? %>
+             <p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
+            <% else %>
+             <p><%= image_tag "pilot.png", :class => "avatar-xxl" %></p>
+            <% end %>
+
             <p><%= @ad.user.name %></p>
             <p>Pilote de <%= @ad.category %></p>
             <i class="fa fa-star-o" aria-hidden="true"></i>

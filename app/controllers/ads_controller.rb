@@ -2,9 +2,10 @@ class AdsController < ApplicationController
 
 
  def index
-  # @ads = Ad.all
-  # authorize @ad
+   #@ads = Ad.all
+  #   authorize @ads
   @ads = policy_scope(Ad)
+  authorize @ads
  end
 
  def show
