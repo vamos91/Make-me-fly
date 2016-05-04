@@ -1,12 +1,24 @@
 .feature-size {
   font-size: 90px;
-  opacity: 0.5;
-  color: #EE5F5B;
+  opacity: 1;
+  color: #456990;
+  border-bottom: 1px solid #D7DBDD;
   transition: opacity 0.5s ease;
 
 }
 
 .feature-size:hover{
-  opacity: 1;
+  opacity: 0.5;
 
+}
+
+.border{
+  border-top: 1px solid #D7DBDD;
+
+}
+
+.wrapper-feature{
+  line-height : 40px;
+  margin-top: 40px;
+  font-weight: lighter;
 }

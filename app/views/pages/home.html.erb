@@ -4,15 +4,16 @@
 <div class="banner">
   <div class="banner-content">
     <h1>MAKE ME FLY</h1>
-    <h2>Vivez une expérience de vol exceptionnelle en ULM !</h2>
+    <p>Vivez une expérience de vol exceptionnelle en ULM !</p>
 
     <!-- SEARCH BAR -->
     <div class="padded">
-      <form action="<%= search_ads_path %>" class="form-inline text-center">
+      <form action="<%= search_ads_path %>" class=" formulaire form-inline text-center">
         <input name="q" type="text" class="form-control input-lg text-center " placeholder="Exemple 'Nîmes'">
         <input type="submit" value="Recherchez" class="btn btn-primary btn-lg">
       </form>
       <div class="compteur">
+      <i class="fa fa-plane" aria-hidden="true">   </i>
          <span class="count"><%= @ads_counter %></span>
          <p>vols disponibles</p>
       </div>
@@ -22,12 +23,28 @@
 
 
 
+<div class="wrapper-feature text-center">
+  <div class="container">
+    <p><h2>Ce que <strong>nous faisons</strong></h2></p>
+    <p><div class="border"></div></p>
+    <p>Un ultra-léger motorisé, plus couramment appelé ULM, est un aéronef muni d'un moteur, répondant à des critères de masse ou de puissance maximales définis par les juridictions nationales et autorisant son utilisation dans des conditions de navigabilité simplifiées par rapport à celles d'un avion léger et avec une licence de pilotage spécifique. La plupart des ULM peuvent décoller et atterrir sur des distances réduites hors des aérodromes, mais les plus performants s'apparentent aux avions légers certifiés.</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <!-- FEATURES -->
 
 <div class="wrapper-grey padded">
   <div class="container">
-  <h2 class ="text-center">Simple et rapide</h2>
-  <br>
+<!--   <h2 class ="text-center">Simple et rapide</h2>
+ -->  <br>
     <div class="row">
       <div class="col-md-3 col-xs-12 text-center">
         <div class="feature-size" type="button" class="btn btn-default" data-container="body" data-toggle="popover" title="Popover title" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
@@ -76,46 +93,52 @@
 
 
 
-<h2 class ="text-center">Voici les vols planifiés près de chez vous</h2>
-<p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
+
 
 <br>
 
  <!-- CARDS -->
+<div class="wrapper-card padded">
+  <div class="container">
+  <p><h2 class ="text-center">Reservez votre vol en quelques clics</h2></p>
+  <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
+    <div class="row">
+        <% @ads.each do |ad| %>
+          <div class="col-xs-12 col-sm-4">
+            <%= render ad %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+  </div>
 
-<div class="container">
-  <div class="row">
-      <% @ads.each do |ad| %>
-        <div class="col-xs-12 col-sm-4">
-          <%= render ad %>
-        </div>
-      <% end %>
+</div>
+
+
+
+
+<div class="wrapper-newsletter padded">
+  <div class="container text-center">
+    <p><i class="fa fa-envelope-o" aria-hidden="true"></i></p>
+    <h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
+    <form class="form-inline">
+    <input placeholder="Votre adresse email" class="form-control" type="email" name="email">
+    <button type="submit" class="navbar-wagon-item navbar-wagon-button btn">M'inscrire</button>
+    </form>
   </div>
 </div>
-</div>
 
 
-
-<div class="container text-center">
-  <div class="btn-group padded-basket">
-    <div class="row">
-      <%= link_to "Voir tous les pilotes", users_path, :class => "btn btn-danger" %>
+<div class="wrapper-pilote">
+  <div class="container text-center">
+    <div class="btn-group padded-basket">
+      <div class="row">
+        <%= link_to "Voir tous les pilotes", users_path, :class => "btn btn-danger" %>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-<div class="container text-center">
-
-  <h3 class ="text-center">Nos meilleures offres dans votre inbox</h3>
-
-  <form class="form-inline">
-  <input placeholder="Votre adresse email" class="form-control" type="email" name="email">
-  <button type="submit" class="navbar-wagon-item navbar-wagon-button btn">M'inscrire</button>
-  </form>
-
-</div>
 
 
 

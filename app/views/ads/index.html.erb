@@ -1,15 +1,15 @@
-<h1 class="text-center">Choisissez votre vol :</h1>
+<h2 class="bg-primary text-center">Voici mes vols</h2>
 
 <div class="container">
   <div class="row">
     <% @ads.each do |ad| %>
-    <%= render ad %>
+    <div class="col-xs-12 col-sm-4">
+      <%= render ad %>
+    </div>
     <% end %>
   </div>
 </div>
 <div class="container text-center">
 <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %>
 </div>
-<div class="container padded-basket text-center">
-<%= link_to "Créez une annonce", new_ad_path, :class => "btn btn-danger" %>
-</div>
+
