@@ -25,14 +25,17 @@
 }
 
 .liste{
-  //height:900px;
   background: #F7F3EF;
-  //overflow: auto;
+  overflow-y:auto;
+  height: 100vh;
+  display: block;
 
 }
 
 .wrapper-search{
-
+    //height:500px;
     background: #F7F3EF;
-
+   // overflow-y: auto;
+    //display: block;
+    //overflow:hidden;
 }
