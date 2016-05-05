@@ -1,4 +1,6 @@
-<div class="header">
+<div class="title_page">
+      <div><strong>Voici le vol proposé par <%= @ad.user.name.upcase %></strong></div>
+      <p>Annonce publié le <%= @ad.user.created_at.strftime("%d-%b-%Y")%></p>
 </div>
 
 
@@ -7,11 +9,6 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
-
-    <div class="card-show card-padded padded text-center">
-      <p>Voici le vol proposé par <%= @ad.user.name %></p>
-      <p>Annonce publié le <%= @ad.user.created_at.strftime("%d-%b-%Y")%></p>
-    </div>
 
       <div class="card-show card-padded">
           <%= cl_image_tag @ad.photo, height: 300, width: 533, crop: :fill %>
@@ -43,7 +40,7 @@
              <p><%= image_tag "pilot.png", :class => "avatar-xxl" %></p>
             <% end %>
 
-            <p><%= @ad.user.name %></p>
+            <p><%= @ad.user.name.upcase %></p>
             <p>Pilote de <%= @ad.category %></p>
             <i class="fa fa-star-o" aria-hidden="true"></i>
           </div>
