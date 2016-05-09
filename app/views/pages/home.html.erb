@@ -103,11 +103,13 @@
   <p><h2 class ="text-center">Je vole pas cher en quelques clics</h2></p>
   <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
     <div class="row">
-        <% @ads.each do |ad| %>
-          <div class="col-xs-12 col-sm-4">
-            <%= render ad %>
-          </div>
-        <% end %>
+       <div class="reveal">
+          <% @ads.each do |ad| %>
+            <div class="col-xs-12 col-sm-4">
+              <%= render ad %>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
   </div>

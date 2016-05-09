@@ -9,9 +9,10 @@
 Faker::Config.locale = :fr
 
 User.destroy_all
+acard = User.create!(name: "acard", email: "acardnicolas@hotmail.com", password:"password", admin: true)
 Ad.destroy_all
 
-30.times do
+5.times do
 
   password = Faker::Internet.password(8)
   user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password, pilote: false)
@@ -19,9 +20,10 @@ Ad.destroy_all
   puts user.picture
   user.save
 
-  3.times do
-    address = Faker::Address.street_address +', France'
-    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today), flight_time: Faker::Number.number(2), address: address, price: Faker::Number.decimal(2))
+  1.times do
+    #address = Faker::Address.street_address +', Paris'
+    address = "place de la bastille, Paris"
+    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Date.today, flight_time: Faker::Number.number(2), address: address, price: Faker::Number.decimal(2))
     annonce.user = user
     image_url = Faker::Avatar.image(('Vol depuis ' + Faker::Address.city).parameterize, "300x150", "jpg")
     annonce.remote_photo_url = image_url
@@ -29,5 +31,6 @@ Ad.destroy_all
     puts address
   end
 end
+
 
 puts "#{User.count} user et #{Ad.count} annonces crées !"
