@@ -4,9 +4,13 @@ Rails.application.routes.draw do
 
   get 'orders/show'
 
+
   devise_for :users
+
   resources :orders, only: [:show, :create] do
-    resources :payments, only: [:new, :create]
+    member do
+      resources :payments, only: [:new, :create]
+    end
   end
 
 
@@ -16,7 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users, only: [:index, :show, :new, :create] do
+    member do
+      resources :reviews
+    end
+  end
+
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
 
   has_many :ads, dependent: :destroy
 
+  has_many :reviews, class_name:  "Review",
+                                foreign_key: "reviewer_id",
+                                dependent:   :destroy
+
+
+
   after_create :send_welcome_email
 
   mount_uploader :picture, PhotoUploader
