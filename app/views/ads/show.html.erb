@@ -121,7 +121,7 @@
 
               <% if policy(@ad).update? %>
                <div class="padded-product">
-                <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-warning btn-lg btn-block" %>
+                <%= link_to "Modifier mon annonce", ads_path,method: :update, :class => "btn btn-warning btn-lg btn-block" %>
                </div>
               <% end %>
                <% if policy(@ad).destroy? %>
