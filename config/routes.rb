@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'payments/new'
 
   get 'orders/show'
 
-  devise_for :users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
