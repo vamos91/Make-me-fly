@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   get 'payments/new'
 
   get 'orders/show'
 
-  devise_for :users
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end

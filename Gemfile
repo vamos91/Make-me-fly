@@ -20,7 +20,6 @@ gem "geocoder"
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'omniauth-facebook'
-gem "rails_admin"
 gem 'postmark-rails'
 
 gem "coffee-rails"
@@ -30,6 +29,9 @@ gem "pundit"
 gem "money-rails"
 gem "stripe"
 gem "coffee-script"
+gem 'activeadmin', github: 'activeadmin'
+
+
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

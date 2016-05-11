@@ -34,3 +34,4 @@ end
 
 
 puts "#{User.count} user et #{Ad.count} annonces crées !"
+User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
