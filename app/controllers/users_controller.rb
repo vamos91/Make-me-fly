@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
  def index
-  @users = User.all
+  users = User.all
+  @pilote = user.pilote
+  authorize @pilote
  end
 
  def show
