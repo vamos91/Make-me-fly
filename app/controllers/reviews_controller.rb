@@ -5,14 +5,20 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @review = Review.new
   end
 
   def create
-    review = Review.find(params[:reviewed_id])
+    @review = Review.new(params[:reviewed_id])
+    @review.save
   end
 
   def destroy
   end
 
 
+private
+
+ def review_params
+    params.require(:review).permit(:ratong, :description)
 end
