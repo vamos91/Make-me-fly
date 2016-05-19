@@ -23,6 +23,7 @@
 .navbar-wagon-brand img {
   width: 120px;
   margin-top: 0px;
+  padding-left: 0px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -55,15 +56,18 @@
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: $red;
+  background-color: $clear-blue;
   color: white;
   font-size: 14px;
-  border: 2px solid $red;
+  //border: 2px solid $red;
+  transition: background-color 0.3s ease;
 }
 .navbar-wagon-button:hover {
   color: white;
-  background: #D23333;
-  border-color: #ac2626;
+  //opacity: 0.5;
+
+  background-color: #576E8E;
+  //border-color: $clear-blue;
 }
 
 /* Navbar search form */
