@@ -7,6 +7,17 @@
 
 }
 
+
+
+.feature-icon{
+  font-size: 60px;
+  color: white;
+}
+
+
+
+
+
 .feature-size:hover{
   opacity: 0.5;
 
@@ -21,4 +32,50 @@
   line-height : 40px;
   margin-top: 40px;
   font-weight: lighter;
+  margin-bottom: 40px;
+}
+
+
+.wrapper-pilot{
+  margin-top:30px;
+  margin:0;
+  padding: 0px;
+  font-size: 15px;
+  color: white;
+  font-weight: lighter;
+
+}
+
+.wrapper-pilot p {
+  opacity:0.7;
+}
+
+.pilote{
+  padding: 0;
+  height: 387px;
+  background:#4fd2c2;
+  margin-left: -70px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.passager{
+  padding: 0;
+  height: 387px;
+  background:#00bcd4;
+  margin-right: -70px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-space-left{
+padding-right:0;
+}
+
+.no-space-right{
+  padding-left:0;
 }

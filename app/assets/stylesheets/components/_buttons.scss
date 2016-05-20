@@ -1,3 +1,28 @@
 .newsletter-input-button {
   color: red;
 }
+
+.button-feature {
+  margin-top: 30px;
+  margin-left: 10px;
+  padding: 5px 30px;
+  border-radius: 3px;
+  line-height: 40px;
+  //background-color: $clear-blue;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight:lighter;
+  border: 1px solid #E6E6E6;
+  transition: background-color 0.5s ease;
+
+}
+.button-feature:hover {
+  color: white;
+  text-decoration: none;
+  //opacity: 0.5;
+  color:black;
+  font-size: 16px;
+  background-color: white;
+  //border-color: $clear-blue;
+}
