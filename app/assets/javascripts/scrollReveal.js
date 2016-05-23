@@ -8,3 +8,4 @@ sr.reveal('.wrapper-grey', { origin:"left", distance: '500px', duration: 2000, r
 sr.reveal('.wrapper-feature', { origin: "right", distance: '500px', duration: 1000, reset: false})
 sr.reveal('.compteur', { origin: "left", distance: '50px', duration: 1000, reset: false})
 sr.reveal('.formulaire', { origin: "bottom", distance: '50px', duration: 1000, reset: false})
+sr.reveal('.counter')

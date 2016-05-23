@@ -5,6 +5,8 @@ class PagesController < ApplicationController
 
   def home
     ad = Ad.count
+    @pilote_counter = User.where("pilote = ?", true).count
+    @passager_counter = User.where("pilote = ?", false).count
     #@ads = Ad.all.sort[ad-9..ad].reverse
     #@ads = Ad.order(id: :desc).limit(9)
     @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)

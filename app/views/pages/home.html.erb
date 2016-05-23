@@ -109,10 +109,45 @@
   <div class="banner-filter"></div>
   <div class="banner-content-parallax text-center">
     <span>Découvrez les vols en ULM prés de chez vous.</span>
-    <p>Les ULM ont été conçus comme un moyen de loisirs aérien, plus simple et moins couteux que l'aviation de tourisme habituelle.</p>
-    <p class="italic"> Donnez vous la chance d'essayer.</p>
+     <div class="counter">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <div class="count"><%= @ads_counter %></div>
+            <p>annonces</p>
+          </div>
+           <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-plane" aria-hidden="true"></i>
+            <div class="count"><%= @pilote_counter %></div>
+            <p>pilotes</p>
+          </div>
+           <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <div class="count"><%= @passager_counter %></div>
+            <p>ont déjà volés</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
