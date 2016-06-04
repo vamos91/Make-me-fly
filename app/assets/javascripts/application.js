@@ -5,12 +5,12 @@
 //= require underscore
 //= require gmaps/google
 
-$(function(){
-  $.stellar({
-    horizontalScrolling: false,
-    verticalOffset: 40
-  });
-});
+// $(function(){
+//   $.stellar({
+//     horizontalScrolling: false,
+//     verticalOffset: 40
+//   });
+// });
 
 
 

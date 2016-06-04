@@ -39,3 +39,12 @@ $gray-dark:    lighten(#000, 20%);   // #333
 $gray:         lighten(#000, 33.5%); // #555
 $gray-light:   lighten(#000, 46.7%); // #777
 $gray-lighter: lighten(#000, 93.5%); // #eee
+
+
+
+
+$primary-color: #0E3F28;
+$secondary-color: #723124;
+$color_start: rgba($primary-color, .75);
+$color_stop: rgba($secondary-color, .75);
+$gradient: linear-gradient(to right, $color_start 0%, $color_stop 100%);
