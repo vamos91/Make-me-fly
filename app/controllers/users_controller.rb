@@ -1,29 +1,22 @@
 class UsersController < ApplicationController
 
  def index
-  users = User.all
-  @pilote = user.pilote
-  authorize @pilote
+  # users = User.all
+  # @pilote = users.pilote
+  # authorize @pilote
  end
 
  def show
    @user = User.find(params[:id])
+   authorize @user
  end
-
-  # def new
-  #   @user = User.new
-  # end
-
-  # def create
-  #   @user = User.new(user_param)
-  # end
 
 
 
 
   # private
   # def user_param
-  #   params.require(:user).permit(:name, :pilote)
+  #   params.require(:users).permit(:name, :pilote)
   # end
 
 

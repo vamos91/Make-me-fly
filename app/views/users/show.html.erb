@@ -1,4 +1,45 @@
 
-<h1>Ta gueule la mouette</h1>
-<h1>ici on affiche un USER</h1>
+<div class="card-picture">
 
+            <% if @user.picture? %>
+             <p><%= cl_image_tag @user.picture, :class => "avatar-xxl" %></p>
+            <% else %>
+             <p><%= image_tag "pilot.png", :class => "avatar-xxl" %></p>
+            <% end %>
+
+            <p><%= @user.name.upcase %></p>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          </div>
+<%= @user.name%>
+
+
+<h1 class="title-pen"> User Profile <span>UI</span></h1>
+<div class="user-profile">
+<%= cl_image_tag @user.picture%>
+  <img class="avatar" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTF_erFD1SeUnxEpvFjzBCCDxLvf-wlh9ZuPMqi02qGnyyBtPWdE-3KoH3s" alt="Ash" />
+    <div class="username"><%= @user.name.upcase %></div>
+  <div class="bio">
+    Senior UI Designer
+  </div>
+    <div class="description">
+      I use to design websites and applications
+      for the web.
+  </div>
+  <ul class="data">
+    <li>
+      <span class="entypo-heart"> 127</span>
+    </li>
+    <li>
+      <span class="entypo-eye"> 853</span>
+    </li>
+    <li>
+      <span class="entypo-user"> 311</span>
+    </li>
+ </ul>
+</div>
+  <footer>
+    <h1>inspired by
+  <a href="https://dribbble.com/shots/1033074-User-Profile">
+  <span class="entypo-dribbble"></span> shot</a>
+    </h1>
+  </footer>

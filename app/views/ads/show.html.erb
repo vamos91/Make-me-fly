@@ -35,9 +35,11 @@
           <div class="card-picture">
 
             <% if @ad.user.picture? %>
-             <p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
-            <% else %>
-             <p><%= image_tag "pilot.png", :class => "avatar-xxl" %></p>
+              <%= link_to users_path(@user) do%>
+               <p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
+              <% else %>
+               <p><%= image_tag "pilot.png", :class => "avatar-xxl" %></p>
+               <% end %>
             <% end %>
 
             <p><%= @ad.user.name.upcase %></p>
