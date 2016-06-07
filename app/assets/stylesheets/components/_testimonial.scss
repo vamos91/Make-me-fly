@@ -1,5 +1,6 @@
 .wrapper-testimonial{
   height: 500px;
+  width: 100%;
   text-align: center;
   background: #16222A; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #16222A , #3A6073); /* Chrome 10-25, Safari 5.1-6 */
@@ -9,4 +10,38 @@
   align-items: center;
   justify-content: center;
   font-weight:lighter;
+}
+
+
+
+/********* Testimonials 01 **********/
+.testimonials-01 {
+  margin: 30px 0 0 0;
+  background-color: #F7F7F7;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid #eee;
+}
+.testimonials-01 h3 {
+  margin-top: 15px;
+}
+.testimonials-01 h6 {
+  color: #555;
+  font-weight: 900;
+}
+.testimonials-01 p {
+  color: #888;
+  line-height: 1.5;
+}
+@media (max-width: 767px) {
+  .testimonials-01 .livicon-evo {
+    width: 50%!important;
+    margin: 0 auto;
+  }
+  .testimonials-01 h3 {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .testimonials-01 h6 {
+    text-align: center;
+  }
 }

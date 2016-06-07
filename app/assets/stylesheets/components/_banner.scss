@@ -8,9 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -70px;
+  margin-top: 0px;
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url('image-banner.jpg');
-
+  overflow: hidden;
 
 
 
@@ -38,8 +38,13 @@
 
 .banner-parallax1 {
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url("image-parallax.jpg");
-
 }
+
+.banner-parallax2 {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url("pendulaire.jpg");
+}
+
+
 
 // .banner-filter {
 //   color: white;
@@ -59,5 +64,15 @@
   position: relative;
   z-index: 8;
 }
+
+
+
+
+
+
+
+
+
+
 
 
