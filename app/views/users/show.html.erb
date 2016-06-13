@@ -37,6 +37,12 @@
     </li>
  </ul>
 </div>
+
+<div class="reviews">
+  <% @reviews.each do |review| %>
+    <%= review.description %> by <%= review.reviewer.name%> pour <%=review.reviewed.name%>
+  <% end %>
+</div>
   <footer>
     <h1>inspired by
   <a href="https://dribbble.com/shots/1033074-User-Profile">

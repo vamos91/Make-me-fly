@@ -9,6 +9,7 @@ class UsersController < ApplicationController
  def show
    @user = User.find(params[:id])
    authorize @user
+   @reviews = @user.reviews
  end
 
 
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
   # def user_param
   #   params.require(:users).permit(:name, :pilote)
   # end
+
 
 
 end

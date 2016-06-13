@@ -9,6 +9,7 @@
 Faker::Config.locale = :fr
 
 User.destroy_all
+User.create!(name:"Admin" ,email:"admin@example.com", password: "password" )
 Ad.destroy_all
 
 3.times do
@@ -31,3 +32,10 @@ Ad.destroy_all
 end
 
 puts "#{User.count} user et #{Ad.count} annonces crées !"
+
+review = Review.new
+review.reviewed = User.first
+review.reviewer = User.last
+review.rating = 5
+review.description = "Trop bien le vol"
+review.save!
