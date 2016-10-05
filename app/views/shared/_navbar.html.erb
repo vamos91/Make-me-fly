@@ -8,7 +8,7 @@
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right hidden-xs">
 
     <!-- Search form -->
     <form action="<%= search_ads_path %>" class="navbar-wagon-search">
@@ -94,9 +94,14 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to "Connexion", new_user_session_path %></li>
+        <li><%= link_to "Voir tous les pilotes", users_path %></li>
+          <% if user_signed_in? && current_user.pilote? %>
+           <li><%= link_to "Profile de #{current_user.name}" %></li>
+           <li><%= link_to "Publiez une annonce", new_ad_path %></li>
+           <li><%= link_to "Mes annonces", ads_path %></li>
+           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% end %>
       </ul>
     </div>
   </div>
