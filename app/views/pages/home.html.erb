@@ -4,7 +4,7 @@
 <div class="banner img-responsive">
   <div class="banner-content">
     <h1>MAKE ME FLY</h1>
-    <p>Je trouve mon pilote. Je vole pas cher !</p>
+    <p>Premier site de reservation de vol en ULM entre particuliers</p>
 
     <!-- SEARCH BAR -->
     <div class="padded">
@@ -19,58 +19,14 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- INTRO -->
-
-<div class="wrapper-feature text-center">
-  <div class="container">
-    <p><h2>Ce que <strong>nous faisons</strong></h2></p>
-    <p><div class="border"></div></p>
-    <p><strong>MakeMeFly</strong> est une plate-forme qui se propose de vous faire rencontrer votre pilote ULM. Découvrez la passion de pilote et <strong>volez en quelques clics</strong> à bord d'un <strong>pendulaire, multiaxe ou paramoteur</strong>. Un ultra-léger motorisé, plus couramment appelé ULM, est un aéronef muni d'un moteur, répondant à des critères de masse ou de puissance maximales définis par les juridictions nationales et autorisant son utilisation dans des conditions de navigabilité simplifiées par rapport à celles d'un avion léger et avec une licence de pilotage spécifique. La plupart des ULM peuvent décoller et atterrir sur des distances réduites hors des aérodromes, mais les plus performants s'apparentent aux avions légers certifiés.</p>
+  <div class="arrow">
+    <i class="fa fa-arrow-down" aria-hidden="true"></i>
   </div>
 </div>
 
 
 
-
-
-
-
-
-  <div class="feature3 text-center">
-     <div class="counter">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-          <%= image_tag "para-icon.png", class:"avatar-xxl"%>
-            <p>PARAMOTEUR</p>
-          </div>
-           <div class="col-xs-12 col-sm-4">
-           <%= image_tag "multiaxe-icon.png", class:"avatar-xxl"%>
-            <p>MULTIAXE</p>
-          </div>
-           <div class="col-xs-12 col-sm-4">
-           <%= image_tag "pendulaire-icon.png", class:"avatar-xxl"%>
-            <p>PENDULAIRE</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-<!-- FEATURES 1-->
-
-<div class="wrapper-pilot padded">
+<div class="wrapper-pilot">
 <div class="container">
   <div class="row">
   <div class="col-xs-12 col-sm-6 no-space-left">
@@ -79,7 +35,7 @@
         <i class="fa fa-fighter-jet" aria-hidden="true"></i>
       </div>
         <h3>Je suis pilote</h3>
-        <p>Je suis pilote et je me connecte pour publier une annonce.</p>
+        <p>Je suis pilote et je me connecte, je propose un vol.</p>
         <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "button-feature" %>
     </div>
   </div>
@@ -89,56 +45,51 @@
         <i class="fa fa-user" aria-hidden="true"></i>
       </div>
         <h3>Je suis passager</h3>
-        <p>Je crée un compte, je trouve mon pilote, je vol pas cher.</p>
+        <p>Je crée un compte, je trouve mon pilote, je reserve un vol pas cher.</p>
         <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "button-feature" %>
     </div>
     </div>
   </div>
  </div>
 </div>
-</div>
 
 
 
-<!-- FEATURES 2-->
-
-<div class="wrapper-grey padded">
- <p class="text-center" style="font-size:40px; font-weight:lighter;">MakeMeFly c'est</p>
-  <div class="container">
-<!--   <h2 class ="text-center">Simple et rapide</h2>
- -->  <br>
-    <div class="row">
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-        <div class="feature-size" type="button" class="btn btn-default" data-container="body" data-toggle="popover" title="Popover title" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          <i class="fa fa-search-plus"></i>
+<!-- <div class="feature-test text-center marged">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag "paramoteur-feature.jpg"%>
         </div>
-        <h2 class="text-center">SIMPLE</h2>
-        <p class="text-center" >Choisissez où vous voulez voler</p>
-      </div>
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-        <div class="feature-size" type="button" class="btn btn-default" data-container="body" data-toggle="popover" title="Popover title" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          <i class="fa fa-lock"></i>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag "paramoteur-feature.jpg"  %>
         </div>
-        <h2 class="text-center">SECURISE</h2>
-        <p class="text-center">Réservez en ligne</p>
-      </div>
-       <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-        <div class="feature-size" type="button" class="btn btn-default" data-container="body" data-toggle="popover" title="Popover title" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          <i class="fa fa-clock-o"></i>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag "paramoteur-feature.jpg"  %>
         </div>
-        <h2 class="text-center">FIABLE</h2>
-        <p class="text-center">Recevez une confirmation rapide</p>
-      </div>
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-        <div class="feature-size" type="button" class="btn btn-default" data-container="body" data-toggle="popover" title="Popover title" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          <i class="fa fa-paper-plane"></i>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag "paramoteur-feature.jpg"  %>
         </div>
-        <h2 class="text-center">CONVIVIAL</h2>
-        <p class="text-center">Volez !</p>
-      </div>
     </div>
   </div>
 </div>
+</div> -->
+
+
+
+
+
+<!-- INTRO -->
+
+<div class="wrapper-feature text-center padded marged">
+  <div class="container">
+    <p><h2>Ce que <strong>nous faisons</strong></h2></p>
+    <p><div class="border"></div></p>
+    <p><strong>MakeMeFly</strong> est une plate-forme qui se propose de vous faire rencontrer votre pilote ULM. Découvrez la passion de pilote et <strong>volez en quelques clics</strong> à bord d'un <strong>pendulaire, multiaxe ou paramoteur</strong>. Un ultra-léger motorisé, plus couramment appelé ULM, est un aéronef muni d'un moteur, répondant à des critères de masse ou de puissance maximales définis par les juridictions nationales et autorisant son utilisation dans des conditions de navigabilité simplifiées par rapport à celles d'un avion léger et avec une licence de pilotage spécifique. La plupart des ULM peuvent décoller et atterrir sur des distances réduites hors des aérodromes, mais les plus performants s'apparentent aux avions légers certifiés.</p>
+  </div>
+</div>
+
 
 
 
@@ -201,13 +152,83 @@
 
 
 
+<div class="banner banner-parallax banner-parallax2 img-responsive marged">
+
+  <div class="feature3 text-center">
+     <div class="counter">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag "para-icon.png", class:"avatar-xxl"%>
+            <p>PARAMOTEUR</p>
+          </div>
+           <div class="col-xs-12 col-sm-6 col-md-3">
+           <%= image_tag "multiaxe-icon.png", class:"avatar-xxl"%>
+            <p>MULTIAXE</p>
+          </div>
+           <div class="col-xs-12 col-sm-6 col-md-3">
+           <%= image_tag "pendulaire-icon.png", class:"avatar-xxl"%>
+            <p>PENDULAIRE</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+           <%= image_tag "gyro-icon.png", class:"avatar-xxl"%>
+            <p>AUTOGIRE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
 
 
 
-<div class="banner banner-parallax banner-parallax2 img-responsive"></div>
+<!-- FEATURES 1-->
 
 
 
+
+
+<!-- FEATURES 2-->
+
+<div class="wrapper-grey padded marged">
+ <p class="text-center" style="font-size:40px; font-weight:lighter;">MakeMeFly c'est</p>
+  <div class="container">
+<!--   <h2 class ="text-center">Simple et rapide</h2>
+ -->  <br>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-search-plus"></i>
+        </div>
+        <h2 class="text-center">SIMPLE</h2>
+        <p class="text-center" >Choisissez où vous voulez voler</p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-lock"></i>
+        </div>
+        <h2 class="text-center">SECURISE</h2>
+        <p class="text-center">Réservez en ligne</p>
+      </div>
+       <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-clock-o"></i>
+        </div>
+        <h2 class="text-center">FIABLE</h2>
+        <p class="text-center">Recevez une confirmation rapide</p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+        <div class="feature-size">
+          <i class="fa fa-paper-plane"></i>
+        </div>
+        <h2 class="text-center">CONVIVIAL</h2>
+        <p class="text-center">Volez !</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
