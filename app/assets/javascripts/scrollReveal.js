@@ -9,3 +9,6 @@ sr.reveal('.wrapper-feature', { origin: "bottom", distance: '50px', duration: 10
 sr.reveal('.compteur', { origin: "left", distance: '50px', duration: 1000, reset: false})
 sr.reveal('.formulaire', { origin: "bottom", distance: '50px', duration: 1000, reset: false})
 sr.reveal('.counter')
+sr.reveal('.wrapper-grey')
+sr.reveal('.pilote', {origin:'left', distance: '50px', duration: 1000, reset: false})
+sr.reveal('.passager', {origin:'right', distance: '50px', duration: 1000, reset: false})
