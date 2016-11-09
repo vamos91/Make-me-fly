@@ -11,10 +11,8 @@
   margin-top: 0px;
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url('image-banner.jpg');
   overflow: hidden;
-
-
-
 }
+
 .banner h1 {
   font-size: 75px;
   font-weight: bold;
@@ -29,11 +27,52 @@
 
 .banner-parallax{
     background-attachment: fixed;
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 300px;
     padding: 300px;
     margin-top: 0px;
     max-width: 100%;
-    //display:block;
+
+}
+
+.banner-parallax h1{
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner-parallax span{
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: lighter;
+}
+
+.banner-ulm {
+  color: white;
+  text-align: center;
+  height: 60vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url('image-banner.jpg');
+  overflow: hidden;
+}
+
+.banner-ulm h1{
+  font-size: 75px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner-ulm span{
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: lighter;
 }
 
 .banner-parallax1 {
@@ -44,21 +83,24 @@
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("pendulaire.jpg");
 }
 
+.banner-parallax3 {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("paramoteur-ulm.jpg");
+}
 
+.banner-parallax4 {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("pendulaire-ulm.jpg");
+}
 
-// .banner-filter {
-//   color: white;
-//   position: absolute;
-//   font-weight: lighter;
-//   background-color: rgba(30,30,30,0.7);
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 3;
-// }
+.banner-parallax5 {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("multiaxe-ulm.jpg");
+}
+
+.banner-parallax6 {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("autogire-ulm.jpg");
+}
 
 .banner-content-parallax{
+  text-align: center;
   color: white;
   font-size: 30px;
   position: relative;

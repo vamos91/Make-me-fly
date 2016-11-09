@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'orders/show'
 
+  get 'pages/ulm'
+
   devise_for :users
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]

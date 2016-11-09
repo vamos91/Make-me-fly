@@ -69,19 +69,19 @@ a:hover{
 .navbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
-  border-radius: 20em;
+  border-radius: 1em;
   line-height: 40px;
-  background-color: $clear-blue;
+  //background-color: $clear-blue;
   color: white;
   font-size: 14px;
   //border: 2px solid $red;
-  transition: background-color 0.3s ease;
+  transition: border-color 0.4s ease;
 }
 .navbar-wagon-button:hover {
   color: white;
   //opacity: 0.5;
-  background-color: #576E8E;
-  //border-color: $clear-blue;
+  //background-color: #576E8E;
+  border-color: white;
 }
 
 /* Navbar search form */
