@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="centeredPrompt">
-            <p class="centeredPrompt__item centeredPromptLabel">Status: <%= @order.status %></p>
-            <p class="centeredPrompt__item centeredPromptDetails">Item: <%= @order.ad_sku %></p>
+            <p class="centeredPrompt__item centeredPromptLabel">Your flight is: <%= @order.status %></p>
+            <p class="centeredPrompt__item centeredPromptDetails">Vol de <%= @order.ad_sku %></p>
             <p class="centeredPrompt__item centeredPromptDetails">Amount: <%= humanized_money_with_symbol(@order.amount) %></p>
             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-primary" %>
         </div>

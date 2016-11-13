@@ -38,6 +38,7 @@ class AdsController < ApplicationController
     authorize @ad
 
     if @ad.save
+      AdMailer.creation_confirmation(@ad).deliver_now
       redirect_to root_path, notice: 'Annonce crée avec succès'
     else
       render :new

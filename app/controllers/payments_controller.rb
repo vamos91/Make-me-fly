@@ -18,13 +18,14 @@ class PaymentsController < ApplicationController
     charge = Stripe::Charge.create(
     customer: customer.id,
     amount: @amount, # in cents
-    description: "Payment for ad #{@order.ad_sku} for order #{@order.amount_cents}",
+    description: "Paiement pour le vol #{@order.ad_sku} pour un montant de #{@order.amount_cents}",
     currency: 'eur'
     )
 
 
 
     @order.update(payment: charge.to_json, status: 'paid')
+    PaymentMailer.payment_confirmation(@order).deliver_now
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e

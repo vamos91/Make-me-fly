@@ -24,7 +24,9 @@ class AdPolicy < ApplicationPolicy
     true
   end
 
-
+  def home?
+    true
+  end
 
 def search?
   true

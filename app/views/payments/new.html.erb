@@ -7,8 +7,8 @@
           <div class="centeredPrompt__item centeredPromptIcon">
             <div class="icon fa fa-smile-o"></div>
           </div>
-          <div class="centeredPrompt__item centeredPromptLabel">Welcome to the payment page!</div>
-          <div class="centeredPrompt__item centeredPromptDetails">Réservez le vol <%= @order.ad_sku%></div>
+          <div class="centeredPrompt__item centeredPromptLabel">Bienvenue sur la page de paiement</div>
+          <div class="centeredPrompt__item centeredPromptDetails">Réservez le vol de <%= @order.ad_sku%></div>
           <div class="centeredPrompt__item button">
 
             <%= form_tag order_payments_path(@order) do %>
@@ -21,7 +21,8 @@
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key= "<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-name="Réserver votre vol"
-                data-description="Vol num <%= @order.ad_sku %>"
+                data-email="<%= current_user.email%>"
+                data-description="Vol de <%= @order.ad_sku %>"
                 data-amount="<%= @order.amount_cents %>"
                 data-currency="EUR">
               </script>
