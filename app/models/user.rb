@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ads, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   after_create :send_welcome_email
 

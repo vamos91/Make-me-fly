@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :ads  do
     collection do                      # collection => no ads id in URL
-      get 'search', to: "ads#search"  # RestaurantsController#top
+      get 'search', to: "ads#search"
     end
   end
 

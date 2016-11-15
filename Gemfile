@@ -32,6 +32,7 @@ gem "money-rails"
 gem "stripe"
 gem "coffee-script"
 
+
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
