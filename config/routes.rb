@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'conversations/index'
+
+  get 'conversations/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'payments/new'
 
@@ -17,6 +21,12 @@ Rails.application.routes.draw do
       get 'search', to: "ads#search"
     end
   end
+
+  resources :conversations do
+  resources :messages
+ end
+
+
 
   resources :users, only: [:index, :show, :new, :create]
   root to: 'pages#home'
