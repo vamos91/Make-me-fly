@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "MAKEMEFLY"
+  default from: "contact@skypicture.fr"
   layout 'mailer'
 end
