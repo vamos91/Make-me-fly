@@ -31,6 +31,7 @@ gem "pundit"
 gem "money-rails"
 gem "stripe"
 gem "coffee-script"
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
 
 source 'https://rails-assets.org' do
