@@ -106,12 +106,10 @@
 
 
 
-          <% if current_user == false %>
             <%= form_tag orders_path do %>
               <%= hidden_field_tag 'ad_id', @ad.id %>
               <%= submit_tag 'Réservez dès maintenant' , :class => "btn btn-success btn-lg btn-block"%>
             <% end %>
-          <% end %>
 
 
 
