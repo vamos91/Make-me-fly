@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   after_create :send_welcome_email
 
-  after_create :subscribe_to_newsletter
+  #after_create :subscribe_to_newsletter
 
   mount_uploader :picture, PhotoUploader
 

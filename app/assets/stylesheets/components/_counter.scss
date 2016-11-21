@@ -1,18 +1,3 @@
-// #shiva
-// {
-//   position: relative;
-//   width: 100px;
-//   height: 100px;
-//   //background: red;
-//   -moz-border-radius: 50px;
-//   -webkit-border-radius: 50px;
-//   border-radius: 50px;
-//   float:left;
-//   margin:5px;
-//  border: 2px solid blue;
-// }
-//
-//
 .compteur {
 left: 30px;
 bottom: 40px;
@@ -40,19 +25,12 @@ font-size: 30px;
 }
 
 
-// #circle {
-//     width: 300px;
-//     height: 150px;
-// }
 
-
-// .progress {
-//   color: white;
-//                 height: 300px;
-//             }
-//             .progress > svg {
-//                 height: 100%;
-//                 display: block;
-//             }
-
-
+@media (max-width:450px) {
+  .count{
+    line-height: 25px;
+    color:white;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+}

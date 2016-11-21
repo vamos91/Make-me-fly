@@ -24,7 +24,7 @@
   </div>
 </div>
 
-
+<% if user_signed_in? == false %>
 
 <div class="wrapper-pilot">
 <div class="container">
@@ -52,6 +52,63 @@
   </div>
  </div>
 </div>
+
+<% end %>
+
+
+
+
+<div class="title_flight text-center">
+   <p>Nouveaux vols</p>
+</div>
+  <div class="wrapper-card padded">
+    <div class="container">
+
+   <!--   <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
+   -->    <div class="row">
+         <div class="reveal">
+            <% @ads.each do |ad| %>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <%= render ad %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+<div class="banner banner-parallax banner-parallax1 img-responsive">
+  <div class="banner-filter"></div>
+  <div class="banner-content-parallax text-center">
+    <span>Faites la connaissance de nos pilotes.</span>
+     <div class="counter">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <div class="count"><%= @ads_counter %></div>
+            <p>annonces</p>
+          </div>
+           <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-plane" aria-hidden="true"></i>
+            <div class="count"><%= @pilote_counter %></div>
+            <p>pilotes</p>
+          </div>
+           <div class="col-xs-12 col-sm-4">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <div class="count"><%= @passager_counter %></div>
+            <p>ont déjà volés</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -86,33 +143,33 @@
 
 <!-- FEATURES 2-->
 
-<div class="wrapper-grey padded">
+<div class="wrapper-grey padded marged">
   <div class="container">
 <!--   <h2 class ="text-center">Simple et rapide</h2>
  -->  <br>
     <div class="row">
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+      <div class="col-xs-6 col-sm-6 col-md-6 text-center">
         <div class="feature-size">
           <i class="fa fa-search-plus"></i>
         </div>
         <h2 class="text-center">SIMPLE</h2>
         <p class="text-center" >Choisissez où vous voulez voler</p>
       </div>
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+      <div class="col-xs-6 col-sm-6 col-md-6 text-center">
         <div class="feature-size">
           <i class="fa fa-lock"></i>
         </div>
         <h2 class="text-center">SECURISE</h2>
         <p class="text-center">Réservez en ligne facilement</p>
       </div>
-       <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+       <div class="col-xs-6 col-sm-6 col-md-6 text-center">
         <div class="feature-size">
           <i class="fa fa-clock-o"></i>
         </div>
         <h2 class="text-center">FIABLE</h2>
         <p class="text-center">Recevez une confirmation rapide</p>
       </div>
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+      <div class="col-xs-6 col-sm-6 col-md-6 text-center">
         <div class="feature-size">
           <i class="fa fa-paper-plane"></i>
         </div>
@@ -127,13 +184,13 @@
 
 
 
-<div class="wrapper-feature text-center padded marged">
+<!-- <div class="wrapper-feature text-center padded marged">
   <div class="container">
     <p><h2>Ce que <strong>nous faisons</strong></h2></p>
     <p><div class="border"></div></p>
     <p><strong>MakeMeFly</strong> est une plate-forme vous permet rencontrer votre pilote ULM. Découvrez la passion de pilote et <strong>volez en quelques clics</strong> à bord d'un <strong>pendulaire, multiaxe, paramoteur et autogire</strong>. Un ultra-léger motorisé, plus couramment appelé ULM, est un aéronef muni d'un moteur, répondant à des critères de masse ou de puissance maximales définis par les juridictions nationales et autorisant son utilisation dans des conditions de navigabilité simplifiées par rapport à celles d'un avion léger et avec une licence de pilotage spécifique. La plupart des ULM peuvent décoller et atterrir sur des distances réduites hors des aérodromes, mais les plus performants s'apparentent aux avions légers certifiés.</p>
   </div>
-</div>
+</div> -->
 
 
 
@@ -147,20 +204,28 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "para-icon.png", class:"avatar-xxl"%>
+          <%= link_to pages_ulm_path do %>
+            <%= image_tag "para-icon.png", class:"avatar-xxl"%>
             <p>PARAMOTEUR</p>
+            <% end %>
           </div>
            <div class="col-xs-12 col-sm-6 col-md-3">
-           <%= image_tag "multiaxe-icon.png", class:"avatar-xxl"%>
+           <%= link_to pages_ulm_path do %>
+            <%= image_tag "multiaxe-icon.png", class:"avatar-xxl"%>
             <p>MULTIAXE</p>
+            <% end %>
           </div>
            <div class="col-xs-12 col-sm-6 col-md-3">
-           <%= image_tag "pendulaire-icon.png", class:"avatar-xxl"%>
+           <%= link_to pages_ulm_path do %>
+            <%= image_tag "pendulaire-icon.png", class:"avatar-xxl"%>
             <p>PENDULAIRE</p>
+           <% end %>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= link_to pages_ulm_path do %>
            <%= image_tag "gyro-icon.png", class:"avatar-xxl"%>
             <p>AUTOGIRE</p>
+          <% end %>
           </div>
         </div>
       </div>
@@ -173,59 +238,9 @@
 
 
  <!-- CARDS -->
-<div class="wrapper-card padded">
-  <div class="container">
-<!--   <p><h2 class ="text-center">Je vole pas cher en quelques clics</h2></p>
- --><!--   <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
- -->    <div class="row">
-       <div class="reveal">
-          <% @ads.each do |ad| %>
-            <div class="col-xs-12 col-sm-12 col-md-4">
-              <%= render ad %>
-            </div>
-          <% end %>
-        </div>
-    </div>
-  </div>
-  </div>
+
 
 </div>
-
-
-
-
-<div class="banner banner-parallax banner-parallax1 img-responsive">
-  <div class="banner-filter"></div>
-  <div class="banner-content-parallax text-center">
-    <span>Découvrez les vols en ULM prés de chez vous.</span>
-     <div class="counter">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <div class="count"><%= @ads_counter %></div>
-            <p>annonces</p>
-          </div>
-           <div class="col-xs-12 col-sm-4">
-            <i class="fa fa-plane" aria-hidden="true"></i>
-            <div class="count"><%= @pilote_counter %></div>
-            <p>pilotes</p>
-          </div>
-           <div class="col-xs-12 col-sm-4">
-            <i class="fa fa-users" aria-hidden="true"></i>
-            <div class="count"><%= @passager_counter %></div>
-            <p>ont déjà volés</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
 
 
 <!-- FEATURES 1-->

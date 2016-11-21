@@ -148,3 +148,28 @@
 .size-image {
   //width: auto;
 }
+
+
+
+
+
+
+//---------------------------------------------------------
+
+
+@media (max-width:450px) {
+  .card{
+    height: 110px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+  }
+
+
+
+
+
+}
