@@ -11,3 +11,30 @@
 .title_page p {
   font-size: 12px;
 }
+
+
+.title_flight{
+  width: 100%;
+  background: #456990;
+  padding: 5px;
+  font-size: 35px;
+  color: white;
+  font-weight: lighter;
+  margin-top: 0px;
+}
+
+
+//---------------------------------------------------------
+
+
+@media (max-width:450px) {
+  .title_flight{
+    width: 100%;
+    background: #456990;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    font-weight: lighter;
+    margin-top: 0px;
+  }
+}
