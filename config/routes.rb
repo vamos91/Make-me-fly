@@ -17,6 +17,13 @@ Rails.application.routes.draw do
 
 
   resources :ads  do
+    member do
+      get :chat
+    end
+    resources :conversations do
+      resources :messages
+
+    end
     collection do
       get 'search', to: "ads#search"    # collection => no ads id in URL
     end

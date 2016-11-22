@@ -43,6 +43,7 @@
             <p><%= @ad.user.name.upcase %></p>
             <p>Pilote de <%= @ad.category %></p>
             <%= link_to t(".top_call_to_action", default: "Envoyé un message"), conversations_path, class: "btn btn-primary" %>
+              <!-- chat_ad_path(@ad) -->
          </div>
 
         </div>
