@@ -11,6 +11,9 @@ class AdsController < ApplicationController
 
  def show
    find_ad
+   # creer une conversation
+   @conversion  = Conversation.create
+
    @markers = Gmaps4rails.build_markers(@ad) do |ad, marker|
       marker.lat ad.latitude
       marker.lng ad.longitude

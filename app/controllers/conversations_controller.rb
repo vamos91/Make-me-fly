@@ -23,8 +23,20 @@ end
 
 
 
+# def destroy
+#    find_conversation
+#    @conversation.destroy
+#    redirect_to conversations_path
+# end
+
 private
  def conversation_params
   params.permit(:sender_id, :recipient_id)
+ end
+
+
+ def find_conversation
+   @conversation = Conversation.find(params[:id])
+    authorize @conversation
  end
 end

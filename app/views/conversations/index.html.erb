@@ -10,7 +10,8 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <%= link_to recipient.name, conversation_messages_path(conversation)%>
+          <p><%= link_to recipient.name, conversation_messages_path(conversation)%></p>
+
         <% end %>
       <% end %>
     </div>
@@ -22,7 +23,7 @@
   <h3>All Users</h3>
   <div>
     <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
+      <% if user.id != current_user.id && user.pilote? %>
       <div>
         <%= user.name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
       </div>

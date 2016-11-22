@@ -31,19 +31,11 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Notification -->
-     <!-- <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">1</div>
-        </div>
-      <% end %>
-          -->
+
+
       <% if current_user.pilote? %>
-       <%= link_to "Publiez une annonce", new_ad_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+       <%= link_to "Je propose un vol", new_ad_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
       <% end %>
-
-
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -82,6 +74,15 @@
         </div>
       </div>
 
+
+
+<!-- Notification -->
+         <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+            <div class="badge-container">
+              <i class="fa fa-envelope-o"></i>
+              <div class="badge badge-blue">1</div>
+            </div>
+          <% end %>
     <% else %>
 
 
