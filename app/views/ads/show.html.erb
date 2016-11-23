@@ -67,12 +67,12 @@
             <% end %>
            </div>
               <% if policy(@ad).update? %>
-               <div class="padded-product">
+               <div class="btn-group padded-product button-show">
                 <%= link_to "Modifier mon annonce", ads_path,method: :update, :class => "btn btn-warning btn-lg btn-block" %>
                </div>
-              <% end %>
+                <% end %>
                <% if policy(@ad).destroy? %>
-                <div class="padded-product">
+                <div class="btn-group padded-product button-show">
                 <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger btn-lg btn-block" %>
               </div>
             <% end %>
@@ -100,8 +100,8 @@
   <% end %>
  <% end %>
 
-<div class="title_flight">
-  <p>Voici les autres vols proposés par <%= @ad.user.name.capitalize %></p>
+<div class="title_flight text-center">
+  <p>Voici les autres vols proposés par <strong><%= @ad.user.name.capitalize %></strong></p>
 </div>
 <div class="wrapper-card padded">
     <div class="container">

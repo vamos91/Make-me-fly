@@ -86,12 +86,15 @@ class AdsController < ApplicationController
   def destroy
     find_ad
     @ad.destroy
-    redirect_to ads_path
+    redirect_to ads_path, notice: 'Annonce effacée avec success'
   end
 
   def search
     @city = params[:q]
     @ads = Ad.near(@city, 50, :units => :km)
+    if @ads.empty?
+      redirect_to root_path, notice: "IL NY A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
+    end
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|
       marker.lat ad.latitude

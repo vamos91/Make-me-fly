@@ -1,6 +1,16 @@
 
 <div class="title-show">
-  <p><strong>Il y a <%= @ads.size %> vol(s) aux alentours de <%= @city %></strong></p>
+<% @cityCounter = 0 %>
+<% if @ads.empty? %>
+  <p><strong>Il n'y a aucun vol(s) aux alentours de <%= @city %></strong></p>
+<% else %>
+  <% @ads.each do |ad| %>
+    <% if ad.flight_date >= DateTime.now %>
+      <% @cityCounter = @cityCounter + 1 %>
+    <% end %>
+  <% end %>
+    <p><strong>Il y a <%= @cityCounter %> vol(s) aux alentours de <%= @city %></strong></p>
+<% end %>
 </div>
 
 <div class="wrapper-search">

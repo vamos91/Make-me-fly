@@ -142,7 +142,11 @@ color: blue;
 
 
 @media (max-width:450px) {
-
+  .btn-group .btn-lg{
+    margin-top: 3px;
+    font-size: 12px;
+    padding: 5px 16px;
+  }
 }
 
 
