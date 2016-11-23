@@ -2,10 +2,13 @@
 #footer {
   background: #456990;
   //background: $gray-darker;
-  padding: 117px 0;
+  //padding: 117px 0;
   color: #CCCCCC;
   height: 400px;
-  top:20px;
+  //top:20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #footer p {
   margin-top: 17px;
@@ -29,13 +32,16 @@
     list-style-type: none;
 }
 
+#footer .fa {
+  padding: 30px;
+}
 
 //--------------------------------------
 
 @media (max-width:450px) {
   #footer a {
     color: $gray-darker;
-    font-size: 27px;
+    font-size: 50px;
     line-height : 50px;
     transition: color 0.5s ease;
   }

@@ -1,6 +1,7 @@
 
 
 .banner {
+  position: relative;
   color: white;
   text-align: center;
   height: 100vh;
@@ -26,7 +27,11 @@
 }
 
 
-
+.prenom p{
+  position: absolute;
+  right: 50px;
+  top: 80px;
+}
 
 .banner-parallax{
     background-attachment: fixed;
@@ -197,7 +202,10 @@
     font-weight: lighter;
     color: grey;
   }
-
+  .prenom p{
+    display: none;
+    //top:90px;
+  }
 }
 
 

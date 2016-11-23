@@ -28,6 +28,10 @@ class AdPolicy < ApplicationPolicy
     true
   end
 
+  def chat?
+    true
+  end
+
   def search?
     true
   end

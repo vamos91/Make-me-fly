@@ -11,7 +11,7 @@ class AdsController < ApplicationController
 
  def show
    find_ad
-   # authorize @conversation
+   @ads = Ad.where(user_id: @ad.user)
    @markers = Gmaps4rails.build_markers(@ad) do |ad, marker|
       marker.lat ad.latitude
       marker.lng ad.longitude
@@ -19,14 +19,24 @@ class AdsController < ApplicationController
  end
 
  def chat
+  #binding.pry
     find_ad
-    # first or create
-    @conversation = Conversation.find_by_ad_id(@ad.id)
-    if @conversation.nil?
-      @conversation = Conversation.create(
-        sender_id:
-        recipient_id:
-        ad_id: )
+    @conversations = Conversation.where(ad_id: @ad.id)
+    #authorize @conversation
+    if @conversations.empty?
+      @conversation = Conversation.new(
+        ad_id: @ad.id,
+        recipient_id: @ad.user.id,
+        sender_id: current_user.id
+        )
+
+      if @conversation.save
+        redirect_to ad_conversation_messages_path(@conversation)
+      else
+      end
+      #authorize @conversation
+    else
+      redirect_to ad_conversation_messages_path(@conversations.first)
     end
  end
 
@@ -101,4 +111,9 @@ class AdsController < ApplicationController
     authorize @ad
   end
 
+
+
+  def conversation_params
+    params.permit(:sender_id, :recipient_id, :ad_id)
+  end
 end

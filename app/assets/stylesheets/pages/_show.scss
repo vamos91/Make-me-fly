@@ -11,8 +11,14 @@
   //box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   border: #D7DBDD 1px solid;
-  padding-bottom: 40px;
+}
 
+.card-show .photo-ulm img {
+  width: 100%;
+}
+
+.bottom-padding{
+  padding-bottom: 40px;
 }
 
 .padded{
@@ -24,7 +30,7 @@
     margin-top: 0px;
     margin-bottom: -70px;
     background-attachment: fixed;
-    height: 301px;
+    //height: 301px;
     width: 100%;
 }
 
@@ -130,6 +136,14 @@ color: blue;
   }
 
 
+
+//------------------------------------------------------------------------
+
+
+
+@media (max-width:450px) {
+
+}
 
 
 

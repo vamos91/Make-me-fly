@@ -3,6 +3,9 @@
 
 <div class="banner img-responsive">
   <div class="banner-content">
+    <div class="prenom">
+      <p>Bonjour <%= current_user.name.capitalize %></p>
+    </div>
     <h1>MAKE ME FLY</h1>
     <p>Premier site de reservation de vol en ULM entre particuliers</p>
 
@@ -63,9 +66,7 @@
 </div>
   <div class="wrapper-card padded">
     <div class="container">
-
-   <!--   <p class ="text-center">Découvrez la passion de pilotes expérimentés</p>
-   -->    <div class="row">
+       <div class="row">
          <div class="reveal">
             <% @ads.each do |ad| %>
               <div class="col-xs-12 col-sm-12 col-md-4">

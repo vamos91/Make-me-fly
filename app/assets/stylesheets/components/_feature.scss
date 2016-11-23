@@ -103,7 +103,39 @@ padding-right:0;
 }
 
 
+@media (max-width:450px) {
 
+  .wrapper-pilot{
+  margin-top:30px;
+  margin:0;
+  padding: 0px;
+  font-size: 10px;
+  color: white;
+  font-weight: lighter;
+
+}
+  .pilote{
+  padding: 0;
+  height: 250px;
+  background:#4fd2c2;
+  margin-left: -70px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.passager{
+  padding: 60;
+  height: 250px;
+  background:#00bcd4;
+  margin-right: -15px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+}
 
 
 

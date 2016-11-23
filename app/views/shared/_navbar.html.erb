@@ -103,6 +103,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "Connexion", new_user_session_path %></li>
+        <li><%= link_to "Qu'est ce qu'un ULM ?", pages_ulm_path %></li>
           <% if user_signed_in?%>
            <li><%= link_to "Profile de #{current_user.name}" %></li>
            <% if current_user.pilote? %>
