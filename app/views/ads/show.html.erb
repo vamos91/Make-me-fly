@@ -24,8 +24,9 @@
 
             <p><%= @ad.user.name.upcase %></p>
             <p>Pilote de <%= @ad.category %></p>
-            <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
-              <!-- chat_ad_path(@ad) -->
+            <% if policy(@ad).chat? == true %>
+              <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
+              <% end %>
          </div>
         </div>
           <div class="card-show card-padded">

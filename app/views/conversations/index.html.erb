@@ -10,8 +10,7 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <p><%= link_to recipient.name, conversation_messages_path(conversation)%></p>
-
+          <p><%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%></p>
         <% end %>
       <% end %>
     </div>
@@ -19,7 +18,7 @@
 </div>
 
 
-<div>
+<!-- <div>
   <h3>All Users</h3>
   <div>
     <% @users.each do |user| %>
@@ -30,4 +29,4 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div> -->

@@ -19,24 +19,20 @@ class AdsController < ApplicationController
  end
 
  def chat
-  #binding.pry
     find_ad
     @conversations = Conversation.where(ad_id: @ad.id)
-    #authorize @conversation
     if @conversations.empty?
       @conversation = Conversation.new(
         ad_id: @ad.id,
         recipient_id: @ad.user.id,
         sender_id: current_user.id
         )
-
       if @conversation.save
-        redirect_to ad_conversation_messages_path(@conversation)
+        redirect_to ad_conversation_messages_path(@ad, @conversation)
       else
       end
-      #authorize @conversation
     else
-      redirect_to ad_conversation_messages_path(@conversations.first)
+        redirect_to ad_conversation_messages_path(@ad, @conversations.first)
     end
  end
 
@@ -63,7 +59,7 @@ class AdsController < ApplicationController
 
     if @ad.save
       AdMailer.creation_confirmation(@ad).deliver_now
-      redirect_to root_path, notice: 'Annonce crée avec succès'
+      redirect_to ad_path(@ad), notice: 'Annonce crée avec succès'
     else
       render :new
     end

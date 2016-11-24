@@ -3,7 +3,7 @@
 
   <div>
     <div>
-      <% @conversation.each do |conversation| %>
+      <% @conversations.each do |conversation| %>
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
           <% if conversation.sender_id == current_user.id %>
             <% recipient = User.find(conversation.recipient_id) %>
@@ -11,7 +11,6 @@
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
           <p><%= link_to recipient.name, ad_conversation_messages_path(conversation)%></p>
-
         <% end %>
       <% end %>
     </div>

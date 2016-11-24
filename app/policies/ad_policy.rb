@@ -29,7 +29,7 @@ class AdPolicy < ApplicationPolicy
   end
 
   def chat?
-    true
+    is_user?
   end
 
   def search?
@@ -48,6 +48,10 @@ private
 
 def user_is_owner_or_admin?
   record.user == user
+end
+
+def is_user?
+    record.user != user
 end
 
 end
