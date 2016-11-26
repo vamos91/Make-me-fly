@@ -1,110 +1,107 @@
-<div class="title_page">
-      <div><strong>Voici le vol proposé par <%= @ad.user.name.upcase %></strong></div>
-      <p>Annonce publié le <%= @ad.user.created_at.strftime("%d-%b-%Y")%></p>
+<div class="banner-show">
+  <%= cl_image_tag @ad.photo, crop: :fill %>
 </div>
-<div class="padded">
+<div class="header-flat">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="card-show card-padded bottom-padding">
-          <% case @ad.category %>
-            <% when 'Paramoteur' %>
-             <%= image_tag "paramoteur.jpg", :class => "header-show"%>
-            <% when 'Multiaxe' %>
-              <%= image_tag "multiaxe.jpg", :class => "header-show"%>
-            <% when 'Pendulaire' %>
-              <%= image_tag "pendulaire.jpeg", :class => "header-show"%>
-          <% end %>
-          <div class="card-picture">
-            <% if @ad.user.picture? %>
-             <p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+        <div class="header-flat-details">
+          <div class="header-flat-owner  text-center">
+          <% if @ad.user.picture? %>
+            <p><%= cl_image_tag @ad.user.picture, class: "img-circle", width: "80" %></p>
             <% else %>
-             <p><%= image_tag "pilot.png", :class => "avatar-xxl" %></p>
-            <% end %>
-
-            <p><%= @ad.user.name.upcase %></p>
-            <p>Pilote de <%= @ad.category %></p>
+            <p><%= image_tag "pilot.png", class: "img-circle", width: "80" %></p>
+          <% end %>
+            <p><%= @ad.user.name.capitalize %></p>
             <% if policy(@ad).chat? == true %>
-              <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
-              <% end %>
-         </div>
-        </div>
-          <div class="card-show card-padded">
-            <div class="featureListItem">
-              <div class="featureListItem__icon">
-                <div class="icon fa fa-calendar"></div>
-              </div>
-              <div class="featureListItem__description"> Je te propose de voler avec moi le : <%= @ad.flight_date %></div>
-            </div>
-            <div class="featureListItem featureListItem--reverse">
-              <div class="featureListItem__icon">
-                <div class="icon fa fa-dashboard"></div>
-              </div>
-              <div class="featureListItem__description">Nous décollerons de <%= @ad.address %></div>
-            </div>
-            <div class="featureListItem">
-              <div class="featureListItem__icon">
-                <div class="icon fa fa-plane"></div>
-              </div>
-              <div class="featureListItem__description"><%= @ad.description %></div>
-            </div>
+            <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
+          <% end %>
           </div>
-      </div>
-      <div class="col-xs-12 col-md-6">
-       <div class="card-show card-padded">
-        <div class="photo-ulm">
-          <%= cl_image_tag @ad.photo, crop: :fill %>
+          <div class="header-flat-name">
+            <h1>Pilote de <%= @ad.category %></h1>
+            <p><%= @ad.address %></p>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #cacccd"></i>
+          </div>
         </div>
-       </div>
-       <div class="card-show card-padded">
-         <div id="map" style="width: 100%;"></div>
-       </div>
-        <div class="card-show card-padded padded">
-          <div class="price-show"><p><%= humanized_money_with_symbol(@ad.price) %></p></div>
-          <div class="btn-group padded-product button-show ">
-            <%= form_tag orders_path do %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= form_tag orders_path do %>
+              <%= humanized_money_with_symbol(@ad.price) %>
+              <h4>Je reserve ce vol avec <%= @ad.user.name.capitalize %></h4>
               <%= hidden_field_tag 'ad_id', @ad.id %>
-              <%= submit_tag 'Réservez dès maintenant' , :class => "btn btn-success btn-lg btn-block"%>
+              <%= submit_tag 'Réservez dès maintenant' , :class => "btn btn-success btn-block"%>
             <% end %>
            </div>
               <% if policy(@ad).update? %>
                <div class="btn-group padded-product button-show">
-                <%= link_to "Modifier mon annonce", ads_path,method: :update, :class => "btn btn-warning btn-lg btn-block" %>
+                <%= link_to "Modifier mon annonce", ads_path,method: :update, :class => "btn btn-warning btn-block" %>
                </div>
                 <% end %>
                <% if policy(@ad).destroy? %>
                 <div class="btn-group padded-product button-show">
-                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger btn-lg btn-block" %>
+                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger btn-block" %>
               </div>
             <% end %>
-           </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
- <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(12);
+<div id="flat-description">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <h2>A propos de ce vol</h2>
+        <p><%= @ad.description %></p>
+        <hr>
+        <div class="row" id="flat-data">
+          <div class="col-xs-12 col-sm-2">
+            Paramètre de vol
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+              <li>Date du vol:  <strong><%= I18n.l(@ad.flight_date, format: :long)  %></strong></li>
+              <li>Lieu du vol: <strong><%= @ad.address %></strong></li>
 
-      });
-    })
-  <% end %>
- <% end %>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row" id="flat-data">
+          <div class="col-xs-12 col-sm-2">
+            Infos
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+              <li>Type d'ULM: <strong><%= @ad.category%></strong></li>
+              <li>Temps de vol approximatif:  <strong><%= @ad.flight_time %>mn</strong></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+            </ul>
+          </div>
+        </div>
 
-<div class="title_flight text-center" style="background-color: #ADE1E5;">
-  <p>Voici les autres vols proposés par <strong><%= @ad.user.name.capitalize %></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-show">
+  <div id="map" style="width: 100%; height: 400px; pointer-events:none; border: 1px solid #dce0e0;"></div>
 </div>
 <div class="wrapper-card padded">
+<div style="font-weight: lighter; text-align: center;">
+  <h4>Les autre vols proposés par <strong><%= @ad.user.name.capitalize %></strong></h4>
+  </div>
     <div class="container">
        <div class="row">
          <div class="reveal">
@@ -128,4 +125,123 @@
 
 
 
-
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({
+      provider: {
+        styles : [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "saturation": "4"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "gamma": "1.76"
+            },
+            {
+                "lightness": "20"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#8c9092"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
+      },
+      internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(12);
+      });
+    })
+  <% end %>
+ <% end %>
