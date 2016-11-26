@@ -10,7 +10,7 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <p><%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%></p>
+          <p>Conversation avec <%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%> pour le vol du <%= conversation.ad.flight_date %> à <%= conversation.ad.address%></p>
         <% end %>
       <% end %>
     </div>
@@ -22,7 +22,7 @@
   <h3>All Users</h3>
   <div>
     <% @users.each do |user| %>
-      <% if user.id != current_user.id && user.pilote? %>
+      <% if user.id != current_user.id %>
       <div>
         <%= user.name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
       </div>

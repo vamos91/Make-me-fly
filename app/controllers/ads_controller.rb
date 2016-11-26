@@ -20,7 +20,7 @@ class AdsController < ApplicationController
 
  def chat
     find_ad
-    @conversations = Conversation.where(ad_id: @ad.id)
+    @conversations = Conversation.where(ad_id: @ad.id, recipient_id: @ad.user.id, sender_id: current_user.id)
     if @conversations.empty?
       @conversation = Conversation.new(
         ad_id: @ad.id,
@@ -29,10 +29,9 @@ class AdsController < ApplicationController
         )
       if @conversation.save
         redirect_to ad_conversation_messages_path(@ad, @conversation)
-      else
       end
     else
-        redirect_to ad_conversation_messages_path(@ad, @conversations.first)
+      redirect_to ad_conversation_messages_path(@ad, @conversations.first)
     end
  end
 

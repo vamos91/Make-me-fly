@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
  #before_action :authenticate_user!
 
 def index
+ #@ads = Ad.all
  @users = User.all
  conversations = Conversation.all
  @conversations = policy_scope(conversations)
