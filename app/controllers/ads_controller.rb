@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
   skip_before_action :authenticate_user!
-  #before_action :set_forecast, only: [:show]
+  before_action :set_forecast, only: [:show]
 
 
  def index
@@ -119,6 +119,14 @@ class AdsController < ApplicationController
 
   def conversation_params
     params.permit(:sender_id, :recipient_id, :ad_id)
+  end
+
+  def set_forecast
+    @forecast = Forecast.find(params[:id])
+  end
+
+  def forecast_params
+    params.require(:forecast).permit(:lat, :lng)
   end
 
 end
