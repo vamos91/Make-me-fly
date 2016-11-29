@@ -1,12 +1,11 @@
-class OrderPolicy < ApplicationPolicy
+class ForecastPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
     end
   end
 
-
-  def new?
+  def index?
     true
   end
 
@@ -18,8 +17,12 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
 
-
-
+  def update?
+    true
+  end
 
 end

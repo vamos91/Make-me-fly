@@ -1,5 +1,6 @@
 class AdsController < ApplicationController
   skip_before_action :authenticate_user!
+  #before_action :set_forecast, only: [:show]
 
 
  def index
@@ -16,6 +17,14 @@ class AdsController < ApplicationController
       marker.lat ad.latitude
       marker.lng ad.longitude
     end
+
+   @forecast = Forecast.new(
+    lat: @ad.latitude,
+    lng: @ad.longitude
+    )
+   @weather = @forecast.get_weather_data
+   @current_weather = @weather.currently
+   @daily_weather = @weather.daily.data.first(5)
  end
 
  def chat
@@ -35,8 +44,7 @@ class AdsController < ApplicationController
     end
  end
 
-
-  def new
+ def new
       #@ad = Ad.new
       #si le user est un pilote il peut faire une annonce sinon il doit s'identifier comme pilote et remplir son profil
 
@@ -109,9 +117,8 @@ class AdsController < ApplicationController
     authorize @ad
   end
 
-
-
   def conversation_params
     params.permit(:sender_id, :recipient_id, :ad_id)
   end
+
 end

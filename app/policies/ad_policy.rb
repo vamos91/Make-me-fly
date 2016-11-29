@@ -32,6 +32,10 @@ class AdPolicy < ApplicationPolicy
     is_user?
   end
 
+  def forecast?
+    true
+  end
+
   def search?
     true
   end

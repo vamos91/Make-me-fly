@@ -103,6 +103,10 @@ GEM
       railties (>= 3.2, < 5.1)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    forecast_io (2.0.1)
+      faraday
+      hashie
+      multi_json
     geocoder (1.4.0)
     gibbon (2.2.4)
       faraday (>= 0.9.1)
@@ -310,6 +314,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
+  forecast_io
   geocoder
   gibbon
   gmaps4rails

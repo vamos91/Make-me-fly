@@ -60,24 +60,15 @@
         <hr>
         <div class="row" id="flat-data">
           <div class="col-xs-12 col-sm-2">
+          <%= image_tag "flight_param.png", width: "30" %>
             Paramètre de vol
           </div>
           <div class="col-xs-12 col-sm-4">
             <ul class="list-unstyled">
               <li>Date du vol:  <strong><%= I18n.l(@ad.flight_date, format: :long)  %></strong></li>
-              <li>Lieu du vol: <strong><%= @ad.address %></strong></li>
+              <li>Lieu du vol: <strong><%= @ad.address.capitalize %></strong></li>
 
             </ul>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <ul class="list-unstyled">
-            </ul>
-          </div>
-        </div>
-        <hr>
-        <div class="row" id="flat-data">
-          <div class="col-xs-12 col-sm-2">
-            Infos
           </div>
           <div class="col-xs-12 col-sm-4">
             <ul class="list-unstyled">
@@ -85,12 +76,27 @@
               <li>Temps de vol approximatif:  <strong><%= @ad.flight_time %>mn</strong></li>
             </ul>
           </div>
+        </div>
+        <hr>
+        <div class="row" id="flat-data">
+          <div class="col-xs-12 col-sm-2">
+          <%= image_tag "meteo.png", width: "30" %>
+            Météo
+          </div>
           <div class="col-xs-12 col-sm-4">
             <ul class="list-unstyled">
+              <li>Météo du jour: <strong><%= @weather.currently.summary %></strong></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+            <% @daily_weather.each do |day| %>
+              <li><%= Time.at(day.time).strftime('%d-%b-%Y') %><strong><%= day.summary %></strong></li>
+<!--               <li>Température Max: <strong><%= day.apparentTemperatureMax.round %> degres</strong></li>
+ -->            <% end %>
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   </div>

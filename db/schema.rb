@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122151728) do
+ActiveRecord::Schema.define(version: 20161129003845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20161122151728) do
   end
 
   add_index "conversations", ["ad_id"], name: "index_conversations_on_ad_id", using: :btree
+
+  create_table "forecasts", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"

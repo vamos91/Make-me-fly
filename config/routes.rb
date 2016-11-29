@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :forecasts
   get 'conversations/index'
 
   get 'conversations/create'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   resources :ads  do
     member do
       get :chat
+      get :forecast
     end
     resources :conversations do
       resources :messages

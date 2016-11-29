@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+The weather is <%= @weather.currently.summary %> and
+and <%= @current_weather.humidity %> and <%= @current_weather.icon %> and <%= @current_weather.windSpeed %> and <%= @current_weather.time %>
+<p>
+
+
+
+
+<% @daily_weather.each do |day| %>
+  <%= day.summary %><br>
+  <%time = Time.at(day.time).strftime('%A') %>
+    High: <%= day.apparentTemperatureMax.round %> degres, et <%= @current_weather.pressure %>Pa et <%= @current_weather.windSpeed %>km/h
+<% end %>
+<p>
+  <strong>Lat:</strong>
+  <%= @forecast.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @forecast.lng %>
+</p>
+
+<%= link_to 'Edit', edit_forecast_path(@forecast) %> |
+<%= link_to 'Back', forecasts_path %>
