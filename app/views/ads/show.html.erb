@@ -34,18 +34,20 @@
               <h4>Je reserve ce vol avec <%= @ad.user.name.capitalize %></h4>
               <%= hidden_field_tag 'ad_id', @ad.id %>
               <%= submit_tag 'Réservez dès maintenant' , :class => "btn btn-success btn-block"%>
-            <% end %>
-           </div>
+
+
               <% if policy(@ad).update? %>
-               <div class="btn-group padded-product button-show">
+               <div style="margin-top: 15px">
                 <%= link_to "Modifier mon annonce", ads_path,method: :update, :class => "btn btn-warning btn-block" %>
                </div>
                 <% end %>
                <% if policy(@ad).destroy? %>
-                <div class="btn-group padded-product button-show">
+                <div style="margin-top: 15px">
                 <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger btn-block" %>
               </div>
             <% end %>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>
