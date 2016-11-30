@@ -40,19 +40,18 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if current_user.picture? %>
-
-          <%= cl_image_tag current_user.picture, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.facebook_picture_url? %>
+            <% avatar_url = current_user.facebook_picture_url  %>
           <% else %>
-          <%= image_tag "pilot.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% avatar_url = cl_image_tag current_user.picture || "pilot.png"%>
           <% end %>
-
+          <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to users_path(@user) do %>
-                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile de #{current_user.name.capitalize}" %>
+                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile de #{current_user.first_name}" %>
               <% end %>
             </li>
             <li>
