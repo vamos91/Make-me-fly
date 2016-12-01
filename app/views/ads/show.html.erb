@@ -38,7 +38,7 @@
 
               <% if policy(@ad).update? %>
                <div style="margin-top: 15px">
-                <%= link_to "Modifier mon annonce", ads_path,method: :update, :class => "btn btn-warning btn-block" %>
+                <%= link_to "Modifier mon annonce", edit_ad_path(@ad), :class => "btn btn-warning btn-block" %>
                </div>
                 <% end %>
                <% if policy(@ad).destroy? %>
