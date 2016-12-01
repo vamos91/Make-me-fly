@@ -31,15 +31,27 @@
 
 .liste{
   background: #F7F3EF;
-  //overflow-y:auto;
-  //wheight: 100vh;
   height: 600px;
   overflow: scroll;
 
 }
 
 .wrapper-search{
-  margin-top: 30px;
-  background: #F7F3EF;
+  margin-top: 0px;
+  //background: #F7F3EF;
+  background: $gray-lighter;
+}
 
+
+
+#search p{
+  position: absolute;
+  font-weight: lighter;
+  font-size: 20px;
+  left: 10px;
+  top: 100px;
+  background: black;
+  opacity: 0.5;
+  padding: 25px;
+  border-radius: 25px;
 }
