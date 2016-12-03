@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
+
     ad = Ad.count
     @pilote_counter = User.where("pilote = ?", true).count
     @passager_counter = User.where("pilote = ?", false).count

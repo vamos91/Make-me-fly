@@ -30,11 +30,12 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= form_tag orders_path do %>
+            <% if @ad.booked != '1'%>
               <%= humanized_money_with_symbol(@ad.price) %>
               <h4>Je reserve ce vol avec <%= @ad.user.name.capitalize %></h4>
               <%= hidden_field_tag 'ad_id', @ad.id %>
-              <%= submit_tag 'Réservez dès maintenant' , :class => "btn btn-success btn-block"%>
-
+              <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
+            <% end %>
 
               <% if policy(@ad).update? %>
                <div style="margin-top: 15px">
