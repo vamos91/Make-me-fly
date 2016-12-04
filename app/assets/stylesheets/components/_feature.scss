@@ -1,25 +1,26 @@
 .feature-size {
-  font-size: 50px;
+  font-size: 30px;
   opacity: 1;
   color: #456990;
-  border-bottom: 1px solid #D7DBDD;
+  //border-bottom: 1px solid #D7DBDD;
   transition: opacity 0.5s ease;
 }
 
+.spacing p{
+  color: gray;
+}
 
+.feature-size:hover{
+  opacity: 0.5;
+}
+
+.feature-size p{
+  color: gray;
+}
 
 .feature-icon{
   font-size: 60px;
   color: white;
-}
-
-
-
-
-
-.feature-size:hover{
-  opacity: 0.5;
-
 }
 
 .border{
@@ -34,7 +35,6 @@
   font-weight: lighter;
   margin-bottom: 0px;
 }
-
 
 .wrapper-pilot{
   margin-top:30px;
