@@ -1,8 +1,7 @@
 <% if user_signed_in? %>
-
-<div class="title_page padded"><strong>Publiez une nouvelle annonce</strong></div>
-
-
+<div class="banner-show banner-new-ad" style="height: 200px; font-weight: lighter;">
+<p>Je modifie mon annonce</p>
+</div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -24,10 +23,6 @@
       </div>
     </div>
   </div>
-
-
   <% else %>
-
   <%= link_to new_user_session_path %>
-
   <% end %>
