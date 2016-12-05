@@ -12,3 +12,21 @@
   font-size: 30px;
   font-weight: lighter;
 }
+
+.wrapper-registration ul{
+  list-style:none;
+}
+
+.wrapper-registration li{
+  background-color: $gray-lighter;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
+
+}
+
+.wrapper-registration .paiement{
+  background-color: $gray-light;
+  font-weight: bold;
+  color: $gray-lighter;
+}
