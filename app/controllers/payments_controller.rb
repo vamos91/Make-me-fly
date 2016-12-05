@@ -26,8 +26,8 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: charge.to_json, status: 'paid')
     PaymentMailer.payment_confirmation(@order).deliver_now
-    @ad = Ad.all
-    @ad.booked = '1'
+    # @ad = Ad.all
+    # @ad.booked = '1'
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
