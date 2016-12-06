@@ -3,8 +3,11 @@
 
 <div class="banner img-responsive">
   <div class="banner-content">
-    <div class="prenom">
-<!--  -->    </div>
+    <% if user_signed_in? %>
+      <div class="prenom">
+        <p>Bonjour <%= current_user.name.capitalize %></p>
+      </div>
+    <% end %>
     <h1>MAKE ME FLY</h1>
     <p>Premier site de reservation de vol en ULM entre particuliers</p>
 
