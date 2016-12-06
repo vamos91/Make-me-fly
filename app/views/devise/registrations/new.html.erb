@@ -12,7 +12,7 @@
                     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
-                      <%= f.input :pilote, :as => :boolean, :input_html => { :checked => true, class:  'status-pilote' }, :label => false, :inline_label => true%>
+                      <%= f.input :pilote, :as => :boolean, :input_html => { :checked => true, class: 'status-pilote' }, :label => false, :inline_label => true%>
                       <%= f.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' } %>
                       <%= f.input :picture_cache, as: :hidden %>
                       <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom ou pseudo de pilote",label: false %>
@@ -49,7 +49,7 @@
                     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
-                      <%= f.input :pilote, :as => :boolean, :as => :hidden, :label => false,:input_html => { :checked => false, class: 'status-pilote' }, :inline_label => true%>
+                      <%= f.input :pilote, :as => :boolean, :as => :hidden, :label => false,:input_html => { :checked => false }, :inline_label => true %>
                       <%= f.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' } %>
                       <%= f.input :picture_cache, as: :hidden %>
                       <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom",label: false %>

@@ -61,12 +61,18 @@ class AdsController < ApplicationController
   def create
     # @ad = Ad.new(ad_params)
     # @ad.user = current_user
+    @user = User.all
     @ad = current_user.ads.build(ad_params)
     @ad.price = (@ad.price*1.1)
     authorize @ad
 
     if @ad.save
       AdMailer.creation_confirmation(@ad).deliver_now
+      #doit envoyer un mail a tous les user qui habite dans les 100 km à la ronde.
+      # @users = User.near(@ad.address, 100, :units => :km)
+      # @users.each do |user|
+      #   if @ad.address
+      # end
       redirect_to ad_path(@ad), notice: 'Annonce crée avec succès'
     else
       render :new
@@ -90,12 +96,12 @@ class AdsController < ApplicationController
   def destroy
     find_ad
     @ad.destroy
-    redirect_to ads_path, notice: 'Annonce effacée avec success'
+    redirect_to ads_path, notice: 'Annonce effacée avec succès'
   end
 
   def search
     @city = params[:q]
-    @ads = Ad.near(@city, 50, :units => :km)
+    @ads = Ad.near(@city, 100, :units => :km)
     if @ads.empty?
       redirect_to root_path, notice: "IL NY A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
     end
@@ -129,5 +135,10 @@ class AdsController < ApplicationController
   def forecast_params
     params.require(:forecast).permit(:lat, :lng)
   end
+
+  def user_params
+    params.require(:user).permit(:hometown)
+  end
+
 
 end
