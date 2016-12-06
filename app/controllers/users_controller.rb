@@ -10,16 +10,6 @@ class UsersController < ApplicationController
    #authorize @user
  end
 
-  # def new
-  #   @user = User.new
-  # end
-
-  # def create
-  #   @user = User.new(user_param)
-  # end
-
-
-
 
   # private
   # def user_param

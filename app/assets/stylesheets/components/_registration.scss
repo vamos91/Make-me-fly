@@ -11,6 +11,10 @@
   text-align: justify;
 }
 
+.status-pilote{
+  display: none;
+}
+
 .wrapper-registration span {
   font-size: 15px;
   font-weight: lighter;
@@ -39,4 +43,14 @@
   background-color: $gray-light;
   font-weight: bold;
   color: $gray-lighter;
+}
+
+.hide-profile-field{
+    display: block;
+  }
+
+@media (max-width:450px) {
+  .hide-profile-field{
+    display: none;
+  }
 }

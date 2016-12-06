@@ -90,7 +90,7 @@
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
       <!-- Login text link -->
-    <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Inscription"), pages_subscribe_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
 
     <% end %>
@@ -108,7 +108,7 @@
         <li><%= link_to "Connexion", new_user_session_path %></li>
         <li><%= link_to "Qu'est ce qu'un ULM ?", pages_ulm_path %></li>
           <% if user_signed_in?%>
-           <li><%= link_to "Profile de #{current_user.name}" %></li>
+           <li><%= link_to "Mon profile" %></li>
            <% if current_user.pilote? %>
              <li><%= link_to "Publier une annonce", new_ad_path %></li>
              <li><%= link_to "Mes annonces", ads_path %></li>

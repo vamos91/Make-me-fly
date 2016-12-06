@@ -1,0 +1,29 @@
+<div class="banner-show banner-new-ad" style="height: 200px; font-weight: lighter;">
+  <p>Quel bonheur de vous compter parmis nous. Inscrivez-vous en tant que <strong>pilote ou passager.</strong></p>
+  </div>
+<div class="wrapper-pilot">
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-6 no-space-left">
+    <div class="pilote">
+      <div class="feature-icon">
+        <i class="fa fa-fighter-jet" aria-hidden="true"></i>
+      </div>
+        <h3>Je suis pilote ULM</h3>
+        <p>Je suis pilote et je m'inscris, je propose un vol.</p>
+        <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path(:pilote => true),class: "button-feature" %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 no-space-right">
+    <div class="passager">
+      <div class="feature-icon">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+        <h3>Je suis passager</h3>
+        <p>Je crée un compte, je trouve mon pilote, je reserve un vol pas cher.</p>
+        <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path(:pilote => false), class: "button-feature" %>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>

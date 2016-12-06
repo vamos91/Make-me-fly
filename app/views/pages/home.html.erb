@@ -40,8 +40,8 @@
         <i class="fa fa-fighter-jet" aria-hidden="true"></i>
       </div>
         <h3>Je suis pilote ULM</h3>
-        <p>Je suis pilote et je me connecte, je propose un vol.</p>
-        <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "button-feature" %>
+        <p>Je suis pilote et je m'inscris, je propose un vol.</p>
+        <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path(:pilote => true),class: "button-feature" %>
     </div>
   </div>
   <div class="col-xs-12 col-sm-6 no-space-right">
@@ -51,7 +51,7 @@
       </div>
         <h3>Je suis passager</h3>
         <p>Je crée un compte, je trouve mon pilote, je reserve un vol pas cher.</p>
-        <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "button-feature" %>
+        <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path(:pilote => false), class: "button-feature" %>
     </div>
     </div>
   </div>

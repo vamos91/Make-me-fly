@@ -1,64 +1,79 @@
-<div class="banner-show banner-registration" style="height: 200px; font-weight: lighter;">
-<p>Nous sommes heureux de vous comptez parmis nous. Inscrivez-vous.</p>
-</div>
-<div class="panel panel-default">
-  <div class="panel-body">
-  <div class="form-inputs text-center">
-    <div class="container">
-    <div class="row">
-              <div class="col-xs-12 col-md-6 col-md-offset-3">
-               <div class="wrapper-registration">
-                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  <%= f.error_notification %>
-                  <div class="form-inputs">
-                    <%= f.input :pilote, :as => :boolean, :label => false, :inline_label => true%>
-                    <%= f.input :picture, label: "Votre photo" %>
-                    <%= f.input :picture_cache, as: :hidden %>
-                    <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom",label: false %>
-                    <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>
-                    <%= f.input :email, required: true, autofocus: true, placeholder: "Email",label: false %>
-                    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false%>
-                    <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
-                  </div>
-                    <div class="form-actions class-center text-center">
-                      <%= f.button :submit, "S'inscrire", class: "btn-primary" %>
+<% if params[:pilote] == 'true' %>
+  <div class="banner-show banner-registration" style="height: 200px; font-weight: lighter;">
+  <p>Nous sommes heureux de compter un nouveau pilote parmis nous. Inscrivez-vous.</p>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <div class="form-inputs text-center">
+      <div class="container">
+      <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                 <div class="wrapper-registration">
+                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
+                    <%= f.error_notification %>
+                    <div class="form-inputs">
+                      <%= f.input :pilote, :as => :boolean, :input_html => { :checked => true, class:  'status-pilote' }, :label => false, :inline_label => true%>
+                      <%= f.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' } %>
+                      <%= f.input :picture_cache, as: :hidden %>
+                      <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom ou pseudo de pilote",label: false %>
+                      <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>
+                      <%= f.input :email, required: true, autofocus: true, placeholder: "Email",label: false %>
+                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false%>
+                      <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
                     </div>
-                     <% end %>
-                      <%= render "devise/shared/links" %>
-                  </div>
-              </div>
-             </div>
-          </div>
-       </div>
-    </div>
-</div>
+                      <div class="form-actions class-center text-center">
+                        <%= f.button :submit, "S'inscrire", class: "btn-primary" %>
+                      </div>
+                       <% end %>
+                        <%= render "devise/shared/links" %>
+                    </div>
+                </div>
+               </div>
+            </div>
+         </div>
+      </div>
+  </div>
 
 
+<% else %>
+<div class="banner-show banner-registration" style="height: 200px; font-weight: lighter;">
+  <p>Nous sommes heureux de compter un nouveau passager parmis nous. Inscrivez-vous.</p>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <div class="form-inputs text-center">
+      <div class="container">
+      <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                 <div class="wrapper-registration">
+                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
+                    <%= f.error_notification %>
+                    <div class="form-inputs">
+                      <%= f.input :pilote, :as => :boolean, :as => :hidden, :label => false,:input_html => { :checked => false, class: 'status-pilote' }, :inline_label => true%>
+                      <%= f.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' } %>
+                      <%= f.input :picture_cache, as: :hidden %>
+                      <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom",label: false %>
+                      <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>
+                      <%= f.input :email, required: true, autofocus: true, placeholder: "Email",label: false %>
+                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false%>
+                      <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
+                    </div>
+                      <div class="form-actions class-center text-center">
+                        <%= f.button :submit, "S'inscrire", class: "btn-primary" %>
+                      </div>
+                       <% end %>
+                        <%= render "devise/shared/links" %>
+                    </div>
+                </div>
+               </div>
+            </div>
+         </div>
+      </div>
+  </div>
 
 
+<% end %>
 
-
-
-<% content_for :after_js do %>
-    <script>
-      $(function(){
-        $('.card-look').click(function() {
-          $(this).children(".card-check").toggleClass('hide');
-          var el = $(this).children('input[type=hidden]');
-          el.val(el.val() == 0 ? 1 : 0);
-        });
-
-        $(".card-look").on("mouseover", function() {
-          $(this).children(".card-hover").removeClass('hide');
-        })
-
-        $(".card-look").on("mouseout", function() {
-          $(this).children(".card-hover").addClass('hide');
-        })
-
-      });
-    </script>
-<% end  %>
 
 
 

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'pages/ulm'
 
+  get 'pages/subscribe'
+
   devise_for :users
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
