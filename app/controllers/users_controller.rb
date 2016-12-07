@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
  def index
   @users = User.all
+  @users = User.near(@users.ad.address, 100, :units => :km)
   #authorize @user
  end
 
@@ -21,10 +22,12 @@ class UsersController < ApplicationController
 
 
 
-  # private
+   private
   # def user_param
   #   params.require(:user).permit(:name, :pilote)
   # end
-
+  def find_ad
+    @ad = Ad.find(params[:id])
+  end
 
 end

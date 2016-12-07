@@ -55,7 +55,6 @@ class AdsController < ApplicationController
     else
       redirect_to new_user_registration_path
     end
-
   end
 
   def create
@@ -67,6 +66,12 @@ class AdsController < ApplicationController
 
     if @ad.save
       AdMailer.creation_confirmation(@ad).deliver_now
+      @users = User.near(@ad.address, 100, :units => :km)
+      #doit envoyer un mail a tous les user qui habite dans les 100 km à la ronde.
+       @users.each do |user|
+        #cree un mailer pour informer les user d'un vol
+         AdMailer.creation_confirmation(@ad).deliver_now
+       end
       redirect_to ad_path(@ad), notice: 'Annonce crée avec succès'
     else
       render :new
@@ -90,14 +95,14 @@ class AdsController < ApplicationController
   def destroy
     find_ad
     @ad.destroy
-    redirect_to ads_path, notice: 'Annonce effacée avec success'
+    redirect_to ads_path, notice: 'Annonce effacée avec succès'
   end
 
   def search
     @city = params[:q]
-    @ads = Ad.near(@city, 50, :units => :km)
+    @ads = Ad.near(@city, 100, :units => :km)
     if @ads.empty?
-      redirect_to root_path, notice: "IL NY A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
+      redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
     end
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|
@@ -129,5 +134,10 @@ class AdsController < ApplicationController
   def forecast_params
     params.require(:forecast).permit(:lat, :lng)
   end
+
+  def user_params
+    params.require(:user).permit(:hometown)
+  end
+
 
 end

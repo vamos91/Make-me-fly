@@ -11,14 +11,10 @@
     <p>Il y a <%= @cityCounter %> vol(s) aux alentours de <%= @city %></p>
 <% end %>
 </div>
-
-
-
 <div class="wrapper-search">
   <div class="container">
-
-      <div class="row">
-       <div class="col-xs-12 col-md-6">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
         <div class="liste">
           <% @ads.each do |ad| %>
             <% if ad.flight_date >= DateTime.now %>
@@ -27,26 +23,14 @@
           <% end %>
         </div>
       </div>
-
-
       <div class="col-xs-12 col-md-6">
        <div id="carte">
         <div id="map"></div>
        </div>
       </div>
-
-  </div>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-
-<!-- <div id="map" style="width: 100%; height: 600px;"></div>
- -->
  <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).on('ready', function() {
@@ -60,11 +44,6 @@
     })
   <% end %>
  <% end %>
-
-
-
-
-
 <div class="container text-center padded">
 <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %>
 </div>
