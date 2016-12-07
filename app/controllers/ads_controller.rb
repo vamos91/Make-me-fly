@@ -70,7 +70,9 @@ class AdsController < ApplicationController
       #doit envoyer un mail a tous les user qui habite dans les 100 km à la ronde.
        @users.each do |user|
         #cree un mailer pour informer les user d'un vol
-         AdMailer.creation_confirmation(@ad).deliver_now
+         if current_user != user
+          SendMailToCloseUser.send_creation_ad_to_users(user, @ad).deliver_now
+         end
        end
       redirect_to ad_path(@ad), notice: 'Annonce crée avec succès'
     else
