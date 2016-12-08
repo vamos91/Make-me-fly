@@ -55,7 +55,6 @@ class AdsController < ApplicationController
     else
       redirect_to new_user_registration_path
     end
-
   end
 
   def create
@@ -68,11 +67,14 @@ class AdsController < ApplicationController
 
     if @ad.save
       AdMailer.creation_confirmation(@ad).deliver_now
+      @users = User.near(@ad.address, 100, :units => :km)
       #doit envoyer un mail a tous les user qui habite dans les 100 km à la ronde.
-      # @users = User.near(@ad.address, 100, :units => :km)
-      # @users.each do |user|
-      #   if @ad.address
-      # end
+       @users.each do |user|
+        #cree un mailer pour informer les user d'un vol
+         if current_user != user
+          SendMailToCloseUser.send_creation_ad_to_users(user, @ad).deliver_now
+         end
+       end
       redirect_to ad_path(@ad), notice: 'Annonce crée avec succès'
     else
       render :new
@@ -103,7 +105,7 @@ class AdsController < ApplicationController
     @city = params[:q]
     @ads = Ad.near(@city, 100, :units => :km)
     if @ads.empty?
-      redirect_to root_path, notice: "IL NY A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
+      redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
     end
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|

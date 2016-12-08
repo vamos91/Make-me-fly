@@ -11,7 +11,7 @@ class UsersController < ApplicationController
  end
 
 
-  # private
+   private
   # def user_param
   #   params.require(:user).permit(:name, :pilote)
   # end

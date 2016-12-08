@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   #validates :name, presence: true
   #
 
-
+  geocoded_by :hometown
+  after_validation :geocode, if: :hometown_changed?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -18,6 +19,8 @@ class User < ActiveRecord::Base
   #after_create :subscribe_to_newsletter
 
   mount_uploader :picture, PhotoUploader
+
+
 
   private
 
