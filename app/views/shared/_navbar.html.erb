@@ -1,104 +1,54 @@
 <div class="navbar-wagon navbar-wagon-fixed">
   <!-- Logo -->
   <div class="container">
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <span>MakeMeFly</span>
-    <!-- <%= image_tag "logo.png" %> -->
-  </div>
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <span>MakeMeFly</span>
+    </div>
   <% end %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs">
 
-    <!-- Search form -->
-    <!-- <form action="<%= search_ads_path %>" class="navbar-wagon-search">
-      <input name="q" type="text" class="navbar-wagon-search-input" placeholder="Exemple 'Marseille'">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form> -->
-
-
-
-     <%= link_to "Home", root_path, :class => "navbar-wagon-item navbar-wagon-button btn" %>
-<!--      <%= link_to "Comment ca marche ?", '#', :class => "navbar-wagon-item navbar-wagon-button btn" %>
- -->     <%= link_to "Qu'est ce qu'un ULM ?", pages_ulm_path, :class => "navbar-wagon-item navbar-wagon-button btn" %>
+     <!-- <%= link_to "Qu'est ce qu'un ULM ?", pages_ulm_path, :class => "navbar-wagon-item navbar-wagon-button btn" %> -->
 <!--      <%= link_to "Contact", '#', anchor: "footer", :class => "navbar-wagon-item navbar-wagon-button btn" %>
  -->
      <!-- <%= link_to "Voir tous les pilotes", users_path, :class => "navbar-wagon-item navbar-wagon-button btn" %> -->
-
-
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
-
-
       <% if current_user.pilote? %>
        <%= link_to "Je propose un vol", new_ad_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
       <% end %>
-
-      <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <% if current_user.picture? %>
-
-          <%= cl_image_tag current_user.picture, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-          <%= image_tag "pilot.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% end %>
-
-
-
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to users_path(@user) do %>
-                <i class="fa fa-user"></i> <%= t ".profile", default: "Mon profile
-                " %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to ads_path do %>
-                <i class="fa fa-plane"></i> <%= t ".profile", default: "Mes annonces" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to root_path do %>
-                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-
-<!-- Notification -->
-         <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+    <% if current_user.picture? %>
+      <%= cl_image_tag current_user.picture, class: "avatar-large" %>
+      <% else %>
+        <%= image_tag "pilot.png", class: "avatar-large"%>
+    <% end %>
+    <span style="color: white;"><%= current_user.name.capitalize %></span>
+    <%= link_to root_path, :class => "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="fa fa-home"></i>
+     <% end %>
+    <%= link_to users_path(@user), :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
+      <i class="fa fa-user"></i>
+    <% end %>
+    <%= link_to ads_path, :class => "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="fa fa-plane"></i>
+    <% end %>
+    <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
             <div class="badge-container">
               <i class="fa fa-envelope-o"></i>
-              <div class="badge badge-blue">1</div>
-            </div>
+<!--               <div class="badge badge-blue">1</div>
+ -->            </div>
           <% end %>
+    <%= link_to destroy_user_session_path, :class => "navbar-wagon-item navbar-wagon-button btn", method: :delete do %>
+      <i class="fa fa-sign-out"></i>
+    <% end %>
+<!-- Notification -->
     <% else %>
-
-
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
       <!-- Login text link -->
     <%= link_to t(".top_call_to_action", default: "Inscription"), pages_subscribe_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-
     <% end %>
-
-
-
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
