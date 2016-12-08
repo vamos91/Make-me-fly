@@ -60,7 +60,7 @@ class AdsController < ApplicationController
   def create
     # @ad = Ad.new(ad_params)
     # @ad.user = current_user
-    @user = User.all
+    # @user = User.all
     @ad = current_user.ads.build(ad_params)
     @ad.price = (@ad.price*1.1)
     authorize @ad
