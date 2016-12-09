@@ -14,9 +14,6 @@
      <!-- <%= link_to "Voir tous les pilotes", users_path, :class => "navbar-wagon-item navbar-wagon-button btn" %> -->
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-      <% if current_user.pilote? %>
-       <%= link_to "Je propose un vol", new_ad_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-      <% end %>
     <% if current_user.picture? %>
       <%= cl_image_tag current_user.picture, class: "avatar-large" %>
       <% else %>

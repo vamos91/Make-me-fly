@@ -14,7 +14,7 @@
       <div class="call-to-action">
         <% if user_signed_in? && current_user.pilote? %>
            <%= link_to new_ad_path, class: "btn btn-danger btn-lg" do %>
-           <i class="fa fa-plane"></i>
+           <i class="fa fa-paper-plane-o"></i><%= t ".profile", default: "Je propose un vol" %>
            <% end %>
         <% end %>
       </div>
