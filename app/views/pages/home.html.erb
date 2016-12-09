@@ -13,7 +13,7 @@
       </form>
       <div class="call-to-action">
         <% if user_signed_in? && current_user.pilote? %>
-           <%= link_to new_ad_path, class: "btn btn-danger btn-lg" do %>
+           <%= link_to new_ad_path, class: "btn btn-danger btn-lg input-lg" do %>
            <i class="fa fa-paper-plane-o"></i><%= t ".profile", default: "Je propose un vol" %>
            <% end %>
         <% end %>
@@ -112,39 +112,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-<!-- <div class="feature-test text-center marged">
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "paramoteur-feature.jpg"%>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "paramoteur-feature.jpg"  %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "paramoteur-feature.jpg"  %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "paramoteur-feature.jpg"  %>
-        </div>
-    </div>
-  </div>
-</div>
-</div> -->
-
-
-
-
-
-<!-- INTRO -->
-
-
-
 <!-- FEATURES 2-->
 
 <div class="padded marged">

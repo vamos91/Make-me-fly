@@ -1,21 +1,49 @@
-.wrapper-registration {
+.new-ad-text {
   font-weight: lighter;
-  //background: $gray-lighter;
+  background: $celestial-blue;
+  padding: 50px;
+  margin: 10px auto;
+  margin-bottom: 130px;
+  border-radius: 12px;
+  color: white;
+}
+
+.session{
+  font-weight: lighter;
   padding: 50px;
   margin: 10px auto;
   margin-bottom: 130px;
   border-radius: 12px;
 }
 
-.wrapper-registration p{
+.new-ad-form{
+  padding: 50px;
+  margin: 10px auto;
+  font-weight: lighter;
+}
+
+.new-ad-form p{
+  font-weight: lighter;
+  background: $lapis-lazuli;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 12px;
+  color: white;
+}
+
+.new-ad-text p{
   text-align: justify;
+  background: $japanese-indigo;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
 }
 
 .status-pilote{
   display: none;
 }
 
-.wrapper-registration span {
+.new-ad-form span {
   font-size: 15px;
   font-weight: lighter;
   color: gray;
@@ -23,23 +51,19 @@
   line-height : 40px;
 }
 
-.wrapper-registration ul{
+.new-ad-text ul{
   list-style:none;
 }
 
-.wrapper-registration li{
-  background-color: $gray-lighter;
+.new-ad-text li{
+  background-color: $lapis-lazuli;
   border-radius: 20px;
   padding: 15px;
   margin-bottom: 15px;
 
 }
 
-.wrapper-registration span {
-
-}
-
-.wrapper-registration .paiement{
+.new-ad-text .paiement{
   background-color: $gray-light;
   font-weight: bold;
   color: $gray-lighter;
