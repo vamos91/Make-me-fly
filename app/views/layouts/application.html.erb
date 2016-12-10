@@ -8,22 +8,15 @@
     <meta property="og:image" content="https://makemefly.herokuapp.com/">
     <meta property="og:description" content="Je trouve mon pilote. Je vole pas cher ! MakeMeFly est une plate-forme qui se propose de vous faire rencontrer votre pilote ULM. Découvrez la passion de pilote et volez en quelques clics à bord d'un pendulaire, multiaxe ou paramoteur">
     <meta property="og:url" content="https://makemefly.herokuapp.com/">
-
-
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag 'application', media: 'all' %>
-<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
- -->    <script src="js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.7.1.js"></script>
-    <script src="~/Scripts/CircularLoader.js"></script>
+<!--     <script src="js/bootstrap.min.js"></script>
+ -->    <script src="//code.jquery.com/jquery-1.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.0.9/scrollreveal.min.js"></script>
-
-
   </head>
   <body>
-
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <%= yield %>
@@ -31,12 +24,8 @@
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?sensor=false" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js
 " %>
-
     <%= javascript_include_tag 'application' %>
-
     <%= yield(:after_js)%>
-
     <%= debug(params) if Rails.env.development? %>
-
   </body>
 </html>
