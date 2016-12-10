@@ -1,6 +1,7 @@
+<div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
+<p>Ma messagerie</p>
+</div>
 <div class="marged">
-  <h3>Ma messagerie</h3>
-
   <div>
     <div>
       <% @conversations.each do |conversation| %>
@@ -10,7 +11,9 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
+          <div class="conversation">
           <p>Conversation avec <%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%> pour le vol du <%= conversation.ad.flight_date %> à <%= conversation.ad.address%></p>
+          </div>
         <% end %>
       <% end %>
     </div>
