@@ -35,9 +35,9 @@ private
   params.permit(:sender_id, :recipient_id)
  end
 
-
  def find_conversation
    @conversation = Conversation.find(params[:id])
     authorize @conversation
  end
+
 end

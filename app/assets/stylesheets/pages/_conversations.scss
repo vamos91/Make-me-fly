@@ -1,0 +1,42 @@
+.conversation{
+  position: relative;
+  background-color: $celestial-blue;
+  padding: 15px;
+  color: white;
+  font-weight: lighter;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.ad-data{
+  //position: absolute;
+  padding-right: 200px;
+  padding-left: 50px;
+}
+
+.price-conversation{
+   position: absolute;
+   right: 100px;
+   padding: 10px;
+
+}
+
+.conversation a{
+  color: $japanese-indigo;
+}
+
+.conversation:hover{
+  a{
+    color: white;
+  }
+  background-color: $yankee-blue;
+}
+
+.conversation .fa{
+  padding: 5px;
+  width: 15px;
+}
+
+

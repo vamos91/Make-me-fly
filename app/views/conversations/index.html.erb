@@ -1,8 +1,11 @@
 <div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
-<p>Ma messagerie</p>
+<p><i class="fa fa-comments" style="padding: 5px;"></i>Ma messagerie</p>
 </div>
 <div class="marged">
   <div>
+  <div class="title_flight text-center">
+    <p>Mes conversations avec</p>
+  </div>
     <div>
       <% @conversations.each do |conversation| %>
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
@@ -12,7 +15,17 @@
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
           <div class="conversation">
-          <p>Conversation avec <%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%> pour le vol du <%= conversation.ad.flight_date %> à <%= conversation.ad.address%></p>
+          <div class="ad-data">
+            <% if recipient.picture? %>
+              <%= cl_image_tag recipient.picture, class: "img-circle", width: "80" %>
+              <% else %>
+              <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
+            <% end %>
+            <strong><%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%></strong> pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%></strong><i class="fa fa-commenting-o"></i>
+          </div>
+          <div class="price-conversation">
+            <%= conversation.ad.price %>€
+          </div>
           </div>
         <% end %>
       <% end %>

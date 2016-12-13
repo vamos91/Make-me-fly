@@ -9,11 +9,11 @@ def index
  @messages = @conversation.messages
  @messages = policy_scope(@conversation.messages)
  authorize @messages
-  if @messages.length > 10
-   @over_ten = true
-   @messages = @messages[-10..-1]
-   authorize @messages
-  end
+  # if @messages.length > 10
+  #  @over_ten = true
+  #  @messages = @messages[-10..-1]
+  #  # authorize @messages
+  # end
   if params[:m]
    @over_ten = false
    @messages = @conversation.messages
