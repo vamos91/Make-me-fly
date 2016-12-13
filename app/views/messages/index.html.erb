@@ -11,7 +11,7 @@
         <div class="panel-heading" id="accordion">
           <span class="glyphicon glyphicon-comment"></span> Chat
         </div>
-        <div class="panel-body">
+        <div class="panel-body-chat">
        <% @messages.each do |message| %>
         <% if message.body %>
         <% user = User.find(message.user_id) %>

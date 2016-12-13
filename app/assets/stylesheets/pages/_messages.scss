@@ -5,7 +5,6 @@
 }
 
 .user-chat{
-  border-radius: 15px;
   position: relative;
   background-color: $gray-lighter;
   color:black;
@@ -18,16 +17,17 @@
   color: gray;
   word-wrap: break-word;
   width: 480px;
+  margin-bottom: 30px;
 }
 
 .time-message{
   position: absolute;
-  font-size: 10px;
+  font-size: 15px;
   top:10px;
   right: 5px;
 }
 
-.panel-body
+.panel-body-chat
 {
     overflow-y: scroll;
     height: 300px;

@@ -13,9 +13,11 @@
             <p><%= image_tag "pilot.png", class: "img-circle", width: "80" %></p>
           <% end %>
             <p><%= @ad.user.name.capitalize %></p>
-            <% if policy(@ad).chat? == true %>
-            <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
-          <% end %>
+            <% if user_signed_in? %>
+              <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
+            <% else %>
+            <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-danger disabled" %>
+            <% end %>
           </div>
           <div class="header-flat-name">
             <h1>Pilote de <%= @ad.category %></h1>
