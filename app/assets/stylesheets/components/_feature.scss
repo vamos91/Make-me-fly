@@ -43,7 +43,6 @@
   font-size: 15px;
   color: white;
   font-weight: lighter;
-
 }
 
 .wrapper-pilot p {
@@ -53,23 +52,28 @@
 .pilote{
   padding: 0;
   height: 387px;
-  background: $space-cadet;
+  //background: $space-cadet;
   margin-left: -70px;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-position: center;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url("pilote-de-chasse.jpg");
 }
+
 
 .passager{
   padding: 60;
   height: 387px;
-  background: $celestial-blue;
+  //background: $celestial-blue;
   margin-right: -70px;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-position: center;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url("image-parallax.jpg");
 }
 
 .no-space-left{
