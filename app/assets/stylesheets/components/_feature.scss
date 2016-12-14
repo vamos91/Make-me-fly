@@ -120,11 +120,13 @@ padding-right:0;
   padding: 0;
   height: 250px;
   background:#4fd2c2;
-  margin-left: -70px;
+  margin-left: -18px;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-position: center;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url("pilote-de-chasse.jpg");
 }
 
 .passager{
@@ -136,6 +138,8 @@ padding-right:0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-position: center;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url("image-parallax.jpg");
 }
 }
 
