@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
  def index
-  @users = User.all
+  @userPilotes = User.where(pilote: true)
   #authorize @user
  end
 

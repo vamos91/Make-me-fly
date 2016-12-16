@@ -1,9 +1,9 @@
 <div class="container text-center">
   <h1>Voici tous les utilisateurs de MakeMeFly !</h1>
     <div class="row">
-  <% @users.each do |user| %>
+  <% @userPilotes.each do |user_pilote| %>
   <img src="https://avatars0.githubusercontent.com/u/16140249?v=3&s=460" class="avatar"/>
-  <p><%= user.name %></p>
+  <p><%= user_pilote.name %></p>
   <% end %>
     </div>
 </div>
@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <% @users.each do |user| %>
+      <% @userPilotes.each do |user| %>
         <%= user.hometown %>
        <% end %>
     </div>

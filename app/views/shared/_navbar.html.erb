@@ -24,8 +24,11 @@
     <%= link_to root_path, :class => "navbar-wagon-item navbar-wagon-button btn" do %>
       <i class="fa fa-home"></i>
      <% end %>
-    <%= link_to users_path(@user), :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
+    <%= link_to user_path(current_user), :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
       <i class="fa fa-user"></i>
+    <% end %>
+    <%= link_to users_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
+      <i class="fa fa-users"></i>
     <% end %>
     <%= link_to ads_path, :class => "navbar-wagon-item navbar-wagon-button btn" do %>
       <i class="fa fa-plane"></i>
