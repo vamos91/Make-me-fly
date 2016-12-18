@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
 
   mount_uploader :picture, PhotoUploader
 
+ def message_time_user
+   created_at.strftime("%d/%m/%Y")
+ end
 
 
   private

@@ -1,0 +1,76 @@
+<div class="marged"></div>
+<% if current_user.pilote? %>
+<% else %>
+<% end %>
+
+<div class="wrapper-profile-dashboard">
+  <div class="container">
+  <div class="col-md-3">
+    <div class="row">
+    <div class="thumbnail">
+      <%= image_tag "pilot.png"%>
+      <div class="caption text-center">
+        <h4><%= current_user.name.capitalize %></h4>
+          <p><%= link_to "Voir le profil", user_path(current_user), class: "btn btn-primary" %></p>
+            <p><a href="#" class="btn btn-default" role="button">Compléter mon profil</a></p>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">Informations non vérifiées</div>
+         <div class="info-pilote">
+          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+
+    </div>
+    <div class="panel-explication">
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">Bienvenue sur MakeMeFly</div>
+         <div class="welcome">
+          <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
+          <p>Vous projetez de voler et votre aéronef vous permet l'emport d'un passager, il vous est possible de proposer cette place de disponible. Cependant vous devez au préalable :
+          <ul>
+            <li>
+            <div class="title-welcome">Créez un compte</div>
+            Renseignez votre profil (fortement recommandé) afin de rassurer les utilisateurs sur votre expérience de pilote, téléchargez une photo de vous et de votre ULM</li>
+            <li><p><div class="title-welcome">Fournissez vos documents nécéssaires à l'exercice du vol en ULM en France.(Obligatoire)</div>
+            <ul>
+              <li>Brevet de pilote ULM</li>
+              <li>Assurance RC</li>
+              <li>Licence ULM de l'année en cours</li>
+            </ul>
+            </p>
+            </li>
+          </ul>
+          </p>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="panel panel-default">
+    <div class="panel-heading">MAKEMEFLY</div>
+    <div class="welcome">
+      <p>MakeMeFly vous permet :
+        <ul>
+          <li>D'effectuer des reservations de vol en ULM avec des pilotes non professionnels.</li>
+          <li>De proposer des vols en ULM.</li>
+          <li>De compléter et alimenter votre compte avec des vidéos de vos vols.</li>
+          <li>D'envoyer des messages aux autres utilisateurs.</li>
+        </ul>
+         </p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>

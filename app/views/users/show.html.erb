@@ -1,4 +1,64 @@
+<div class="marged"></div>
+<% if current_user.pilote? %>
+<% else %>
+<% end %>
 
-<h1>Ta gueule la mouette</h1>
-<h1>ici on affiche un USER</h1>
-
+<div class="wrapper-profile-dashboard">
+  <div class="container">
+  <div class="col-md-3">
+    <div class="row">
+    <div class="thumbnail">
+      <%= image_tag "pilot.png"%>
+      <div class="caption text-center">
+        <h4><%= current_user.name.capitalize %></h4>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">Informations non vérifiée</div>
+         <div class="info-pilote">
+          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+       <div class="panel-heading">Panel heading</div>
+        <h1>je suis un pilote</h1>
+        <%= cl_image_tag current_user.picture, class: "avatar" %>
+      </div>
+    </div>
+    <div class="row">
+     <div class="panel panel-default">
+      <div class="panel-heading">Panel heading</div>
+        <h1>je suis un pilote</h1>
+        <%= image_tag "pilot.png", class: "avatar-large"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="panel panel-default">
+       <div class="panel-heading">Panel heading</div>
+        <h1>je suis un pilote</h1>
+        <%= cl_image_tag current_user.picture, class: "img-rounded" %>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+       <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
+       <p>Membre depuis <%= @user.message_time_user %></p>
+       <p><%= @user.hometown.capitalize %></p>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+       <div class="panel-heading">Panel heading</div>
+        <h1>je suis un pilote</h1>
+        <%= cl_image_tag current_user.picture, class: "avatar" %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
