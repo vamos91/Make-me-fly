@@ -65,7 +65,11 @@
 
 
 <div class="title_flight text-center">
-   <p>Nouveaux vols</p>
+  <% if user_signed_in? %>
+    <p>Nouveaux vols proches de <%= current_user.hometown.capitalize %></p>
+    <% else %>
+    <p>Nouveaux vols</p>
+  <% end %>
 </div>
   <div class="wrapper-card padded">
     <div class="container">
