@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   #after_create :subscribe_to_newsletter
 
   mount_uploader :picture, PhotoUploader
+  mount_uploader :brevet_pilote, PhotoUploader
+  mount_uploader :assurance, PhotoUploader
+  mount_uploader :licence_ulm, PhotoUploader
 
  def message_time_user
    created_at.strftime("%d/%m/%Y")
