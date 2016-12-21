@@ -65,7 +65,7 @@
 
 
 <div class="title_flight text-center">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @ads.nil? %>
     <p>Nouveaux vols proches de <%= current_user.hometown.capitalize %></p>
     <% else %>
     <p>Nouveaux vols</p>

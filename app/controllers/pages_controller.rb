@@ -9,7 +9,8 @@ class PagesController < ApplicationController
     @passager_counter = User.where("pilote = ?", false).count
     #@ads = Ad.all.sort[ad-9..ad].reverse
     #@ads = Ad.order(id: :desc).limit(9)
-    if user_signed_in?
+    @ads_hometown = Ad.near(current_user.hometown, 150, :unit => :km)
+    if user_signed_in? && @ads_hometown.nil?
       @ads = Ad.near(current_user.hometown, 150, :unit => :km)
     else
       @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
