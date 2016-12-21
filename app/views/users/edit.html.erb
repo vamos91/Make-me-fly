@@ -1,0 +1,54 @@
+<div class="marged"></div>
+
+
+<div class="wrapper-profile-dashboard">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="row">
+          <%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="panel-explication">
+        <div class="row">
+
+              <%= simple_form_for(@user) do |user| %>
+              <div class="panel panel-default margin-panel">
+                <div class="panel-heading">Informations obligatoires</div>
+                <div class="user-form">
+                <p>Merci de procéder à votre identification. En effet, votre identité contribueras à la confiance au seins de la communauté de pilote/passager de MakeMeFly.</p>
+                  <%= user.input :name, required: false, autofocus: true, label: "Nom ou pseudo", placeholder: "Nom", wrapper: :horizontal_form %>
+                  <%= user.input :email, required: false, autofocus: true, label: "Adresse Email", placeholder: "email", wrapper: :horizontal_form %>
+                  <%= user.input :tel, required: false, autofocus: true, label: "Votre téléphone portable/fixe", placeholder: "ex: 0622453671", wrapper: :horizontal_form %>
+                  <%= user.input :hometown, required: false, autofocus: true, label: "Lieu de résidence", placeholder: "ex: marseille, paris, lille", wrapper: :horizontal_form %>
+                  <%= user.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                  <%= user.input :picture_cache, as: :hidden %>
+                  <%= user.input :description,:as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous, quel type d'ULM possédez-vous, quel aérodrome fréquentez-vous, quelles sont vos habitudes de vols. Plus vous en direz sur vous à la communauté et plus vous améliorerez la confiance qu'un passager vous accordera. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  </div>
+                </div>
+                  <div class="panel panel-danger margin-panel">
+                    <div class="panel-heading">Documents obligatoires</div>
+                      <div class="user-form">
+                        <p>Merci de nous fournir les documents indipensables à la pratique du vol en ULM.</p>
+                        <p>Ces documents permettront de vous identifier comme pilote ULM affilié à la fédération francaise d'ULM. <strong>L'assurance en responsablilité civil (AIR COURTAGE ASSURANCES) est une assurance obligatoire chez MakeMeFly pour pouvoir proposer des vols à nos passagers.</strong></p>
+                        <%= user.input :brevet_pilote, label: "Votre brevet de pilote ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+                        <%= user.input :assurance, label: "Votre assurance responsabilité civil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                        <%= user.input :licence_ulm, label: "Votre licence ULM de l'année en cours", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+
+                      </div>
+                    </div>
+                    <div class="panel panel-primary margin-panel">
+                    <div class="panel-heading">Enregistrement</div>
+                      <div class="user-form">
+                        <%= user.button :submit, value: "Mettre à jour" %>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,4 +1,200 @@
+<div class="marged"></div>
+<% if current_user.pilote? %>
+<% else %>
+<% end %>
 
-<h1>Ta gueule la mouette</h1>
-<h1>ici on affiche un USER</h1>
+<div class="wrapper-profile-dashboard">
+  <div class="container">
+  <div class="col-md-3">
+    <div class="row">
+    <div class="thumbnail">
+      <%= image_tag "pilot.png"%>
+      <div class="caption text-center">
+        <h4><%= @user.name.capitalize %></h4>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">Informations non vérifiée</div>
+         <div class="info-pilote">
+          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">Vols de <%= @user.name %><%= Ad.count %></div>
+         <div class="info-pilote">
+          <p><%= link_to "voir les vols", ads_path, class: "btn btn-primary" %></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+       <div class="panel-heading">Expérience de vol</div>
+        <p>Nombre de vol chez nous : </p>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-9">
+    <div class="panel-explication">
+      <div class="row">
+      <div class="id-user margin-panel">
+       <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
+       <p>Membre depuis <%= @user.message_time_user %></p>
+       <p><%= @user.hometown.capitalize %></p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="margin-panel" id="map" style="width: 100%; height: 200px; pointer-events:none; border: 1px solid #dce0e0;"></div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({
+      provider: {
+        styles : [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "saturation": "4"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "gamma": "1.76"
+            },
+            {
+                "lightness": "20"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#8c9092"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
+      },
+      internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(12);
+      });
+    })
+  <% end %>
+ <% end %>

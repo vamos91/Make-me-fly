@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'conversations/create'
 
+  get 'pages/dashboard'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'payments/new'
 
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   get 'pages/subscribe'
 
   devise_for :users
+
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
@@ -26,7 +29,6 @@ Rails.application.routes.draw do
     end
     resources :conversations do
       resources :messages
-
     end
     collection do
       get 'search', to: "ads#search"    # collection => no ads id in URL
@@ -42,7 +44,7 @@ resources :conversations do
 
 
 
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users, only: [:index, :show, :new, :create, :edit, :update]
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

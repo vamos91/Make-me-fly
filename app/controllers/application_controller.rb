@@ -19,10 +19,6 @@ before_action :authenticate_user!
     redirect_to(root_path)
   end
 
-
-
-
-
   def configure_permitted_parameters
 
       #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :name) }
