@@ -10,7 +10,7 @@
     <div class="thumbnail">
       <%= image_tag "pilot.png"%>
       <div class="caption text-center">
-        <h4><%= current_user.name.capitalize %></h4>
+        <h4><%= @user.name.capitalize %></h4>
       </div>
      </div>
     </div>
@@ -21,6 +21,14 @@
           <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">Vols de <%= @user.name %><%= Ad.count %></div>
+         <div class="info-pilote">
+          <p><%= link_to "voir les vols", ads_path, class: "btn btn-primary" %></p>
          </div>
       </div>
     </div>

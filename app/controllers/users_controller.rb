@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   @userPilotes = User.where(pilote: true)
   @ads = policy_scope(Ad)
   authorize @ads
-  #authorize @user
+  authorize @userPilotes
  end
 
  def show
@@ -13,11 +13,12 @@ class UsersController < ApplicationController
       marker.lat user.latitude
       marker.lng user.longitude
     end
-   #authorize @user
+   authorize @user
  end
 
  def edit
    @user = User.find(params[:id])
+   authorize @user
  end
 
  def update

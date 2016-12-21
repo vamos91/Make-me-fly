@@ -23,7 +23,7 @@
                   <%= user.input :hometown, required: false, autofocus: true, label: "Lieu de résidence", placeholder: "ex: marseille, paris, lille", wrapper: :horizontal_form %>
                   <%= user.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
                   <%= user.input :picture_cache, as: :hidden %>
-                  <%= user.input :description, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous",:input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  <%= user.input :description,:as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous, quel type d'ULM possédez-vous, quel aérodrome fréquentez-vous, quelles sont vos habitudes de vols. Plus vous en direz sur vous à la communauté et plus vous améliorerez la confiance qu'un passager vous accordera. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
                   </div>
                 </div>
                   <div class="panel panel-danger margin-panel">
