@@ -26,9 +26,9 @@
     </div>
     <div class="row">
        <div class="panel panel-default">
-        <div class="panel-heading">Vols de <%= @user.name %><%= Ad.count %></div>
+        <div class="panel-heading">Vols de <%= @user.name %>: <%= Ad.user %></div>
          <div class="info-pilote">
-          <p><%= link_to "voir les vols", ads_path, class: "btn btn-primary" %></p>
+          <p><%= link_to "Voir ses vols", ads_path(@user), class: "btn btn-warning" %></p>
          </div>
       </div>
     </div>

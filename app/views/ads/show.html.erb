@@ -14,10 +14,10 @@
           <% end %>
             <p><%= @ad.user.name.capitalize %></p>
             <% if user_signed_in? %>
-              <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %>
+              <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %></p>
               <p><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default" %></p>
             <% else %>
-            <%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-danger disabled" %>
+            <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-danger disabled" %></p>
             <% end %>
           </div>
           <div class="header-flat-name">
