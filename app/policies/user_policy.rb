@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def user_ads?
+    true
+  end
+
   def show?
     true
   end

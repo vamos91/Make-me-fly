@@ -2,13 +2,23 @@ class UsersController < ApplicationController
 
  def index
   @userPilotes = User.where(pilote: true)
+  authorize @userPilotes
   @ads = policy_scope(Ad)
   authorize @ads
-  authorize @userPilotes
+ end
+
+ def user_ads
+   @user = User.find(params[:id])
+   @user_ads = Ad.where(user_id: @user)
+   if @user_ads.empty?
+    redirect_to user_path, notice: "#{@user.name.capitalize} n'a aucun vol"
+   end
+   authorize @user
  end
 
  def show
    @user = User.find(params[:id])
+   @user_ads = Ad.where(user_id: @user)
    @markers = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude

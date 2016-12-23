@@ -16,7 +16,7 @@
     </div>
     <div class="row">
        <div class="panel panel-default">
-        <div class="panel-heading">Informations non vérifiée</div>
+        <div class="panel-heading">Informations non vérifiées</div>
          <div class="info-pilote">
           <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
@@ -26,9 +26,9 @@
     </div>
     <div class="row">
        <div class="panel panel-default">
-        <div class="panel-heading">Vols de <%= @user.name %>: <%= Ad.user %></div>
+        <div class="panel-heading">Vols de <%= @user.name.capitalize %>: <%= @user_ads.count %></div>
          <div class="info-pilote">
-          <p><%= link_to "Voir ses vols", ads_path(@user), class: "btn btn-warning" %></p>
+          <p><%= link_to "Voir ses vols", user_ads_user_path(@user), class: "btn btn-warning" %></p>
          </div>
       </div>
     </div>
