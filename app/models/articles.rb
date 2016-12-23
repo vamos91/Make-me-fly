@@ -1,5 +1,6 @@
-class Article < ActiveRecord::Base
+class Articles < ActiveRecord::Base
+
   validates :title, presence: true
   validates :description, presence: true
-  belongs_to :users
+  belongs_to :user
 end

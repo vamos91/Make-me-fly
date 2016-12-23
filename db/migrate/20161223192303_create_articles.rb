@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :video_url
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
