@@ -40,6 +40,7 @@ resources :conversations do
   end
 
 
+resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 
 
@@ -47,6 +48,7 @@ resources :conversations do
   resources :users, only: [:index, :show, :new, :create, :edit, :update] do
     member do
       get :user_ads
+      #get :articles
     end
 
 

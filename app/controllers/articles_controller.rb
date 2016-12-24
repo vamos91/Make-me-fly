@@ -1,31 +1,53 @@
 class ArticlesController < ApplicationController
 
   def index
-    @article = Article.all
+    #@articles = Article.all
+    @articles = policy_scope(Article)
+    authorize @articles
   end
 
   def show
     find_article
+    authorize article
   end
 
   def new
-
+    @article = current_user.articles.build
+    authorize @article
   end
 
   def create
-
+      @article = current_user.articles.build(article_params)
+      authorize @article
+      if @article.save
+        redirect_to articles_path, notice: "Votre article a été ajouté"
+        #redirect_to articles_user_path(@user), notice: "Votre article a été ajouté"
+      else
+        render :new
+      end
   end
 
   def edit
-
+    find_article
+    authorize @article
   end
 
   def update
-
+    find_article
+    authorize @article
+    @article.update(article_params)
+    if @article.save
+      redirect_to root_path, notice: "Votre article à été mis à jour"
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    find_article
+    authorize @article
+    @article.destroy
+    redirect_to root_path, notice: "Votre article a été effacé avec succès"
   end
 
 

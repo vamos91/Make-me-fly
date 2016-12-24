@@ -1,0 +1,42 @@
+
+<div class="marged"></div>
+
+
+<div class="wrapper-profile-dashboard">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="row">
+          <p><%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="panel-explication">
+        <div class="row">
+
+              <%= simple_form_for(@article) do |art| %>
+              <div class="panel panel-default margin-panel">
+                <div class="panel-heading">Racontez-nous vos expériences !</div>
+                <div class="user-form">
+                <p>Lachez-vous ! </p>
+                <p>Partager votre passion et vos vidéo de vol !</p>
+                <p>Vous pouvez publier des recits de vols, des expériences humaines (qu'elles soient liées à Makemefly ou non), tous ce qui vous passe par la tête et biensûr en rapport avec notre discipline.</p>
+                  <%= art.input :title, required: false, autofocus: true, label: "Titre de votre article", placeholder: "titre", wrapper: :horizontal_form %>
+                  <%= art.input :description, required: false, autofocus: true, label: "Tu as volé ce week-end ?", placeholder: "Raconte ! :)", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo", placeholder: "placez un lien youtube ou vimeo", wrapper: :horizontal_form %>
+                  </div>
+                </div>
+                    <div class="panel panel-primary margin-panel">
+                    <div class="panel-heading">Je publie !</div>
+                      <div class="user-form">
+                        <%= art.button :submit, value: "publier" %>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

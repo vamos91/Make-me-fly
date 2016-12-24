@@ -1,0 +1,8 @@
+<h2>Voici tous les articles</h2>
+<% @articles.each do |article| %>
+  <p><%= article.title %></p>
+  <p><%= article.description %></p>
+  <p><%= article.video_url %></p>
+  <%= link_to "update", edit_article_path(article) %>
+  <%= link_to "destroy", article, method: :delete %>
+<% end %>

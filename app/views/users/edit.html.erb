@@ -5,7 +5,8 @@
   <div class="container">
     <div class="col-md-3">
       <div class="row">
-          <%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %>
+          <p><%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %></p>
+          <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
       </div>
     </div>
     <div class="col-md-9">

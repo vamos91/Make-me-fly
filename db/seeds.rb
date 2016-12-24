@@ -25,6 +25,8 @@ Ad.destroy_all
     address = "place de la bastille, Paris"
     annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Date.today, flight_time: Faker::Number.number(2), address: address, price: Faker::Number.decimal(2))
     annonce.user = user
+    article = Article.create(title: Faker::Book.title, description: Faker::Lorem.paragraph, video_url: Faker::Internet.url)
+    article.user = user
     image_url = Faker::Avatar.image(('Vol depuis ' + Faker::Address.city).parameterize, "300x150", "jpg")
     annonce.remote_photo_url = image_url
     annonce.save!
@@ -33,4 +35,6 @@ Ad.destroy_all
 end
 
 
-puts "#{User.count} user et #{Ad.count} annonces crées !"
+
+
+puts "#{User.count} user, #{Ad.count} et #{Article.count} annonces crées !"

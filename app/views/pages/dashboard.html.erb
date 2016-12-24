@@ -13,6 +13,7 @@
         <h4><%= current_user.name.capitalize %></h4>
           <p><%= link_to "Voir le profil", user_path(current_user), class: "btn btn-primary" %></p>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-default" %></p>
+          <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
       </div>
      </div>
     </div>

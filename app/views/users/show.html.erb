@@ -40,18 +40,20 @@
     </div>
     </div>
     <div class="col-md-9">
-    <div class="panel-explication">
-      <div class="row">
-      <div class="id-user margin-panel">
-       <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
-       <p>Membre depuis <%= @user.message_time_user %></p>
-       <p><%= @user.hometown.capitalize %></p>
+      <div class="panel-explication">
+        <div class="row">
+          <div class="id-user margin-panel">
+           <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
+           <p>Membre depuis <%= @user.message_time_user %></p>
+           <p><%= @user.hometown.capitalize %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="margin-panel" id="map" style="width: 100%; height: 200px; pointer-events:none; border: 1px solid #dce0e0;">
+          </div>
+
+        </div>
       </div>
-    </div>
-    <div class="row">
-        <div class="margin-panel" id="map" style="width: 100%; height: 200px; pointer-events:none; border: 1px solid #dce0e0;"></div>
-    </div>
-    </div>
     </div>
   </div>
 </div>
@@ -63,7 +65,14 @@
 
 
 
-
+<h2>Voici tous les articles</h2>
+            <% @articles.each do |article| %>
+              <p><%= article.title %></p>
+              <p><%= article.description %></p>
+              <p><%= article.video_url %></p>
+              <%= link_to "update", edit_article_path(article) %>
+              <%= link_to "destroy", article, method: :delete %>
+            <% end %>
 
 
 

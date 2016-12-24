@@ -19,6 +19,10 @@ class UsersController < ApplicationController
  def show
    @user = User.find(params[:id])
    @user_ads = Ad.where(user_id: @user)
+
+   @articles = policy_scope(Article)
+   authorize @articles
+
    @markers = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
