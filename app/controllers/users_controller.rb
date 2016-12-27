@@ -16,12 +16,16 @@ class UsersController < ApplicationController
    authorize @user
  end
 
+
+
  def show
    @user = User.find(params[:id])
    @user_ads = Ad.where(user_id: @user)
 
-   @articles = policy_scope(Article)
-   authorize @articles
+
+   @user_articles = policy_scope(Article)
+   @articles = @user_articles.reverse
+   authorize @user_articles
 
    @markers = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude

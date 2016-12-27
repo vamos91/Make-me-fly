@@ -18,9 +18,13 @@ class ArticlesController < ApplicationController
 
   def create
       @article = current_user.articles.build(article_params)
+
+      @v_url = @article.video_url
+     @video_id = (/([\w-]{11})/.match(@v_url)).to_s
+     @embed_code = "<iframe width='640' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>"
       authorize @article
       if @article.save
-        redirect_to articles_path, notice: "Votre article a été ajouté"
+        redirect_to user_path(current_user), notice: "Votre article a été ajouté"
         #redirect_to articles_user_path(@user), notice: "Votre article a été ajouté"
       else
         render :new
@@ -49,7 +53,6 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to root_path, notice: "Votre article a été effacé avec succès"
   end
-
 
   private
 

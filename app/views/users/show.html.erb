@@ -56,11 +56,27 @@
         <div class="col-md-9">
           <div class="margin-panel marged">
               <% @articles.each do |article| %>
-                <p><%= article.title %></p>
-                <p><%= article.description %></p>
-                <p><%= article.video_url %></p>
-                <%= link_to "Mettre à jour", edit_article_path(article), class: "btn btn-primary" %>
-                <%= link_to "Effacer", article, method: :delete, class: "btn btn-danger" %>
+              <div class="panel panel-default">
+                <div class="panel-heading titre-article"><strong><%= article.title.capitalize %></strong>
+                  <div class="dropdown menu-article">
+                      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+                        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                        <div class="button-article">
+                          <li><%= link_to "Mettre à jour", edit_article_path(article) %>
+</li>
+                          <li><%= link_to "Effacer", article, method: :delete %></li>
+                        </div>
+                        </ul>
+                    </div>
+                </div>
+                  <div class="article">
+                    <div class="description"><p><%= article.description.capitalize %></p></div>
+                    <% if article.video_url != nil %>
+                      <div class="video"><p><%= raw(@embed_code) %></p></div>
+                    <% end %>
+                    <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
+                  </div>
+              </div>
               <% end %>
             </div>
           </div>
