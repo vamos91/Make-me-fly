@@ -48,11 +48,30 @@ class UsersController < ApplicationController
     render :edit
    end
 
+   def message
+    find_user
+    @conversations = Conversation.where(recipient_id: @user.id, sender_id: current_user.id)
+    if @conversations.empty?
+      @conversation = Conversation.new(
+        recipient_id: @user.id,
+        sender_id: current_user.id
+        )
+      if @conversation.save
+        redirect_to ad_conversation_messages_path(@ad, @conversation)
+      end
+    else
+      redirect_to ad_conversation_messages_path(@ad, @conversations.first)
+    end
+   end
+
  end
    private
   def user_param
     params.require(:user).permit(:name, :pilote, :hometown, :picture, :email)
   end
 
+def find_user
+  @user = User.find(params[:id])
+end
 
 end

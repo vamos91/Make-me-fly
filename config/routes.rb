@@ -45,11 +45,11 @@ resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destr
 
 
 
-  resources :users, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :users, only: [:index, :show, :new, :create, :edit, :update, :conversation] do
     member do
       get :user_ads
-      #get :articles
     end
+    resources :conversations
 
 
     end

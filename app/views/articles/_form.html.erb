@@ -15,7 +15,8 @@
 
               <%= simple_form_for(@article) do |art| %>
               <div class="panel panel-default margin-panel">
-                <div class="panel-heading">Racontez-nous vos expériences !</div>
+                <div class="panel-heading"><i class="fa fa-commenting" aria-hidden="true"></i>
+Racontez-nous vos expériences !</div>
                 <div class="user-form">
                 <p>Lachez-vous ! </p>
                 <p>Partager votre passion et vos vidéos de vols !</p>
@@ -28,7 +29,7 @@
                     <div class="panel panel-primary margin-panel">
                     <div class="panel-heading">Je publie !</div>
                       <div class="user-form">
-                        <%= art.button :submit, value: "publier" %>
+                        <%= art.button :submit, value: "Publier" %>
                       </div>
                     </div>
                 <% end %>

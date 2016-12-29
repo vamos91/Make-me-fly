@@ -11,6 +11,7 @@
       <%= image_tag "pilot.png"%>
       <div class="caption text-center">
         <h4><%= @user.name.capitalize %></h4>
+        <p><%= link_to t(".top_call_to_action", default: "Envoyer un message") %></p>
       </div>
      </div>
     </div>
@@ -49,12 +50,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="margin-panel" id="map" style="width: 100%; height: 200px; pointer-events:none; border: 1px solid #dce0e0;">
+
           </div>
         </div>
         <div class="row">
         <div class="col-md-9">
-          <div class="margin-panel marged">
+          <div class="margin-panel">
               <% @articles.each do |article| %>
               <div class="panel panel-default">
                 <div class="panel-heading titre-article"><strong><%= article.title.capitalize %></strong>
@@ -81,7 +82,7 @@
             </div>
           </div>
           <div class="col-md-3">
-
+            <div class="margin-panel" id="map" style="width: 100%; height: 500px; pointer-events:none; border: 1px solid #dce0e0;">
           </div>
         </div>
       </div>
