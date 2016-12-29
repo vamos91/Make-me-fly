@@ -9,6 +9,9 @@ class ArticlesController < ApplicationController
   def show
     find_article
     authorize article
+    @v_url = @article.video_url
+    @video_id = (/([\w-]{11})/.match(@v_url)).to_s
+    @embed_code = "<iframe width='640' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>"
   end
 
   def new
@@ -18,10 +21,6 @@ class ArticlesController < ApplicationController
 
   def create
       @article = current_user.articles.build(article_params)
-
-      @v_url = @article.video_url
-     @video_id = (/([\w-]{11})/.match(@v_url)).to_s
-     @embed_code = "<iframe width='640' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>"
       authorize @article
       if @article.save
         redirect_to user_path(current_user), notice: "Votre article a été ajouté"
