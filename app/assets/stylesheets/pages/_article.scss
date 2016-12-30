@@ -23,3 +23,22 @@
   line-height: 3px;
   padding: 9px 24px;
 }
+
+.comment{
+  font-weight:lighter;
+  padding: 20px;
+  border-top: solid 1px #3E92CC;
+
+}
+
+.user-name-comment{
+  color: $celestial-blue;
+}
+
+.text-field{
+ // display: inline-block;
+}
+
+.article .description {
+  word-wrap: break-word;
+}

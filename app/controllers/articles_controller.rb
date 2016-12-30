@@ -9,9 +9,7 @@ class ArticlesController < ApplicationController
   def show
     find_article
     authorize article
-    @v_url = @article.video_url
-    @video_id = (/([\w-]{11})/.match(@v_url)).to_s
-    @embed_code = "<iframe width='640' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>"
+    @posts = Post.where(article_id: @article)
   end
 
   def new

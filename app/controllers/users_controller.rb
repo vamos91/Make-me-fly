@@ -19,19 +19,22 @@ class UsersController < ApplicationController
 
 
  def show
-   @user = User.find(params[:id])
+   find_user
    @user_ads = Ad.where(user_id: @user)
 
-
-   @user_articles = policy_scope(Article)
+   @user_articles = Article.where(user_id: @user)
+   #@user_articles = policy_scope(Article)
    @articles = @user_articles.reverse
    authorize @user_articles
 
 
-   @post = current_user.posts.build
+   #@post = current_user.posts.build
+   @post = @article.posts.build(post_params)
    authorize @post
 
-   @posts = policy_scope(Post)
+   #@post.article_id = article.id
+   #@posts = @user.post.order("created_at DESC")
+   @posts = Post.where(article_id: @user_articles)
    authorize @posts
    #@post = Post.find(params[:id])
 
