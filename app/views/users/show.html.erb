@@ -75,14 +75,27 @@
                 </div>
                   <div class="article">
                     <div class="description"><p><%= article.description.capitalize %></p></div>
-                    <% if article.video_url != nil %>
+                    <% if article.video_url != "" %>
                     <% @v_url = article.video_url %>
                     <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
                     <% @embed_code = "<iframe width='570' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
                       <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
                     <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
+                      <div class="comment" style="padding: 40px; border-top: solid 1px #3E92CC;">
+                      <%= simple_form_for(@post) do |post| %>
+                       <%= post.input :text %>
+                       <%= post.hidden_field :article_id %>
+                       <%= post.button :submit, value: "Publiez" %>
+                      <% end %>
+                      <% @posts.each do |post| %>
+                        <%= post.text %>
+                      <% end %>
+                    </div>
                   </div>
+
+<!--                 <%= link_to "Publiez un commentaire", new_post_path(article_id: article.id), class: "btn btn-warning" %>
+ -->
               </div>
               <% end %>
             </div>

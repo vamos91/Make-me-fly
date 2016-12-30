@@ -27,6 +27,19 @@ class UsersController < ApplicationController
    @articles = @user_articles.reverse
    authorize @user_articles
 
+
+   @post = current_user.posts.build
+   authorize @post
+
+   @posts = policy_scope(Post)
+   authorize @posts
+   #@post = Post.find(params[:id])
+
+   #@posts = policy_scope(Post)
+   #@posts = @user_posts.reverse
+   #authorize @post
+
+
    @markers = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude

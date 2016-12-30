@@ -15,8 +15,10 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @post = Post.new(article_id: params[:article_id])
     @article = current_user.articles.build
     authorize @article
+    authorize @post
   end
 
   def create

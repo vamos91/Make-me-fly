@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post)
     authorize @posts
   end
 
@@ -15,10 +15,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    #@article = Article.find(params[:article_id])
+    #@post = @article.posts.build(post_params)
+    #@post.user_id = current_user.id
     @post = current_user.posts.build(post_params)
     authorize @post
     if @post.save
-      redirect_to user_path(current_user)
+      redirect_to post_path(current_user)
     else
       render :new
     end
@@ -51,7 +54,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:text)
+    params.require(:post).permit(:user_id, :article_id, :text)
   end
 
   def find_post

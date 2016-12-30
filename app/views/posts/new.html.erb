@@ -1,2 +1,7 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
+<%= simple_form_for(@post) do |post| %>
+ <%= post.input :text %>
+ <%= post.hidden_field :article_id %>
+ <%= post.button :submit, value: "Publiez" %>
+<% end %>
