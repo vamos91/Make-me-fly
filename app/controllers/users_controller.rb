@@ -28,8 +28,8 @@ class UsersController < ApplicationController
    authorize @user_articles
 
 
-   #@post = current_user.posts.build
-   @post = @article.posts.build(post_params)
+   @post = current_user.posts.build
+   #@post = @article.posts.build(post_params)
    authorize @post
 
    #@post.article_id = article.id

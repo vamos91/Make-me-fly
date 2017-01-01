@@ -1,17 +1,4 @@
 Rails.application.routes.draw do
-  # get 'posts/index'
-
-  # get 'posts/show'
-
-  # get 'posts/new'
-
-  # get 'posts/create'
-
-  # get 'posts/edit'
-
-  # get 'posts/update'
-
-  # get 'posts/destroy'
 
   resources :forecasts
   get 'conversations/index'
@@ -54,9 +41,9 @@ resources :conversations do
   end
 
 
-resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-
+resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+end
 
 
 

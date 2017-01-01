@@ -60,6 +60,8 @@ class PostsController < ApplicationController
   end
 
   def find_article
-    @article = Article.find(params[:article_id])
+    @article = Article.find(54)
   end
+
+
 end
