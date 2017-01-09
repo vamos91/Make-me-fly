@@ -1,9 +1,9 @@
-<div class="marged"></div>
+<!-- <div class="marged"></div> -->
 <% if current_user.pilote? %>
 <% else %>
 <% end %>
 
-<div class="wrapper-profile-dashboard">
+<div class="wrapper-profile-dashboard top-spacing">
   <div class="container">
   <div class="col-md-3">
     <div class="row">
@@ -89,19 +89,12 @@
                         <%= link_to post.user.name.capitalize, user_path(@user) %></strong>
                             <%= post.text %>
                           </div>
-                          <%= link_to "update", edit_post_path(post) %>
-                          <%= link_to "delete", post, method: :delete %></p>
+                          <%= link_to "update", edit_article_post_path(article, post) %>
+                          <%= link_to "delete", article_post_path(article, post), method: :delete %></p>
                       <% end %>
-                      <%= simple_form_for(@post) do |post| %>
-                       <%= post.input :text %>
-                       <%= post.hidden_field :article_id %>
-                       <%= post.button :submit, value: "Publiez" %>
-                      <% end %>
+                     <p><%= link_to "Ajouter un commentaire", new_article_post_path(article_id: article.id) %></p>
                     </div>
                   </div>
-
-<!--                 <%= link_to "Publiez un commentaire", new_post_path(article_id: article.id), class: "btn btn-warning" %>
- -->
               </div>
               <% end %>
             </div>

@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   authorize @ads
  end
 
+
+
  def user_ads
    @user = User.find(params[:id])
    @user_ads = Ad.where(user_id: @user)
@@ -86,8 +88,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :pilote, :hometown, :picture, :email)
   end
 
-def find_user
-  @user = User.find(params[:id])
-end
+  def find_user
+    @user = User.find(params[:id])
+  end
 
 end

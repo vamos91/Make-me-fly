@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_article
+  before_action :find_post
 
   def index
     @posts = policy_scope(Post)
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
   def create
     #@article = Article.find(params[:article_id])
     #@post = @article.posts.build(post_params)
-    @post = @article.posts.build(post_params)
+    @post = @comment.posts.build(post_params)
     @post.user_id = current_user.id
     authorize @post
     if @post.save
@@ -63,5 +64,12 @@ class PostsController < ApplicationController
     @article = Article.find(54)
   end
 
+  # def find_post
+  #   @post = Post.find(params[:id])
+  # end
+
+  def find_post
+    @comment = Article.find_by_id(params[:article_id])
+  end
 
 end
