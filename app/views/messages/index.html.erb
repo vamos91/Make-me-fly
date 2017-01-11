@@ -1,15 +1,16 @@
-<div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
-<p>CHAT</p>
-</div>
-
-<div class="marged">
- <div class="wrapper messaging">
+<div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="panel panel-primary">
+      <div class="col-xs-12 col-sm-6" style="margin-left: -70px;">
+        <div class="banner-chat" style="height: 100vh;">
+          <p>Le système de messagerie de MakeMeFly vous permet de faire connaissance et d'échanger avec d'autres passagers et pilotes sur l'organisation de vos vol. Tous les sujets sont les bienvenues.<i>Il est biensur fortemment recommandé de rester discret sur vos coordonnées personnel.</i></p>
+          <span><%= link_to "Mes conversations", conversations_path, class: "btn btn-primary" %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="panel panel-primary marged">
         <div class="panel-heading" id="accordion">
-          <span class="glyphicon glyphicon-comment"></span> Chat
+          <span class="glyphicon glyphicon-comment"></span> Chat (<%= @messages.count %> messages)
         </div>
         <div class="panel-body-chat">
        <% @messages.each do |message| %>
@@ -40,9 +41,13 @@
       </div>
     <% end %>
     </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
 

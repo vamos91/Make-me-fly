@@ -1,0 +1,52 @@
+.article{
+  position: relative;
+  padding: 8px;
+  color: gray;
+}
+
+.titre-article{
+  position: relative;
+}
+
+.panel-default .titre-article{
+  color: $lapis-lazuli;
+}
+
+.menu-article{
+  position: absolute;
+  right:20px;
+  top: 10px;
+}
+
+.button-article li a{
+  font-size: 10px;
+  line-height: 3px;
+  padding: 9px 24px;
+}
+
+.comment{
+  font-weight:lighter;
+  padding: 20px;
+  border-top: solid 1px #3E92CC;
+
+}
+
+.user-name-comment{
+  color: $celestial-blue;
+}
+
+.text-field{
+ // display: inline-block;
+}
+
+.article .description {
+  word-wrap: break-word;
+}
+
+.media h4{
+  font-size: 14px;
+}
+
+.media .posted{
+  font-size: 11px;
+}

@@ -3,11 +3,20 @@ class ConversationsController < ApplicationController
 
 def index
  #@ads = Ad.all
+ #find_conversation
  @users = User.all
+ @ad = Ad.find(12)
  conversations = Conversation.all
  @conversations = policy_scope(conversations)
+ @conversation_count = Conversation.where(ad_id: @ad.id)
  authorize @conversations
 end
+
+def new
+  find_conversation
+  current_user.conversations.build
+end
+
 
 def create
  if Conversation.between(params[:sender_id],params[:recipient_id])
@@ -32,12 +41,14 @@ end
 
 private
  def conversation_params
-  params.permit(:sender_id, :recipient_id)
+  params.permit(:sender_id, :recipient_id, :ad_id)
  end
 
  def find_conversation
    @conversation = Conversation.find(params[:id])
     authorize @conversation
  end
+
+
 
 end

@@ -13,6 +13,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def chat_user?
+    true
+  end
+
   def show?
     true
   end
@@ -22,13 +26,13 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner?
+    true
   end
 
   private
 
-  def user_is_owner?
-    record.user == user
-  end
+  # def user_is_owner?
+  #   record.user == user
+  # end
 
 end

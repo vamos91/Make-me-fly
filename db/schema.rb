@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219100014) do
+ActiveRecord::Schema.define(version: 20170111095115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,15 +34,28 @@ ActiveRecord::Schema.define(version: 20161219100014) do
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
 
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "video_url"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ad_id"
+    t.integer  "user_id"
   end
 
   add_index "conversations", ["ad_id"], name: "index_conversations_on_ad_id", using: :btree
+  add_index "conversations", ["user_id"], name: "index_conversations_on_user_id", using: :btree
 
   create_table "forecasts", force: :cascade do |t|
     t.float    "lat"
@@ -71,6 +84,17 @@ ActiveRecord::Schema.define(version: 20161219100014) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "text"
+    t.integer  "user_id"
+  end
+
+  add_index "posts", ["article_id"], name: "index_posts_on_article_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -104,5 +128,9 @@ ActiveRecord::Schema.define(version: 20161219100014) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "ads", "users"
+  add_foreign_key "articles", "users"
   add_foreign_key "conversations", "ads"
+  add_foreign_key "conversations", "users"
+  add_foreign_key "posts", "articles"
+  add_foreign_key "posts", "users"
 end

@@ -120,6 +120,34 @@ margin-top: 10px;
   margin-top: 60px;
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("pendulaire.jpg");
 }
+
+.banner-chat {
+  //position: relative;
+  margin-top: 21px;
+  color: white;
+  //text-align: center;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  overflow: hidden;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("pendulaire.jpg");
+}
+
+.banner-chat p{
+  padding: 30px;
+  //background-color: black;
+  //opacity: 0.6;
+}
+
+.banner-chat a{
+  margin-right: 10px;
+  //position: absolute;
+  //bottom: 250px;
+  //left: 185px;
+}
+
 .banner-registration-pilote {
   margin-top: 60px;
   background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 100%, rgba(0,36,61,0.6) 50%), image-url("pilote-de-chasse.jpg");
@@ -201,6 +229,10 @@ margin-top: 10px;
   }
 
   .banner-content-parallax span{
+    display: none;
+  }
+
+  .banner-chat{
     display: none;
   }
 

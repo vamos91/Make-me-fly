@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :forecasts
   get 'conversations/index'
 
@@ -40,14 +41,20 @@ resources :conversations do
   end
 
 
+resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+end
 
 
 
 
-  resources :users, only: [:index, :show, :new, :create, :edit, :update] do
+
+  resources :users, only: [:index, :show, :new, :create, :edit, :update, :conversation] do
     member do
       get :user_ads
+      get :chat_user
     end
+    resources :conversations
 
 
     end

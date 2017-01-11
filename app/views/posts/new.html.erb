@@ -1,0 +1,18 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+<%= simple_form_for(@post) do |post| %>
+ <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+ <%= post.input :text %>
+ <%= post.hidden_field :article_id %>
+ <%= post.button :submit, value: "Publiez" %>
+ <% end %>
+<% end %>

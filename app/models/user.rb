@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  #validates :pilote, presence: true
-  #validates :name, presence: true
+  validates :hometown, presence: true
+  validates :name, presence: true
   #
 
   geocoded_by :hometown
@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
 
   has_many :ads, dependent: :destroy
   has_many :messages, dependent: :destroy
-
+  has_many :articles, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :conversations, dependent: :destroy
   after_create :send_welcome_email
 
   #after_create :subscribe_to_newsletter

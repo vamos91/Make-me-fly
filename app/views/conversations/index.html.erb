@@ -1,10 +1,11 @@
 <div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
 <p><i class="fa fa-comments" style="padding: 5px;"></i>Ma messagerie</p>
 </div>
-<div class="marged">
+<div class="">
   <div>
   <div class="title_flight text-center">
-    <p>Mes conversations avec</p>
+    <!-- <p><%= @conversation_count.count %></p> -->
+    <p>conversations </p>
   </div>
     <div>
       <% @conversations.each do |conversation| %>
@@ -21,10 +22,16 @@
               <% else %>
               <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
             <% end %>
-            <strong><%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%></strong> pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%></strong><i class="fa fa-commenting-o"></i>
+            <strong><%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%></strong>
+            <% if conversation.ad.nil? && conversation.ad.nil? %>
+              <i class="fa fa-commenting-o"></i>
+            <% else %>
+             pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%></strong>
+            <i class="fa fa-commenting-o"></i>
           </div>
           <div class="price-conversation">
             <%= conversation.ad.price %>€
+            <% end %>
           </div>
           </div>
         <% end %>
