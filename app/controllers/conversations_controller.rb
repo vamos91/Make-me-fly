@@ -5,7 +5,7 @@ def index
  #@ads = Ad.all
  #find_conversation
  @users = User.all
- @ad = Ad.find(12)
+ #@ad = Ad.find(12)
  conversations = Conversation.all
  @conversations = policy_scope(conversations)
  @conversation_count = Conversation.where(ad_id: @ad.id)
