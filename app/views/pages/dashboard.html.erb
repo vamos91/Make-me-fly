@@ -1,14 +1,15 @@
 <!-- <div class="marged"></div> -->
 <% if current_user.pilote? %>
-<% else %>
-<% end %>
-
 <div class="wrapper-profile-dashboard top-spacing">
   <div class="container">
   <div class="col-md-3">
     <div class="row">
     <div class="thumbnail">
-      <%= image_tag "pilot.png"%>
+      <% if current_user.picture? %>
+      <%= cl_image_tag current_user.picture %>
+      <% else %>
+        <%= image_tag "pilot.png" %>
+      <% end %>
       <div class="caption text-center">
         <h4><%= current_user.name.capitalize %></h4>
           <p><%= link_to "Voir le profil", user_path(current_user), class: "btn btn-primary" %></p>
@@ -41,13 +42,13 @@ Informations non vérifiées</div>
     <div class="panel-explication">
     <div class="row">
        <div class="panel panel-default margin-panel">
-        <div class="panel-heading">Bienvenue sur MakeMeFly</div>
+        <div class="panel-heading">Cher pilote, bienvenue sur MakeMeFly</div>
          <div class="welcome">
           <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
           <p>Vous projetez de voler et votre aéronef vous permet l'emport d'un passager, il vous est possible de proposer cette place de disponible. Cependant vous devez au préalable :
           <ul>
             <li>
-            <div class="title-welcome">Complétez votre profil</div>
+            <div><%= link_to "Complétez votre profil", edit_user_path(current_user), class: "title-welcome" %></div>
             Renseignez votre profil (fortement recommandé) afin de rassurer les utilisateurs sur votre expérience de pilote, téléchargez une photo de vous et de votre ULM</li>
             <li><p><div class="title-welcome">Fournissez vos documents nécéssaires à l'exercice du vol en ULM en France. (Obligatoire)</div>
             <ul>
@@ -94,7 +95,7 @@ Informations non vérifiées</div>
     <div class="panel-heading">Notifications et avertissements</div>
     <div class="welcome">
     <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
-    <p>Je suis avertis lorsqu'un nouveau pilote de votre région arrive sur Makemefly </p>
+    <p>Je suis avertis lorsqu'un nouveau pilote de votre région arrive sur Makemefly. </p>
       </div>
       </div>
     </div>
@@ -102,3 +103,84 @@ Informations non vérifiées</div>
   </div>
 </div>
 </div>
+<% else %>
+<div class="wrapper-profile-dashboard top-spacing">
+  <div class="container">
+  <div class="col-md-3">
+    <div class="row">
+    <div class="thumbnail">
+      <% if current_user.picture? %>
+      <%= cl_image_tag current_user.picture %>
+      <% else %>
+        <%= image_tag "pilot.png" %>
+      <% end %>
+      <div class="caption text-center">
+        <h4><%= current_user.name.capitalize %></h4>
+          <p><%= link_to "Voir le profil", user_path(current_user), class: "btn btn-primary" %></p>
+          <p><%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-default" %></p>
+          <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
+      </div>
+     </div>
+    </div>
+    </div>
+    <div class="col-md-9">
+    <div class="panel-explication">
+    <div class="row">
+       <div class="panel panel-default margin-panel">
+        <div class="panel-heading">Cher passager, bienvenue sur MakeMeFly</div>
+         <div class="welcome">
+          <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
+          <p>Il arrive souvent que des pilotes aillent voler durant leur temps libre avec une place de disponible.</p>
+          <p><strong>Il vous est désormais possible de reserver cette place de disponible.</strong></p>
+          <p>Vous avez déjà volé en ULM ou il s'agit de la premiere fois, alors n'hésitez plus ! Des pilotes non professionnelles proposent des vols loisirs tous les jours sans doute près de chez vous. Il le font pour partager leur passion avec vous.</p>
+          <p>Le montant des partages de frais est à l'initiative des pilotes.</p>
+           <p>Cependant vous devez au préalable :</p>
+          <ul>
+            <li>
+            <div><%= link_to "Complétez votre profil", edit_user_path(current_user), class: "title-welcome" %></div>
+            Renseignez votre profil (fortement recommandé) afin de dire qui vous êtes à la communauté. Nous donnons l'opportunié de décrire votre "wish-list". Dites nous où vous voulez voler, dans quel type d'ULM (pendulaire, paramoteur, multiaxe, autogire)</li>
+          </ul>
+          </p>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">MAKEMEFLY</div>
+    <div class="welcome">
+      <p>MakeMeFly vous permet :
+        <ul>
+          <li>D'effectuer des reservations de vol en ULM avec des pilotes non professionnels.</li>
+          <li>De compléter et alimenter votre compte en postant des vidéos et recits de vos vols avec vos pilotes. Votre compte est comme un carnet de vol virtuel.</li>
+          <li>D'envoyer des messages aux autres utilisateurs.</li>
+        </ul>
+         </p>
+      </div>
+      </div>
+    </div>
+     <div class="row">
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">Réglage de votre marketing</div>
+    <div class="welcome">
+    <p><strong>Lorsque vous créez un compte</strong>, un mail est envoyé à tous les utilisateurs dans les <strong>100 km</strong> (valeur par défault) autour de vous.</p>
+    <p>Quand un pilote propose un vol, il sera automatiquement proposé aux utilisateurs ayant un compte MakeMeFly de votre région.</p>
+    <p>Vous pouvez modifier la valeur kilométrique et ainsi modifier votre rayon d'action. </p>
+    <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
+      </div>
+      </div>
+    </div>
+     <div class="row">
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">Notifications et avertissements</div>
+    <div class="welcome">
+    <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
+    <p>Je suis avertis lorsqu'un nouveau pilote de votre région arrive sur Makemefly. </p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<% end %>
+

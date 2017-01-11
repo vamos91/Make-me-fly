@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
 def index
- @messages = @conversation.messages
+ #@messages = @conversation.messages
  @messages = policy_scope(@conversation.messages)
  authorize @messages
   # if @messages.length > 10

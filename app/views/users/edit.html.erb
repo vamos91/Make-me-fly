@@ -1,3 +1,4 @@
+<% if current_user.pilote? %>
 <div class="wrapper-profile-dashboard top-spacing">
   <div class="container">
     <div class="col-md-3">
@@ -21,7 +22,7 @@
                   <%= user.input :hometown, required: false, autofocus: true, label: "Lieu de résidence", placeholder: "ex: marseille, paris, lille", wrapper: :horizontal_form %>
                   <%= user.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
                   <%= user.input :picture_cache, as: :hidden %>
-                  <%= user.input :description,:as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous, quel type d'ULM possédez-vous, quel aérodrome fréquentez-vous, quelles sont vos habitudes de vols. Plus vous en direz sur vous à la communauté et plus vous améliorerez la confiance qu'un passager vous accordera. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  <%= user.input :description, :as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous, quel type d'ULM possédez-vous, quel aérodrome fréquentez-vous, quelles sont vos habitudes de vols, nombres d'heures de vols, etc... Plus vous en direz sur vous à la communauté et plus vous améliorerez la confiance qu'un passager vous accordera. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
                   </div>
                 </div>
                   <div class="panel panel-danger margin-panel">
@@ -48,5 +49,44 @@
   </div>
 </div>
 
+<% else %>
+<div class="wrapper-profile-dashboard top-spacing">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="row">
+          <p><%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %></p>
+          <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="panel-explication">
+        <div class="row">
 
+              <%= simple_form_for(@user) do |user| %>
+              <div class="panel panel-default margin-panel">
+                <div class="panel-heading">Informations obligatoires</div>
+                <div class="user-form">
+                <p>Merci de procéder à votre identification. En effet, votre identité contribueras à la confiance au seins de la communauté de pilote/passager de MakeMeFly.</p>
+                  <%= user.input :name, required: false, autofocus: true, label: "Nom ou pseudo", placeholder: "Nom", wrapper: :horizontal_form %>
+                  <%= user.input :email, required: false, autofocus: true, label: "Adresse Email", placeholder: "email", wrapper: :horizontal_form %>
+                  <%= user.input :tel, required: false, autofocus: true, label: "Votre téléphone portable/fixe", placeholder: "ex: 0622453671", wrapper: :horizontal_form %>
+                  <%= user.input :hometown, required: false, autofocus: true, label: "Lieu de résidence", placeholder: "ex: marseille, paris, lille", wrapper: :horizontal_form %>
+                  <%= user.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                  <%= user.input :picture_cache, as: :hidden %>
+                  <%= user.input :description, :as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous. Sur quel type d'ULM voulez vous volez, quel aérodrome fréquentez vous, avez vous peur en avion, ou souhaitez vous voler, qu'aimeriez vous survoler, etc... Plus vous en direz sur vous à la communauté et plus vous améliorerez votre expérience chez nous. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  </div>
+                </div>
+                    <div class="panel panel-primary margin-panel">
+                    <div class="panel-heading">Enregistrement</div>
+                      <div class="user-form">
+                        <%= user.button :submit, value: "Mettre à jour" %>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 

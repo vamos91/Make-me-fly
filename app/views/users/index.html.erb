@@ -10,7 +10,7 @@
         <p><%= user.hometown.capitalize %></p>
         <p>
         <%= link_to "Profil", user_path(user.id), class: "btn btn-primary" %>
-        <%= link_to "Message", user_path(user.id), class: "btn btn-default" %>
+        <%= link_to "Message", chat_user_user_path(user.id), class: "btn btn-default" %>
         </p>
       </div>
     </div>

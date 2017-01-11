@@ -52,6 +52,7 @@ end
   resources :users, only: [:index, :show, :new, :create, :edit, :update, :conversation] do
     member do
       get :user_ads
+      get :chat_user
     end
     resources :conversations
 

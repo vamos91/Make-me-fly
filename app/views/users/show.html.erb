@@ -8,10 +8,14 @@
   <div class="col-md-3">
     <div class="row">
     <div class="thumbnail">
-      <%= image_tag "pilot.png"%>
+      <% if @user.picture? %>
+      <%= cl_image_tag @user.picture %>
+      <% else %>
+        <%= image_tag "pilot.png" %>
+      <% end %>
       <div class="caption text-center">
         <h4><%= @user.name.capitalize %></h4>
-        <p><%= link_to t(".top_call_to_action", default: "Envoyer un message") %></p>
+        <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"), chat_user_user_path(@user.id) %></p>
         <% if current_user == @user %>
           <p><%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %></p>
         <% end %>
@@ -50,24 +54,40 @@
            <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
            <p>Membre depuis <%= @user.message_time_user %></p>
            <p><%= @user.hometown.capitalize %></p>
+            <% if @user.description.nil? || @user.description.empty? %>
+            <p><%= @user.name.capitalize %> n'a pas encore complété sa description</p>
+          <% else %>
+          <div class="row margin-panel jumbotron">
+              <p><%= @user.description %></p>
+            </div>
+          <% end %>
           </div>
         </div>
-        <div class="row">
-
-          </div>
         </div>
         <div class="row">
         <div class="col-md-9">
           <div class="margin-panel">
               <% @articles.each do |article| %>
               <div class="panel panel-default">
-                <div class="panel-heading titre-article"><strong><%= article.title.capitalize %></strong>
+                <div class="panel-heading titre-article">
+                  <div class="media">
+                  <div class="media-left">
+                    <% if @user.picture? %>
+                      <%= cl_image_tag @user.picture, class: "avatar" %>
+                      <% else %>
+                        <%= image_tag "pilot.png", class: "avatar"%>
+                    <% end %>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading"><strong><%= article.title.capitalize %></strong></h4>
+                    <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
+                  </div>
+                  </div>
                   <div class="dropdown menu-article">
                       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
                         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                         <div class="button-article">
-                          <li><%= link_to "Mettre à jour", edit_article_path(article) %>
-</li>
+                          <li><%= link_to "Mettre à jour", edit_article_path(article) %></li>
                           <li><%= link_to "Effacer", article, method: :delete %></li>
                         </div>
                         </ul>
@@ -78,7 +98,7 @@
                     <% if article.video_url != "" %>
                     <% @v_url = article.video_url %>
                     <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
-                    <% @embed_code = "<iframe width='570' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
+                    <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
                       <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
                     <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
@@ -92,161 +112,19 @@
                           <%= link_to "update", edit_article_post_path(article, post) %>
                           <%= link_to "delete", article_post_path(article, post), method: :delete %></p>
                       <% end %>
-                     <p><%= link_to "Ajouter un commentaire", new_article_post_path(article_id: article.id) %></p>
-                    </div>
+<!--                      <p><%= link_to "Ajouter un commentaire", new_article_post_path(article) %></p>
+ -->                    </div>
                   </div>
               </div>
               <% end %>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="margin-panel" id="map" style="width: 100%; height: 500px; pointer-events:none; border: 1px solid #dce0e0;">
-          </div>
+
+        </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({
-      provider: {
-        styles : [
-    {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#444444"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.country",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "saturation": "4"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#f2f2f2"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.natural.terrain",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "gamma": "1.76"
-            },
-            {
-                "lightness": "20"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "saturation": -100
-            },
-            {
-                "lightness": 45
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#8c9092"
-            },
-            {
-                "visibility": "on"
-            }
-        ]
-    }
-]
-      },
-      internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(12);
-      });
-    })
-  <% end %>
- <% end %>

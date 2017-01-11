@@ -18,8 +18,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    #@article = Article.find(params[:article_id])
-    #@post = @article.posts.build(post_params)
     @post = @comment.posts.build(post_params)
     @post.user_id = current_user.id
     authorize @post
@@ -60,16 +58,12 @@ class PostsController < ApplicationController
     params.require(:post).permit(:user_id, :article_id, :text)
   end
 
-  def find_article
-    @article = Article.find(54)
+  def find_post
+    @post = Post.find(params[:id])
   end
 
-  # def find_post
-  #   @post = Post.find(params[:id])
-  # end
-
-  def find_post
-    @comment = Article.find_by_id(params[:article_id])
+  def find_article
+    @article = Article.find(params[:article_id])
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230094828) do
+ActiveRecord::Schema.define(version: 20170111095115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,11 @@ ActiveRecord::Schema.define(version: 20161230094828) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ad_id"
+    t.integer  "user_id"
   end
 
   add_index "conversations", ["ad_id"], name: "index_conversations_on_ad_id", using: :btree
+  add_index "conversations", ["user_id"], name: "index_conversations_on_user_id", using: :btree
 
   create_table "forecasts", force: :cascade do |t|
     t.float    "lat"
@@ -128,6 +130,7 @@ ActiveRecord::Schema.define(version: 20161230094828) do
   add_foreign_key "ads", "users"
   add_foreign_key "articles", "users"
   add_foreign_key "conversations", "ads"
+  add_foreign_key "conversations", "users"
   add_foreign_key "posts", "articles"
   add_foreign_key "posts", "users"
 end
