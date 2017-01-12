@@ -2,12 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6" style="margin-left: -70px;">
-        <div class="banner-chat" style="height: 100vh;">
-          <p>Le système de messagerie de MakeMeFly vous permet de faire connaissance et d'échanger avec d'autres passagers et pilotes sur l'organisation de vos vol. Tous les sujets sont les bienvenues.<i>Il est biensur fortemment recommandé de rester discret sur vos coordonnées personnel.</i></p>
-          <span><%= link_to "Mes conversations", conversations_path, class: "btn btn-primary" %></span>
+        <div class="banner-chat">
+          <!-- <span><%= link_to "Mes conversations", conversations_path, class: "btn btn-primary" %></span>
+          <span><%= link_to "Voir ses vols", ads_path, class: "btn btn-danger" %></span> -->
+          <p>Le système de messagerie de MakeMeFly vous permet de faire connaissance et d'échanger avec d'autres passagers et pilotes sur l'organisation de vos vols. Tous les sujets sont les bienvenues.<i>Il est biensur fortemment recommandé de rester discret sur vos coordonnées personnel.</i></p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
+     <!--  <div class="link-chat">
+        <span><%= link_to "Mes conversations", conversations_path, class: "btn btn-primary" %></span>
+        <span><%= link_to "Voir ses vols", ads_path, class: "btn btn-danger" %></span>
+      </div> -->
         <div class="panel panel-primary marged">
         <div class="panel-heading" id="accordion">
           <span class="glyphicon glyphicon-comment"></span> Chat (<%= @messages.count %> messages)
@@ -23,7 +28,7 @@
                   <% else %>
                   <%= image_tag "pilot.png", class: "img-circle", width: "50" %>
                 <% end %>
-                <strong><%= user.name.capitalize %></strong>
+                <strong><%= link_to user.name.capitalize, user_path(user.id) %></strong>
                 <div class="time-message"><%= message.message_time %></div>
                 </div>
                 <div class="body">
