@@ -20,7 +20,7 @@ Racontez-nous vos expériences !</div>
                 <p>Ce blog sera visible par tous ceux qui visitent votre profil.</p>
                   <%= art.input :title, required: false, autofocus: true, label: "Titre de votre article", placeholder: "Titre", wrapper: :horizontal_form %>
                   <%= art.input :description, :as => :text, required: false, autofocus: true, label: "Tu as volé ce week-end ?", placeholder: "Raconte ! :)", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
-                  <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo", placeholder: "Placez un lien youtube ou vimeo", wrapper: :horizontal_form %>
+                  <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo", placeholder: "Ex : https://www.youtube.com/watch?v=DIMIZPbnfNs", wrapper: :horizontal_form %>
                   </div>
                 </div>
                     <div class="panel panel-primary margin-panel">
