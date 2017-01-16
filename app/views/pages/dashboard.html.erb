@@ -12,7 +12,7 @@
       <% end %>
       <div class="caption text-center">
         <h4><%= current_user.name.capitalize %></h4>
-          <p><%= link_to "Voir le profil", user_path(current_user), class: "btn btn-primary" %></p>
+          <p><%= link_to "Voir mon profil", user_path(current_user), class: "btn btn-primary" %></p>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-default" %></p>
           <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
       </div>
@@ -72,8 +72,8 @@ Informations non vérifiées</div>
         <ul>
           <li>D'effectuer des reservations de vol en ULM avec des pilotes non professionnels.</li>
           <li>De proposer des vols en ULM.</li>
-          <li>De compléter et alimenter votre compte en postant des vidéos et recits de vos vols avec vos passagers. Votre compte est comme un carnet de vol virtuel.</li>
-          <li>D'envoyer des messages aux autres utilisateurs.</li>
+          <li>De compléter et alimenter votre compte en <%= link_to "publiant des articles", new_article_path(current_user)%>, vidéos et recits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
+          <li>D'envoyer des messages aux autres utilisateurs de la communauté.</li>
         </ul>
          </p>
       </div>
