@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   get 'pages/ulm'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
