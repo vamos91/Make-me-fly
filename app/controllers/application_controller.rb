@@ -29,4 +29,10 @@ before_action :authenticate_user!
    # devise_parameter_sanitizer.for(:sign_up) << :user
 
   end
+
+  private
+
+    def after_sign_in_path_for(resource)
+      pages_dashboard_path
+    end
 end

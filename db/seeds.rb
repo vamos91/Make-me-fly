@@ -23,7 +23,7 @@ Ad.destroy_all
   1.times do
     #address = Faker::Address.street_address +', Paris'
     address = "place de la bastille, Paris"
-    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Date.today, flight_time: Faker::Number.number(2), address: address, price: Faker::Number.decimal(2))
+    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Date.today, flight_time: Faker::Number.number(2), address: address)
     annonce.user = user
     article = Article.create(title: Faker::Book.title, description: Faker::Lorem.paragraph, video_url: Faker::Internet.url)
     article.user = user

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'pages/subscribe'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
