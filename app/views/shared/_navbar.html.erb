@@ -17,13 +17,12 @@
     <% if user_signed_in? %>
     <%= link_to user_path(current_user) do %>
     <% if current_user.picture? %>
-
         <%= cl_image_tag current_user.picture, class: "avatar-large" %>
         <% else %>
-          <%= image_tag "pilot.png", class: "avatar-large"%>
+          <%=  image_tag current_user.facebook_picture_url, class: "avatar-large"%>
       <% end %>
     <% end %>
-    <span style="color: white;"><%= current_user.name.capitalize %></span>
+    <span style="color: white;"><%= current_user.name || current_user.first_name %></span>
     <%= link_to pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
       <i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord
     <% end %>

@@ -11,7 +11,7 @@
         <%= image_tag "pilot.png" %>
       <% end %>
       <div class="caption text-center">
-        <h4><%= current_user.name.capitalize %></h4>
+        <h4><%= current_user.name %></h4>
           <p><%= link_to "Voir mon profil", user_path(current_user), class: "btn btn-primary" %></p>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-default" %></p>
           <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
@@ -112,10 +112,10 @@ Informations non vérifiées</div>
       <% if current_user.picture? %>
       <%= cl_image_tag current_user.picture %>
       <% else %>
-        <%= image_tag "pilot.png" %>
+        <%= image_tag current_user.facebook_picture_url %>
       <% end %>
       <div class="caption text-center">
-        <h4><%= current_user.name.capitalize %></h4>
+        <h4><%= current_user.name %></h4>
           <p><%= link_to "Voir le profil", user_path(current_user), class: "btn btn-primary" %></p>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-default" %></p>
           <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
