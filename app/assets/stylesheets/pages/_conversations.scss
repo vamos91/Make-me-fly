@@ -1,19 +1,25 @@
+.conversation-wrapper{
+  padding: 25px;
+}
+
 .conversation{
   position: relative;
-  background-color: $celestial-blue;
+  background-color: white;
   padding: 15px;
   color: white;
   font-weight: lighter;
   font-size: 20px;
-  display: flex;
-  align-items: center;
+  border: #ddd 1px solid;
+  border-radius: 15px;
   transition: background-color 0.5s ease;
+  margin-bottom: 20px;
 }
+
 
 .ad-data{
   //position: absolute;
-  padding-right: 200px;
-  padding-left: 50px;
+  padding-right: 198px;
+  padding-left: 8px;
 }
 
 .price-conversation{
@@ -24,19 +30,23 @@
 }
 
 .conversation a{
-  color: $japanese-indigo;
+  color: $gray-light;
 }
 
 .conversation:hover{
   a{
-    color: white;
+    //color: white;
   }
-  background-color: $yankee-blue;
+  background-color: $gray-lighter;
 }
 
 .conversation .fa{
+  color: $gray-light;
   padding: 5px;
   width: 15px;
 }
+
+
+
 
 

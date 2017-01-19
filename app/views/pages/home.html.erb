@@ -11,6 +11,7 @@
         <input name="q" type="text" class="form-control input-lg text-center " placeholder="Exemple 'Nîmes'">
         <input type="submit" value="Recherchez" class="btn btn-primary btn-lg">
       </form>
+      <%= @conversations.count %>
       <div class="call-to-action">
         <% if user_signed_in? && current_user.pilote? %>
            <%= link_to new_ad_path, class: "btn btn-danger btn-lg input-lg" do %>

@@ -1,11 +1,62 @@
-<div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
-<p><i class="fa fa-comments" style="padding: 5px;"></i>Ma messagerie</p>
-</div>
-<div class="">
-  <div>
-  <div class="title_flight text-center">
-    <p>conversations </p>
-  </div>
+<div class="wrapper-profile-dashboard top-spacing">
+  <%= render 'shared/subnavbar' %>
+  <div class="container">
+  <div class="col-md-3 col-sm-3">
+    <div class="row">
+    <div class="thumbnail">
+      <% if current_user.picture? %>
+      <%= cl_image_tag current_user.picture %>
+      <% elsif current_user.facebook_picture_url? %>
+        <%= image_tag current_user.facebook_picture_url %>
+        <% else %>
+        <%= image_tag "pilot.png" %>
+      <% end %>
+      <div class="caption text-center">
+        <h4>Pilote <%= current_user.name %></h4>
+          <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
+Informations non vérifiées</div>
+         <div class="info-pilote">
+          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">J'ai proposé <%= policy_scope(Ad).count %> vol(s)</div>
+         <div class="info-pilote">
+          <p><%= link_to "Voir mes vols", ads_path, class: "btn btn-warning" %></p>
+         </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-9 col-sm-9">
+    <div class="row">
+    <% if @conversations.empty? %>
+    <div class="wrapper marged">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <div class="empty-ad">
+            <div class="icon fa fa-smile-o"></div>
+              <h1>Vos conversations s'afficheront ici</h1>
+              <%= link_to "HOME", root_path, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">Mes conversations</div>
+    <div class="conversation-wrapper">
     <div>
       <% @conversations.each do |conversation| %>
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
@@ -36,10 +87,18 @@
           </div>
           </div>
         <% end %>
-      <% end %>
+        <% end %>
+        </div>
+      </div>
+      </div>
+    <% end %>
+    </div>
     </div>
   </div>
 </div>
+</div>
+
+
 
 
 <!-- <div>

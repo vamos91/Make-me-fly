@@ -5,6 +5,8 @@ class PagesController < ApplicationController
 
   def home
 
+    conversations = Conversation.all
+    @conversations = policy_scope(conversations)
     #ad = Ad.count
     #@pilote_counter = User.where("pilote = ?", true).count
     #@passager_counter = User.where("pilote = ?", false).count
