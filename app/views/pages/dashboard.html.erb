@@ -1,6 +1,8 @@
 <!-- <div class="marged"></div> -->
+
 <% if current_user.pilote? %>
 <div class="wrapper-profile-dashboard top-spacing">
+  <%= render 'shared/subnavbar' %>
   <div class="container">
   <div class="col-md-3">
     <div class="row">
@@ -12,9 +14,7 @@
       <% end %>
       <div class="caption text-center">
         <h4><%= current_user.name %></h4>
-          <p><%= link_to "Voir mon profil", user_path(current_user), class: "btn btn-primary" %></p>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-default" %></p>
-          <p><%= link_to "Publier un article", new_article_path(current_user), class: "btn btn-success" %></p>
       </div>
      </div>
     </div>
@@ -105,6 +105,7 @@ Informations non vérifiées</div>
 </div>
 <% else %>
 <div class="wrapper-profile-dashboard top-spacing">
+<%= render 'shared/subnavbar' %>
   <div class="container">
   <div class="col-md-3">
     <div class="row">

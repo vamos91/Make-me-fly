@@ -1,0 +1,10 @@
+<div class="subnavbar navbar">
+  <div class="navbar-wagon-right hidden-xs">
+    <%= link_to "Tableau de bord", pages_dashboard_path, :class => "navbar-wagon-item" %>
+    <%= link_to "Voir mon profil", user_path(current_user), class: "navbar-wagon-item" %>
+    <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "navbar-wagon-item" %>
+    <%= link_to "Messagerie", conversations_path, class: "navbar-wagon-item" %>
+    <%= link_to "Publier un article", new_article_path(current_user), :class => "navbar-wagon-item" %>
+    <%= link_to "Voir mes vols", ads_path, class: "navbar-wagon-item" %>
+  </div>
+</div>

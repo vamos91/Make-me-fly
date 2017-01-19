@@ -30,11 +30,9 @@
       <i class="fa fa-users"></i> Les pilotes
     <% end %>
     <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
-            <div class="badge-container">
-              <i class="fa fa-envelope-o"></i> Mes messages
+              <i class="fa fa-envelope-o"></i> Messages
 <!--               <div class="badge badge-blue">1</div>
  -->
-             </div>
           <% end %>
     <%= link_to destroy_user_session_path, :class => "navbar-wagon-item navbar-wagon-button btn", method: :delete do %>
       <i class="fa fa-sign-out"></i> Deconnexion

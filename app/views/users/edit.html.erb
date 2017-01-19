@@ -1,5 +1,6 @@
 <% if current_user.pilote? %>
 <div class="wrapper-profile-dashboard top-spacing">
+<%= render 'shared/subnavbar' %>
   <div class="container">
     <div class="col-md-3">
       <div class="row">
@@ -31,7 +32,7 @@
                         <p>Ces documents permettront de vous identifier comme pilote ULM affilié à la fédération francaise d'ULM. <strong>L'assurance en responsablilité civil (AIR COURTAGE ASSURANCES) est une assurance obligatoire chez MakeMeFly pour pouvoir proposer des vols à nos passagers.</strong></p>
                         <%= user.input :brevet_pilote, label: "Votre brevet de pilote ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
                         <%= user.input :assurance, label: "Votre assurance responsabilité civil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
-                        <%= user.input :licence_ulm, label: "Votre licence ULM de l'année en cours", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                        <%= user.input :licence_ulm, label: "Votre licence ULM de l'année en cours (facultatif)", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
 
                       </div>
                     </div>
