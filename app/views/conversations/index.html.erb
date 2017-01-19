@@ -18,6 +18,8 @@
           <div class="ad-data">
             <% if recipient.picture? %>
               <%= cl_image_tag recipient.picture, class: "img-circle", width: "80" %>
+              <% elsif recipient.facebook_picture_url?%>
+              <%= image_tag recipient.facebook_picture_url, class: "img-circle", width: "80" %>
               <% else %>
               <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
             <% end %>

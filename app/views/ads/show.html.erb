@@ -9,8 +9,10 @@
           <div class="header-flat-owner  text-center">
           <% if @ad.user.picture? %>
             <p><%= cl_image_tag @ad.user.picture, class: "img-circle", width: "80" %></p>
+            <% elsif current_user.facebook_picture_url? %>
+            <p><%= image_tag current_user.facebook_picture_url, class: "img-circle", width: "80" %></p>
             <% else %>
-            <p><%= image_tag "pilot.png", class: "img-circle", width: "80" %></p>
+            <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
           <% end %>
             <p><%= @ad.user.name.capitalize %></p>
             <% if user_signed_in? %>

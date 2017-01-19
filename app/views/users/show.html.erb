@@ -3,12 +3,14 @@
   <%= render 'shared/subnavbar' %>
 <% end %>
   <div class="container">
-  <div class="col-md-3">
+  <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
       <% if @user.picture? %>
       <%= cl_image_tag @user.picture %>
-      <% else %>
+      <% elsif @user.facebook_picture_url? %>
+        <%= image_tag @user.facebook_picture_url %>
+        <% else %>
         <%= image_tag "pilot.png" %>
       <% end %>
       <div class="caption text-center">
@@ -46,7 +48,7 @@
       </div>
     </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 col-sm-9">
       <div class="panel-explication">
         <div class="row">
           <div class="id-user margin-panel">
@@ -64,17 +66,19 @@
         </div>
         </div>
         <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9 col-sm-9">
           <div class="margin-panel">
               <% @articles.each do |article| %>
               <div class="panel panel-default">
                 <div class="panel-heading titre-article">
                   <div class="media">
                   <div class="media-left">
-                    <% if @user.picture? %>
-                      <%= cl_image_tag @user.picture, class: "avatar" %>
+                   <% if @user.picture? %>
+                    <%= cl_image_tag @user.picture %>
+                    <% elsif @user.facebook_picture_url? %>
+                      <%= image_tag @user.facebook_picture_url %>
                       <% else %>
-                        <%= image_tag "pilot.png", class: "avatar"%>
+                      <%= image_tag "pilot.png" %>
                     <% end %>
                   </div>
                   <div class="media-body">
@@ -118,7 +122,7 @@
               <% end %>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-3">
 
         </div>
         </div>
