@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170117224545) do
+=======
+ActiveRecord::Schema.define(version: 20161207100629) do
+>>>>>>> cc3368b1afcfc17f902a55677bbad258b021e54a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +117,7 @@ ActiveRecord::Schema.define(version: 20170117224545) do
     t.string   "picture"
     t.boolean  "pilote"
     t.boolean  "admin",                  default: false
+<<<<<<< HEAD
     t.string   "hometown"
     t.float    "latitude"
     t.float    "longitude"
@@ -122,6 +127,8 @@ ActiveRecord::Schema.define(version: 20170117224545) do
     t.string   "description"
     t.string   "picture_ulm_user"
     t.string   "licence_ulm"
+=======
+>>>>>>> cc3368b1afcfc17f902a55677bbad258b021e54a
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
@@ -129,6 +136,10 @@ ActiveRecord::Schema.define(version: 20170117224545) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+<<<<<<< HEAD
+=======
+    t.string   "hometown"
+>>>>>>> cc3368b1afcfc17f902a55677bbad258b021e54a
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

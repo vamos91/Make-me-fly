@@ -38,7 +38,7 @@
         <%= form_tag orders_path do %>
             <% if @ad.booked != '1'%>
               <%= humanized_money_with_symbol(@ad.price) %>
-              <h4>Je reserve ce vol avec <%= @ad.user.name.capitalize %></h4>
+              <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4>
               <%= hidden_field_tag 'ad_id', @ad.id %>
               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
             <% end %>
@@ -115,7 +115,7 @@
 </div>
 <div class="wrapper-card padded">
 <div style="font-weight: lighter; text-align: center;">
-  <h4>Les autre vols proposés par <strong><%= @ad.user.name.capitalize %></strong></h4>
+  <h4>Les autre vols proposés par <strong><%= @ad.user.first_name || @ad.user.name.capitalize %></strong></h4>
   </div>
     <div class="container">
        <div class="row">
