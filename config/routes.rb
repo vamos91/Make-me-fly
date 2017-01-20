@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
-
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end

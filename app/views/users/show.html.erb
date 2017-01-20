@@ -74,11 +74,11 @@
                   <div class="media">
                   <div class="media-left">
                    <% if @user.picture? %>
-                    <%= cl_image_tag @user.picture %>
+                    <%= cl_image_tag @user.picture, class: "avatar" %>
                     <% elsif @user.facebook_picture_url? %>
-                      <%= image_tag @user.facebook_picture_url %>
+                      <%= image_tag @user.facebook_picture_url, class: "avatar" %>
                       <% else %>
-                      <%= image_tag "pilot.png" %>
+                      <%= image_tag "pilot.png", class: "avatar" %>
                     <% end %>
                   </div>
                   <div class="media-body">
@@ -86,15 +86,17 @@
                     <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
                   </div>
                   </div>
+                  <% if policy(article).update? %>
                   <div class="dropdown menu-article">
                       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
                         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                         <div class="button-article">
-                          <li><%= link_to "Mettre à jour", edit_article_path(article) %></li>
-                          <li><%= link_to "Effacer", article, method: :delete %></li>
+                            <li><%= link_to "Mettre à jour", edit_article_path(article) %></li>
+                            <li><%= link_to "Effacer", article, method: :delete %></li>
                         </div>
                         </ul>
                     </div>
+                    <% end %>
                 </div>
                   <div class="article">
                     <div class="description"><p><%= article.description.capitalize %></p></div>

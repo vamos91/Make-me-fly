@@ -1,0 +1,33 @@
+.banner-index-pilot{
+  margin-top: 60px;
+  color: white;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4b6cb7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #4b6cb7 , #182848); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #4b6cb7 , #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.banner-index-pilot h1{
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.banner-index-pilot h3{
+    font-size: 12px;
+  }
+
+
+@media (max-width:450px) {
+  .banner-index-pilot h1{
+    font-size: 40px;
+    font-weight: lighter;
+    height: 20vh;
+  }
+
+  .thumbnail h3{
+    font-size: 12px;
+  }
+}
