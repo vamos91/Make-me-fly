@@ -1,11 +1,32 @@
 .new-ad-text {
+  font-size: 15px;
   font-weight: lighter;
-  background: $celestial-blue;
-  padding: 50px;
+  //background: $celestial-blue;
+  padding: 10px;
   margin: 10px auto;
-  margin-bottom: 130px;
-  border-radius: 12px;
+  //margin-bottom: 130px;
+  //border-radius: 12px;
   color: white;
+}
+
+.new-ad-text p{
+  text-align: justify;
+  color: $japanese-indigo;
+  //border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.new-ad-text ul{
+  list-style:none;
+}
+
+.new-ad-text li{
+  color: $lapis-lazuli;
+  //border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+
 }
 
 .session{
@@ -31,14 +52,6 @@
   color: white;
 }
 
-.new-ad-text p{
-  text-align: justify;
-  background: $japanese-indigo;
-  border-radius: 20px;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
 .status-pilote{
   display: none;
 }
@@ -51,22 +64,11 @@
   line-height : 40px;
 }
 
-.new-ad-text ul{
-  list-style:none;
-}
 
-.new-ad-text li{
-  background-color: $lapis-lazuli;
-  border-radius: 20px;
-  padding: 15px;
-  margin-bottom: 15px;
-
-}
 
 .new-ad-text .paiement{
-  background-color: $gray-light;
   font-weight: bold;
-  color: $gray-lighter;
+  color: $gray-light;
 }
 
 .hide-profile-field{

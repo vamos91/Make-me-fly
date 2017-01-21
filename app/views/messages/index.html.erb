@@ -14,7 +14,7 @@
       <% if recipient.picture? %>
       <%= cl_image_tag recipient.picture %>
       <% elsif recipient.facebook_picture_url? %>
-        <%= image_tag recipient.facebook_picture_url %>
+        <%= image_tag recipient.facebook_picture_url.split("=")[0] << "=large" %>
         <% else %>
         <%= image_tag "pilot.png" %>
       <% end %>

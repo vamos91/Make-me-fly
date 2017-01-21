@@ -10,7 +10,7 @@
       <% if current_user.picture? %>
       <%= cl_image_tag current_user.picture %>
       <% elsif current_user.facebook_picture_url? %>
-        <%= image_tag current_user.facebook_picture_url %>
+        <%= image_tag current_user.facebook_picture_url.split("=")[0] << "=large" %>
         <% else %>
         <%= image_tag "pilot.png" %>
       <% end %>

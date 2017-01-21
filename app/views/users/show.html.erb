@@ -9,7 +9,7 @@
       <% if @user.picture? %>
       <%= cl_image_tag @user.picture %>
       <% elsif @user.facebook_picture_url? %>
-        <%= image_tag @user.facebook_picture_url %>
+        <%= image_tag @user.facebook_picture_url.split("=")[0] << "=large" %>
         <% else %>
         <%= image_tag "pilot.png" %>
       <% end %>
@@ -54,7 +54,7 @@
           <div class="id-user margin-panel">
            <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
            <p>Membre depuis <%= @user.message_time_user %></p>
-           <p><%= @user.hometown.capitalize %></p>
+           <p><%= @user.hometown %></p>
             <% if @user.description.nil? || @user.description.empty? %>
             <p><%= @user.name.capitalize %> n'a pas encore complété sa description</p>
           <% else %>

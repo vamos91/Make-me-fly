@@ -7,7 +7,7 @@
       <% if current_user.picture? %>
       <%= cl_image_tag current_user.picture %>
       <% elsif current_user.facebook_picture_url? %>
-        <%= image_tag current_user.facebook_picture_url %>
+        <%= image_tag current_user.facebook_picture_url.split("=")[0] << "=large" %>
         <% else %>
         <%= image_tag "pilot.png" %>
       <% end %>
@@ -40,11 +40,11 @@ Informations non vérifiées</div>
     <div class="col-md-9 col-sm-9">
     <div class="row">
     <% if @conversations.empty? %>
-    <div class="wrapper marged">
+    <div class="wrapper">
       <div class="container text-center">
         <div class="row">
-          <div class="col-xs-12 col-md-6 col-md-offset-3">
-            <div class="empty-ad">
+          <div class="col-xs-12 col-md-6">
+            <div class="empty-ad" style="background-color: white;">
             <div class="icon fa fa-smile-o"></div>
               <h1>Vos conversations s'afficheront ici</h1>
               <%= link_to "HOME", root_path, class: "btn btn-primary" %>
