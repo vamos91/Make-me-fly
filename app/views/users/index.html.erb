@@ -6,14 +6,10 @@
       <% @userPilotes.each do |user| %>
       <div class="col-xs-6 col-sm-6 col-md-3">
       <div class="thumbnail" style="box-shadow: 0 1px 2px rgba(0,0,0,0.2);">
-        <% if user.picture? %>
-          <%= cl_image_tag user.picture %>
-        <% else %>
-          <%= image_tag "pilot.png" %>
-        <% end %>
+       <%= render "shared/user_profile_photo" %>
       <div class="caption">
         <h3><%= user.name.capitalize %></h3>
-        <p><%= user.hometown.capitalize %></p>
+        <p><%= user.hometown %></p>
         <p>
         <% if current_user != user %>
           <%= link_to "Profil", user_path(user.id), class: "btn btn-primary" %>

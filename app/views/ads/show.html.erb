@@ -14,7 +14,7 @@
             <% else %>
             <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
           <% end %>
-            <p><%= @ad.user.name.capitalize %></p>
+            <p><%= @ad.user.first_name || @ad.user.name.capitalize %></p>
             <% if user_signed_in? %>
               <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %></p>
               <p><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default" %></p>

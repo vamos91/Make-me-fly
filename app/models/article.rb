@@ -8,4 +8,7 @@ class Article < ActiveRecord::Base
    created_at.strftime("%d/%m/%y à %l:%M %p")
  end
 
+
+ mount_uploader :picture_article, PhotoUploader
+
 end

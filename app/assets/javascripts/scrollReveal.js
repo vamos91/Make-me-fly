@@ -14,3 +14,4 @@ sr.reveal('.pilote', {origin:'left', distance: '50px', duration: 1000, reset: fa
 sr.reveal('.passager', {origin:'right', distance: '50px', duration: 1000, reset: false})
 //sr.reveal('#search p', {origin:'left', distance: '50px', duration: 1000, reset: false})
 sr.reveal('.call-to-action', {origin:'left', distance: '50px', duration: 3000, reset: false})
+

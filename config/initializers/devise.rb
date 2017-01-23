@@ -268,7 +268,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email',
     info_fields: 'email, first_name, last_name',
-    image_size: 'normal',  # 200x200, guaranteed ratio
+    image_size: 'large',  # 200x200, guaranteed ratio
     secure_image_url: true
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:

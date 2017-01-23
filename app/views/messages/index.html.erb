@@ -11,13 +11,7 @@
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
-      <% if recipient.picture? %>
-      <%= cl_image_tag recipient.picture %>
-      <% elsif recipient.facebook_picture_url? %>
-        <%= image_tag recipient.facebook_picture_url.split("=")[0] << "=large" %>
-        <% else %>
-        <%= image_tag "pilot.png" %>
-      <% end %>
+      <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
       <p>Conversation avec</p>
         <h4><%= recipient.name.capitalize %></h4>

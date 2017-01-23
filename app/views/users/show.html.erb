@@ -6,15 +6,9 @@
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
-      <% if @user.picture? %>
-      <%= cl_image_tag @user.picture %>
-      <% elsif @user.facebook_picture_url? %>
-        <%= image_tag @user.facebook_picture_url.split("=")[0] << "=large" %>
-        <% else %>
-        <%= image_tag "pilot.png" %>
-      <% end %>
+      <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
-        <h4><%= @user.name.capitalize %></h4>
+        <h4><%= @user.first_name || @user.name.capitalize %></h4>
         <% if current_user == @user %>
           <p><%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %></p>
         <% else %>
@@ -52,11 +46,11 @@
       <div class="panel-explication">
         <div class="row">
           <div class="id-user margin-panel">
-           <h2>Bonjour, je suis <%= @user.name.capitalize %></h2>
+           <h2>Bonjour, je suis <%=  @user.first_name || @user.name.capitalize %></h2>
            <p>Membre depuis <%= @user.message_time_user %></p>
            <p><%= @user.hometown %></p>
             <% if @user.description.nil? || @user.description.empty? %>
-            <p><%= @user.name.capitalize %> n'a pas encore complété sa description</p>
+            <p><%= @user.first_name.capitalize %> n'a pas encore complété sa description</p>
           <% else %>
           <div class="row margin-panel jumbotron">
               <p><%= @user.description %></p>
@@ -100,6 +94,9 @@
                 </div>
                   <div class="article">
                     <div class="description"><p><%= article.description.capitalize %></p></div>
+                    <% if article.picture_article != nil %>
+                      <%= cl_image_tag article.picture_article, class: "picture_article" %>
+                    <% end %>
                     <% if article.video_url != "" %>
                     <% @v_url = article.video_url %>
                     <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>

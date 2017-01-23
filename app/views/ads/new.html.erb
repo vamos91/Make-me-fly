@@ -42,7 +42,7 @@
     <div class="col-md-4">
         <div class="row">
           <div class="panel panel-primary margin-panel">
-          <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i> Cher(e) <%= current_user.name.capitalize %></div>
+          <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i> Cher(e) <%= current_user.first_name || current_user.name.capitalize %></div>
            <div class="new-ad-text">
           <p>Vous allez déposer une annonce afin de proposer un vol à bord de votre ULM. Voici quelques conseils pour la rédaction de votre annonce : </p>
           <ul>

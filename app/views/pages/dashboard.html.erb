@@ -1,21 +1,139 @@
 <!-- <div class="marged"></div> -->
 
-<% if current_user.pilote? %>
+<% if current_user.pilote == nil %>
+<div class="wrapper-profile-dashboard top-spacing">
+  <%= render 'shared/subnavbar' %>
+   <div class="container">
+  <div class="col-md-3 col-sm-3">
+    <div class="row">
+    <div class="thumbnail">
+      <%= render "shared/user_profile_photo" %>
+      <div class="caption text-center">
+        <h4>Pilote <%= current_user.first_name || current_user.name %></h4>
+          <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
+Informations non vérifiées</div>
+         <div class="info-pilote">
+          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">J'ai proposé <%= policy_scope(Ad).count %> vol(s)</div>
+         <div class="info-pilote">
+          <p><%= link_to "Voir mes vols", ads_path, class: "btn btn-warning" %></p>
+         </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-9 col-sm-9">
+    <div class="panel-explication">
+    <div class="row">
+       <div class="panel panel-default margin-panel">
+        <div class="panel-heading">Cher pilote, bienvenue sur MakeMeFly</div>
+         <div class="welcome">
+          <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <p>Vous projetez de voler et votre aéronef vous permet l'emport d'un passager, il vous est possible de proposer cette place de disponible. Cependant vous devez au préalable :
+          <ul>
+            <li>
+            <div><%= link_to "Complétez votre profil", edit_user_path(current_user), class: "title-welcome" %></div>
+            Renseignez votre profil (fortement recommandé) afin de rassurer les utilisateurs sur votre expérience de pilote, téléchargez une photo de vous et de votre ULM</li>
+            <li><p><div class="title-welcome">Fournissez vos documents nécéssaires à l'exercice du vol en ULM en France. (Obligatoire)</div>
+            <ul>
+              <li>Brevet de pilote ULM</li>
+              <li>Assurance RC</li>
+              <li>Licence ULM de l'année en cours</li>
+            </ul>
+            </p>
+            </li>
+          </ul>
+          </p>
+          <p>Nous procederons à une vérification des documents que vous nous fournissez dans la partie "Compléter mon profil". Et vous pourrez ainsi proposer de merveilleux vols à bord de votre ULM. </p>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">MAKEMEFLY</div>
+    <div class="welcome">
+      <p>MakeMeFly vous permet :
+        <ul>
+          <li>D'effectuer des reservations de vol en ULM avec des pilotes non professionnels.</li>
+          <li>De proposer des vols en ULM.</li>
+          <li>De compléter et alimenter votre compte en <%= link_to "publiant des articles", new_article_path(current_user)%>, vidéos et recits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
+          <li>D'envoyer des messages aux autres utilisateurs de la communauté.</li>
+        </ul>
+         </p>
+      </div>
+      </div>
+    </div>
+     <div class="row">
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">Réglage de votre marketing</div>
+    <div class="welcome">
+    <p><strong>Lorsque vous créez un compte ou lorsque vous proposez un vol</strong>, un mail est envoyé à tous les utilisateurs dans les <strong>100 km</strong> (valeur par défault) autour de vous.</p>
+    <p>Quand vous proposez un vol, il sera automatiquement proposé aux utilisateurs ayant un compte MakeMeFly de votre région.</p>
+    <p>Vous pouvez modifier la valeur kilométrique et ainsi modifier votre rayon d'action. </p>
+    <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
+      </div>
+      </div>
+    </div>
+     <div class="row">
+    <div class="panel panel-default margin-panel">
+    <div class="panel-heading">Notifications et avertissements</div>
+    <div class="welcome">
+    <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
+    <p>Je suis avertis lorsqu'un nouveau pilote de votre région arrive sur Makemefly. </p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% elsif current_user.pilote? %>
 <div class="wrapper-profile-dashboard top-spacing">
   <%= render 'shared/subnavbar' %>
   <div class="container">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
-      <% if current_user.picture? %>
-      <%= cl_image_tag current_user.picture %>
-      <% elsif current_user.facebook_picture_url? %>
-        <%= image_tag current_user.facebook_picture_url.split("=")[0] << "=large" %>
-        <% else %>
-        <%= image_tag "pilot.png" %>
-      <% end %>
+      <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
-        <h4>Pilote <%= current_user.name %></h4>
+        <h4>Pilote <%= current_user.first_name || current_user.name %></h4>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
       </div>
      </div>
@@ -112,15 +230,9 @@ Informations non vérifiées</div>
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
-      <% if current_user.picture? %>
-      <%= cl_image_tag current_user.picture %>
-      <% elsif current_user.facebook_picture_url? %>
-        <%= image_tag current_user.facebook_picture_url %>
-        <% else %>
-        <%= image_tag "pilot.png" %>
-      <% end %>
+      <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
-        <h4>Passager <%= current_user.name %></h4>
+        <h4>Passager <%= current_user.name || current_user.first_name %></h4>
       </div>
      </div>
     </div>
