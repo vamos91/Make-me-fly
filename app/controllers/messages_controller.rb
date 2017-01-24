@@ -48,3 +48,13 @@ private
   params.require(:message).permit(:body, :user_id)
  end
 end
+
+
+ # if @messages
+ #  @messages.each do |message|
+ #    if @messages.last.user_id != current_user.id
+ #      message.read = true
+ #      message.save
+ #    end
+ #  end
+ # end

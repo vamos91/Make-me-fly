@@ -2,7 +2,7 @@
 <% if @user == current_user && current_user.pilote != nil %>
   <%= render 'shared/subnavbar' %>
 <% end %>
-  <div class="container">
+  <div class="container padded">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
@@ -19,7 +19,7 @@
     <div class="row">
        <div class="panel panel-default">
         <div class="panel-heading">Informations non vérifiées</div>
-         <div class="info-pilote">
+         <div class="welcome">
           <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
@@ -47,9 +47,9 @@
           <div class="id-user margin-panel">
            <h2>Bonjour, je suis <%=  @user.first_name || @user.name.capitalize %></h2>
            <p>Membre depuis <%= @user.message_time_user %></p>
-           <p><%= @user.hometown %></p>
+           <p><%= @user.hometown.capitalize %></p>
             <% if @user.description.nil? || @user.description.empty? %>
-            <p><%= @user.first_name.capitalize %> n'a pas encore complété sa description</p>
+            <p><%= @user.first_name || @user.name.capitalize %> n'a pas encore complété sa description</p>
           <% else %>
           <div class="row margin-panel jumbotron">
               <p><%= @user.description %></p>

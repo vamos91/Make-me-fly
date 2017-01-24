@@ -1,15 +1,14 @@
 <!-- <div class="marged"></div> -->
 
 <% if current_user.pilote == nil %>
-<div class="wrapper-profile-dashboard top-spacing">
-   <div class="container">
+<div class="wrapper-profile-dashboard top-spacing" style="height: 85vh;">
+   <div class="container padded">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
       <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
-        <h4><%= current_user.first_name || current_user.name %></h4>
-          <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
+        <h4><%= current_user.first_name || current_user.name.capitalize %></h4>
       </div>
      </div>
     </div>
@@ -17,10 +16,9 @@
     <div class="col-md-9 col-sm-9">
         <div class="row">
            <div class="panel panel-default margin-panel">
-            <div class="panel-heading">Cher <%= current_user.first_name || current_user.name %>, bienvenue sur MakeMeFly</div>
+            <div class="panel-heading">Cher <%= current_user.first_name || current_user.name.capitalize %>, bienvenue sur MakeMeFly</div>
              <div class="welcome">
               <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
-              </div>
               <p>MakeMeFly vous permet :
               <ul>
                 <li>D'effectuer des reservations de vol en ULM avec des pilotes non professionnels.</li>
@@ -29,6 +27,7 @@
                 <li>D'envoyer des messages aux autres utilisateurs de la communauté.</li>
               </ul>
              </p>
+             </div>
              <div class="button text-center padded">
               <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalStatusUser">
                 Je commence
@@ -42,7 +41,7 @@
 <% elsif current_user.pilote == true %>
 <div class="wrapper-profile-dashboard top-spacing">
   <%= render 'shared/subnavbar' %>
-  <div class="container">
+  <div class="container padded">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
@@ -57,7 +56,7 @@
        <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
 Informations non vérifiées</div>
-         <div class="info-pilote">
+         <div class="welcome">
           <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
@@ -141,7 +140,7 @@ Informations non vérifiées</div>
 <% else %>
 <div class="wrapper-profile-dashboard top-spacing">
 <%= render 'shared/subnavbar' %>
-  <div class="container">
+  <div class="container padded">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">

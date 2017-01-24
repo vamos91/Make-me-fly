@@ -2,13 +2,13 @@
 <% if current_user.pilote != nil %>
   <%= render 'shared/subnavbar' %>
 <% end %>
-  <div class="container">
+  <div class="container padded">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
      <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
-        <h4><%= current_user.first_name || current_user.name %></h4>
+        <h4><%= current_user.first_name || current_user.name.capitalize %></h4>
           <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
       </div>
      </div>
@@ -17,7 +17,7 @@
        <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
 Informations non vérifiées</div>
-         <div class="info-pilote">
+         <div class="welcome">
           <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
           <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
@@ -37,16 +37,12 @@ Informations non vérifiées</div>
     <div class="row">
     <% if @conversations.empty? %>
     <div class="wrapper">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-xs-12 col-md-6">
+      <div class="margin-panel text-center">
             <div class="empty-ad" style="background-color: white;">
             <div class="icon fa fa-smile-o"></div>
               <h1>Vos conversations s'afficheront ici</h1>
               <%= link_to "HOME", root_path, class: "btn btn-primary" %>
             </div>
-          </div>
-        </div>
       </div>
     </div>
     <% else %>
@@ -70,7 +66,8 @@ Informations non vérifiées</div>
               <% else %>
               <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
             <% end %>
-            <strong><%= link_to recipient.name.capitalize, conversation_messages_path(conversation)%></strong>
+            <% user_name = recipient.first_name || recipient.name.capitalize %>
+            <strong><%= link_to user_name, conversation_messages_path(conversation)%></strong>
             <% if conversation.ad.nil? && conversation.ad.nil? %>
               <i class="fa fa-commenting-o"></i>
             <% else %>
