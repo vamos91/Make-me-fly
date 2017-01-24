@@ -44,7 +44,9 @@ class PagesController < ApplicationController
     elsif params[:pilote] == 'false'
       current_user.pilote = false
     else
+      #current_user.pilote = nil
     end
+    current_user.save
   end
 
 end
