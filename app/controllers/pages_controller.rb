@@ -5,8 +5,6 @@ class PagesController < ApplicationController
 
   def home
 
-    conversations = Conversation.all
-    @conversations = policy_scope(conversations)
     #ad = Ad.count
     #@pilote_counter = User.where("pilote = ?", true).count
     #@passager_counter = User.where("pilote = ?", false).count
@@ -37,6 +35,16 @@ class PagesController < ApplicationController
     #   end
     # end
     #  return @ads_counter
+  end
+
+
+  def dashboard
+    if params[:pilote] == 'true'
+      current_user.pilote = true
+    elsif params[:pilote] == 'false'
+      current_user.pilote = false
+    else
+    end
   end
 
 end

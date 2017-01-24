@@ -20,6 +20,10 @@ body{
 
 }
 
+.modal-body{
+  background-color: #E9EBEE;
+}
+
 .padded {
   padding-top: 2em;
   padding-bottom: 3em;
@@ -83,5 +87,9 @@ body{
 
 .picture_article{
   width: 100%;
+}
+
+.well{
+  padding: 110px;
 }
 

@@ -24,53 +24,6 @@
     <i class="fa fa-arrow-down" aria-hidden="true"></i>
   </div>
 </div>
-
-
-<% if user_signed_in? == false %>
-<div class="wrapper-pilot">
-<div class="container">
-  <div class="row">
-  <div class="col-xs-12 col-sm-6 no-space-left">
-    <div class="pilote">
-      <div class="feature-icon">
-        <i class="fa fa-fighter-jet" aria-hidden="true"></i>
-      </div>
-        <h3>Je suis pilote ULM</h3>
-        <p>Je suis pilote, je m'inscris, je propose un vol.</p>
-        <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path(:pilote => true),class: "button-feature" %>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-6 no-space-right">
-    <div class="passager">
-      <div class="feature-icon">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
-        <h3>Je suis passager</h3>
-        <p>Je m'inscris, je trouve mon pilote, je reserve un vol pas cher.</p>
-        <%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path(:pilote => false), class: "button-feature" %>
-    </div>
-    </div>
-  </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<% end %>
-
-
-
-
-
-
-
 <div class="title_flight text-center">
   <% if user_signed_in? && @ads.nil? %>
     <p>Nouveaux vols proches de <%= current_user.hometown.capitalize %></p>
@@ -91,11 +44,6 @@
       </div>
     </div>
     </div>
-
-
-
-
-
 <div class="banner banner-parallax banner-parallax1 img-responsive">
   <div class="banner-filter"></div>
   <div class="banner-content-parallax text-center">
@@ -162,23 +110,6 @@
   </div>
 </div>
 
-
-
-
-
-<!-- <div class="wrapper-feature text-center padded marged">
-  <div class="container">
-    <p><h2>Ce que <strong>nous faisons</strong></h2></p>
-    <p><div class="border"></div></p>
-    <p><strong>MakeMeFly</strong> est une plate-forme vous permet rencontrer votre pilote ULM. Découvrez la passion de pilote et <strong>volez en quelques clics</strong> à bord d'un <strong>pendulaire, multiaxe, paramoteur et autogire</strong>. Un ultra-léger motorisé, plus couramment appelé ULM, est un aéronef muni d'un moteur, répondant à des critères de masse ou de puissance maximales définis par les juridictions nationales et autorisant son utilisation dans des conditions de navigabilité simplifiées par rapport à celles d'un avion léger et avec une licence de pilotage spécifique. La plupart des ULM peuvent décoller et atterrir sur des distances réduites hors des aérodromes, mais les plus performants s'apparentent aux avions légers certifiés.</p>
-  </div>
-</div> -->
-
-
-
-
-
-
 <div class="banner banner-parallax banner-parallax2 img-responsive marged">
   <div class="feature3 text-center">
   <span><stron>MakeMeFly</stron> vous permet de reserver des vols sur différents type d'ULM</span>
@@ -215,129 +146,7 @@
     <%= link_to t(".top_call_to_action", default: "En savoir plus"), pages_ulm_path, class: "button-feature" %>
   </div>
 </div>
-
-
-
-
- <!-- CARDS -->
-
-
 </div>
-
-
-<!-- FEATURES 1-->
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Testimonials 01 -->
-<!-- <div class="container padded">
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
-            <div class="testimonials-01 row">
-                <div class="col-sm-4 col-xs-12">
-                    <%= image_tag "visage4.jpg", class: "avatar-xxl"%>
-                </div>
-                <div class="col-sm-8 col-xs-12">
-                    <h3>John Doe</h3>
-                    <h6 class="text-uppercase">Cool Company Inc.</h6>
-                    <p>Lorem ipsum is a pseudo-latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="testimonials-01 row">
-                <div class="col-sm-4 col-xs-12">
-                   <%= image_tag "visage4.jpg", class: "avatar-xxl"%>
-                </div>
-                <div class="col-sm-8 col-xs-12">
-                    <h3>Jane Doe</h3>
-                    <h6 class="text-uppercase">Cool Company Inc.</h6>
-                    <p>Lorem ipsum is a pseudo-latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
-            <div class="testimonials-01 row">
-                <div class="col-sm-4 col-xs-12">
-                    <%= image_tag "visage3.jpg", class: "avatar-xxl"%>
-                </div>
-                <div class="col-sm-8 col-xs-12">
-                    <h3>John Doe</h3>
-                    <h6 class="text-uppercase">Cool Company Inc.</h6>
-                    <p>Lorem ipsum is a pseudo-latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="testimonials-01 row">
-                <div class="col-sm-4 col-xs-12">
-                    <%= image_tag "visage2.jpg", class: "avatar-xxl"%>
-                </div>
-                <div class="col-sm-8 col-xs-12">
-                    <h3>Jane Doe</h3>
-                    <h6 class="text-uppercase">Cool Company Inc.</h6>
-                    <p>Lorem ipsum is a pseudo-latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
- -->
-
-
-
-<!--
-<div class="wrapper-testimonial">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <%= image_tag "visage2.jpg", class: "avatar-xxl"%>
-        <p>"Raptim igitur properantes ut motus sui rumores celeritate nimia praevenirent, vigore corporum ac levitate confisi per flexuosas semitas ad summitates collium tardius evadebant."</p>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <%= image_tag "visage3.jpg", class: "avatar-xxl"%>
-        <p>"Raptim igitur properantes ut motus sui rumores celeritate nimia praevenirent, vigore corporum ac levitate confisi per flexuosas semitas ad summitates collium tardius evadebant."</p>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <%= image_tag "visage4.jpg", class: "avatar-xxl"%>
-        <p>"Raptim igitur properantes ut motus sui rumores celeritate nimia praevenirent, vigore corporum ac levitate confisi per flexuosas semitas ad summitates collium tardius evadebant."</p>
-      </div>
-    </div>
-  </div>
-</div>
-
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Begin MailChimp Signup Form -->
 
 <div id="mc_embed_signup">
@@ -370,24 +179,3 @@
 
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
-
-
-
-<!--
-<div class="wrapper-pilote">
-  <div class="container text-center">
-    <div class="btn-group padded-basket">
-      <div class="row">
-        <%= link_to "Voir tous les pilotes", users_path, :class => "btn btn-danger" %>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
-
-
-
-
-
-

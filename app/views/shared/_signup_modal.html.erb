@@ -1,38 +1,26 @@
-  <div class="banner-show banner-registration-pilote" style="height: 200px; font-weight: lighter; padding: 50px">
-  <p>Nous sommes heureux de compter un nouveau membre dans la communauté. Inscrivez-vous.</p>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-    <div class="form-inputs text-center">
-      <div class="container">
-      <div class="row">
-                <div class="col-xs-12 col-md-6 col-md-offset-3">
-                 <div class="wrapper-registration">
+<div class="modal hide fade in" id="sign_up">
+<div class="modal-header">
+<button class="close" data-dismiss="modal">x</button>
+<h2>Sign Up</h2>
+</div>
+<div class="modal-body">
+  <div class="wrapper-registration">
                     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
                       <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom ou pseudo",label: false %>
                       <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>
                       <%= f.input :email, required: true, autofocus: true, placeholder: "Email",label: false %>
-                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false%>
+                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false%>
                       <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
                     </div>
                       <div class="form-actions class-center text-center">
                         <%= f.button :submit, "S'inscrire", class: "btn-primary" %>
                       </div>
-                      <%= render "devise/shared/links" %>
                        <% end %>
+                        <%= render "devise/shared/links" %>
                     </div>
-                </div>
-               </div>
-            </div>
-         </div>
-      </div>
-  </div>
-
-
-
-
-
-
-
+<p><div><%= f.submit "Sign up", :class => 'btn btn-small btn-success' %></div></p>
+<p><a href="#" class="btn btn-small" data-dismiss="modal">Close</a></p>
+</div>
+</div>

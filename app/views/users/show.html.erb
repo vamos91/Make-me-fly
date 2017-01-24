@@ -1,5 +1,5 @@
 <div class="wrapper-profile-dashboard top-spacing">
-<% if @user == current_user %>
+<% if @user == current_user && current_user.pilote != nil %>
   <%= render 'shared/subnavbar' %>
 <% end %>
   <div class="container">
@@ -10,7 +10,6 @@
       <div class="caption text-center">
         <h4><%= @user.first_name || @user.name.capitalize %></h4>
         <% if current_user == @user %>
-          <p><%= link_to "Tableau de bord", pages_dashboard_path, class: "btn btn-primary" %></p>
         <% else %>
           <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"), chat_user_user_path(@user.id) %></p>
         <% end %>
@@ -29,7 +28,7 @@
     </div>
     <div class="row">
        <div class="panel panel-default">
-        <div class="panel-heading">Vols de <%= @user.name.capitalize %>: <%= @user_ads.count %></div>
+        <div class="panel-heading">Vols de <%= @user.first_name || @user.name.capitalize %>: <%= @user_ads.count %></div>
          <div class="info-pilote">
           <p><%= link_to "Voir ses vols", user_ads_user_path(@user), class: "btn btn-warning" %></p>
          </div>
