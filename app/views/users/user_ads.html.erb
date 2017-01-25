@@ -1,18 +1,61 @@
-<div class="banner-show index-ad" style="height: 200px; font-weight: lighter;">
-<p><strong>Voici les vols de <%= @user.name.capitalize %></strong></p>
-</div>
-<div class="container">
-  <div class="row">
-    <% @user_ads.each do |ad| %>
-    <div class="col-xs-12 col-sm-12 col-md-4">
-      <%= render ad %>
+<div class="wrapper-profile-dashboard top-spacing">
+  <%= render 'shared/subnavbar' %>
+  <div class="container padded">
+  <div class="col-md-3 col-sm-3">
+    <div class="row">
+    <div class="thumbnail">
+      <%= render "shared/user_profile_photo" %>
+      <div class="caption text-center">
+        <h4>Pilote <%= @user.first_name || @user.name %></h4>
+          <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
+      </div>
+     </div>
     </div>
-    <% end %>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
+Voici les vols de <%= @user.name.capitalize %></div>
+         <div class="welcome">
+          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
+          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
+         </div>
+      </div>
+    </div>
+    <div class="row">
+       <div class="panel panel-default">
+        <div class="panel-heading">J'ai proposé <%= policy_scope(Ad).count %> vol(s)</div>
+         <div class="info-pilote">
+          <p><%= link_to "Voir mes vols", ads_path, class: "btn btn-warning" %></p>
+         </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-9 col-sm-9">
+    <div class="row">
+       <div class="margin-panel">
+         <div class="welcome">
+         <div class="container" style="height: 60vh;">
+          <div class="row">
+            <% @user_ads.each do |ad| %>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <%= render ad %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="padded"></div>
-<div class="container text-center">
-<%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %>
 </div>
-<div class="padded"></div>
+
+
+
+
+
+
+
+
 
