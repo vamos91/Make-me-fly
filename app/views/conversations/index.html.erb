@@ -13,6 +13,7 @@
       </div>
      </div>
     </div>
+    <% if current_user.pilote? %>
     <div class="row">
        <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -30,6 +31,15 @@ Informations non vérifiées</div>
          <div class="info-pilote">
           <p><%= link_to "Voir mes vols", ads_path, class: "btn btn-warning" %></p>
          </div>
+      </div>
+    </div>
+    <% end %>
+     <div class="row">
+       <div class="panel panel-default">
+       <div class="panel-heading">Expérience de vol</div>
+       <div class="welcome">
+        <p>Nombre de vol chez nous : </p>
+        </div>
       </div>
     </div>
     </div>
