@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   get 'pages/dashboard'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'payments/new'
 
   get 'orders/show'
