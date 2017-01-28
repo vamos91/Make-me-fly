@@ -2,7 +2,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require semantic-ui
-//= require_tree .
+//= require_tree ./app
 //= require underscore
 //= require gmaps/google
 
