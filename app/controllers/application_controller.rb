@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
 before_action :authenticate_user!
   include Pundit
 
-  after_action :verify_authorized, except: :index, except: :search, unless: :devise_controller?
-  after_action :verify_policy_scoped, only: :index, except: :search, unless: :devise_controller?
+  after_action :verify_authorized, except: :index, except: :search, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, except: :search, unless: :skip_pundit?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -32,6 +32,10 @@ before_action :authenticate_user!
   end
 
   private
+
+    def skip_pundit?
+      devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    end
 
     def after_sign_in_path_for(resource)
       pages_dashboard_path

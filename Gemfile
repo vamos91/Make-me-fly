@@ -21,9 +21,10 @@ gem "geocoder"
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'omniauth-facebook'
-gem "rails_admin"
 gem 'postmark-rails'
 gem 'gibbon'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 gem "coffee-rails"
 gem "gmaps4rails"
