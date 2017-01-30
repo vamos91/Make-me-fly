@@ -34,22 +34,24 @@
 #   end
 # end
 
-
+5.times do
+  Post.create!(text: Faker::Lorem.paragraph)
+end
 
 
 # puts "#{User.count} user, #{Ad.count} et #{Article.count} annonces crées !"
-password = Faker::Internet.password(8)
-  user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password, pilote: true)
-  user.picture = Faker::Avatar.image(user.name.parameterize, "50x50")
-  puts user.picture
-  user.save
+# password = Faker::Internet.password(8)
+#   user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password, pilote: true)
+#   user.picture = Faker::Avatar.image(user.name.parameterize, "50x50")
+#   puts user.picture
+#   user.save
 
 
-address = "place de la bastille, Paris"
-    annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Date.today, flight_time: Faker::Number.number(2), address: address)
-    annonce.user = user
-    article = Article.create(title: Faker::Book.title, description: Faker::Lorem.paragraph, video_url: Faker::Internet.url)
-    article.user = user
-    image_url = Faker::Avatar.image(('Vol depuis ' + Faker::Address.city).parameterize, "300x150", "jpg")
-    annonce.remote_photo_url = image_url
-    annonce.save!
+# address = "place de la bastille, Paris"
+#     annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Date.today, flight_time: Faker::Number.number(2), address: address)
+#     annonce.user = user
+#     article = Article.create(title: Faker::Book.title, description: Faker::Lorem.paragraph, video_url: Faker::Internet.url)
+#     article.user = user
+#     image_url = Faker::Avatar.image(('Vol depuis ' + Faker::Address.city).parameterize, "300x150", "jpg")
+#     annonce.remote_photo_url = image_url
+#     annonce.save!

@@ -4,11 +4,12 @@ class ArticlesController < ApplicationController
     #@articles = Article.all
     @articles = policy_scope(Article)
     authorize @articles
+
   end
 
   def show
     find_article
-    authorize article
+    authorize @article
     @posts = Post.where(article_id: @article)
   end
 

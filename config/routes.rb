@@ -41,7 +41,7 @@ resources :conversations do
 
 
 resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :posts, only: [:create]
 end
 
 
