@@ -39,7 +39,7 @@ class UsersController < ApplicationController
  def show
    find_user
    @post = Post.new
-   @article = Article.find(13)
+   @article = Article.find(11)
    #affiche le nombre de vol du current_user
    @user_ads = Ad.where(user_id: @user)
    @posts = @article.posts
