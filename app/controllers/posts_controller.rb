@@ -25,9 +25,10 @@ class PostsController < ApplicationController
     #   post.persisted?
     # end
      @post.article = @article
+     @post.user_id = current_user.id
     authorize @post
     if @post.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(@article.user_id)
     else
       render :new
     end

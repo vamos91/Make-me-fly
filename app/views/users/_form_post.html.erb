@@ -1,5 +1,5 @@
-<h1>Posts#new</h1>
+
 <%= simple_form_for([article, post]) do |post| %>
- <%= post.input :text, as: :text %>
- <%= post.button :submit, value: "Publiez" %>
+<%= post.input :text, placeholder: "Ecrivez un commentaire" %>
+<%= post.button :submit, value: "Publiez" %>
 <% end %>
