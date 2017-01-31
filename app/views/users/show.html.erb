@@ -121,7 +121,7 @@
                         <p>Soyez le premier a poster un commentaire</p>
                         <% else %>
                         <%= pluralize @posts.count, "commentaire" %>
-                        <% @posts.each do |post| %>
+                        <% article.posts.each do |post| %>
                           <p>
                             <%= post.text %>
 
