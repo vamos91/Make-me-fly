@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+ # before_action :set_article
 
  def index
   @userPilotes = User.where(pilote: true)
@@ -37,21 +38,22 @@ class UsersController < ApplicationController
 
  def show
    find_user
+   @post = Post.new
+   #affiche le nombre de vol du current_user
    @user_ads = Ad.where(user_id: @user)
+   #@posts = @article.posts
+
+    # @posts = @article.posts.select do |post|
+    #   post.persisted?
+    # end
+
    @user_articles = Article.where(user_id: @user)
    @articles = @user_articles.reverse
    authorize @user_articles
-   @post = current_user.posts.build
-   authorize @post
-   @posts = Post.where(article_id: @user_articles)
-   authorize @posts
 
+   # @posts = Post.where(article_id: @articles)
+   # authorize @posts
 
-
-   @markers = Gmaps4rails.build_markers(@user) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-    end
    authorize @user
  end
 
@@ -99,5 +101,14 @@ class UsersController < ApplicationController
   def conversation_params
     params.permit(:sender_id, :recipient_id, :user_id)
   end
+
+  def article_params
+    params.permit(:article_id)
+  end
+
+  # def set_article
+  #   @article = Article.find(params[:article_id])
+  # end
+
 
 end

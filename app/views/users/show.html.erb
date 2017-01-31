@@ -115,19 +115,31 @@
                     <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
                       <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
-                    <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
                       <div class="comment">
-                      <% @posts.each do |post| %>
-                        <p>
-                        <div class="user-name-comment"><%= image_tag "pilot.png", class: "avatar"%><strong>
-                        <%= link_to post.user.name.capitalize, user_path(@user) %></strong>
+                      <% if article.posts.blank? %>
+                        <p>Soyez le premier a poster un commentaire</p>
+                        <% else %>
+                        <%= pluralize article.posts.count, "commentaire" %>
+                        <% article.posts.each do |post| %>
+                          <p>
+                           <% user_post = User.find(post.user_id) %>
+                           <%= link_to user_path(user_post) do %>
+                              <% if user_post.picture? %>
+                            <%= cl_image_tag user_post.picture, class: "avatar" %>
+                            <% elsif @user.facebook_picture_url? %>
+                              <%= image_tag user_post.facebook_picture_url, class: "avatar" %>
+                              <% else %>
+                              <%= image_tag "pilot.png", class: "avatar" %>
+                            <% end %>
+                            <%= user_post.name.capitalize %>
+                           <% end %>
                             <%= post.text %>
-                          </div>
-                          <%= link_to "update", edit_article_post_path(article, post) %>
-                          <%= link_to "delete", article_post_path(article, post), method: :delete %></p>
+                          </p>
+                        <% end %>
                       <% end %>
-<!--                      <p><%= link_to "Ajouter un commentaire", new_article_post_path(article) %></p>
- -->                    </div>
+                      <%= render 'shared/small_current_user_profile_photo' %>
+                          <%= render 'form_post', article: article, post: @post %>
+                   </div>
                   </div>
               </div>
               <% end %>
