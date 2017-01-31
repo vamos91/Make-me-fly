@@ -115,30 +115,20 @@
                     <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
                       <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
-                      <div class="comment">
+                      <div class="comment" >
+                      <div id="comment">
                       <% if article.posts.blank? %>
                         <p>Soyez le premier a poster un commentaire</p>
                         <% else %>
                         <%= pluralize article.posts.count, "commentaire" %>
                         <% article.posts.each do |post| %>
-                          <p>
-                           <% user_post = User.find(post.user_id) %>
-                           <%= link_to user_path(user_post) do %>
-                              <% if user_post.picture? %>
-                            <%= cl_image_tag user_post.picture, class: "avatar" %>
-                            <% elsif @user.facebook_picture_url? %>
-                              <%= image_tag user_post.facebook_picture_url, class: "avatar" %>
-                              <% else %>
-                              <%= image_tag "pilot.png", class: "avatar" %>
-                            <% end %>
-                            <%= user_post.name.capitalize %>
-                           <% end %>
-                            <%= post.text %>
-                          </p>
+                          <%= render 'posts/show', post: post %>
                         <% end %>
                       <% end %>
-                      <%= render 'shared/small_current_user_profile_photo' %>
+                      </div>
+
                           <%= render 'form_post', article: article, post: @post %>
+                          <%= render 'shared/small_current_user_profile_photo' %>
                    </div>
                   </div>
               </div>

@@ -28,9 +28,15 @@ class PostsController < ApplicationController
      @post.user_id = current_user.id
     authorize @post
     if @post.save
-      redirect_to user_path(@article.user_id)
+      respond_to do |format|
+        format.html{ redirect_to user_path(@article.user_id) }
+        format.js{}
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js {}
+      end
     end
   end
 
