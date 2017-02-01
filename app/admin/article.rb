@@ -1,9 +1,9 @@
-ActiveAdmin.register Ad do
+ActiveAdmin.register Article do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :user_id, :description, :flight_date, :address, :price_cents, :booked
+permit_params :title, :description, :video_url, :picture_article
 #
 # or
 #
@@ -12,5 +12,6 @@ ActiveAdmin.register Ad do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+
 
 end
