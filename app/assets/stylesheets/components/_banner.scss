@@ -186,11 +186,35 @@ margin-top: 10px;
 .arrow {
   position: absolute;
   text-align: center;
-  bottom: 20px;
-  font-size: 50px;
+  bottom: 10px;
+  font-size: 30px;
 }
 
+.banner-user-disconnect{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  //opacity: 0.6;
+  background-color: rgba(0,101,168,0.6);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  z-index: 10;
 
+}
+
+.banner-user-disconnect p{
+  color: white;
+  line-height: 50px;
+  font-size: 22px;
+  font-weight: lighter;
+}
+
+.banner-user-disconnect .button{
+  left: 20px;
+}
 
 //--------------------------------------------------------
 //

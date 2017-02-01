@@ -24,6 +24,17 @@
     <i class="fa fa-arrow-down" aria-hidden="true"></i>
   </div>
 </div>
+<% if user_signed_in? %>
+
+<% else %>
+  <div class="banner-user-disconnect" id="banner-user-disconnect">
+  <button type="button" class="btn btn-link" id="close-button">Fermer</button>
+    <p>Connectez-vous pour profiter pleinement de MakeMeFly</p>
+    <p><%= link_to t(".top_call_to_action", default: "Je m'inscris"), new_user_registration_path, class: "btn-lg btn-primary" %>
+  </p>
+  </div>
+<% end %>
+
 <div class="title_flight text-center">
   <% if user_signed_in? && @ads.nil? %>
     <p>Nouveaux vols proches de <%= current_user.hometown.capitalize %></p>
