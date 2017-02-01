@@ -1,1 +1,8 @@
-$('#comment').append('<%= j render 'posts/show', post: @post %>')
+var new_post = $('<%= j render 'posts/show', post: @post %>').hide();
+$('#comment').append(new_post);
+new_post.slideDown();
+$('#post_text').val('');
+$('#post_title').html(' <%= j render 'users/post_title', post: @article.posts%> ');
+$('#no_post').html('');
+
+
