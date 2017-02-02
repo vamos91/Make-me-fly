@@ -12,7 +12,7 @@
         <input type="submit" value="Recherchez" class="btn btn-primary btn-lg">
       </form>
       <div class="call-to-action">
-        <% if user_signed_in? && current_user.pilote? %>
+        <% if user_signed_in? && current_user.pilotevalidation? %>
            <%= link_to new_ad_path, class: "btn btn-danger btn-lg input-lg" do %>
            <i class="fa fa-paper-plane-o"></i><%= t ".profile", default: "Je propose un vol" %>
            <% end %>

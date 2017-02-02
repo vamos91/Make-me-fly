@@ -1,0 +1,21 @@
+<p>Brevet de pilote
+  <% if current_user.brevet_pilote? %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
+</p>
+<p>Assurance RC
+  <% if current_user.assurance? %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
+</p>
+<p>Licence ULM
+  <% if current_user.licence_ulm? %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
+</p>

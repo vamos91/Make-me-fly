@@ -42,36 +42,7 @@
 <div class="wrapper-profile-dashboard top-spacing">
   <%= render 'shared/subnavbar' %>
   <div class="container padded">
-  <div class="col-md-3 col-sm-3">
-    <div class="row">
-    <div class="thumbnail">
-      <%= render "shared/current_user_profile_photo" %>
-      <div class="caption text-center">
-        <h4>Pilote <%= current_user.first_name || current_user.name %></h4>
-          <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
-      </div>
-     </div>
-    </div>
-    <div class="row">
-       <div class="panel panel-default">
-        <div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true"></i>
-Informations non vérifiées</div>
-         <div class="welcome">
-          <p>Brevet de pilote   <i class="fa fa-times" aria-hidden="true"></i></p>
-          <p>Assurance RC   <i class="fa fa-times" aria-hidden="true"></i></p>
-          <p>Licence ULM   <i class="fa fa-times" aria-hidden="true"></i></p>
-         </div>
-      </div>
-    </div>
-    <div class="row">
-       <div class="panel panel-default">
-        <div class="panel-heading">J'ai proposé <%= policy_scope(Ad).count %> vol(s)</div>
-         <div class="info-pilote">
-          <p><%= link_to "Voir mes vols", ads_path, class: "btn btn-warning" %></p>
-         </div>
-      </div>
-    </div>
-    </div>
+ <%= render 'shared/user_profile' %>
     <div class="col-md-9 col-sm-9">
     <div class="panel-explication">
     <div class="row">
@@ -94,7 +65,8 @@ Informations non vérifiées</div>
             </li>
           </ul>
           </p>
-          <p>Nous procederons à une vérification des documents que vous nous fournissez dans la partie "Compléter mon profil". Et vous pourrez ainsi proposer de merveilleux vols à bord de votre ULM. </p>
+          <p style="color: red;">Nous procederons à une vérification de ces documents que vous nous fournissez dans la partie "Compléter mon profil". Et vous pourrez ainsi proposer de merveilleux vols à bord de votre ULM. </p>
+          <p style="color: blue; font-weight: bold;">Votre validation en qualité de pilote vous sera envoyé par mail.</p>
           </div>
       </div>
     </div>
