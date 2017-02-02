@@ -28,7 +28,7 @@
 
 <% else %>
   <div class="banner-user-disconnect" id="banner-user-disconnect">
-  <button type="button" class="btn btn-link" id="close-button">Fermer</button>
+  <button type="button" onclick="close_banner()" class="btn btn-link" id="close-button">Fermer</button>
     <p>Connectez-vous pour profiter pleinement de MakeMeFly</p>
     <p><%= link_to t(".top_call_to_action", default: "Je m'inscris"), new_user_registration_path, class: "btn-lg btn-primary" %>
   </p>
