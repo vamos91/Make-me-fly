@@ -145,6 +145,54 @@
           </div>
           <div class="col-md-3 col-sm-3">
 
+        <% if @user == current_user %>
+        <% if @user.pilote? %>
+            <div class="panel panel-default">
+              <div class="panel-heading">Voici les membres de la communauté proches de vous</div>
+              <% @users_near_from_me.each do |user| %>
+              <% if user != current_user %>
+                <div class="near-user" style="padding: 5px;">
+                  <%= link_to user_path(user) do %>
+                    <%= render 'shared/small_user_profile_photo' %>
+                    <%= user.name.capitalize %>
+                <% end %>
+                </div>
+              <% end %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="panel panel-default">
+                <div class="panel-heading">Voici les pilotes proches de vous</div>
+                <% @users_near_from_me.each do |user| %>
+                <% if user != current_user %>
+                  <% if user.pilote? %>
+                  <div class="near-user" style="padding: 5px;">
+                    <%= link_to user_path(user) do %>
+                    <%= render 'shared/small_user_profile_photo' %>
+                    <%= user.name.capitalize %>
+                    <% end %>
+                    </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+          <% end %>
+        <% else %>
+
+        <div class="panel panel-default">
+               <div class="panel-heading">Notation de <%= @user.name.capitalize %></div>
+                <p>commentaires :  </p>
+              </div>
+
+
+
+        <% end %>
+
+
+
+
+
+
         </div>
         </div>
       </div>

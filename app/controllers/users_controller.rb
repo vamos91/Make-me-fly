@@ -41,20 +41,13 @@ class UsersController < ApplicationController
    @post = Post.new
    #affiche le nombre de vol du current_user
    @user_ads = Ad.where(user_id: @user)
-   #@posts = @article.posts
-
-    # @posts = @article.posts.select do |post|
-    #   post.persisted?
-    # end
 
    @user_articles = Article.where(user_id: @user)
    @articles = @user_articles.reverse
    authorize @user_articles
-
-   # @posts = Post.where(article_id: @articles)
-   # authorize @posts
-
    authorize @user
+
+   @users_near_from_me = User.near(@user.hometown, 100, :units => :km)
  end
 
  def edit
