@@ -10,8 +10,7 @@ sr.reveal('.reveal .card', { origin:"bottom",
 sr.reveal('.formulaire', { origin: "bottom", distance: '50px', duration: 1000, reset: false})
 sr.reveal('.counter')
 //sr.reveal('.wrapper-grey')
-sr.reveal('.pilote', {origin:'left', distance: '50px', duration: 1000, reset: false})
-sr.reveal('.passager', {origin:'right', distance: '50px', duration: 1000, reset: false})
+
 //sr.reveal('#search p', {origin:'left', distance: '50px', duration: 1000, reset: false})
 sr.reveal('.call-to-action', {origin:'left', distance: '50px', duration: 3000, reset: false})
 

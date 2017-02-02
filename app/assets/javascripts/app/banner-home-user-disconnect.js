@@ -7,4 +7,4 @@ function toto(){
 document.getElementById("close-button").onclick = function() {close_banner()};
 function close_banner(){
   document.getElementById("banner-user-disconnect").remove();
-}
+};
