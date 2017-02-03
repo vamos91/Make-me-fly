@@ -11,23 +11,18 @@
                 <div class="panel-heading"><i class="fa fa-commenting" aria-hidden="true"></i>
 Racontez-nous vos expériences !</div>
                 <div class="user-form">
-                <p>Lachez-vous ! Ce blog vous appartient !</p>
+                <p>Lâchez-vous ! Ce blog vous appartient !</p>
                 <p>Partager votre passion et vos vidéos de vols !</p>
-                <p>Vous pouvez publier des recits de vols, des expériences humaines (qu'elles soient liées à Makemefly ou non), tout ce qui vous passe par la tête et biensûr en rapport avec notre discipline.</p>
+                <p>Vous pouvez publier des récits de vols, des expériences humaines (qu'elles soient liées à MakeMeFly ou non), tout ce qui vous passe par la tête et bien sûr en rapport avec notre discipline.</p>
                 <p>Ce blog sera visible par tous ceux qui visitent votre profil.</p>
                   <%= art.input :title, required: false, autofocus: true, label: "Titre de votre article", placeholder: "Titre", wrapper: :horizontal_form %>
-                  <%= art.input :description, :as => :text, required: false, autofocus: true, label: "Des news concernant ta passion ?", placeholder: "Raconte ! :)", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  <%= art.input :description, :as => :text, required: false, autofocus: true, label: "Des news concernant votre passion ?", placeholder: "Raconte ! :)", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
                   <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo youtube", placeholder: "Ex : https://www.youtube.com/watch?v=DIMIZPbnfNs", wrapper: :horizontal_form %>
                   <%= art.input :picture_article, label: "Téléchargez une photo", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
                   <%= art.input :picture_article_cache, as: :hidden %>
+                  <%= art.button :submit, value: "Publier", class: "btn pull-right btn-primary" %>
                   </div>
                 </div>
-                    <div class="panel panel-primary margin-panel">
-                    <div class="panel-heading">Je publie !</div>
-                      <div class="user-form">
-                        <%= art.button :submit, value: "Publier" %>
-                      </div>
-                    </div>
                 <% end %>
             </div>
       </div>

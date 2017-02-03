@@ -72,6 +72,8 @@
                   <%= user.input :hometown, required: false, autofocus: true, label: "Lieu de résidence", placeholder: "ex: marseille, paris, lille", wrapper: :horizontal_form %>
                   <%= user.input :picture, label: "Votre photo de profil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
                   <%= user.input :picture_cache, as: :hidden %>
+                    <%= user.input :picture_ulm_user, label: "Votre bannière de profil (de préference une image de grande taille).", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                  <%= user.input :picture_ulm_user_cache, as: :hidden %>
                   <%= user.input :description, :as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous. Sur quel type d'ULM voulez vous voler ? Quel aérodrome fréquentez vous ? Avez vous peur en avion ? Ou souhaitez vous voler ? Qu'aimeriez vous survoler ? etc... Plus vous en direz sur vous à la communauté et plus vous améliorerez votre expérience chez nous. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
                   <%= user.button :submit, value: "Mettre à jour", class: "btn pull-right btn-primary" %>
                   </div>

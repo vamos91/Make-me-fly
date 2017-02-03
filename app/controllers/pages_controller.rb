@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def home
 
+    @users_pilote = User.where(pilote: true).order(id: :desc).limit(3)
     #ad = Ad.count
     #@pilote_counter = User.where("pilote = ?", true).count
     #@passager_counter = User.where("pilote = ?", false).count

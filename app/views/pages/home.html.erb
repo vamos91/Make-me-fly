@@ -121,6 +121,24 @@
   </div>
 </div>
 
+
+  <div class="wrapper" style="padding: 55px; background-color: #E9EBEE;">
+  <p class="text-center" style="margin-bottom: 20px;">Quelques un de nos pilotes MakeMeFly...</p>
+    <div class="container text-center">
+      <div class="row">
+          <% @users_pilote.each do |pilote| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= image_tag "pilot.png", class: "img-circle", width: "180" %>
+           <p><%= pilote.name.capitalize %></p>
+           <p>Membre depuis : <%= pilote.created_at %></p>
+            </div>
+         <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
 <div class="banner banner-parallax banner-parallax2 img-responsive marged">
   <div class="feature3 text-center">
   <span><stron>MakeMeFly</stron> vous permet de reserver des vols sur différents type d'ULM</span>

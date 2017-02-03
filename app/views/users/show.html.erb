@@ -56,7 +56,7 @@
       <div class="panel-explication">
         <div class="row">
           <div class="id-user margin-panel">
-           <h2>Bonjour, je suis <%=  @user.first_name || @user.name.capitalize %></h2>
+           <h2>Bonjour, je suis <%=  @user.first_name.capitalize || @user.name.capitalize %></h2>
            <p>Membre depuis <%= @user.message_time_user %></p>
            <p><%= @user.hometown %></p>
             <% if @user.description.nil? || @user.description.empty? %>
