@@ -18,12 +18,12 @@
            <div class="panel panel-default margin-panel">
             <div class="panel-heading">Cher <%= current_user.first_name || current_user.name.capitalize %>, bienvenue sur MakeMeFly</div>
              <div class="welcome">
-              <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
+              <p><strong>Bonjour et bienvenue sur le premier site de réservation de vol en ULM entre particuliers.</strong></p>
               <p>MakeMeFly vous permet :
               <ul>
-                <li>D'effectuer des reservations de vol en ULM avec des pilotes expérimentés.</li>
+                <li>D'effectuer des réservations de vol en ULM avec des pilotes expérimentés.</li>
                 <li>De proposer des vols avec votre ULM.</li>
-                <li>De compléter et alimenter votre compte en publiant des articles, vidéos et recits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
+                <li>De compléter et alimenter votre compte en publiant des articles, vidéos et récits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
                 <li>D'envoyer des messages aux autres utilisateurs de la communauté.</li>
               </ul>
              </p>
@@ -49,8 +49,8 @@
        <div class="panel panel-default margin-panel">
         <div class="panel-heading">Cher pilote, bienvenue sur MakeMeFly</div>
          <div class="welcome">
-          <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
-          <p>Vous projetez de voler et votre aéronef vous permet l'emport d'un passager, il vous est possible de proposer cette place de disponible. Cependant vous devez au préalable :
+          <p><strong>Bonjour et bienvenue sur le premier site de réservation de vol en ULM entre particuliers.</strong></p>
+          <p>Vous projetez de voler et votre aéronef vous permet l'emport d'un passager, il vous est possible de proposer cette place disponible. Cependant vous devez au préalable :
           <ul>
             <li>
             <div><%= link_to "Complétez votre profil", edit_user_path(current_user), class: "title-welcome" %></div>
@@ -76,9 +76,9 @@
     <div class="welcome">
       <p>MakeMeFly vous permet :
         <ul>
-          <li>D'effectuer des reservations de vol en ULM avec des pilotes expérimentés.</li>
+          <li>D'effectuer des réservations de vol en ULM avec des pilotes expérimentés.</li>
           <li>De proposer des vols en ULM.</li>
-          <li>De compléter et alimenter votre compte en <%= link_to "publiant des articles", new_article_path(current_user)%>, vidéos et recits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
+          <li>De compléter et alimenter votre compte en <%= link_to "publiant des articles", new_article_path(current_user)%>, vidéos et récits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
           <li>D'envoyer des messages aux autres utilisateurs de la communauté.</li>
         </ul>
          </p>
@@ -105,6 +105,7 @@
       </div>
       </div>
     </div>
+    <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-primary" %>
     </div>
   </div>
 </div>
@@ -129,10 +130,10 @@
        <div class="panel panel-default margin-panel">
         <div class="panel-heading">Cher passager, bienvenue sur MakeMeFly</div>
          <div class="welcome">
-          <p><strong>Bonjour et bienvenue sur le premier site de reservation de vol en ULM entre particuliers.</strong></p>
-          <p>Il arrive souvent que des pilotes aillent voler durant leur temps libre avec une place de disponible.</p>
-          <p><strong>Il vous est désormais possible de reserver cette place de disponible.</strong></p>
-          <p>Vous avez déjà volé en ULM ou il s'agit de la premiere fois, alors n'hésitez plus ! Des pilotes non professionnelles proposent des vols loisirs tous les jours sans doute près de chez vous. Il le font pour partager leur passion avec vous.</p>
+          <p><strong>Bonjour et bienvenue sur le premier site de réservation de vol en ULM entre particuliers.</strong></p>
+          <p>Il arrive souvent que des pilotes aillent voler durant leur temps libre avec une place disponible.</p>
+          <p><strong>Il vous est désormais possible de réserver cette place disponible.</strong></p>
+          <p>Vous avez déjà volé en ULM ou il s'agit de la première fois, alors n'hésitez plus ! Des pilotes non professionnelles proposent des vols loisirs tous les jours sans doute près de chez vous. Il le font pour partager leur passion avec vous.</p>
           <p>Le montant des partages de frais est à l'initiative des pilotes.</p>
            <p>Cependant vous devez au préalable :</p>
           <ul>
@@ -150,8 +151,8 @@
     <div class="welcome">
       <p>MakeMeFly vous permet :
         <ul>
-          <li>D'effectuer des reservations de vol en ULM avec des pilotes expérimentés.</li>
-          <li>De compléter et alimenter votre compte en postant des vidéos et recits de vos vols avec vos pilotes. Votre compte est comme un carnet de vol virtuel.</li>
+          <li>D'effectuer des réservations de vol en ULM avec des pilotes expérimentés.</li>
+          <li>De compléter et alimenter votre compte en postant des vidéos et récits de vos vols avec vos pilotes. Votre compte est comme un carnet de vol virtuel.</li>
           <li>D'envoyer des messages aux autres utilisateurs.</li>
         </ul>
          </p>
@@ -165,7 +166,6 @@
     <p><strong>Lorsque vous créez un compte</strong>, un mail est envoyé à tous les utilisateurs dans les <strong>100 km</strong> (valeur par défault) autour de vous.</p>
     <p>Quand un pilote propose un vol, il sera automatiquement proposé aux utilisateurs ayant un compte MakeMeFly de votre région.</p>
     <p>Vous pouvez modifier la valeur kilométrique et ainsi modifier votre rayon d'action. </p>
-    <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
       </div>
       </div>
     </div>
@@ -173,11 +173,12 @@
     <div class="panel panel-default margin-panel">
     <div class="panel-heading">Notifications et avertissements</div>
     <div class="welcome">
-    <p>Je suis avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
-    <p>Je suis avertis lorsqu'un nouveau pilote de votre région arrive sur Makemefly. </p>
+    <p>Vous êtes avertis par mail lorsqu'un autre pilote propose un vol dans votre région.</p>
+    <p>Vous êtes avertis lorsqu'un nouveau pilote de votre région arrive sur Makemefly. </p>
       </div>
       </div>
     </div>
+    <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "btn btn-primary" %>
     </div>
   </div>
 </div>
