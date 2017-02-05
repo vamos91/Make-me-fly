@@ -107,21 +107,21 @@
                   <div class="article">
                     <div class="description"><p><%= article.description.capitalize %></p></div>
                     <% if article.picture_article != nil %>
-                      <%= cl_image_tag article.picture_article, class: "picture_article" %>
+                      <p><%= cl_image_tag article.picture_article, class: "picture_article" %></p>
                     <% end %>
                     <% if article.video_url != "" %>
-                    <% @v_url = article.video_url %>
-                    <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
-                    <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
-                      <div class="video"><p><%= raw(@embed_code) %></p></div>
+                      <% @v_url = article.video_url %>
+                      <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
+                      <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
+                        <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
-                     <div id="post_title">
-                        <%= render 'users/post_title', post: article.posts %>
-                        </div>
+                     <div id="post_title_<%= article.id%>">
+                      <%= render 'users/post_title', post: article.posts %>
+                     </div>
                       <div class="comment">
-                        <div id="comment">
+                        <div id="comment_<%= article.id%>">
                         <% if article.posts.blank? %>
-                          <div id="no-post">
+                          <div id="no-post_<%= article.id%>">
                             <p>Soyez le premier a poster un commentaire</p>
                           </div>
                         <% else %>
