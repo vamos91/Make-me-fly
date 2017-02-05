@@ -1,28 +1,17 @@
-<div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
+<!-- <div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
 <p>Nous sommes heureux de vous revoir. Connectez-vous.</p>
-</div>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3 ">
-      <div class="session">
-
+</div> -->
+      <div class="session text-center">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => 'well'})  do |f| %>
-        <div class="form-inputs">
+      <h3>MakeMeFly</h3>
+        <div class="form-inputs" style="padding: 0px 70px;">
           <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "email" %>
           <%= f.input :password, required: false, label: false, placeholder: "mot de passe" %>
+          <p><%= f.button :submit, "Se connecter", class: "btn btn-primary" %></p>
+          <p><%= render "devise/shared/links" %></p>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Se connecter", class: "btn btn-primary" %>
-    <br>
-</br>
-        </div>
-        <%= render "devise/shared/links" %>
-
       <% end %>
     </div>
-    </div>
-  </div>
-</div>
 
 
