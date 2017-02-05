@@ -105,38 +105,31 @@
                   <div class="article">
                     <div class="description"><p><%= article.description.capitalize %></p></div>
                     <% if article.picture_article != nil %>
-                      <%= cl_image_tag article.picture_article, class: "picture_article" %>
+                      <p><%= cl_image_tag article.picture_article, class: "picture_article" %></p>
                     <% end %>
                     <% if article.video_url != "" %>
-                    <% @v_url = article.video_url %>
-                    <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
-                    <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
-                      <div class="video"><p><%= raw(@embed_code) %></p></div>
+                      <% @v_url = article.video_url %>
+                      <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
+                      <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
+                        <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
+                     <div id="post_title_<%= article.id%>">
+                      <%= render 'users/post_title', post: article.posts %>
+                     </div>
                       <div class="comment">
-                      <% if article.posts.blank? %>
-                        <p>Soyez le premier a poster un commentaire</p>
+                        <div id="comment_<%= article.id%>">
+                        <% if article.posts.blank? %>
+                          <div id="no-post_<%= article.id%>">
+                            <p>Soyez le premier a poster un commentaire</p>
+                          </div>
                         <% else %>
-                        <%= pluralize article.posts.count, "commentaire" %>
-                        <% article.posts.each do |post| %>
-                          <p>
-                           <% user_post = User.find(post.user_id) %>
-                           <%= link_to user_path(user_post) do %>
-                              <% if user_post.picture? %>
-                            <%= cl_image_tag user_post.picture, class: "avatar" %>
-                            <% elsif @user.facebook_picture_url? %>
-                              <%= image_tag user_post.facebook_picture_url, class: "avatar" %>
-                              <% else %>
-                              <%= image_tag "pilot.png", class: "avatar" %>
-                            <% end %>
-                            <%= user_post.name.capitalize %>
-                           <% end %>
-                            <%= post.text %>
-                          </p>
+                          <% article.posts.each do |post| %>
+                            <%= render 'posts/show', post: post %>
+                          <% end %>
                         <% end %>
-                      <% end %>
-                      <%= render 'shared/small_current_user_profile_photo' %>
-                          <%= render 'form_post', article: article, post: @post %>
+                        </div>
+                            <%= render 'form_post', article: article, post: @post %>
+                            <%= render 'shared/small_current_user_profile_photo' %>
                    </div>
                   </div>
               </div>

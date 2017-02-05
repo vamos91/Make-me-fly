@@ -1,0 +1,8 @@
+var new_post = $('<%= j render 'posts/show', post: @post %>').hide();
+$('#comment_<%= @article.id%>').append(new_post);
+new_post.slideDown();
+$('#post_text').val('');
+$('#post_title_<%= @article.id%>').html(' <%= j render 'users/post_title', post: @article.posts%> ');
+$('#no_post_<%= @article.id%>').html('');
+
+

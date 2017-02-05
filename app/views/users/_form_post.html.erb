@@ -1,5 +1,7 @@
 
-<%= simple_form_for([article, post]) do |post| %>
+<%= simple_form_for([article, post], remote: true, authenticity_token: true, :html => { :id => "new_comment_on_#{article.id}" }) do |post| %>
 <%= post.input :text, placeholder: "Ecrivez un commentaire" %>
 <%= post.button :submit, value: "Publiez" %>
 <% end %>
+
+
