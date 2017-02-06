@@ -1,7 +1,11 @@
 <div class="wrapper-profile-dashboard top-spacing">
 <%= render 'shared/subnavbar' %>
   <div class="container padded">
-    <%= render 'shared/user_profile' %>
+  <% if current_user.pilote? %>
+    <%= render 'shared/user_profile_pilote' %>
+  <% else %>
+    <%= render 'shared/user_profile_passenger' %>
+  <% end %>
     <div class="col-md-9">
       <div class="panel-explication">
         <div class="row">
