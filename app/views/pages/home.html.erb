@@ -98,7 +98,7 @@
             <% else %>
               <%= image_tag "pilot.png", class: "img-circle", width: "180" %>
           <% end %>
-          <p><%= pilote.name.capitalize || pilote.first_name.capitalize %></p>
+          <p><%= pilote.name || pilote.first_name %></p>
            <p>Membre depuis le <%= pilote.message_time_user %></p>
             </div>
          <% end %>
