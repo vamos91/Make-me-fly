@@ -62,8 +62,10 @@
             <% if @user.description.nil? || @user.description.empty? %>
             <p><%= @user.first_name || @user.name.capitalize %> n'a pas encore complété sa description</p>
           <% else %>
-          <div class="row margin-panel jumbotron">
+          <div class="row">
+            <div class="panel panel-default margin-panel well">
               <p><%= @user.description %></p>
+              </div>
             </div>
           <% end %>
           </div>
@@ -128,7 +130,7 @@
                           <% end %>
                         <% end %>
                         </div>
-                          <!-- <%= render 'shared/small_current_user_profile_photo' %> -->
+                          <%= render 'shared/small_current_user_profile_photo' %>
                           <%= render 'form_post', article: article, post: @post %>
                    </div>
                   </div>
@@ -138,15 +140,15 @@
           </div>
           <div class="col-md-3 col-sm-3">
 
-        <% if @user == current_user %>
-        <% if @user.pilote? %>
+        <% if @user == current_user && @user != nil %>
+          <% if @user.pilote? %>
             <div class="panel panel-default">
               <div class="panel-heading">Voici les membres de la communauté proches de vous</div>
               <% @users_near_from_me.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">
                   <%= link_to user_path(user) do %>
-                    <%= render 'shared/small_user_profile_photo' %>
+                    <%= render 'shared/small_user_profile_photo_near_user', user: user %>
                     <%= user.name.capitalize %>
                 <% end %>
                 </div>
@@ -155,13 +157,14 @@
             </div>
           <% else %>
             <div class="panel panel-default">
-                <div class="panel-heading">Voici les pilotes proches de vous</div>
+                <div class="panel-heading"><strong><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+ Voici les pilotes proches de vous</strong></div>
                 <% @users_near_from_me.each do |user| %>
                 <% if user != current_user %>
                   <% if user.pilote? %>
                   <div class="near-user" style="padding: 5px;">
                     <%= link_to user_path(user) do %>
-                    <%= render 'shared/small_user_profile_photo' %>
+                    <%= render 'shared/small_user_profile_photo_near_user', user: user %>
                     <%= user.name.capitalize %>
                     <% end %>
                     </div>
@@ -173,9 +176,9 @@
         <% else %>
         <div class="panel panel-default">
                <div class="panel-heading"><i class="fa fa-comments-o" aria-hidden="true"></i>
- Avis sur <%= @user.name.capitalize %></div>
+ <strong>Avis sur <%= @user.name.capitalize %></strong></div>
                 <div class="welcome">
-                  <p>commentaires :  </p>
+                  <p>Commentaires :  </p>
                 </div>
               </div>
         <% end %>

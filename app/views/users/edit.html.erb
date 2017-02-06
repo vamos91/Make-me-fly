@@ -21,6 +21,8 @@
                   <%= user.input :picture_ulm_user, label: "Votre bannière de profil (de préference une image de grande taille).", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
                   <%= user.input :picture_ulm_user_cache, as: :hidden %>
                   <%= user.input :description, :as => :text, required: false, autofocus: true, label: "Votre description", placeholder: "Parlez nous de vous, quel type d'ULM possédez-vous, quel aérodrome fréquentez-vous, quelles sont vos habitudes de vols, nombres d'heures de vols, etc... Plus vous en direz sur vous à la communauté et plus vous améliorerez la confiance qu'un passager vous accordera. Faites nous rêver !", :input_html => {:rows => 10}, wrapper: :horizontal_form %>
+                  <%= user.button :submit, value: "Mettre à jour", class: "btn pull-right btn-primary" %>
+
                   </div>
                 </div>
                   <div class="panel panel-danger margin-panel">
@@ -31,13 +33,7 @@
                         <%= user.input :brevet_pilote, label: "Votre brevet de pilote ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
                         <%= user.input :assurance, label: "Votre assurance responsabilité civil", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
                         <%= user.input :licence_ulm, label: "Votre licence ULM de l'année en cours (facultatif)", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
-
-                      </div>
-                    </div>
-                    <div class="panel panel-primary margin-panel">
-                    <div class="panel-heading">Enregistrement</div>
-                      <div class="user-form">
-                        <%= user.button :submit, value: "Mettre à jour" %>
+                        <%= user.button :submit, value: "Mettre à jour", class: "btn pull-right btn-primary" %>
                       </div>
                     </div>
                 <% end %>
@@ -51,11 +47,7 @@
 <div class="wrapper-profile-dashboard top-spacing">
 <%= render 'shared/subnavbar' %>
   <div class="container padded">
-    <div class="col-md-3">
-      <div class="row">
-
-      </div>
-    </div>
+    <%= render 'shared/user_profile' %>
     <div class="col-md-9">
       <div class="panel-explication">
         <div class="row">

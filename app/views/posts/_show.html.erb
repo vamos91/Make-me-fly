@@ -1,13 +1,13 @@
 <p>
-<% user_post = User.find(post.user_id) %>
+<% @user = User.find(post.user_id) %>
  <div class="media">
   <div class="media-left">
    <%= render 'shared/small_user_profile_photo' %>
   </div>
   <div class="media-body">
     <h4 class="media-heading">
-      <%= link_to user_path(user_post) do %>
-        <%= user_post.name.capitalize %>
+      <%= link_to user_path(@user) do %>
+        <%= @user.name.capitalize %>
       <% end %>
     </h4>
     <%= post.text %>
