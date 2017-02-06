@@ -6,17 +6,13 @@
     <div class="panel-explication">
     <div class="row">
     <% if @ads.empty? %>
-        <div class="container text-center">
-          <div class="row">
             <div class="col-xs-12 col-md-6 col-md-offset-3">
-              <div class="empty-ad">
+              <div class="empty-ad well text-center">
               <div class="icon fa fa-smile-o"></div>
                 <h1>Encore aucun vol planifié</h1>
                 <%= link_to "HOME", root_path, class: "btn btn-primary" %>
               </div>
             </div>
-          </div>
-        </div>
 <% else %>
     <% @ads.each do |ad| %>
     <div class="col-xs-12 col-sm-12 col-md-6">

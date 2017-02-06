@@ -58,7 +58,7 @@
           <div class="id-user margin-panel">
            <h2>Bonjour, je suis <%=  @user.first_name || @user.name.capitalize %></h2>
            <p>Membre depuis <%= @user.message_time_user %></p>
-           <p><%= @user.hometown %></p>
+           <p><%= @user.hometown.capitalize if @user.hometown? %></p>
             <% if @user.description.nil? || @user.description.empty? %>
             <p><%= @user.first_name || @user.name.capitalize %> n'a pas encore complété sa description</p>
           <% else %>
@@ -140,10 +140,10 @@
           </div>
           <div class="col-md-3 col-sm-3">
 
-        <% if @user == current_user && @user != nil %>
+        <% if @user == current_user %>
           <% if @user.pilote? %>
             <div class="panel panel-default">
-              <div class="panel-heading">Voici les membres de la communauté proches de vous</div>
+              <div class="panel-heading"><strong>Voici les membres de la communauté proches de vous</strong></div>
               <% @users_near_from_me.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">
