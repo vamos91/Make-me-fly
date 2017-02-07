@@ -48,6 +48,10 @@ class PagesController < ApplicationController
       #current_user.pilote = nil
     end
     current_user.save
+
+
   end
+
+
 
 end

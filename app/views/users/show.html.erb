@@ -79,13 +79,7 @@
                 <div class="panel-heading titre-article">
                   <div class="media">
                   <div class="media-left">
-                   <% if @user.picture? %>
-                    <%= cl_image_tag @user.picture, class: "avatar" %>
-                    <% elsif @user.facebook_picture_url? %>
-                      <%= image_tag @user.facebook_picture_url, class: "avatar" %>
-                      <% else %>
-                      <%= image_tag "pilot.png", class: "avatar" %>
-                    <% end %>
+                   <%= render 'shared/small_user_profile_photo' %>
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading"><strong><%= article.title.capitalize %></strong></h4>

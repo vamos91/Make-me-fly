@@ -55,8 +55,6 @@ end
       get :chat_user
     end
     resources :conversations
-
-
     end
 
   root to: 'pages#home'

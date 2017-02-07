@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
 
   def index
-    #@articles = Article.all
-    @articles = policy_scope(Article)
+    #@articles = Article.all.order(created_at: :desc)
+    @articles = policy_scope(Article).order(created_at: :desc)
     authorize @articles
+    @post = Post.new
 
   end
 

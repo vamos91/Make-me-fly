@@ -1,5 +1,6 @@
 <div class="subnavbar navbar">
   <div class="navbar-wagon-right hidden-xs">
+    <%= link_to "Fil d'actualité", articles_path, :class => "navbar-wagon-item" %>
     <%= link_to "Tableau de bord", pages_dashboard_path, :class => "navbar-wagon-item" %>
     <%= link_to "Voir mon profil", user_path(current_user), class: "navbar-wagon-item" %>
     <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "navbar-wagon-item" %>

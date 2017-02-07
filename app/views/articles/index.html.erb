@@ -1,8 +1,80 @@
-<h2>Voici tous les articles</h2>
-<% @articles.each do |article| %>
-  <p><%= article.title %></p>
-  <p><%= article.description %></p>
-  <p><%= article.video_url %></p>
-  <%= link_to "update", edit_article_path(article) %>
-  <%= link_to "destroy", article, method: :delete %>
+<div class="wrapper-profile-dashboard top-spacing">
+<% if @user == current_user && current_user.pilote != nil %>
+  <%= render 'shared/subnavbar' %>
 <% end %>
+  <div class="container padded">
+  <%= render 'shared/user_profile_pilote' %>
+    <div class="col-md-9 col-sm-9">
+        <div class="row">
+        <div class="col-md-9 col-sm-9">
+          <div class="margin-panel">
+              <% @articles.each do |article| %>
+              <%= article.user %>
+
+              <div class="panel panel-default panel-article">
+                <div class="panel-heading titre-article">
+                  <div class="media">
+                  <div class="media-left">
+                   <%= render 'shared/small_current_user_profile_photo' %>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading"><strong><%= article.title.capitalize %></strong></h4>
+                    <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
+                  </div>
+                  </div>
+                  <% if policy(article).update? %>
+                  <div class="dropdown menu-article">
+                      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+                        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                        <div class="button-article">
+                            <li><%= link_to "Mettre à jour", edit_article_path(article) %></li>
+                            <li><%= link_to "Effacer", article, method: :delete %></li>
+                        </div>
+                        </ul>
+                    </div>
+                    <% end %>
+                </div>
+                  <div class="article">
+                    <div class="description"><p><%= article.description.capitalize %></p></div>
+                    <% if article.picture_article != nil %>
+                      <p><%= cl_image_tag article.picture_article, class: "picture_article" %></p>
+                    <% end %>
+                    <% if article.video_url != "" %>
+                      <% @v_url = article.video_url %>
+                      <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
+                      <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
+                        <div class="video"><p><%= raw(@embed_code) %></p></div>
+                    <% end %>
+                     <div id="post_title_<%= article.id%>">
+                      <%= render 'users/post_title', post: article.posts %>
+                     </div>
+                      <div class="comment">
+                        <div id="comment_<%= article.id%>">
+                        <% if article.posts.blank? %>
+                          <div id="no-post_<%= article.id%>">
+                            <p>Soyez le premier a poster un commentaire</p>
+                          </div>
+                        <% else %>
+                          <% article.posts.each do |post| %>
+                            <%= render 'posts/show', post: post %>
+                          <% end %>
+                        <% end %>
+                        </div>
+                          <%= render 'shared/small_current_user_profile_photo' %>
+                          <%= render 'users/form_post', article: article, post: @post %>
+                   </div>
+                  </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3">
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

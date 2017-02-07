@@ -28,12 +28,7 @@
                         <p>Donnez envie à votre passager de voler avec vous. Sortez votre appareil photo et montrez nous vos ULM !</p>
                         <%= f.input :photo, label: false, placeholder: "Photo de votre ULM", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
                         <%= f.input :photo_cache, as: :hidden %>
-                      </div>
-                    </div>
-                    <div class="panel panel-primary margin-panel">
-                    <div class="panel-heading">Enregistrement</div>
-                      <div class="user-form">
-                      <%= f.button :submit, value: "Qui m'aime me suive..." %>
+                        <%= f.button :submit, value: "Qui m'aime me suive...", class: "pull-right" %>
                       </div>
                     </div>
                 <% end %>
