@@ -6,11 +6,11 @@
     <h1>Besoin de sensations et de challenges qui vident l'esprit ?</h1>
     <h1 class="title-banner">Volez en ULM !</h1>
     <!-- SEARCH BAR -->
-  <!--   <div class="padded">
-      <form action="<%= search_ads_path %>" class=" formulaire form-inline text-center" style="padding: 0px 50px;">
+     <div class="padded">
+      <!-- <form action="<%= search_ads_path %>" class=" formulaire form-inline text-center" style="padding: 0px 50px;">
         <input name="q" type="text" class="form-control input-lg text-center " placeholder="Exemple 'Nîmes'">
         <input type="submit" value="Recherchez" class="btn btn-primary btn-lg">
-      </form>
+      </form> -->
       <div class="call-to-action">
         <% if user_signed_in? && current_user.pilotevalidation? %>
            <%= link_to new_ad_path, class: "btn btn-danger btn-lg input-lg" do %>
@@ -18,7 +18,7 @@
            <% end %>
         <% end %>
       </div>
-    </div> -->
+    </div>
     <div class="arrow">
     <i class="fa fa-arrow-down" aria-hidden="true"></i>
   </div>

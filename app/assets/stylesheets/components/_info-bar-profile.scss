@@ -1,0 +1,38 @@
+.info-bar-profile {
+  //box-shadow: 0 1px 5px 0 rgba(0,0,0,1.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: white;
+  transition: all 0.3s ease;
+  color: $gray-light;
+  font-size: 14px;
+  display: flex;
+  height: 60px;
+  font-weight: lighter;
+  padding: 0px 30px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  border-bottom: $gray-light 1px solid;
+}
+
+.navbar{
+  min-height: 40px;
+}
+
+.navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navbar item */
+.info-item {
+  flex: 0 1 auto;
+  padding: 0 40px;
+  padding-top: 5px;
+}
+
+.button-ad-profile{
+  position: absolute;
+  right: 20px;
+}

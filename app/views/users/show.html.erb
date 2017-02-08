@@ -13,20 +13,55 @@
     </div>
   <% end %>
 <% end %>
-  <div class="container padded" style="margin-top: -76px;">
+<div class="bar-profile ">
+  <div class="info-bar-profile navbar text-center">
+    <div class="navbar-wagon-right hidden-xs">
+      <div class="vertical-align info-item">
+        <p>Vols</p>
+        <p><strong><%= policy_scope(Ad).count %></strong></p>
+      </div>
+       <div class="vertical-align info-item">
+        <p>Commentaires</p>
+        <p><strong>0</strong></p>
+      </div>
+       <div class="vertical-align info-item">
+        <p>Articles</p>
+        <p><strong><%= @articles.count %></strong></p>
+      </div>
+      <% if @user == current_user && current_user.pilotevalidation? %>
+      <div class="button-ad-profile">
+        <%= link_to "Planifiez un vol", new_ad_path, class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+</div>
+</div>
+  <div class="container padded" style="margin-top: -220px;">
   <div class="col-md-3 col-sm-3">
     <div class="row">
     <div class="thumbnail">
       <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
         <h4><%= @user.first_name || @user.name.capitalize %></h4>
+        <p><%= @user.hometown.capitalize if @user.hometown? %></p>
+        <p>Membre depuis <%= @user.message_time_user %></p>
         <% if current_user == @user %>
+        <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
         <% else %>
           <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"), chat_user_user_path(@user.id) %></p>
         <% end %>
       </div>
      </div>
     </div>
+     <div class="row">
+      <div class="panel panel-default" style="padding: 20px;">
+      <% if @user.description.nil? || @user.description.empty? %>
+        <p><%= @user.first_name || @user.name.capitalize %> n'a pas encore complété sa description</p>
+      <% else %>
+        <p style="word-wrap: break-word;"><%= @user.description %></p>
+      <% end %>
+        </div>
+     </div>
     <% if @user.pilote == true %>
       <div class="row">
          <div class="panel panel-default">
@@ -36,41 +71,27 @@
            </div>
         </div>
       </div>
-      <div class="row">
-         <div class="panel panel-default">
-          <div class="panel-heading">Vols de <%= @user.first_name || @user.name.capitalize %>: <%= @user_ads.count %></div>
-           <div class="info-pilote">
-            <p><%= link_to "Voir ses vols", user_ads_user_path(@user), class: "btn btn-warning" %></p>
-           </div>
-        </div>
-      </div>
     <% end %>
-    <div class="row">
-       <div class="panel panel-default">
-       <div class="panel-heading">Expérience de vol</div>
-        <p>Nombre de vol chez nous : </p>
-      </div>
     </div>
-    </div>
-    <div class="col-md-9 col-sm-9" style="margin-top: 50px;">
-      <div class="panel-explication">
-        <div class="row">
-          <div class="id-user margin-panel">
-           <h2>Bonjour, je suis <%=  @user.first_name || @user.name.capitalize %></h2>
-           <p>Membre depuis <%= @user.message_time_user %></p>
-           <p><%= @user.hometown.capitalize if @user.hometown? %></p>
-            <% if @user.description.nil? || @user.description.empty? %>
-            <p><%= @user.first_name || @user.name.capitalize %> n'a pas encore complété sa description</p>
-          <% else %>
-          <div class="row">
-            <div class="panel panel-default margin-panel well">
-              <p><%= @user.description %></p>
-              </div>
-            </div>
-          <% end %>
-          </div>
+    <div class="col-md-9 col-sm-9" style="margin-top: 195px;">
+      <div class="row padded margin-panel">
+       <% if @user == current_user %>
+        <% @ads.each do |ad| %>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+         <%= render ad %>
         </div>
+        <% end %>
+        <% else %>
+        <% @user_ads.each do |ad| %>
+          <div class="col-xs-12 col-sm-12 col-md-6">
+         <%= render ad %>
         </div>
+        <% end %>
+      <% end %>
+
+        </div>
+
+
         <div class="row">
         <div class="col-md-9 col-sm-9">
           <div class="margin-panel">
@@ -82,7 +103,7 @@
                    <%= render 'shared/small_user_profile_photo' %>
                   </div>
                   <div class="media-body">
-                    <h4 class="media-heading"><strong><%= article.title.capitalize %></strong></h4>
+
                     <div class="posted"><p>Posté le: <%= article.created_at %></p></div>
                   </div>
                   </div>

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
 
  def user_ads
-   @user = User.find(params[:id])
+   find_user
    @user_ads = Ad.where(user_id: @user)
    if @user_ads.empty?
     redirect_to user_path, notice: "#{@user.name.capitalize} n'a aucun vol"
@@ -37,7 +37,10 @@ class UsersController < ApplicationController
  end
 
  def show
+   @ads = policy_scope(Ad)
+   authorize @ads
    find_user
+   @user_ads = Ad.where(user_id: @user)
    @post = Post.new
    #affiche le nombre de vol du current_user
    @user_ads = Ad.where(user_id: @user)

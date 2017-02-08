@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
     @articles = policy_scope(Article).order(created_at: :desc)
     authorize @articles
     @post = Post.new
+    @article = current_user.articles.build
+    authorize @article
 
   end
 
