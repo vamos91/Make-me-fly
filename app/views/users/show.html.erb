@@ -18,7 +18,7 @@
     <div class="navbar-wagon-right hidden-xs">
       <div class="vertical-align info-item">
         <p>Vols</p>
-        <p><strong><%= policy_scope(Ad).count %></strong></p>
+        <p><strong><%= @user_ads.count %></strong></p>
       </div>
        <div class="vertical-align info-item">
         <p>Commentaires</p>
@@ -94,6 +94,22 @@
 
         <div class="row">
         <div class="col-md-9 col-sm-9">
+          <% if @user == current_user %>
+            <div class="panel panel-default margin-panel">
+            <div class="row">
+              <%= simple_form_for(@article) do |art| %>
+                <div class="user-form">
+                  <%= art.input :description, :as => :text, required: false, autofocus: true, label: false, placeholder: "Des news concernant votre passion ?", :input_html => {:rows => 2} %>
+                  <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo youtube", placeholder: "Ex : https://www.youtube.com/watch?v=DIMIZPbnfNs", wrapper: :horizontal_form %>
+                  <%= art.input :picture_article, label: "Téléchargez une photo", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                  <%= art.input :picture_article_cache, as: :hidden %>
+                  <%= art.button :submit, value: "Publier", class: "btn pull-right btn-primary" %>
+
+                  </div>
+                <% end %>
+            </div>
+          </div>
+      <% end %>
           <div class="margin-panel">
               <% @articles.each do |article| %>
               <div class="panel panel-default panel-article">
@@ -145,8 +161,8 @@
                           <% end %>
                         <% end %>
                         </div>
-                          <%= render 'shared/small_current_user_profile_photo' %>
-                          <%= render 'form_post', article: article, post: @post %>
+<!--                           <%= render 'shared/small_current_user_profile_photo' %>
+ -->                          <%= render 'form_post', article: article, post: @post %>
                    </div>
                   </div>
               </div>

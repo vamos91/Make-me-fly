@@ -38,7 +38,9 @@ before_action :authenticate_user!
     end
 
     def after_sign_in_path_for(resource)
-      pages_dashboard_path
+      if user_signed_in?
+      user_path(@user)
+    end
     end
 
 end

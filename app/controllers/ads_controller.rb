@@ -62,7 +62,7 @@ class AdsController < ApplicationController
     # @ad.user = current_user
     # @user = User.all
     @ad = current_user.ads.build(ad_params)
-    @ad.price = (@ad.price*1.1)
+    #@ad.price = (@ad.price*1.1)
     authorize @ad
 
     if @ad.save

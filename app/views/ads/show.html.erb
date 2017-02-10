@@ -38,11 +38,13 @@
         <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
             <% if @ad.booked != '1'%>
-              <%= humanized_money_with_symbol(@ad.price) %>
-              <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4>
+            <%= @ad.price %> €
+<!--               <%= humanized_money_with_symbol(@ad.price) %>
+ -->              <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4>
               <%= hidden_field_tag 'ad_id', @ad.id %>
-              <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
-            <% end %>
+              <%= link_to "Contacter #{@ad.user.name}", user_path(@ad.user), class: "btn-lg btn-primary btn-block" %>
+<!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
+ -->            <% end %>
         <% end %>
               <% if policy(@ad).update? %>
                <div style="margin-top: 15px">

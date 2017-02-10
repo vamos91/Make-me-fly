@@ -40,10 +40,13 @@ class UsersController < ApplicationController
    @ads = policy_scope(Ad)
    authorize @ads
    find_user
-   @user_ads = Ad.where(user_id: @user)
    @post = Post.new
    #affiche le nombre de vol du current_user
    @user_ads = Ad.where(user_id: @user)
+
+   @article = current_user.articles.build
+   authorize @article
+
 
    @user_articles = Article.where(user_id: @user)
    @articles = @user_articles.reverse
