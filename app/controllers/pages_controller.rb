@@ -20,12 +20,12 @@ class PagesController < ApplicationController
       @ads_hometown = Ad.near(current_user.hometown, 150, :unit => :km)
     end
 
-    if user_signed_in? && @ads_hometown.nil?
-      @ads = Ad.near(current_user.hometown, 150, :unit => :km)
-    else
-      @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
-    end
-
+    # if user_signed_in? && @ads_hometown.nil?
+    #   @ads = Ad.near(current_user.hometown, 150, :unit => :km)
+    # else
+    #   @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
+    # end
+    @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
 
   #si la date du vol est supérieur à la date.now on incremente un conmpteur de 1 dans une boucle
     # @ads_by_date_counter = Ad.where("flight_date >= ?", DateTime.now)
