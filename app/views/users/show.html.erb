@@ -180,7 +180,7 @@
                 <div class="near-user" style="padding: 5px;">
                   <%= link_to user_path(user) do %>
                     <%= render 'shared/small_user_profile_photo_near_user', user: user %>
-                    <%= user.name.capitalize %>
+                    <%= user.name.capitalize || @user.first_name %>
                 <% end %>
                 </div>
               <% end %>
@@ -196,7 +196,7 @@
                   <div class="near-user" style="padding: 5px;">
                     <%= link_to user_path(user) do %>
                     <%= render 'shared/small_user_profile_photo_near_user', user: user %>
-                    <%= user.name.capitalize %>
+                    <%= user.name.capitalize || @user.first_name %>
                     <% end %>
                     </div>
                     <% end %>
@@ -207,7 +207,7 @@
         <% else %>
         <div class="panel panel-default">
                <div class="panel-heading"><i class="fa fa-comments-o" aria-hidden="true"></i>
- <strong>Avis sur <%= @user.name.capitalize || @user.first_name %></strong></div>
+ <strong>Avis sur <%= @user.name || @user.first_name %></strong></div>
                 <div class="welcome">
                   <p>Commentaires :  </p>
                 </div>
