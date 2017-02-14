@@ -9,6 +9,7 @@ def index
  #@messages = @conversation.messages
  @messages = policy_scope(@conversation.messages)
  authorize @messages
+
   # if @messages.length > 10
   #  @over_ten = true
   #  @messages = @messages[-10..-1]
@@ -19,9 +20,12 @@ def index
    @messages = @conversation.messages
    authorize @messages
   end
+
  if @messages.last
   if @messages.last.user_id != current_user.id
-   @messages.last.read = true;
+   message = @messages.last
+   message.read = true
+   message.save
   end
  end
 @message = @conversation.messages.new
@@ -38,6 +42,7 @@ def create
  @message = @conversation.messages.new(message_params)
  authorize @message
  if @message.save
+
   redirect_to conversation_messages_path(@conversation)
  end
 end

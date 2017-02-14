@@ -22,7 +22,7 @@
     </div>
     <% else %>
     <div class="panel panel-default margin-panel">
-    <div class="panel-heading">Mes conversations</div>
+    <div class="panel-heading">Mes conversations (<%= @conversations.count %>)</div>
     <div class="conversation-wrapper">
     <div>
       <% @conversations.each do |conversation| %>
@@ -45,6 +45,7 @@
             <strong><%= link_to user_name, conversation_messages_path(conversation)%></strong>
             <% if conversation.ad.nil? && conversation.ad.nil? %>
               <i class="fa fa-commenting-o"></i>
+                <div><%= conversation.messages.where(read: true).count %> messages non lu</div>
             <% else %>
              pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%></strong>
             <i class="fa fa-commenting-o"></i>

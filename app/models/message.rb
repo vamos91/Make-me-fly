@@ -9,4 +9,5 @@ class Message < ActiveRecord::Base
  def message_time
    created_at.strftime("%d/%m/%y à %l:%M %p")
  end
+
 end

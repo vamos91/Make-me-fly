@@ -1,13 +1,12 @@
 class ArticlesController < ApplicationController
 
   def index
-    #@articles = Article.all.order(created_at: :desc)
+    @users = User.all
     @articles = policy_scope(Article).order(created_at: :desc)
     authorize @articles
     @post = Post.new
     @article = current_user.articles.build
     authorize @article
-
   end
 
   def show
@@ -42,7 +41,7 @@ class ArticlesController < ApplicationController
     authorize @article
     @article.update(article_params)
     if @article.save
-      redirect_to root_path, notice: "Votre article à été mis à jour"
+      redirect_to user_path(current_user), notice: "Votre article à été mis à jour"
     else
       render :edit
     end
@@ -52,13 +51,13 @@ class ArticlesController < ApplicationController
     find_article
     authorize @article
     @article.destroy
-    redirect_to root_path, notice: "Votre article a été effacé avec succès"
+    redirect_to user_path(current_user), notice: "Votre article a été effacé avec succès"
   end
 
   private
 
   def article_params
-    params.require(:article).permit(:title, :description, :video_url, :picture_article)
+    params.require(:article).permit(:user_id, :title, :description, :video_url, :picture_article)
   end
 
   def find_article

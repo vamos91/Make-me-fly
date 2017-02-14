@@ -24,20 +24,17 @@
           </div>
           <div class="margin-panel">
               <% @articles.each do |article| %>
-              <%= article.user %>
 
               <div class="panel panel-default panel-article">
                 <div class="panel-heading titre-article">
-                  <div class="media">
-                  <div class="media-left">
-                   <%= render 'shared/small_current_user_profile_photo' %>
-                  </div>
-                  <div class="media-body">
-
-
-                    <div class="posted"><p> Le <%= I18n.l(article.created_at, format: :short) %></p></div>
-                  </div>
-                  </div>
+                  <div class="media" style="padding-bottom: 5px;">
+                    <div class="media-left">
+                     <%= render 'shared/small_current_user_profile_photo' %>
+                    </div>
+                    <div class="media-body">
+                      <div style="font-size: 14px;"><%= @user %></div>
+                    </div>
+                </div>
                   <% if policy(article).update? %>
                   <div class="dropdown menu-article">
                       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
@@ -58,7 +55,7 @@
                     <% if article.video_url != "" %>
                       <% @v_url = article.video_url %>
                       <% @video_id = (/([\w-]{11})/.match(@v_url)).to_s %>
-                      <% @embed_code = "<iframe width='100%' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
+                      <% @embed_code = "<iframe width='100%' height='360' src='https://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>" %>
                         <div class="video"><p><%= raw(@embed_code) %></p></div>
                     <% end %>
                      <div id="post_title_<%= article.id%>">

@@ -1,0 +1,5 @@
+<% if @user.pilote? %>
+  <div class="user_status">Pilote à <%= @user.hometown %></div>
+  <% else %>
+  <div class="user_status">Passager à <%= @user.hometown.capitalize if @user.hometown? %></div>
+<% end %>
