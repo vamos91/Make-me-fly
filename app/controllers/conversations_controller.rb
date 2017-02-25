@@ -5,7 +5,7 @@ def index
  #@ads = Ad.all
  @users = User.all
  conversations = Conversation.all
- @conversations = policy_scope(conversations)
+ @conversations = policy_scope(conversations).order(created_at: :desc)
  #@conversation_count = Conversation.where(ad_id: @ad.id)
  authorize @conversations
 end

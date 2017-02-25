@@ -54,6 +54,16 @@ class UsersController < ApplicationController
    authorize @user
 
    @users_near_from_me = User.near(@user.hometown, 100, :units => :km)
+
+
+
+    if user_signed_in? && current_user.pilote?
+      #@ad = Ad.new
+      @ad = current_user.ads.build
+      authorize @ad
+    else
+      redirect_to new_user_registration_path
+    end
  end
 
  def edit

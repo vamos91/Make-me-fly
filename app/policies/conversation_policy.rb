@@ -13,8 +13,10 @@ class ConversationPolicy < ApplicationPolicy
     true
   end
 
-  def destroy
+  def new?
     true
   end
+
+
 
 end

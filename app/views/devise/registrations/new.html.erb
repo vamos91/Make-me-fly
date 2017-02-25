@@ -9,7 +9,11 @@
                 <div class="col-xs-12 col-md-6 col-md-offset-3">
                  <div class="wrapper-registration">
                     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
+                    <h2>MAKEMEFLY</h2>
                     <%= f.error_notification %>
+                     <p><%- resource_class.omniauth_providers.each do |provider| %>
+                      <%= link_to "S'inscrire avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg" %><br />
+                    <% end -%></p>
                     <div class="form-inputs">
                       <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom ou pseudo",label: false %>
                       <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>

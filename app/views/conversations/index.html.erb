@@ -33,30 +33,34 @@
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
           <div class="conversation">
-          <div class="ad-data">
+        <div class="media" style="padding-bottom: 5px;">
+        <div class="media-left">
             <% if recipient.picture? %>
-              <%= cl_image_tag recipient.picture, class: "img-circle", width: "80" %>
+              <%= cl_image_tag recipient.picture, class: "img-circle", width: "60" %>
               <% elsif recipient.facebook_picture_url?%>
-              <%= image_tag recipient.facebook_picture_url, class: "img-circle", width: "80" %>
+              <%= image_tag recipient.facebook_picture_url, class: "img-circle", width: "60" %>
               <% else %>
-              <%= image_tag "pilot.png", class: "img-circle", width: "80" %>
+              <%= image_tag "pilot.png", class: "img-circle", width: "60" %>
             <% end %>
+            </div>
+            <div class="media-body">
             <% user_name = recipient.first_name || recipient.name.capitalize %>
             <strong><%= link_to user_name, conversation_messages_path(conversation)%></strong>
             <% if conversation.ad.nil? && conversation.ad.nil? %>
               <i class="fa fa-commenting-o"></i>
-                <div><%= conversation.messages.where(read: true).count %> messages non lu</div>
+                <div style="font-size: 14px; color: gray;"><%= conversation.messages.count %> messages </div>
             <% else %>
              pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%></strong>
             <i class="fa fa-commenting-o"></i>
-          </div>
           <div class="price-conversation">
             <%= conversation.ad.price %>€
             <% end %>
           </div>
-          </div>
+        </div>
+        </div>
         <% end %>
         <% end %>
+        </div>
         </div>
       </div>
       </div>

@@ -30,13 +30,23 @@
         <p>Articles</p>
         <p><strong><%= @articles.count %></strong></p>
       </div>
-      <% if @user == current_user && current_user.pilotevalidation? %>
+      <% if @user == current_user %>
+        <% if current_user.pilotevalidation? %>
+          <div class="button-ad-profile">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Planifiez un vol
+          </button>
+          </div>
+        <% else %>
+          <div class="button-ad-profile">
+            <button type="button" class="btn btn-primary btn-lg disabled" data-toggle="modal" data-target="#pilotenotvalidate">
+            Planifiez un vol
+          </button>
+          </div>
+        <% end %>
+        <% else %>
       <div class="button-ad-profile">
-        <%= link_to "Planifiez un vol", new_ad_path, class: "btn btn-success" %>
-      </div>
-      <% else %>
-      <div class="button-ad-profile">
-        <%= link_to "Avis sur #{@user.name.capitalize}", new_ad_path, class: "btn btn-primary" %>
+        <%= link_to "Avis sur #{@user.name.capitalize}", user_path(current_user), class: "btn btn-primary btn-lg" %>
       </div>
       <% end %>
     </div>
@@ -215,52 +225,6 @@
               <% end %>
               <% end %>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--     <% if @user == current_user %>
-          <% if @user.pilote? %>
-
-          <% else %>
-            <div class="panel panel-default">
-                <div class="panel-heading"><strong><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
- Voici les pilotes proches de vous</strong></div>
-                <% @users_near_from_me.each do |user| %>
-                <% if user != current_user %>
-                  <% if user.pilote? %>
-                  <div class="near-user" style="padding: 5px;">
-                    <%= link_to user_path(user) do %>
-                    <%= render 'shared/small_user_profile_photo_near_user', user: user %>
-                    <%= user.name.capitalize || @user.first_name %>
-                    <% end %>
-                    </div>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-          <% end %>
-        <% else %>
-        <div class="panel panel-default">
-               <div class="panel-heading"><i class="fa fa-comments-o" aria-hidden="true"></i>
- <strong>Avis sur <%= @user.name || @user.first_name %></strong></div>
-                <div class="welcome">
-                  <p>Commentaires :  </p>
-                </div>
-              </div>
-        <% end %> -->
         </div>
         </div>
       </div>
@@ -268,3 +232,79 @@
   </div>
 </div>
 
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: white; background-color: #2A628F;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" ><i class="fa fa-paper-plane" aria-hidden="true"></i> Cher(e) <%= current_user.name.capitalize %> Remplissez les détails de votre vol</h4>
+      </div>
+      <div class="modal-body">
+     <%= simple_form_for(@ad) do |f| %>
+              <div class="panel panel-primary">
+                 <div class="user-form">
+                 <div class="form-group">
+                    <%= f.select :category, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire'], {} ,class: "form-control", label: "Entrez votre catogorie d'ULM", wrapper: :horizontal_form, :style => "margin-bottom: 15px;" %>
+                    <%= f.input :photo, label: false, placeholder: "Photo de votre ULM", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+                        <%= f.input :photo_cache, as: :hidden %>
+                    <%= f.input :flight_time, label: false, placeholder: "Ex: 40", wrapper: :horizontal_form, label: "Durée du vol en mn" %>
+                    <%= f.input :flight_date, wrapper: :horizontal_form, label: false, placeholder: "Date du vol", label: "Quand comptez vous voler" %>
+                    <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire, nous décollerons de l'aérodrome de Poitier",:input_html => {:rows => 10}, label: "Soyez créatif", wrapper: :horizontal_form %>
+                    <%= f.input :address, label: false, placeholder: "Ex: Antibes", label: "Nous décollerons de...", wrapper: :horizontal_form %>
+                    <%= f.input :price, label: false, placeholder: "Prix", label: "Votre tarif", wrapper: :horizontal_form %>
+                    </div>
+                  </div>
+                </div>
+      </div>
+      <div class="modal-footer" style="color: white; background-color: #2A628F;">
+        <%= f.button :submit, value: "Qui m'aime me suive...", class: "pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="pilotenotvalidate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: white; background-color: #2A628F;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" ><i class="fa fa-paper-plane" aria-hidden="true"></i> Cher(e) <%= current_user.name.capitalize %>, veuiller renseigner votre profile sur les points suivants.</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="row text-center">
+          <%= link_to edit_user_path(current_user) do %>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <%= image_tag "brevet de pilote.png", class: "avatar-xxl" %>
+              <p>Brevet de pilote</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <%= image_tag "licence.png", class: "avatar-xxl" %>
+              <p>Licence en cours de validité</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <%= image_tag "parapluie.png", class: "avatar-xxl" %>
+              <p>Assurance responsabilité civile</p>
+            </div>
+          <% end %>
+      </div>
+
+      </div>
+      <div class="modal-footer" style="color: white; background-color: #2A628F;">
+      <p>Nous procederons à une vérification de ces documents que vous nous fournissez dans la partie "Compléter mon profil". Et vous pourrez ainsi proposer de merveilleux vols à bord de votre ULM.</p>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

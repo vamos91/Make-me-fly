@@ -47,8 +47,13 @@
     <div class="panel-explication">
     <div class="row">
        <div class="panel panel-default margin-panel">
-        <div class="panel-heading">Cher pilote, bienvenue sur MakeMeFly</div>
+        <div class="panel-heading">Cher pilote, bienvenue sur MakeMeFly
+
+        </div>
          <div class="welcome">
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Conditions générales
+          </button>
           <p><strong>Bonjour et bienvenue sur le premier site de réservation de vol en ULM entre particuliers.</strong></p>
           <p>Vous projetez de voler et votre aéronef vous permet l'emport d'un passager, il vous est possible de proposer cette place disponible. Cependant vous devez au préalable :
           <ul>
@@ -215,3 +220,66 @@
               </div>
             </div>
           </div>
+
+
+
+
+
+
+
+          <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Conditions générales</h4>
+      </div>
+      <div class="modal-body">
+          <div class="panel panel-primary">
+          <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i> Cher(e) <%= current_user.first_name || current_user.name.capitalize %></div>
+           <div class="new-ad-text">
+           <p>Voici les conditions générales permettant de donner aux pilotes les bases sur lesquelles les vols doivent être apprehendés : </p>
+           <h3 class="titre-cg">Quelles sont les conditions pour un pilote de proposer un vol partagé ?</h3>
+           <p>L’article 6 § 4bis a) du Règlement (UE) n° 965/2012 du 5 octobre 2012 autorise, par dérogation, l'exploitation "d'aéronefs à motorisation non complexe" sous la forme de « vols à frais partagés effectués par des particuliers, à condition que le coût direct soit réparti entre tous les occupants de l’appareil, y compris le pilote, et que le nombre de personnes supportant le coût direct ne dépasse pas six »
+
+            <h3 class="titre-cg">Comment déterminer les coûts qui peuvent être inclus dans le partage des frais et qui doit les payer ?</h3>
+
+           <p>L’article 6 §4bis a) du Règlement (UE) n° 965/2012 du 5 octobre 2012 prévoit qu’il ne peut s’agit que de coûts directs.</p>
+
+            <p>Le GM2 Article 6.4a(a);(b) de l’Air OPS (Cover Regulation) publié par l’EASA précise que les coûts directs sont ceux intrinsèquement liés au vol, à savoir le carburant, les frais d’aéroport, ainsi que les frais de location de l’aéronef s’il s’agit d’un aéronef loué.</p>
+
+            <p>Ainsi le pilote ne pourra pas demander à ses passagers de participer au coût d’amortissement de l’ULM lorsqu’il en est propriétaire, ou aux coûts de stationnement, d’assurance et d’entretien.</p>
+
+            <p>Le montant de la participation est donc déterminé par le pilote et doit veiller à la cohérence des tarifs proposés au regard des caractéristiques de l’aéronef en cause et du trajet proposé.</p>
+
+            <h3 class="titre-cg">Que dit la réglementation sur les conditions de réalisation du vol ?</h3>
+
+            <p>Les conditions de réalisation du vol sont précisées à l’annexe VII du Règlement 965/2012 relative à l’exploitation d’aéronefs à motorisation non complexe à des fins non commerciales.</p>
+
+            <p>Ce sont essentiellement des exigences techniques reprenant les règles de l’air, tels que les équipements, le matériel à embarquer (fusibles de rechange, matériel de secours), la documentation, les minima opérationnels, les aérodromes de dégagement, c’est-à-dire les obligations réglementaires qui s’imposent à tout pilote privé, quel que soit le type de vol entrepris, individuel, à titre gracieux ou à frais partagés.</p>
+
+            <h3 class="titre-cg">Quel est le risque majeur du non-respect des conditions du vol à frais partagés pour le pilote ?</h3>
+
+            <p>A défaut d’adéquation de la participation, le transport sera requalifié en transport à titre onéreux au sens de l’article L 6412-1 du code des transports, soumis aux règles du transport public, notamment à l’exigence d’un certificat de transporteur aérien prévue par l’article L 6412-2 du même code.</p>
+
+
+
+            <p>L’exploitant de l’aéronef sera alors exposé à la sanction pénale prévue par l’article L 6232-6 du code des transports (un an d’emprisonnement et 75000 € d’amende pour exploitation d’un aéronef pour une ou plusieurs opérations de transport aérien public sans certificat de transporteur aérien).</p>
+
+
+            <p>L’exploitant est en l’occurrence le pilote qui se trouve aux commandes de l’aéronef et qui retire le bénéfice de l’exploitation.</p>
+
+            <h3>Le coavionnage reste basé sur la confiance envers son pilote</h3>
+
+            <p>Il n’en reste pas moins que le vol à frais partagés reste fondé sur la « confiance » envers le pilote – dont il n’est pas évident d’apprécier les qualités par la voie du virtuel. <strong>Une mise à disposition des licences à jour, des attestations d’assurance, du certificat d’examen de navigabilité de l’avion, voire de la dernière page du carnet de vol</strong> via la plateforme pourrait permettre d’appréhender dans un premier temps l’expérience du pilote. Les commentaires et votes favorables ou non des précédents passagers complèteront l’information. Le pilote pourrait d’ailleurs s’appuyer sur une check list proposée dans leur description reprenant les principaux points du pilotage de base qu'il doit respecter <strong>(météo, visite prévol, check list, respect des hauteurs et distances de sécurité, etc…).</strong></p>
+
+         </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

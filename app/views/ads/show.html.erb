@@ -16,10 +16,10 @@
           <% end %>
             <p><%= @ad.user.first_name || @ad.user.name.capitalize %></p>
             <% if user_signed_in? %>
-              <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-primary" %></p>
               <p><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default" %></p>
             <% else %>
-            <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"),chat_ad_path(@ad) , class: "btn btn-danger disabled" %></p>
+              <p><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default disabled" %></p>
+
             <% end %>
           </div>
           <div class="header-flat-name">
@@ -38,11 +38,15 @@
         <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
             <% if @ad.booked != '1'%>
-            <%= @ad.price %> €
+            <p style="font-size: 90px;"><%= @ad.price %>€</p>
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
- -->              <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4>
+ -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
-              <%= link_to "Contacter #{@ad.user.name}", user_path(@ad.user), class: "btn-lg btn-primary btn-block" %>
+                <% if user_signed_in? %>
+              <p><%= link_to "Contacter #{@ad.user.name}", chat_ad_path(@ad), class: "btn-lg btn-primary" %></p>
+            <% else %>
+            <p><%= link_to "Contacter #{@ad.user.name}", chat_ad_path(@ad), class: "btn-lg btn-primary disabled" %></p>
+            <% end %>
 <!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
  -->            <% end %>
         <% end %>
