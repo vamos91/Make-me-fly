@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.build(article_params)
       authorize @article
       if @article.save
-        redirect_to user_path(current_user), notice: "Votre article a été ajouté"
+        redirect_to articles_path, notice: "Votre article a été ajouté"
         #redirect_to articles_user_path(@user), notice: "Votre article a été ajouté"
       else
         render :new
