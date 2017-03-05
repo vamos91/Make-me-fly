@@ -36,6 +36,10 @@ class AdPolicy < ApplicationPolicy
     true
   end
 
+  def ads?
+    true
+  end
+
   def update?
    user_is_owner_or_admin?
   end

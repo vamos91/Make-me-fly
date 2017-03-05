@@ -4,10 +4,14 @@ class AdsController < ApplicationController
 
 
  def index
-   #@ads = Ad.all
   #   authorize @ads
   @ads = policy_scope(Ad)
   authorize @ads
+ end
+
+ def ads
+   @total_ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
+   authorize @total_ads
  end
 
  def show

@@ -12,7 +12,7 @@
       <div class="row">
 
         <div class="col-md-9 col-sm-9">
-          <p><button type="button" class="btn btn-primary btn-lg margin-panel" data-toggle="modal" data-target="#ModalForm">
+          <p><button type="button" class="btn btn-primary btn-lg margin-panel" style="width: 96%;" data-toggle="modal" data-target="#ModalForm">
               Publiez un article
             </button></p>
           <div class="margin-panel">
@@ -77,6 +77,33 @@
           <div class="col-md-3 col-sm-3">
 
 
+          <div class="panel panel-default">
+              <div class="panel-heading"><strong>Voici les membres de la communauté proches de vous</strong></div>
+              <% @users.each do |user| %>
+              <% if user != current_user %>
+                <div class="near-user" style="padding: 5px;">
+                  <%= link_to user_path(user) do %>
+                     <div class="media" style="padding-bottom: 5px;">
+                    <div class="media-left">
+                     <%= render 'shared/small_user_profile_photo_near_user', user: user %>
+                    </div>
+                    <div class="media-body">
+                      <div style="font-size: 14px;"><%= user.name.capitalize || @user.first_name %></div>
+                      <div class="user_status">
+                        <% if user.pilote? %>
+                          <div class="user_status">Pilote à <%= user.hometown %></div>
+                          <% else %>
+                          <div class="user_status">Passager à <%= user.hometown %></div>
+                        <% end %>
+                      </div>
+                    </div>
+                </div>
+                <% end %>
+                </div>
+              <% end %>
+              <% end %>
+            </div>
+
         </div>
         </div>
       </div>
@@ -93,7 +120,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel"><%= current_user.name || current_user.first_name %>, rédige ton article.</h4>
+                  <h4 class="modal-title" id="myModalLabel"><i class="fa fa-paper-plane" aria-hidden="true"></i> <%= current_user.name.capitalize || current_user.first_name %>, rédige ton article.</h4>
                 </div>
                 <div class="modal-body text-center padded">
                    <div class="panel panel-default">

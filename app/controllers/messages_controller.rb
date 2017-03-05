@@ -42,7 +42,7 @@ def create
  @message = @conversation.messages.new(message_params)
  authorize @message
  if @message.save
-  MessageMailer.message(@message).deliver_now
+  #MessageMailer.message(@message).deliver_now
   redirect_to conversation_messages_path(@conversation)
  end
 end

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'pages/subscribe'
 
+  get 'ads/ads'
+
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :orders, only: [:show, :create] do
@@ -57,7 +59,11 @@ end
     resources :conversations
     end
 
+  # authenticated :user do
+  #   root :to => 'pages#dashboard', as: :authenticated_root
+  # end
   root to: 'pages#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
