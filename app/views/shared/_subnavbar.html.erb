@@ -4,9 +4,16 @@
     <%= link_to "Tableau de bord", pages_dashboard_path, :class => "navbar-wagon-item" %>
     <%= link_to "Voir mon profil", user_path(current_user), class: "navbar-wagon-item" %>
     <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "navbar-wagon-item" %>
+    <% if current_user.pilote? %>
     <%= link_to "Voir tous mes vols", user_ads_user_path(current_user), class: "navbar-wagon-item" %>
+    <% end %>
     <% if current_user.pilotevalidation? %>
-      <%= link_to "Planifier un vol", new_ad_path, class: "navbar-wagon-item btn-sm btn-primary" %>
+<!--       <%= link_to "Planifier un vol", new_ad_path, class: "navbar-wagon-item btn-sm btn-primary" %>
+ -->      <button type="button" class="navbar-wagon-item btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
+            Planifiez un vol
+          </button>
+      <% else %>
+          <%= link_to "Planifiez un vol", user_path(current_user), class: "navbar-wagon-item btn-sm btn-danger" %>
     <% end %>
       </div>
 </div>

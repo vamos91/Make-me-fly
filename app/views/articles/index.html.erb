@@ -1,7 +1,5 @@
 <div class="wrapper-profile-dashboard top-spacing">
-<% if @user == current_user && current_user.pilote != nil %>
   <%= render 'shared/subnavbar' %>
-<% end %>
   <div class="container padded">
   <% if current_user.pilote? %>
     <%= render 'shared/user_profile_pilote' %>
@@ -10,7 +8,6 @@
   <% end %>
     <div class="col-md-9 col-sm-9">
       <div class="row">
-
         <div class="col-md-9 col-sm-9">
           <p><button type="button" class="btn btn-primary btn-lg margin-panel" style="width: 96%;" data-toggle="modal" data-target="#ModalForm">
               Publiez un article
@@ -78,7 +75,7 @@
 
 
           <div class="panel panel-default">
-              <div class="panel-heading"><strong>Voici les membres de la communauté proches de vous</strong></div>
+              <div class="panel-heading"><strong>Voici les membres de la communauté</strong></div>
               <% @users.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">
@@ -88,7 +85,7 @@
                      <%= render 'shared/small_user_profile_photo_near_user', user: user %>
                     </div>
                     <div class="media-body">
-                      <div style="font-size: 14px;"><%= user.name.capitalize || @user.first_name %></div>
+                      <div style="font-size: 14px;"><%= user.name || @user.first_name %></div>
                       <div class="user_status">
                         <% if user.pilote? %>
                           <div class="user_status">Pilote à <%= user.hometown %></div>
@@ -143,4 +140,35 @@
             </div>
           </div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: white; background-color: #2A628F;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" ><i class="fa fa-paper-plane" aria-hidden="true"></i> Cher(e) <%= current_user.name.capitalize %> Remplissez les détails de votre vol</h4>
+      </div>
+      <div class="modal-body">
+     <%= simple_form_for(@ad) do |f| %>
+              <div class="panel panel-primary">
+                 <div class="user-form">
+                 <div class="form-group">
+                    <%= f.select :category, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire'], {} ,class: "form-control", label: "Entrez votre catogorie d'ULM", wrapper: :horizontal_form, :style => "margin-bottom: 15px;" %>
+                    <%= f.input :photo, label: false, placeholder: "Photo de votre ULM", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+                        <%= f.input :photo_cache, as: :hidden %>
+                    <%= f.input :flight_time, label: false, placeholder: "Ex: 40", wrapper: :horizontal_form, label: "Durée du vol en mn" %>
+                    <%= f.input :flight_date, wrapper: :horizontal_form, label: false, placeholder: "Date du vol", label: "Quand comptez vous voler" %>
+                    <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire, nous décollerons de l'aérodrome de Poitier",:input_html => {:rows => 10}, label: "Soyez créatif", wrapper: :horizontal_form %>
+                    <%= f.input :address, label: false, placeholder: "Ex: Antibes", label: "Nous décollerons de...", wrapper: :horizontal_form %>
+                    <%= f.input :price, label: false, placeholder: "Prix", label: "Votre tarif", wrapper: :horizontal_form %>
+                    </div>
+                  </div>
+                </div>
+      </div>
+      <div class="modal-footer" style="color: white; background-color: #2A628F;">
+        <%= f.button :submit, value: "Qui m'aime me suive...", class: "pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

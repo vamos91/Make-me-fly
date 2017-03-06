@@ -73,7 +73,7 @@
         <% if current_user == @user %>
         <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
         <% else %>
-          <p><%= link_to t(".top_call_to_action", default: "Envoyer un message"), chat_user_user_path(@user.id) %></p>
+          <p><i class="fa fa-commenting" aria-hidden="true" style="color: gray;"></i> <%= link_to t(".top_call_to_action", default: "Envoyer un message"), chat_user_user_path(@user.id) %></p>
         <% end %>
       </div>
      </div>
@@ -128,7 +128,7 @@
                      <%= render 'shared/small_current_user_profile_photo' %>
                     </div>
                     <div class="media-body">
-                      <div style="font-size: 14px;"><%= @user.name.capitalize %></div>
+                      <div style="font-size: 14px;"><%= @user.name %></div>
                       <div class="user_status"><%= render 'shared/user_status' %></div>
                       <div class="posted">Le <%= I18n.l(article.created_at, format: :short) %></div>
 

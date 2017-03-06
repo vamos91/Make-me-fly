@@ -48,12 +48,12 @@
             <strong><%= link_to user_name, conversation_messages_path(conversation)%></strong>
             <% if conversation.ad.nil? && conversation.ad.nil? %>
               <i class="fa fa-commenting-o"></i>
-                <div style="font-size: 14px; color: gray;"><%= conversation.messages.count %> messages </div>
+                <div style="font-size: 14px; color: gray;"><%= conversation.messages.count %> messages
+                </div>
             <% else %>
-             pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%></strong>
-            <i class="fa fa-commenting-o"></i>
-          <div class="price-conversation">
-            <%= conversation.ad.price %>€
+            <div style="color: gray;">
+             <p>pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%> <%= conversation.ad.price %>€</p></strong>
+            </div>
             <% end %>
           </div>
         </div>
@@ -69,20 +69,4 @@
     </div>
   </div>
 </div>
-</div>
 
-
-
-
-<!-- <div>
-  <h3>All Users</h3>
-  <div>
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-      <div>
-        <%= user.name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-</div> -->

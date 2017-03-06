@@ -7,6 +7,13 @@ class ArticlesController < ApplicationController
     @post = Post.new
     @article = current_user.articles.build
     authorize @article
+    if user_signed_in? && current_user.pilote?
+      #@ad = Ad.new
+      @ad = current_user.ads.build
+      authorize @ad
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def show

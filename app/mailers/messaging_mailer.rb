@@ -1,0 +1,11 @@
+class MessagingMailer < ApplicationMailer
+  def messaging(message)
+    conversation = Conversation.find(message.conversation_id)
+    @body_message = message.body
+    @sender = User.find(conversation.sender_id)
+    @recipient = User.find(conversation.recipient_id)
+    mail(to: @sender.email, subject: "MakeMeFly : Vous avez recus un message de #{@recipient.name}")
+  end
+end
+
+
