@@ -18,19 +18,28 @@
 <div class="bar-profile ">
   <div class="info-bar-profile navbar text-center">
     <div class="navbar-wagon-right hidden-xs">
+     <% if @user.pilote == true %>
       <div class="vertical-align info-item">
         <p>Vols</p>
         <p><strong><%= @user_ads.count %></strong></p>
       </div>
+      <% end %>
        <div class="vertical-align info-item">
         <p>Commentaires</p>
         <p><strong>0</strong></p>
       </div>
+
+
        <div class="vertical-align info-item">
         <p>Articles</p>
         <p><strong><%= @articles.count %></strong></p>
       </div>
       <% if @user == current_user %>
+        <div class="button-article-profile">
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#ModalForm">
+            Publiez un article
+          </button>
+          </div>
         <% if current_user.pilotevalidation? %>
           <div class="button-ad-profile">
             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -46,7 +55,7 @@
         <% end %>
         <% else %>
       <div class="button-ad-profile">
-        <%= link_to "Avis sur #{@user.name.capitalize}", user_path(current_user), class: "btn btn-primary btn-lg" %>
+        <%= link_to "Avis sur #{@user.name.capitalize}", user_path(current_user), class: "btn btn-primary btn-lg disabled" %>
       </div>
       <% end %>
     </div>
@@ -110,33 +119,6 @@
 
         <div class="row">
         <div class="col-md-9 col-sm-9">
-          <% if @user == current_user %>
-            <div class="panel panel-default margin-panel">
-            <div class="row">
-              <%= simple_form_for(@article) do |art| %>
-                <div class="user-form">
-                <div class="media" style="padding-bottom: 5px;">
-                    <div class="media-left">
-                     <%= render 'shared/small_current_user_profile_photo' %>
-                    </div>
-                    <div class="media-body">
-                      <div style="font-size: 14px;"><%= @user.name.capitalize %></div>
-                      <div class="user_status"><%= render 'shared/user_status' %></div>
-                    </div>
-                </div>
-                  <div class="article-dexcription" style="padding: 0px 15px;">
-                  <%= art.input :description, :as => :text, required: false, autofocus: true, label: false, placeholder: "Des news concernant votre passion ?", :input_html => {:rows => 4} %>
-                  </div>
-                  <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo youtube", placeholder: "Ex : https://www.youtube.com/watch?v=DIMIZPbnfNs", wrapper: :horizontal_form %>
-                  <%= art.input :picture_article, label: "Téléchargez une photo", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
-                  <%= art.input :picture_article_cache, as: :hidden %>
-                  <%= art.button :submit, value: "Publier", class: "btn pull-right btn-primary" %>
-
-                  </div>
-                <% end %>
-            </div>
-          </div>
-      <% end %>
           <div class="margin-panel">
               <% @articles.each do |article| %>
               <div class="panel panel-default panel-article">
@@ -308,3 +290,49 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="ModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel"><i class="fa fa-paper-plane" aria-hidden="true"></i> <%= current_user.name.capitalize || current_user.first_name %>, rédige ton article.</h4>
+                </div>
+                <div class="modal-body padded">
+                   <div class="panel panel-default">
+                    <div class="row">
+                      <%= simple_form_for(@article) do |art| %>
+                        <div class="user-form">
+                           <div class="media" style="padding-bottom: 5px;">
+                            <div class="media-left">
+                             <%= render 'shared/small_current_user_profile_photo' %>
+                            </div>
+                            <div class="media-body">
+                              <div style="font-size: 14px;"><%= @user.name.capitalize %></div>
+                              <div class="user_status"><%= render 'shared/user_status' %></div>
+                            </div>
+                        </div>
+                          <%= art.input :description, :as => :text, required: false, autofocus: true, label: false, placeholder: "Des news concernant votre passion ?", :input_html => {:rows => 4} %>
+                          <%= art.input :video_url, required: false, autofocus: true, label: "Publiez une vidéo youtube", placeholder: "Ex : https://www.youtube.com/watch?v=DIMIZPbnfNs", wrapper: :horizontal_form %>
+                          <%= art.input :picture_article, label: "Téléchargez une photo", :input_html => { class: 'hide-profile-field' }, wrapper: :horizontal_form %>
+                          <%= art.input :picture_article_cache, as: :hidden %>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <%= art.button :submit, value: "Publier", class: "btn pull-right btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>

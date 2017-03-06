@@ -46,12 +46,15 @@
     <%= link_to users_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
       <i class="fa fa-users"></i> Les pilotes
     <% end %>
+    <%= link_to ads_ads_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
+      <i class="fa fa-paper-plane"></i> Les vols
+    <% end %>
     <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
               <i class="fa fa-envelope-o"></i> Conversations
 
           <% end %>
     <%= link_to destroy_user_session_path, :class => "navbar-wagon-item navbar-wagon-button btn", method: :delete do %>
-      <i class="fa fa-sign-out"></i> Deconnexion
+      <i class="fa fa-sign-out"></i>
     <% end %>
 
 <!-- Notification -->
@@ -79,6 +82,7 @@
            <li><%= link_to "Mon profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %></li>
            <li><%= link_to "Tableau de bord", pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn" %></li>
            <li><%= link_to "Les pilotes", users_path, :class => "navbar-wagon-item navbar-wagon-button btn" %></li>
+           <li><%= link_to "Tous les vols", ads_ads_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li>
            <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-button btn" %></li>
           <% else %>
           <li><%= link_to "Connexion", new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li>

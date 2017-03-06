@@ -5,7 +5,6 @@
     <%= link_to "Voir mon profil", user_path(current_user), class: "navbar-wagon-item" %>
     <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "navbar-wagon-item" %>
     <%= link_to "Voir tous mes vols", user_ads_user_path(current_user), class: "navbar-wagon-item" %>
-    <%= link_to "Tous les vols", ads_ads_path, class: "navbar-wagon-item" %>
     <% if current_user.pilotevalidation? %>
       <%= link_to "Planifier un vol", new_ad_path, class: "navbar-wagon-item btn-sm btn-primary" %>
     <% end %>
