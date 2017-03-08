@@ -59,9 +59,9 @@ end
     resources :conversations
     end
 
-  authenticated :user do
-    root :to => 'articles#index', as: :authenticated_root
-  end
+  # authenticated :user do
+  #   root :to => 'articles#index', as: :authenticated_root
+  # end
   root to: 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
