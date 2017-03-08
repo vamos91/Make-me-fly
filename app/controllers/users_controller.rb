@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   authorize @userPilotes
   @ads = policy_scope(Ad)
   authorize @ads
+  #binding.pry
+  session[:user_id] = @current_user.id
+  @a = User.find(session[:user_id])
  end
 
 

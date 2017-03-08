@@ -8,7 +8,7 @@
     <div class="thumbnail">
       <%= render "shared/current_user_profile_photo" %>
       <div class="caption text-center">
-        <h4><%= current_user.first_name || current_user.name.capitalize %></h4>
+        <h4><%= current_user.first_name || current_user.name %></h4>
       </div>
      </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="col-md-9 col-sm-9">
         <div class="row">
            <div class="panel panel-default margin-panel">
-            <div class="panel-heading">Cher <%= current_user.first_name || current_user.name.capitalize %>, bienvenue sur MakeMeFly</div>
+            <div class="panel-heading">Cher <%= current_user.first_name || current_user.name %>, bienvenue sur MakeMeFly</div>
              <div class="welcome">
               <p><strong>Bonjour et bienvenue sur le premier site de réservation de vol en ULM entre particuliers.</strong></p>
               <p>MakeMeFly vous permet :
@@ -227,6 +227,8 @@
 
 
 
+
+
           <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -237,7 +239,7 @@
       </div>
       <div class="modal-body">
           <div class="panel panel-primary">
-          <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i> Cher(e) <%= current_user.first_name || current_user.name.capitalize %></div>
+          <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i> Cher(e) <%= current_user.first_name || current_user.name %></div>
            <div class="new-ad-text">
            <p>Voici les conditions générales permettant de donner aux pilotes les bases sur lesquelles les vols doivent être apprehendés : </p>
            <h3 class="titre-cg">Quelles sont les conditions pour un pilote de proposer un vol partagé ?</h3>
