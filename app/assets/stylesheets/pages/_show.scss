@@ -57,15 +57,25 @@
   border: 1px solid #dce0e0;
 }
 .header-flat-details {
+  margin: 20px 0;
   display: flex;
   align-items: center;
-  padding: 30px;
+  padding: 33px;
   padding-left: 0;
+  background: $space-cadet;
+  border-radius: 3px;
+  color: white;
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 1);
 }
+
+.header-flat-owner p {
+  color: white;
+}
+
 .header-flat p {
   font-weight: normal;
   font-size: 14px;
-  color: $gray-light;
+  color: white;
 }
 .header-flat h1 {
   font-size: 18px;
@@ -77,7 +87,12 @@
 .header-flat form {
   margin: 20px 0;
   margin-right: 0;
-  background: #E9EBEE;
+  background: $space-cadet;
   padding: 50px;
   border-radius: 3px;
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 1);
+}
+
+.header-flat form p {
+  color: white;
 }

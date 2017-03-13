@@ -184,7 +184,7 @@
           </div>
           <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
-              <div class="panel-heading"><strong>Voici les membres de la communauté proches de vous</strong></div>
+              <div class="panel-heading"><strong>Voici les membres de la communauté proches de <%= @user.name %></strong></div>
               <% @users_near_from_me.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">
