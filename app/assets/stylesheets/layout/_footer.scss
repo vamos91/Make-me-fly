@@ -15,9 +15,9 @@
 }
 #footer a {
   color: $gray-darker;
-  font-size: 40px;
-  letter-spacing: 15px;
-  line-height : 50px;
+  font-size: 15px;
+  letter-spacing: 10px;
+  line-height : 30px;
   transition: color 0.5s ease;
 }
 #footer a:hover{
@@ -31,6 +31,11 @@
 
 #footer .fa {
   padding: 30px;
+}
+
+#footer .pol-link{
+  font-size: 15px;
+  color: white;
 }
 
 //--------------------------------------
