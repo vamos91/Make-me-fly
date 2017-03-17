@@ -1,5 +1,5 @@
 .feature-size {
-  font-size: 30px;
+  font-size: 55px;
   opacity: 1;
   color: $lapis-lazuli;
   //border-bottom: 1px solid #D7DBDD;
@@ -8,6 +8,7 @@
 
 .spacing p{
   color: gray;
+  font-size: 16px;
 }
 
 .spacing h4{
@@ -45,6 +46,40 @@
 
 
 
+
+
+
+
+
+
+h3 {
+  display: inline-block;
+  padding: 10px;
+  background: #B9121B;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //------------feature test-----------
 
 
@@ -66,7 +101,7 @@
   margin-top:30px;
   margin:0;
   padding: 0px;
-  font-size: 10px;
+  font-size: 16px;
   color: white;
   font-weight: lighter;
 
