@@ -148,7 +148,7 @@
     <div class="modal-content">
       <div class="modal-header" style="color: white; background-color: #2A628F;">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" ><i class="fa fa-paper-plane" aria-hidden="true"></i> Cher(e) <%= current_user.name.capitalize %> Remplissez les détails de votre vol</h4>
+        <h4 class="modal-title" id="myModalLabel" ><i class="fa fa-paper-plane" aria-hidden="true"></i> Cher(e) <%= current_user.name || current_user.first_name %> Remplissez les détails de votre vol</h4>
       </div>
       <div class="modal-body">
      <%= simple_form_for(@ad) do |f| %>
