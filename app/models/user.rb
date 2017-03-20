@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   #validates :hometown, presence: true
   #validates :name, presence: true
-  #
+
 
   geocoded_by :hometown
   after_validation :geocode, if: :hometown_changed?
@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :conversations, dependent: :destroy
   after_create :send_welcome_email
+
+
 
 
   def self.find_for_facebook_oauth(auth)

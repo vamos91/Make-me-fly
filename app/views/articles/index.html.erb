@@ -85,7 +85,7 @@
                      <%= render 'shared/small_user_profile_photo_near_user', user: user %>
                     </div>
                     <div class="media-body">
-                      <div style="font-size: 14px;"><%= user.name || @user.first_name %></div>
+                      <div style="font-size: 14px;"><%= user.name || user.first_name %></div>
                       <div class="user_status">
                       <% unless user.hometown.nil? %>
                         <% if user.pilote? %>
