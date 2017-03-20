@@ -87,7 +87,7 @@
                     <div class="media-body">
                       <div style="font-size: 14px;"><%= user.name || @user.first_name %></div>
                       <div class="user_status">
-                      <% unless user.hometown.empty? %>
+                      <% unless user.hometown.nil? %>
                         <% if user.pilote? %>
                           <div class="user_status">Pilote à <%= user.hometown %></div>
                           <% else %>
