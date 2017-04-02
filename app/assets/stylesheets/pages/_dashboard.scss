@@ -35,6 +35,11 @@
   margin-left: 22px;
 }
 
+.article-scroll{
+  overflow-y: scroll;
+  height: 100vh;
+}
+
 .panel{
   font-size: 14px;
 }
@@ -44,3 +49,5 @@
   color: $lapis-lazuli;
   font-size: 15px;
 }
+
+

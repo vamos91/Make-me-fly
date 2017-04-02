@@ -12,7 +12,7 @@
           <p><button type="button" class="btn btn-primary btn-lg margin-panel" style="width: 96%;" data-toggle="modal" data-target="#ModalForm">
               Publiez un article
             </button></p>
-          <div class="margin-panel">
+          <div class="margin-panel article-scroll">
               <% @articles.each do |article| %>
 
               <div class="panel panel-default panel-article">
@@ -74,8 +74,9 @@
           <div class="col-md-3 col-sm-3">
 
 
-          <div class="panel panel-default">
+          <div class="panel panel-default article-scroll">
               <div class="panel-heading"><strong>Voici les membres de la communauté</strong></div>
+
               <% @users.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">
@@ -101,6 +102,7 @@
                 </div>
               <% end %>
               <% end %>
+
             </div>
 
         </div>
