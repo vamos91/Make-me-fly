@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- # before_action :set_article
+skip_before_action :authenticate_user!
 
  def index
   @userPilotes = User.where(pilote: true)

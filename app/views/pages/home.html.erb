@@ -2,12 +2,19 @@
   <div class="banner-content">
     <h1>Besoin de sensations et de challenges qui vident l'esprit ?</h1>
     <h1 class="title-banner">Volez en ULM !</h1>
-    <!-- SEARCH BAR -->
-     <div class="padded">
-      <!-- <form action="<%= search_ads_path %>" class=" formulaire form-inline text-center" style="padding: 0px 50px;">
-        <input name="q" type="text" class="form-control input-lg text-center " placeholder="Exemple 'Nîmes'">
-        <input type="submit" value="Recherchez" class="btn btn-primary btn-lg">
-      </form> -->
+    <h2 class ="text-center" style="font-weight: lighter; color: white;">Le premier site de reservation de vol en ULM entre particuliers.</h2>
+      <div class="form-header">
+       <form action="<%= search_ads_path %>" class="formulaire form-inline text-center" id="form-navbar">
+          <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="input-group" style="margin-top: 100px;">
+            <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="width: 330px; height: 48px;">
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-lg" type="button">Rechercher</button>
+            </span>
+          </div>
+        </div>
+      </form>
+      </div>
       <div class="call-to-action">
         <% if user_signed_in? && current_user.pilotevalidation? %>
            <%= link_to new_ad_path, class: "btn btn-danger btn-lg input-lg" do %>
@@ -15,10 +22,9 @@
            <% end %>
         <% end %>
       </div>
-    </div>
-    <div class="arrow">
+ <!--    <div class="arrow">
     <i class="fa fa-arrow-down" aria-hidden="true"></i>
-  </div>
+  </div> -->
   </div>
   </div>
 
@@ -36,17 +42,30 @@
 <% end %>
 
 <div class="text-center">
-  <% if user_signed_in? && @ads.nil? %>
     <div class="title_flight">
-<!--     <p>Nouveaux vols proches de <%= current_user.hometown.capitalize %></p>
- -->    <p>Nouveaux vols</p>
+   <p>Nouveaux vols</p>
  </div>
-    <% else %>
+
+
+
+ </div>
+  <div class="wrapper-card padded">
+    <div class="container">
+       <div class="row">
+         <div class="reveal">
+            <% @ads.each do |ad| %>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <%= render ad %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    </div>
     <!-- FEATURES 2-->
 
 <div class="padded" style="background-color: #F8F8F8;">
-  <div class="container spacing">
-  <h2 class ="text-center padded" style="font-weight: lighter; color: gray;">Le premier site de reservation de vol en ULM entre particuliers.</h2>
+  <div class="container spacing" style="padding: 40px 0px 40px;">
   <br>
     <div class="row" style="font-size: 10px;">
       <div class="col-xs-6 col-sm-6 col-md-3 text-center">
@@ -141,23 +160,10 @@
 </div> -->
 </div>
 
-  <% end %>
 
 
-</div>
-  <div class="wrapper-card marged">
-    <div class="container">
-       <div class="row">
-         <div class="reveal">
-            <% @ads.each do |ad| %>
-              <div class="col-xs-12 col-sm-12 col-md-4">
-                <%= render ad %>
-              </div>
-            <% end %>
-          </div>
-      </div>
-    </div>
-    </div>
+
+
 
 
 

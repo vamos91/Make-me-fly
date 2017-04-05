@@ -1,7 +1,5 @@
 class AdsController < ApplicationController
   skip_before_action :authenticate_user!
-  #before_action :set_forecast, only: [:show]
-
 
  def index
   #   authorize @ads
@@ -109,9 +107,13 @@ class AdsController < ApplicationController
 
   def search
     @city = params[:q]
-    @ads = Ad.near(@city, 100, :units => :km)
-    if @ads.empty?
-      redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
+    if @city.nil?
+      @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
+    else
+      @ads = Ad.near(@city, 100, :units => :km)
+      if @ads.empty?
+        redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
+      end
     end
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|

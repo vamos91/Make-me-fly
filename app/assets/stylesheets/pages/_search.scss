@@ -2,7 +2,7 @@
     background-color:white;
     width: 100%;
     margin-top:10px;
-    margin-right:10px;
+    margin-right:0px;
     z-index:10;
 
 }
@@ -30,16 +30,19 @@
 }
 
 .liste{
-  background: #F7F3EF;
-  height: 600px;
+  //background: #F7F3EF;
+  height: 100vh;
   overflow: scroll;
 
 }
 
 .wrapper-search{
-  margin-top: 0px;
+  //margin-top: 0px;
   //background: #F7F3EF;
+  overflow: hidden;
   background: $gray-lighter;
+  background-size: cover !important;
+  height: 93vh;
 }
 
 
@@ -55,3 +58,4 @@
   padding: 15px;
   border-radius: 10px;
 }
+
