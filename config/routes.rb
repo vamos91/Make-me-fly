@@ -16,8 +16,6 @@ Rails.application.routes.draw do
 
   get 'pages/subscribe'
 
-  get 'ads/ads'
-
   get 'pages/politique'
 
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
