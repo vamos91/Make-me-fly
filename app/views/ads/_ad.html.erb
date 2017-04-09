@@ -1,33 +1,20 @@
- <% if ad.booked == '1' %>
- <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.5)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
+
+ <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
     <div class="card-category"><%= ad.category %></div>
     <div class="card-description">
       <h4><%= ad.address.upcase %> le <%= I18n.l(ad.flight_date, format: :short) %></h4>
 <!--       <p><%= ad.description %></p>
  -->    </div>
-    <div class="card-price"><p>Vol réservé</p></div>
-    <div class="card-user">
+    <div class="card-price"><p><%= ad.price %>€</p></div>
+    <% if ad.user.pilotevalidation == true %>
+    <div class="card-user"><%= ad.user.name || ad.user.first_name %>
+    <% else %>
+    <div class="card-user">Pilote non vérifié
+    <% end %>
      <% if ad.user.picture? %>
-      <img src="<%= ad.user.picture %>" class="avatar-large"/>
+      <img src="<%= ad.user.picture %>" class="avatar-large">
      <% else %>
           <%= image_tag "pilot.png", class: "avatar-large"%>
       <% end %>
     </div>
   </div>
-<% else %>
-<div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
-    <div class="card-category"><%= ad.category %></div>
-    <div class="card-description">
-      <h4><%= ad.address.upcase %> le <%= I18n.l(ad.flight_date, format: :short) %></h4>
-<!--       <p><%= ad.description %></p>
- -->    </div>
-    <div class="card-price"><%= ad.price %>€</div>
-    <div class="card-user">
-     <% if ad.user.picture? %>
-      <img src="<%= ad.user.picture %>" class="avatar-large"/>
-     <% else %>
-          <%= image_tag "pilot.png", class: "avatar-large"%>
-      <% end %>
-    </div>
-  </div>
-  <% end %>

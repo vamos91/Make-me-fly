@@ -8,15 +8,10 @@
     <%= link_to "Voir tous mes vols", user_ads_user_path(current_user), class: "navbar-wagon-item" %>
     <% end %>
     <% if current_user.pilote? %>
-      <% if current_user.pilotevalidation? %>
       <button type="button" class="navbar-wagon-item btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
             Planifiez un vol
           </button>
-      <% else %>
-          <%= link_to "Planifiez un vol", user_path(current_user), class: "navbar-wagon-item btn-sm btn-danger" %>
     <% end %>
-    <% end %>
-
       </div>
 </div>
 
