@@ -265,8 +265,8 @@
   </div>
 </div>
 <% else %>
-  <div class="wrapper" style="padding: 55px; background-color: #3E92CC; height: 500px;">
-  <p class="text-center" style="margin-bottom: 50px; font-size: 40px; font-weight: bold; color: white; ">Des pilotes partagent leur passion. Venez les rencontrer !</p>
+  <div class="wrapper pilote-wrapper" style="padding: 55px; background-color: #3E92CC; height: 500px;">
+  <p class="text-center">Des pilotes partagent leur passion. Venez les rencontrer !</p>
     <div class="container text-center">
       <div class="row">
           <% @users_pilote.each do |pilote| %>
@@ -278,8 +278,8 @@
             <% else %>
               <%= image_tag "pilot.png", class: "img-circle", width: "180" %>
           <% end %>
-          <p><%= pilote.name || pilote.first_name %></p>
-           <p>Inscrit le <%= pilote.message_time_user %></p>
+          <h4><%= pilote.name || pilote.first_name %></h4>
+           <h4>Inscrit le <%= pilote.message_time_user %></h4>
             </div>
          <% end %>
       </div>
@@ -295,13 +295,13 @@
 
 
 
-<div class="banner banner-parallax banner-parallax1 img-responsive">
-  <div class="banner-filter"></div>
+<div class="banner banner-parallax1" style="background-attachment: fixed;
+    background-size: cover !important;">
   <div class="banner-content-parallax" style="text-align: left;">
     <p>Vous êtes pilote ULM ?</p>
     <p>Vous voulez partager votre passion ?</p>
     <div class="padded text-center">
-    <p><%= link_to t(".top_call_to_action", default: "Ca commence ici"), new_user_registration_path, class: "btn-lg btn-primary" %></p>
+    <p class="button-home-banner"><%= link_to t(".top_call_to_action", default: "Ca commence ici"), new_user_registration_path, class: "btn-lg btn-primary" %></p>
 </div>
   </div>
 </div>

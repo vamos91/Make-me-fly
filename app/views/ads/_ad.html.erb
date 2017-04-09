@@ -12,9 +12,11 @@
     <div class="card-user">Pilote non vérifié
     <% end %>
      <% if ad.user.picture? %>
-      <img src="<%= ad.user.picture %>" class="avatar-large">
-     <% else %>
-          <%= image_tag "pilot.png", class: "avatar-large"%>
-      <% end %>
+  <%= cl_image_tag ad.user.picture, class: "avatar" %>
+  <% elsif ad.user.facebook_picture_url? %>
+    <%= image_tag ad.user.facebook_picture_url.split("=")[0] << "=large", class: "avatar" %>
+  <% else %>
+    <%= image_tag "pilot.png", class: "avatar" %>
+<% end %>
     </div>
   </div>

@@ -41,9 +41,13 @@
 //--------------------------------------
 
 @media (max-width:450px) {
+
+  #footer{
+    height:300px;
+  }
   #footer a {
     color: $gray-darker;
-    font-size: 28px;
+    font-size: 15px;
     line-height : 50px;
     transition: color 0.5s ease;
   }
