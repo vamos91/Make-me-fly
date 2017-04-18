@@ -8,8 +8,14 @@
     <div class="card-price"><p><%= ad.price %>€</p></div>
     <% if ad.user.pilotevalidation == true %>
     <div class="card-user"><%= ad.user.name || ad.user.first_name %>
+    <div class="grade">
+      <%= image_tag "checked", class: "avatar-large" %>
+    </div>
     <% else %>
-    <div class="card-user">Pilote non vérifié
+    <div class="card-user"><%= ad.user.name || ad.user.first_name %>
+    <div class="grade">
+      <%= image_tag "unchecked-pilot", class: "avatar-large" %>
+    </div>
     <% end %>
      <% if ad.user.picture? %>
   <%= cl_image_tag ad.user.picture, class: "avatar" %>
@@ -19,4 +25,5 @@
     <%= image_tag "pilot.png", class: "avatar" %>
 <% end %>
     </div>
+  </div>
   </div>
