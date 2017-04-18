@@ -9,12 +9,12 @@
     <% if ad.user.pilotevalidation == true %>
     <div class="card-user"><%= ad.user.name || ad.user.first_name %>
     <div class="grade">
-      <%= image_tag "checked", class: "avatar-large" %>
+      <%= image_tag "checked.png", class: "avatar-large" %>
     </div>
     <% else %>
     <div class="card-user"><%= ad.user.name || ad.user.first_name %>
     <div class="grade">
-      <%= image_tag "unchecked-pilot", class: "avatar-large" %>
+      <%= image_tag "unchecked-pilot.png", class: "avatar-large" %>
     </div>
     <% end %>
      <% if ad.user.picture? %>
