@@ -8,12 +8,12 @@
     <div class="card-price"><p><%= ad.price %>€</p></div>
     <% if ad.user.pilotevalidation == true %>
     <div class="card-user"><%= ad.user.name || ad.user.first_name %>
-    <div class="grade">
+      <div class="grade" data-toggle="tooltip" data-placement="bottom" title="Pilote vérifié">
       <%= image_tag "checked.png", class: "avatar-large" %>
-    </div>
+      </div>
     <% else %>
     <div class="card-user"><%= ad.user.name || ad.user.first_name %>
-    <div class="grade">
+    <div class="grade" data-toggle="tooltip" data-placement="bottom" title="Pilote non vérifié">
       <%= image_tag "unchecked-pilot.png", class: "avatar-large" %>
     </div>
     <% end %>

@@ -6,3 +6,8 @@ $(function() {
     window.location.href = $(this).data('url');
   });
 });
+
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
