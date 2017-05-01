@@ -59,6 +59,7 @@ a:hover{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
 }
 
 /* Navbar item */
@@ -74,7 +75,7 @@ a:hover{
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  //color: #da552f;
   text-decoration: none;
 }
 
@@ -166,14 +167,26 @@ a:hover{
 
 
 .nav--sticky {
-  background: $gradient;
+  background: white;
   padding-top: 0;
-  height:55px;
+  height:85px;
   .navbar-wagon-brand {
    padding: 10px 15px;
   span{
     font-size: 20px;
+    color: gray;
     //height: auto;
+  }
+}
+.navbar-wagon-button{
+  color: gray;
+}
+.navbar-wagon-button:hover {
+  border-color: gray;
+}
+.navbar-wagon-right{
+  span{
+    color: gray;
   }
 }
 }

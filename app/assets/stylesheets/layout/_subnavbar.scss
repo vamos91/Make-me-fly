@@ -70,12 +70,7 @@ a:hover{
   //border: 2px solid $red;
   transition: border-color 0.4s ease;
 }
-.navbar-wagon-button:hover {
-  color: white;
-  //opacity: 0.5;
-  //background-color: #576E8E;
-  border-color: white;
-}
+
 
 .navbar-wagon-search-input {
   flex: 0 1 225px;
@@ -127,18 +122,7 @@ a:hover{
 
 
 
-.nav--sticky {
-  background: $gradient;
-  padding-top: 0;
-  height:55px;
-  .navbar-wagon-brand {
-   padding: 10px 15px;
-  span{
-    font-size: 20px;
-    //height: auto;
-  }
-}
-}
+
 
 //------------------------------------
 
