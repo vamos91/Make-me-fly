@@ -1,14 +1,14 @@
-.banner-index-pilot{
-  margin-top: 50px;
-  color: white;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #4b6cb7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #4b6cb7 , #182848); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4b6cb7 , #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+// .banner-index-pilot{
+//   margin-top: 50px;
+//   color: white;
+//   height: 50vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background: #4b6cb7; /* fallback for old browsers */
+//   background: -webkit-linear-gradient(to left, #4b6cb7 , #182848); /* Chrome 10-25, Safari 5.1-6 */
+//   background: linear-gradient(to left, #4b6cb7 , #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// }
 
 .banner-index-pilot h1{
   font-size: 70px;
@@ -21,13 +21,39 @@
 
 
 .media-left img{
-  width: 75px;
+  width: 50px;
 }
 
 .media-body{
   width: 177px;
 }
 
+
+.pilote-table{
+  background-color: $gray-lighter;
+  //border-bottom: 1px solid $gray;
+}
+
+.media-left-pilote img{
+  width: 100px;
+  height: 100px;
+}
+
+.pilote-table .media-heading{
+  font-size: 22px;
+  padding: 7px;
+  text-align: left;
+}
+
+.grade-pilote{
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+.grade-pilote img{
+  width: 90px;
+}
 
 @media (max-width:450px) {
   .banner-index-pilot h1{

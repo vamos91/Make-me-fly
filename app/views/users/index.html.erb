@@ -4,9 +4,8 @@
       <% @userPilotes.each do |user| %>
       <% if user != current_user %>
       <div class="col-xs-6 col-sm-6 col-md-6">
-        <p><div class="media">
-          <div class="media-left">
-
+        <p><div class="media pilote-table">
+          <div class="media-left media-left-pilote">
                <% if user.picture? %>
                 <%= cl_image_tag user.picture %>
                 <% elsif user.facebook_picture_url? %>
@@ -14,10 +13,19 @@
                 <% else %>
                   <%= image_tag "pilot.png" %>
               <% end %>
-
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><%= user.first_name || user.name.capitalize %> <%= user.hometown.capitalize %></h4>
+            <h4 class="media-heading"><strong><%= user.first_name || user.name.capitalize %></strong> <%= user.hometown %></h4>
+
+           <% if user.pilotevalidation == true %>
+                <div class="grade-pilote" data-toggle="tooltip" data-placement="left" title="Pilote vérifié">
+                <%= image_tag "checked.png"%>
+                </div>
+              <% else %>
+              <div class="grade-pilote" data-toggle="tooltip" data-placement="left" title="Pilote non vérifié">
+                <%= image_tag "unchecked-pilot.png"%>
+              </div>
+              <% end %>
 
             <% if current_user != user && user_signed_in? %>
                   <%= link_to "Profil", user_path(user.id), class: "btn btn-primary" %>
@@ -25,7 +33,6 @@
                 <% end %>
           </div>
         </div></p>
-
     </div>
     <% end %>
   <% end %>
