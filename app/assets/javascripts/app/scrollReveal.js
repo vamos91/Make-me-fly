@@ -1,4 +1,4 @@
-
+t
 window.sr = ScrollReveal()
 sr.reveal('h1');
 //sr.reveal('.banner.h1', { delay: 600, reset:false });
