@@ -1,7 +1,33 @@
 <div class="banner img-responsive">
   <div class="banner-content">
     <h1>Besoin de sensations et de challenges qui vident l'esprit ?</h1>
-    <h1 class="title-banner">Volez !</h1>
+    <h1 class="title-banner">Volez avec des passionnés !</h1>
+
+
+<!--
+    <div class="avatar-pilote">
+    <div class="container" style="padding: 20px 256px;">
+       <div class="row">
+       <% @pilote.each do |pilote| %>
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+           <% if pilote.picture? %>
+            <%= cl_image_tag pilote.picture,class: "img-circle", width: "60" %>
+            <% elsif pilote.facebook_picture_url? %>
+              <%= image_tag pilote.facebook_picture_url.split("=")[0] << "=large", class: "img-circle", width: "60" %>
+            <% else %>
+              <%= image_tag "pilot.png", class: "img-circle", width: "60" %>
+          <% end %>
+            </div>
+
+
+         <% end %>
+         </div>
+            </div>
+    </div>
+ -->
+
+
     <h2 class ="text-center" style="font-weight: lighter; color: white;">Le premier site de reservation de vol loisir entre particuliers.</h2>
       <div class="form-header">
        <form action="<%= search_ads_path %>" class="formulaire form-inline text-center" id="form-navbar">
