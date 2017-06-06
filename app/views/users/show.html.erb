@@ -57,7 +57,7 @@
       <% end %>
         <% else %>
       <div class="button-ad-profile">
-        <%= link_to "Avis sur #{@user.name.capitalize || @user.first_name.capitalize}", user_path(current_user), class: "btn btn-primary btn-lg disabled" %>
+        <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary btn-lg disabled" %>
       </div>
       <% end %>
     </div>
