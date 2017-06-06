@@ -4,7 +4,7 @@ class MessagingMailer < ApplicationMailer
     @body_message = message.body
     @sender = User.find(conversation.sender_id)
     @recipient = User.find(conversation.recipient_id)
-    mail(to: @recipient.email, subject: "MakeMeFly : Vous avez recus un message de #{@sender.name}")
+    mail(to: @sender.email, subject: "MakeMeFly : Vous avez recus un message de #{@recipient.name}")
   end
 end
 
