@@ -58,42 +58,24 @@
                             <p>Soyez le premier a poster un commentaire</p>
                           </div>
                         <% else %>
-
-                   <!--      <% if article.posts.count >= 4 %>
-                        <p>Voir les commentaires précédents</p>
-                         <% article.posts[article.posts.length - 4..-1].each do |post| %>
-                            <%= render 'posts/show', post: post %>
-                          <% end %>
-                          <% else %>
-                          <% article.posts.each do |post| %>
-                            <%= render 'posts/show', post: post %>
-                          <% end %>
-                        <% end %>
- -->
-
-                    <% if article.posts.count >= 4 %>
-                        <button type="button" onclick="show()" id="button-comment">Voir les commentaires précédents</button>
-                        <button type="button" onclick="reduce()" id="unbutton-comment">Réduire les commentaires</button>
-                        <div class="hide-comment" id="hide-comment"><% commentaires = article.posts[article.posts.length - 4..-1] %>
-                           <p><% commentaires.each do |post| %></p>
-                            <%= render 'posts/show', post: post %>
-                          <% end %>
-                        </div>
-                        <div class="show-comment" id="show-comment"><h2><% commentaires = article.posts %></h2>
-                          <p><% commentaires.each do |post| %></p>
-                            <%= render 'posts/show', post: post %>
-                          <% end %>
-                        </div>
-                          <% else %>
-                          <% article.posts.each do |post| %>
-                            <%= render 'posts/show', post: post %>
-                          <% end %>
-                        <% end %>
-
-
-
-
-
+                        <% if article.posts.count >= 4 %>
+                            <button type="button" onclick="show()" id="button-comment">Voir les commentaires précédents</button>
+                            <button type="button" onclick="reduce()" id="unbutton-comment">Réduire les commentaires</button>
+                            <div class="hide-comment" id="hide-comment"><% commentaires = article.posts[article.posts.length - 4..-1] %>
+                               <p><% commentaires.each do |post| %></p>
+                                <%= render 'posts/show', post: post %>
+                              <% end %>
+                            </div>
+                            <div class="show-comment" id="show-comment"><h2><% commentaires = article.posts %></h2>
+                              <p><% commentaires.each do |post| %></p>
+                                <%= render 'posts/show', post: post %>
+                              <% end %>
+                            </div>
+                              <% else %>
+                              <% article.posts.each do |post| %>
+                                <%= render 'posts/show', post: post %>
+                              <% end %>
+                            <% end %>
                         <% end %>
                         </div>
 <!--                           <%= render 'shared/small_current_user_profile_photo' %>

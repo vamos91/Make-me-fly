@@ -22,7 +22,7 @@
     </div>
     <% else %>
     <div class="panel panel-default margin-panel">
-    <div class="panel-heading">Mes conversations (<%= @conversations.count %>)</div>
+    <div class="panel-heading">Mes conversations</div>
     <div class="conversation-wrapper">
     <div>
       <% @conversations.each do |conversation| %>
@@ -36,11 +36,11 @@
         <div class="media" style="padding-bottom: 5px;">
         <div class="media-left">
             <% if recipient.picture? %>
-              <%= cl_image_tag recipient.picture, class: "img-circle", width: "60" %>
+              <%= cl_image_tag recipient.picture, class: "img-circle", width: "60", height: "60" %>
               <% elsif recipient.facebook_picture_url?%>
-              <%= image_tag recipient.facebook_picture_url, class: "img-circle", width: "60" %>
+              <%= image_tag recipient.facebook_picture_url, class: "img-circle", width: "60", height: "60"  %>
               <% else %>
-              <%= image_tag "pilot.png", class: "img-circle", width: "60" %>
+              <%= image_tag "pilot.png", class: "img-circle", width: "60", height: "60" %>
             <% end %>
             </div>
             <div class="media-body">
@@ -52,7 +52,7 @@
                 </div>
             <% else %>
             <div style="color: gray;">
-             <p>pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%> <%= conversation.ad.price %>€</p></strong>
+             pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%> <%= conversation.ad.price %>€</strong>
             </div>
             <% end %>
           </div>
@@ -68,5 +68,4 @@
     </div>
     </div>
   </div>
-</div>
 

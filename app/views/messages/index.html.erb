@@ -53,11 +53,11 @@ Informations non vérifiées</div>
           <div>
             <div class="user-chat">
                 <% if user.picture? %>
-                  <%= cl_image_tag user.picture, class: "img-circle", width: "40" %>
+                  <%= cl_image_tag user.picture, class: "img-circle", width: "40", height: "40" %>
                   <% elsif user.facebook_picture_url? %>
-                  <%= image_tag user.facebook_picture_url, class: "img-circle", width: "40" %>
+                  <%= image_tag user.facebook_picture_url, class: "img-circle", width: "40", height: "40" %>
                   <% else %>
-                  <%= image_tag "pilot.png", class: "img-circle", width: "40" %>
+                  <%= image_tag "pilot.png", class: "img-circle", width: "40", height: "40" %>
                 <% end %>
                 <% user_name = user.first_name || user.name.capitalize %>
                 <strong><%= link_to user_name, user_path(user.id) %></strong>
