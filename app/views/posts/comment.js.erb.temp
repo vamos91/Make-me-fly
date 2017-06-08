@@ -1,0 +1,16 @@
+// commentaire article
+$('#show-comment_<%= @article.id %>').hide();
+$('#unbutton-comment_<%= @article.id %>').hide();
+function show(){
+  $('#show-comment_<%= @article.id %>').fadeIn().show();
+  $('#unbutton-comment_<%= @article.id %>').show();
+  $('#hide-comment_<%= @article.id %>').hide();
+  $('#button-comment_<%= @article.id %>').hide();
+};
+
+function reduce(){
+  $('#show-comment_<%= @article.id %>').hide();
+  $('#unbutton-comment_<%= @article.id %>').hide();
+  $('#hide-comment_<%= @article.id %>').fadeIn().show();
+  $('#button-comment_<%= @article.id %>').show();
+}

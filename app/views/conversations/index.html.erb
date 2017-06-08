@@ -26,11 +26,10 @@
     <div class="conversation-wrapper">
     <div>
       <% @conversations.each do |conversation| %>
-        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
           <% if conversation.sender_id == current_user.id %>
-            <% recipient = User.find(conversation.recipient_id) %>
-          <% else %>
             <% recipient = User.find(conversation.sender_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.recipient_id) %>
           <% end %>
           <div class="conversation">
         <div class="media" style="padding-bottom: 5px;">
@@ -46,7 +45,10 @@
             <div class="media-body">
             <% user_name = recipient.first_name || recipient.name.capitalize %>
             <strong><%= link_to user_name, conversation_messages_path(conversation)%></strong>
-            <% if conversation.ad.nil? && conversation.ad.nil? %>
+            <i class="fa fa-commenting-o"></i>
+                <div style="font-size: 14px; color: gray;"><%= conversation.messages.count %> messages
+                </div>
+        <!--     <% if conversation.ad.nil? %>
               <i class="fa fa-commenting-o"></i>
                 <div style="font-size: 14px; color: gray;"><%= conversation.messages.count %> messages
                 </div>
@@ -54,11 +56,10 @@
             <div style="color: gray;">
              pour le vol du <%= I18n.l(conversation.ad.flight_date, format: :long) %> à <strong><%= conversation.ad.address%> <%= conversation.ad.price %>€</strong>
             </div>
-            <% end %>
+            <% end %> -->
           </div>
         </div>
         </div>
-        <% end %>
         <% end %>
         </div>
         </div>
