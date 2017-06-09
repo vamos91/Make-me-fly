@@ -61,36 +61,12 @@ ActiveRecord::Schema.define(version: 20170202004514) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "ad_id"
-    t.integer  "user_id"
-  end
-
-  add_index "conversations", ["ad_id"], name: "index_conversations_on_ad_id", using: :btree
-  add_index "conversations", ["user_id"], name: "index_conversations_on_user_id", using: :btree
-
   create_table "forecasts", force: :cascade do |t|
     t.float    "lat"
     t.float    "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.boolean  "read",            default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "status"
@@ -153,8 +129,6 @@ ActiveRecord::Schema.define(version: 20170202004514) do
 
   add_foreign_key "ads", "users"
   add_foreign_key "articles", "users"
-  add_foreign_key "conversations", "ads"
-  add_foreign_key "conversations", "users"
   add_foreign_key "posts", "articles"
   add_foreign_key "posts", "users"
 end

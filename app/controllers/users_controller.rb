@@ -19,23 +19,6 @@ skip_before_action :authenticate_user!
    authorize @user
  end
 
- def chat_user
-  find_user
-  authorize @user
-  @conversations = Conversation.where(recipient_id: @user.id, sender_id: current_user.id)
-    if @conversations.empty?
-      @conversation = Conversation.new(
-        recipient_id: @user.id,
-        sender_id: current_user.id
-        )
-      if @conversation.save
-        redirect_to conversation_messages_path(@conversation)
-      end
-    else
-      redirect_to conversation_messages_path(@conversations.first)
-    end
- end
-
  def show
    @ads = policy_scope(Ad)
    authorize @ads
@@ -74,21 +57,7 @@ skip_before_action :authenticate_user!
     render :edit
    end
 
-   def message
-    find_user
-    @conversations = Conversation.where(recipient_id: @user.id, sender_id: current_user.id)
-    if @conversations.empty?
-      @conversation = Conversation.new(
-        recipient_id: @user.id,
-        sender_id: current_user.id
-        )
-      if @conversation.save
-        redirect_to ad_conversation_messages_path(@ad, @conversation)
-      end
-    else
-      redirect_to ad_conversation_messages_path(@ad, @conversations.first)
-    end
-   end
+
 
  end
    private
@@ -98,10 +67,6 @@ skip_before_action :authenticate_user!
 
   def find_user
     @user = User.find(params[:id])
-  end
-
-  def conversation_params
-    params.permit(:sender_id, :recipient_id, :user_id)
   end
 
   def article_params

@@ -27,9 +27,6 @@
     <%= link_to pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
       <i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord
     <% end %>
-    <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
-              <i class="fa fa-envelope-o"></i> Conversations
-          <% end %>
        <%= link_to user_path(current_user) do %>
     <% if current_user.picture? %>
         <%= cl_image_tag current_user.picture, class: "avatar-large" %>

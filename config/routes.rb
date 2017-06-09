@@ -2,9 +2,6 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   resources :forecasts
-  get 'conversations/index'
-
-  get 'conversations/create'
 
   get 'pages/dashboard'
 
@@ -30,16 +27,9 @@ Rails.application.routes.draw do
       get :chat
       get :forecast
     end
-    resources :conversations do
-      resources :messages
-    end
     collection do
       get 'search', to: "ads#search"    # collection => no ads id in URL
     end
-  end
-
-resources :conversations do
-  resources :messages
   end
 
 
@@ -48,15 +38,11 @@ resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destr
 end
 
 
-
-
-
-  resources :users, only: [:index, :show, :new, :create, :edit, :update, :conversation] do
+  resources :users, only: [:index, :show, :new, :create, :edit, :update] do
     member do
       get :user_ads
       get :chat_user
     end
-    resources :conversations
     end
 
   # authenticated :user do

@@ -14,10 +14,8 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :ads, dependent: :destroy
-  has_many :messages, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :conversations, dependent: :destroy
   after_create :send_welcome_email
 
 

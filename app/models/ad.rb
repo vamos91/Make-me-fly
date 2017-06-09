@@ -7,7 +7,6 @@ class Ad < ActiveRecord::Base
   validates :user, presence: true
 
   belongs_to :user
-  has_many :conversations, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
   monetize :price_cents
