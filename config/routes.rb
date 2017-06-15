@@ -25,7 +25,19 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+     collection do
+    delete :empty_trash
+  end
+  end
+
+
+
   resources :messages, only: [:new, :create]
 
 
@@ -51,6 +63,8 @@ end
       get :chat_user
     end
     end
+
+  resources :users, only: [:index]
 
   # authenticated :user do
   #   root :to => 'articles#index', as: :authenticated_root

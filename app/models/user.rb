@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 
+  def mailboxer_email(object)
+    email
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

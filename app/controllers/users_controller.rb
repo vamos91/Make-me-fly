@@ -6,6 +6,8 @@ skip_before_action :authenticate_user!
   authorize @userPilotes
   @ads = policy_scope(Ad)
   authorize @ads
+  @users = User.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+
  end
 
 

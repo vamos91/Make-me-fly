@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
 
 
 before_action :authenticate_user!
-  # #include Pundit
+  include Pundit
 
-  # after_action :verify_authorized, except: :index, except: :search, unless: :skip_pundit?
-  # after_action :verify_policy_scoped, only: :index, except: :search, unless: :skip_pundit?
+  after_action :verify_authorized, except: :index, except: :search, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, except: :search, unless: :skip_pundit?
 
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   rescue_from ActiveRecord::RecordNotFound do
   flash[:warning] = 'Resource not found.'

@@ -29,6 +29,8 @@ gem "mailboxer"
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem 'gravatar_image_tag'
+gem 'chosen-rails'
+gem 'jquery-turbolinks'
 
 
 gem "coffee-rails"
