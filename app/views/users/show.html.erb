@@ -49,7 +49,7 @@
           </div>
         <% else %>
           <div class="button-ad-profile">
-            <button type="button" class="btn btn-primary btn-lg disabled" data-toggle="modal" data-target="#pilotenotvalidate">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
             Planifiez un vol
           </button>
           </div>
@@ -169,24 +169,12 @@
                             <p>Soyez le premier a poster un commentaire</p>
                           </div>
                         <% else %>
-                         <% if article.posts.count >= 4 %>
-                          <button type="button" onclick="show()" id="button-comment">Voir les commentaires précédents</button>
-                          <button type="button" onclick="reduce()" id="unbutton-comment">Réduire les commentaires</button>
-                          <div class="hide-comment" id="hide-comment"><% commentaires = article.posts[article.posts.length - 4..-1] %>
-                             <p><% commentaires.each do |post| %></p>
-                              <%= render 'posts/show', post: post %>
-                            <% end %>
-                          </div>
-                          <div class="show-comment" id="show-comment"><h2><% commentaires = article.posts %></h2>
-                            <p><% commentaires.each do |post| %></p>
-                              <%= render 'posts/show', post: post %>
-                            <% end %>
-                          </div>
-                            <% else %>
+                          <p><button type="button" class="" data-toggle="collapse" data-target="#demo<%= article.id %>">Voir - cacher commentaires</button></p>
+                          <div class="collapse" id="demo<%= article.id %>">
                             <% article.posts.each do |post| %>
                               <%= render 'posts/show', post: post %>
                             <% end %>
-                        <% end %>
+                          </div>
                         <% end %>
                         </div>
 <!--                           <%= render 'shared/small_current_user_profile_photo' %>
@@ -209,7 +197,7 @@
                      <%= render 'shared/small_user_profile_photo_near_user', user: user %>
                     </div>
                     <div class="media-body">
-                      <div style="font-size: 14px;"><%= user.name || @user.first_name %></div>
+                      <div style="font-size: 12px;"><%= user.name || @user.first_name %></div>
                       <div class="user_status">
                         <% if user.pilote? %>
                           <div class="user_status">Pilote à <%= user.hometown %></div>

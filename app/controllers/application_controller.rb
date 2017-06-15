@@ -7,12 +7,21 @@ class ApplicationController < ActionController::Base
 
 
 before_action :authenticate_user!
-  include Pundit
+  # #include Pundit
 
-  after_action :verify_authorized, except: :index, except: :search, unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: :index, except: :search, unless: :skip_pundit?
+  # after_action :verify_authorized, except: :index, except: :search, unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: :index, except: :search, unless: :skip_pundit?
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  rescue_from ActiveRecord::RecordNotFound do
+  flash[:warning] = 'Resource not found.'
+  redirect_back_or root_path
+  end
+
+  def redirect_back_or(path)
+    redirect_to request.referer || path
+  end
 
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
@@ -20,14 +29,7 @@ before_action :authenticate_user!
   end
 
   def configure_permitted_parameters
-
-      #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :name) }
-
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :pilote, :picture, :hometown) }
-
-      # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :name) }
-   # devise_parameter_sanitizer.for(:sign_up) << :user
-
   end
 
 

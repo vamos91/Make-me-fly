@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'messages/new'
+
+  get 'messages/create'
+
   ActiveAdmin.routes(self)
   resources :forecasts
 
@@ -20,6 +24,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
+
+  resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
 
 
   resources :ads  do

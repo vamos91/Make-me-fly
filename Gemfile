@@ -25,6 +25,11 @@ gem 'postmark-rails'
 gem 'gibbon'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem "mailboxer"
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+gem 'gravatar_image_tag'
+
 
 gem "coffee-rails"
 gem "gmaps4rails"
@@ -34,6 +39,7 @@ gem "money-rails"
 gem "stripe"
 gem "coffee-script"
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+
 
 
 source 'https://rails-assets.org' do
