@@ -17,12 +17,14 @@ class ConversationsController < ApplicationController
       authorize @conversations
     end
 
-    @conversations = @conversations.paginate(page: params[:page], per_page: 10)
-    authorize @conversations
+    @conversations = policy_scope(@conversations).paginate(page: params[:page], per_page: 10)
+    #authorize @conversations
+
   end
 
   def new
     @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
+    authorize @chosen_recipient
   end
 
   def destroy

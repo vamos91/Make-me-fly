@@ -2,14 +2,6 @@ class ForecastsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_forecast, only: [:show, :edit, :update, :destroy]
 
-  # GET /forecasts
-  # GET /forecasts.json
-  # def index
-  #   @forecasts = Forecast.all
-  # end
-
-  # GET /forecasts/1
-  # GET /forecasts/1.json
   def show
     @weather = @forecast.get_weather_data
     @current_weather = @weather.currently
