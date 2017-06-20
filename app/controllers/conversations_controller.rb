@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
     end
 
     @conversations = policy_scope(@conversations).paginate(page: params[:page], per_page: 10)
-    #authorize @conversations
+    authorize @conversations
 
   end
 
