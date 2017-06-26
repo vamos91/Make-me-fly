@@ -22,25 +22,33 @@ class ConversationsController < ApplicationController
 
   end
 
-  def new
-    @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
-    authorize @chosen_recipient
+  def show
+    # @conversation ||= @mailbox.conversations.find(params[:id])
+    # authorize @conversation
   end
+
+  # def new
+  #   @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
+  #   authorize @chosen_recipient
+  # end
 
   def destroy
     @conversation.move_to_trash(current_user)
+    authorize @conversation, :destroy?
     flash[:success] = 'La conversation a été envoyé à la corbeille.'
     redirect_to conversations_path
   end
 
   def restore
     @conversation.untrash(current_user)
+    authorize @conversation, :restore?
     flash[:success] = 'La conversation a été restaurée.'
     redirect_to conversations_path
   end
 
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
+    authorize @conversation, :reply?
     flash[:success] = 'Reply sent'
     redirect_to conversation_path(@conversation)
   end
@@ -55,6 +63,7 @@ class ConversationsController < ApplicationController
 
   def mark_as_read
     @conversation.mark_as_read(current_user)
+    authorize @conversation, :mark_as_read?
     flash[:success] = 'The conversation was marked as read.'
     redirect_to conversations_path
   end
@@ -68,6 +77,7 @@ class ConversationsController < ApplicationController
 
   def get_conversation
     @conversation ||= @mailbox.conversations.find(params[:id])
+    authorize @conversation
   end
 
   def get_box
