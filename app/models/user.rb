@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   acts_as_messageable
 
   def mailboxer_email(object)
-    email
+    self.email
   end
 
   def self.find_for_facebook_oauth(auth)
