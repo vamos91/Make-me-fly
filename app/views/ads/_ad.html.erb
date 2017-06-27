@@ -20,7 +20,7 @@
      <% if ad.user.picture? %>
   <%= cl_image_tag ad.user.picture, class: "avatar" %>
   <% elsif ad.user.facebook_picture_url? %>
-    <%= image_tag ad.user.facebook_picture_url.split("=")[0] << "=large", class: "avatar" %>
+    <%= image_tag ad.user.facebook_picture_url.split("=")[0] << "=large", class: "avatar", :secure => true %>
   <% else %>
     <%= image_tag "pilot.png", class: "avatar" %>
 <% end %>
