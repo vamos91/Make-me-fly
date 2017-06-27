@@ -19,6 +19,6 @@ before_action :authenticate_user!
     conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
     authorize conversation
     flash[:success] = "Message has been sent!"
-    redirect_to conversation_path(conversation)
+    redirect_to conversation_path(conversation), notice: "Message has been sent!"
   end
 end
