@@ -1,29 +1,49 @@
 <div class="marged well">
   <% page_header "Start Conversation" %>
 <% @chosen_recipient = User.find_by(id: params[:to].to_i) %>
-<%= form_tag messages_path, method: :post do %>
-  <div class="form-group">
-    <%= label_tag 'recipients', 'Choose recipients' %>
-    <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+<p><%= link_to 'Démarrer un conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p>
+<div class="row">
+  <div class="col-sm-4">
+      <ul class="nav nav-pills nav-stacked">
+        <%= mailbox_section 'inbox', @box %>
+        <%= mailbox_section 'sent', @box %>
+        <%= mailbox_section 'trash', @box %>
+      </ul>
   </div>
+    <div class="col-sm-8">
+      <%= form_tag messages_path, method: :post do %>
+    <div class="form-group">
+      <%= label_tag 'recipients', 'Choose recipients' %>
+      <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+    </div>
+      <div class="form-group">
+        <%= label_tag 'message[subject]', 'Subject' %>
+        <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+      </div>
 
-  <div class="form-group">
-    <%= label_tag 'message[subject]', 'Subject' %>
-    <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
-  </div>
+      <div class="form-group">
+        <%= label_tag 'message[body]', 'Message' %>
+        <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+      </div>
 
-  <div class="form-group">
-    <%= label_tag 'message[body]', 'Message' %>
-    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
-  </div>
+   <!--   <div class="form-group">
+      <%= label_tag 'recipients', 'Choose recipients' %>
+      <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control chosen-it' %>
+    </div>
+   -->
+    <%= submit_tag 'Send', class: 'btn btn-primary' %>
+   <% end %>
+    </div>
+</div>
 
- <!--   <div class="form-group">
-    <%= label_tag 'recipients', 'Choose recipients' %>
-    <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control chosen-it' %>
-  </div>
- -->
-  <%= submit_tag 'Send', class: 'btn btn-primary' %>
-<% end %>
+
+
+
+
+
+
+
+
 </div>
 
 

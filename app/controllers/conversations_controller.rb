@@ -8,15 +8,18 @@ class ConversationsController < ApplicationController
   def index
     if @box.eql? "inbox"
       @conversations = @mailbox.inbox
+      @active = :inbox
       authorize @conversations
     elsif @box.eql? "sent"
       @conversations = @mailbox.sentbox
+      @active = :sent
       authorize @conversations
     else
       @conversations = @mailbox.trash
+      @active = :trash
       authorize @conversations
     end
-
+    @messages = current_user.mailbox.inbox({:read => false})
     @conversations = policy_scope(@conversations).paginate(page: params[:page], per_page: 10)
     authorize @conversations
 
@@ -25,7 +28,7 @@ class ConversationsController < ApplicationController
   def show
     # @conversation ||= @mailbox.conversations.find(params[:id])
     # authorize @conversation
-    flash[:success] = "Message envoyé avec succes."
+    #flash[:success] = "Message envoyé avec succes."
   end
 
   # def new

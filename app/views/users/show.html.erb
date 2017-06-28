@@ -21,18 +21,18 @@
      <% if @user.pilote == true %>
       <div class="vertical-align info-item">
         <p>Vols</p>
-        <p><strong><%= @user_ads.count %></strong></p>
+        <p><strong class="badge"><%= @user_ads.count %></strong></p>
       </div>
       <% end %>
        <div class="vertical-align info-item">
         <p>Commentaires</p>
-        <p><strong>0</strong></p>
+        <p><strong class="badge">0</strong></p>
       </div>
 
 
        <div class="vertical-align info-item">
         <p>Articles</p>
-        <p><strong><%= @articles.count %></strong></p>
+        <p><strong class="badge"><%= @articles.count %></strong></p>
       </div>
       <% if @user == current_user %>
         <div class="button-article-profile">

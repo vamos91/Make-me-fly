@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 before_action :authenticate_user!
+before_action :get_box, only: [:index]
 
   def new
      @message = current_user.messages.build
@@ -21,4 +22,14 @@ before_action :authenticate_user!
     flash[:success] = "Message has been sent!"
     redirect_to conversation_path(conversation), notice: "Message has been sent!"
   end
+
+  private
+
+  def get_box
+    if params[:box].blank? or !["inbox","sent","trash"].include?(params[:box])
+      params[:box] = 'inbox'
+    end
+    @box = params[:box]
+  end
+
 end

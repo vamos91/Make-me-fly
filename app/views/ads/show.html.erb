@@ -1,5 +1,5 @@
 <div class="banner-show" style="height: 50vh;">
-  <%= cl_image_tag @ad.photo, crop: :fill, :secure => true %>
+  <%= cl_image_tag @ad.photo, crop: :fill %>
 </div>
 <div class="header-flat">
   <div class="container">
@@ -8,7 +8,7 @@
         <div class="header-flat-details">
           <div class="header-flat-owner  text-center">
           <% if @ad.user.picture? %>
-            <p><%= cl_image_tag @ad.user.picture, class: "img-circle", width: "160", height: "160", :secure => true %></p>
+            <p><%= cl_image_tag @ad.user.picture, class: "img-circle", width: "160", height: "160" %></p>
             <% elsif @ad.user.facebook_picture_url? %>
             <p><%= image_tag @ad.user.facebook_picture_url, class: "img-circle", width: "80", height: "80" %></p>
             <% else %>
