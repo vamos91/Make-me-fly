@@ -4,13 +4,21 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>You have a new reply: <%= @subject %></h1>
+
+<div class="panel panel-danger margin-panel">
+<h1>You have a new reply: <%= @subject %></h1>
+  <div class="panel-heading">
     <p>
       You have received a new reply:
     </p>
+  </div>
+  <div class="panel-body">
+    <%= raw @message.body %>
+  </div>
+</div>
     <blockquote>
       <p>
-        <%= raw @message.body %>
+
       </p>
     </blockquote>
     <p>
@@ -18,3 +26,8 @@
     </p>
   </body>
 </html>
+
+
+
+
+
