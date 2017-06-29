@@ -1,42 +1,73 @@
   <div class="banner-show banner-registration-pilote" style="height: 200px; font-weight: lighter; padding: 50px">
   <p>Nous sommes heureux de compter un nouveau membre dans la communauté. Inscrivez-vous.</p>
   </div>
-  <div class="panel panel-default" style="height: 100vh;">
-    <div class="panel-body">
-    <div class="form-inputs text-center">
-      <div class="container">
-      <div class="row">
-                <div class="col-xs-12 col-md-6 col-md-offset-3">
-                 <div class="wrapper-registration">
-                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'well'}) do |f| %>
-                    <h2>MAKEMEFLY</h2>
-                    <%= f.error_notification %>
-                     <p><%- resource_class.omniauth_providers.each do |provider| %>
-                      <%= link_to "S'inscrire avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-gradient" %><br />
-                    <% end -%></p>
-                    <div class="form-inputs">
-                      <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom ou pseudo",label: false %>
-                      <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>
-                      <%= f.input :email, required: true, autofocus: true, placeholder: "Email",label: false %>
-                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false%>
-                      <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
+
+ <div class="container" style="height: 100vh;display:flex;
+      flex-direction: column;
+       justify-content: center;">
+        <div id="loginbox" style="margin-top:-300px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Inscription</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px">
+                        <%- if controller_name != 'sessions' %>
+                          <%= link_to "Connexion", new_session_path(resource_name) %><br />
+                        <% end -%>
+                        </div>
                     </div>
-                      <div class="form-actions class-center text-center">
-                        <%= f.button :submit, "S'inscrire", class: "btn-primary btn-gradient" %>
-                      </div>
-                      <%= render "devise/shared/links" %>
-                       <% end %>
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <!-- <form id="loginform" class="form-horizontal" role="form"> -->
+                        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => 'form-horizontal'})  do |f| %>
+                        <%= f.error_notification %>
+                            <div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                              <%= f.input :name, required: true, autofocus: true, placeholder: "Votre nom ou pseudo",label: false %>
+                            </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                              <%= f.input :hometown, required: true, autofocus: true, placeholder: "Votre ville", label: false %>
+                            </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                              <%= f.input :email, required: true, autofocus: true, placeholder: "Email",label: false %>
+                            </div><div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                              <%= f.input :password, required: true, placeholder: "Mot de passe", label: false%>
+                            </div><div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-repeat"></i></span>
+                             <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
+                            </div>
+
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                    <%= f.button :submit, "S'inscrire", class: "btn-info" %>
+                                    <%- resource_class.omniauth_providers.each do |provider| %>
+                                    <%= link_to "S'incrire avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
+                                  <% end -%>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Déjà chez nous ?
+                                        <%= render "devise/shared/links" %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% end %>
+
+
+                        </div>
                     </div>
-                </div>
-               </div>
-            </div>
-         </div>
-      </div>
-  </div>
-
-
-
-
-
-
-
+        </div>
+</div>

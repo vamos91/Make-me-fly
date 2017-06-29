@@ -1,31 +1,66 @@
-<!-- <div class="banner-show banner-session" style="height: 200px; font-weight: lighter;">
-<p>Nous sommes heureux de vous revoir. Connectez-vous.</p>
-</div> -->
-<div class="panel panel-default" style="height: 100vh;">
-    <div class="panel-body">
-    <div class="form-inputs text-center">
-      <div class="container">
-      <div class="row">
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="session text-center">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => 'well'})  do |f| %>
-      <h3>MakeMeFly</h3>
-      <p><%- resource_class.omniauth_providers.each do |provider| %>
-        <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-gradient" %><br />
-      <% end -%></p>
-        <div class="form-inputs" style="padding: 0px 70px;">
-          <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "email" %>
-          <%= f.input :password, required: false, label: false, placeholder: "mot de passe" %>
-          <p><%= f.button :submit, "Se connecter", class: "btn btn-primary btn-gradient" %></p>
-          <p><%= render "devise/shared/links" %></p>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
-      <% end %>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+ <div class="container" style="height: 100vh;display:flex;
+      flex-direction: column;
+       justify-content: center;">
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Connexion</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px">
+                        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                          <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
+                        <% end -%>
+                        </div>
+                    </div>
 
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <!-- <form id="loginform" class="form-horizontal" role="form"> -->
+                        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => 'form-horizontal'})  do |f| %>
+                            <div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                              <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "email" %>
+                            </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                              <%= f.input :password, required: false, label: false, placeholder: "mot de passe" %>
+                            </div>
+
+                            <div class="input-group">
+                                      <div class="checkbox">
+                                        <label>
+                                           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                                        </label>
+                                      </div>
+                                    </div>
+
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                    <%= f.button :submit, "Se connecter", class: "btn btn-success" %>
+                                    <%- resource_class.omniauth_providers.each do |provider| %>
+                                    <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
+                                  <% end -%>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Pas de compte !
+                                        <%= render "devise/shared/links" %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% end %>
+
+
+                        </div>
+                    </div>
+        </div>
+</div>
