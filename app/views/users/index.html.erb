@@ -1,50 +1,75 @@
 
-<div class="container text-center marged">
-  <div class="row">
-      <% @userPilotes.each do |user| %>
-      <% unless current_user == user %>
-      <% if user != current_user %>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <p><div class="media pilote-table">
-          <div class="media-left media-left-pilote">
-               <% if user.picture? %>
-                <%= cl_image_tag user.picture %>
-                <% elsif user.facebook_picture_url? %>
-                  <%= image_tag user.facebook_picture_url.split("=")[0] << "=large" %>
-                <% else %>
-                  <%= image_tag "pilot.png" %>
-              <% end %>
-          </div>
-          <div class="media-body media-body-pilote">
-            <h4 class="media-heading"><strong><%= user.first_name || user.name.capitalize %></strong> <%= user.hometown %></h4>
-            <div class="media-subscribe">
-              Le <%= I18n.l(user.created_at, format: :short) %>
-            </div>
-           <% if user.pilotevalidation == true %>
-                <div class="grade-pilote" data-toggle="tooltip" data-placement="left" title="Pilote vérifié">
-                <%= image_tag "checked.png"%>
-                </div>
-              <% else %>
-              <div class="grade-pilote" data-toggle="tooltip" data-placement="left" title="Pilote non vérifié">
-                <%= image_tag "unchecked-pilot.png"%>
-              </div>
-              <% end %>
+<div class="section marged">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                            <% @userPilotes.each do |user| %>
+                              <% unless current_user == user %>
+                              <% if user != current_user %>
+                                <tr>
+                                    <td>
+                                          <% if user.pilotevalidation == true %>
+                                            <div data-toggle="tooltip" title="Pilote vérifié">
+                                               <i class="-alt fa fa-2x fa-eye fa-fw" style="color: #469AE0;"></i>
+                                            </div>
+                                          <% else %>
+                                          <div data-toggle="tooltip" title="Pilote non vérifié">
+                                            <i class="fa fa-2x fa-fw fa-eye-slash" style="color: #469AE0;"></i>
+                                          <% end %>
 
-             <!--  <div class="nb-vol-pilote">
-                <strong><%= @userPilotes.count %></strong>
-                <p>vols enregistrés</p>
-              </div> -->
-
-
-            <% if current_user != user && user_signed_in? %>
-                <%= link_to "Profil", user_path(user.id), class: "btn btn-primary" %>
-                <%= link_to 'Send message', new_message_path(to: user.id), class: 'btn btn-default btn-sm' %>
-            <% end %>
-          </div>
-        </div></p>
+                                    </td>
+                                    <td>
+                                        <h4>
+                                            <b><%= user.first_name || user.name.capitalize %></b>
+                                        </h4>
+                                        <%= user.hometown %>
+                                    </td>
+                                    <td>
+                                        <% if user.picture? %>
+                                          <%= cl_image_tag user.picture, class: "img-circle", width: "60", height: "60" %>
+                                          <% elsif user.facebook_picture_url? %>
+                                            <%= image_tag user.facebook_picture_url.split("=")[0] << "=large", class: "img-circle", width: "60", height: "60" %>
+                                          <% else %>
+                                            <%= image_tag "pilot.png", class: "img-circle", width: "60", height: "60" %>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <h4>
+                                        <% @a = 0 %>
+                                        <% @articles.each do |article| %>
+                                          <% if article.user_id == user.id %>
+                                            <% @a += 1  %>
+                                          <% end %>
+                                        <% end %>
+                                      <b><%= @a %></b>
+                                            <b>Articles</b>
+                                        </h4>
+                                        <i class="fa fa-star" style="color: #ffb400"></i>
+                                        <i class="fa fa-star" style="color: #ffb400"></i>
+                                        <i class="fa fa-star" style="color: #ffb400"></i>
+                                        <i class="fa fa-star" style="color: #ffb400"></i>
+                                        <i class="fa fa-star" style="color: #cacccd"></i>
+                                    </td>
+                                    <td>Le <%= I18n.l(user.created_at, format: :short) %></td>
+                                    <td>
+                                        <div class="btn-group">
+                                                <% if current_user != user && user_signed_in? %>
+                                                <%= link_to "Profil", user_path(user.id), class: "btn btn-default" %>
+                                                <%= link_to 'Message', new_message_path(to: user.id), class: 'btn btn-default' %>
+                                            <% end %>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <% end %>
-    <% end %>
-  <% end %>
   </div>
 </div>
+
+

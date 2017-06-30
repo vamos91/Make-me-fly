@@ -35,11 +35,17 @@
           <div class="input-group" style="margin-top: 100px;">
             <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="width: 330px; height: 48px;">
             <span class="input-group-btn">
-           <!--    <div class="form-group input-group-lg">
+             <!--  <div class="form-group input-group-lg">
               <select name="multiple[]" class="form-control">
-                <option value="">Default select</option>
-                <option value="">Option 1</option>
-                <option value="">Option 2</option>
+                <option value="">Tout aéronef</option>
+                <option value="">Pendilaire</option>
+                <option value="">Paramoteur</option>
+                <option value="">Multiaxe</option>
+                <option value="">Autogire</option>
+                <option value="">Planeur</option>
+                <option value="">Parapente</option>
+                <option value="">Montgolfière</option>
+
               </select>
             </div> -->
               <button class="btn btn-primary btn-lg btn-gradient" type="button">Rechercher</button>
@@ -49,16 +55,7 @@
         </div>
       </form>
       </div>
-   <!--    <div class="call-to-action">
-        <% if user_signed_in? && current_user.pilotevalidation? %>
-           <%= link_to new_ad_path, class: "btn btn-danger btn-lg input-lg" do %>
-           <i class="fa fa-paper-plane-o"></i><%= t ".profile", default: "Je propose un vol" %>
-           <% end %>
-        <% end %>
-      </div> -->
- <!--    <div class="arrow">
-    <i class="fa fa-arrow-down" aria-hidden="true"></i>
-  </div> -->
+
   </div>
   </div>
 
@@ -67,12 +64,12 @@
 <% if user_signed_in? %>
 
 <% else %>
-  <div class="banner-user-disconnect" id="banner-user-disconnect">
+  <!-- <div class="banner-user-disconnect" id="banner-user-disconnect">
   <button type="button" onclick="close_banner()" class="btn btn-link" id="close-button">Fermer</button>
     <p>Connectez-vous pour profiter pleinement de MakeMeFly</p>
     <p><%= link_to t(".top_call_to_action", default: "Je m'inscris"), new_user_registration_path, class: "btn-lg btn-primary" %>
   </p>
-  </div>
+  </div> -->
 <% end %>
 
 <div class="text-center">

@@ -101,7 +101,22 @@
     <% end %>
     </div>
     <div class="col-md-9 col-sm-9" style="margin-top: 195px;">
-      <div class="row padded margin-panel">
+
+<div class="padded">
+<% if @user_ads.any? %>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title" style="color: #469AE0;">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols
+         <i class="glyphicon glyphicon-menu-down pull-right"></i>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+         <div class="row padded margin-panel">
        <% if @user == current_user %>
         <% @ads.each do |ad| %>
         <div class="col-xs-12 col-sm-12 col-md-6">
@@ -115,8 +130,13 @@
         </div>
         <% end %>
       <% end %>
-
-        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<% end %>
+</div>
 
 
         <div class="row">
@@ -187,7 +207,7 @@
           </div>
           <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
-              <div class="panel-heading"><strong>Voici les membres de la communauté proches de <%= @user.name %></strong></div>
+              <div class="panel-heading"><strong>Contacts proches de <%= @user.name %></strong></div>
               <% @users_near_from_me.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">
