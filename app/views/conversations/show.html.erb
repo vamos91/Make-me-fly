@@ -1,11 +1,23 @@
-
-<div class="marged well">
+<div class="top-spacing">
+  <%= render 'shared/subnavbar' %>
+</div>
+<div class="well">
   <% page_header "Conversation" %>
 
-<p>Chatting with
+
+<p><%= link_to 'Démarrer un conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p>
+<div class="row">
+  <div class="col-sm-4">
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <%=  render 'conversations/conversation_panel' %>
+    </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <p>Conversation avec
   <%= render 'conversations/participants', conversation: @conversation %>
 </p>
-
 <div class="panel panel-default">
   <div class="panel-heading"><%= @conversation.subject %></div>
 
@@ -37,3 +49,11 @@
 <% end %>
 
 </div>
+  </div>
+</div>
+
+
+
+
+
+

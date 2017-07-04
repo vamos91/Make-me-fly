@@ -6,6 +6,9 @@ before_action :get_box, only: [:index]
      @message = current_user.messages.build
      authorize @message
 
+     @messages = current_user.mailbox.inbox({:read => false})
+
+
      # if params[:to]
      #  @chosen_recipient = User.find_by(id: params[:to].to_i)
      #  #binding.pry

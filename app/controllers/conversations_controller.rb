@@ -26,6 +26,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    @messages = current_user.mailbox.inbox({:read => false})
     # @conversation ||= @mailbox.conversations.find(params[:id])
     # authorize @conversation
     #flash[:success] = "Message envoyé avec succes."

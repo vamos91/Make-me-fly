@@ -22,7 +22,8 @@ skip_before_action :authenticate_user!
  end
 
  def show
-   @ads = policy_scope(Ad)
+   @ads_time = Ad.where("flight_date >= ?", DateTime.now)
+   @ads = policy_scope(@ads_time)
    authorize @ads
    find_user
    @post = Post.new

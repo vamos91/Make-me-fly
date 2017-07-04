@@ -117,20 +117,20 @@
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
          <div class="row padded margin-panel">
-       <% if @user == current_user %>
-        <% @ads.each do |ad| %>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-         <%= render ad %>
-        </div>
-        <% end %>
-        <% else %>
-        <% @user_ads.each do |ad| %>
-          <div class="col-xs-12 col-sm-12 col-md-6">
-         <%= render ad %>
-        </div>
-        <% end %>
-      <% end %>
-    </div>
+           <% if @user == current_user %>
+            <% @ads.each do |ad| %>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+             <%= render ad %>
+            </div>
+            <% end %>
+            <% else %>
+            <% @user_ads.each do |ad| %>
+              <div class="col-xs-12 col-sm-12 col-md-6">
+             <%= render ad %>
+            </div>
+            <% end %>
+          <% end %>
+         </div>
       </div>
     </div>
   </div>
@@ -207,7 +207,13 @@
           </div>
           <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
-              <div class="panel-heading"><strong>Contacts proches de <%= @user.name %></strong></div>
+              <div class="panel-heading"><strong>Contacts proches de
+              <% if @user == current_user %>
+                moi
+              <% else %>
+                <%= @user.name %>
+              <% end %>
+              </strong></div>
               <% @users_near_from_me.each do |user| %>
               <% if user != current_user %>
                 <div class="near-user" style="padding: 5px;">

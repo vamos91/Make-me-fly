@@ -4,11 +4,11 @@
 <p><%= link_to 'Démarrer un conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p>
 <div class="row">
   <div class="col-sm-4">
-      <ul class="nav nav-pills nav-stacked">
-        <%= mailbox_section 'inbox', @box %>
-        <%= mailbox_section 'sent', @box %>
-        <%= mailbox_section 'trash', @box %>
-      </ul>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%=  render 'conversations/conversation_panel' %>
+      </div>
+    </div>
   </div>
     <div class="col-sm-8">
       <%= form_tag messages_path, method: :post do %>
@@ -35,8 +35,6 @@
    <% end %>
     </div>
 </div>
-
-
 
 
 
