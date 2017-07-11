@@ -31,6 +31,7 @@ gem 'will_paginate'
 gem 'gravatar_image_tag'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
+gem 'acts_as_votable', '~> 0.10.0'
 
 
 gem "coffee-rails"

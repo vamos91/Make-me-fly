@@ -1,4 +1,7 @@
-<div class="marged well">
+<div class="top-spacing">
+  <%= render 'shared/subnavbar' %>
+</div>
+<div class="well" style="height: 87vh;">
   <% page_header "Start Conversation" %>
 <% @chosen_recipient = User.find_by(id: params[:to].to_i) %>
 <p><%= link_to 'Démarrer un conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p>

@@ -11,6 +11,12 @@
     <div class="banner-show banner-user-profile">
     <% if @user == current_user %>
       <h3>Insérez votre photo de bannière</h3>
+      <% else %>
+      <div style="position: absolute; left: 370px; top: 240px;">
+          <%= link_to "#", class: "btn btn-success" do %>
+            <i class="glyphicon glyphicon-thumbs-up "></i>  J'aime
+          <% end %>
+        </div>
     <% end %>
     </div>
   <% end %>
@@ -20,36 +26,35 @@
     <div class="navbar-wagon-right hidden-xs">
      <% if @user.pilote == true %>
       <div class="vertical-align info-item">
-        <p>Vols</p>
+        <p>Vols publiés</p>
         <p><strong class="badge"><%= @user_ads.count %></strong></p>
       </div>
       <% end %>
        <div class="vertical-align info-item">
-        <p>Commentaires</p>
-        <p><strong class="badge">0</strong></p>
+        <p>J'aime</p>
+        <p><strong class="badge">O</strong></p>
       </div>
-
-
        <div class="vertical-align info-item">
         <p>Articles</p>
         <p><strong class="badge"><%= @articles.count %></strong></p>
       </div>
+
       <% if @user == current_user %>
         <div class="button-article-profile">
-            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#ModalForm">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalForm">
             Publiez un article
           </button>
           </div>
           <% if current_user.pilote? %>
         <% if current_user.pilotevalidation? %>
           <div class="button-ad-profile">
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Planifiez un vol
           </button>
           </div>
         <% else %>
           <div class="button-ad-profile">
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Planifiez un vol
           </button>
           </div>
@@ -57,7 +62,7 @@
       <% end %>
         <% else %>
       <div class="button-ad-profile">
-        <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary btn-lg disabled" %>
+        <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %>
       </div>
       <% end %>
     </div>
@@ -109,7 +114,7 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title" style="color: #469AE0;">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols
+         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols à venir (<%= @ads_time.count %>)
          <i class="glyphicon glyphicon-menu-down pull-right"></i>
         </a>
       </h4>
@@ -213,6 +218,7 @@
               <% else %>
                 <%= @user.name %>
               <% end %>
+              (<%= @users_near_from_me.size %>)
               </strong></div>
               <% @users_near_from_me.each do |user| %>
               <% if user != current_user %>
