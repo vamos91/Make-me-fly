@@ -21,8 +21,10 @@
                     <div class="media-left">
                      <%= render 'shared/small_current_user_profile_photo' %>
                     </div>
-                    <div class="media-body">
-                      <div style="font-size: 14px;"><%= @user %></div>
+                      <div class="media-body">
+                      <%= user_num = article.user_id %>
+                      <%= user = User.find_by(id: ) %>
+                      <div style="font-size: 14px;"><%= user.name %></div>
                     </div>
                 </div>
                   <% if policy(article).update? %>

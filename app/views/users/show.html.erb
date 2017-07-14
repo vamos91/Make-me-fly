@@ -97,7 +97,11 @@
     <% if @user.pilote == true %>
       <div class="row">
          <div class="panel panel-default">
-          <div class="panel-heading">Informations non vérifiées</div>
+          <div class="panel-heading">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#pilotenotvalidate">
+            Informations non vérifiées
+          </button>
+          </div>
            <div class="welcome">
            <%= render 'shared/user_doc' %>
            </div>
@@ -107,14 +111,14 @@
     </div>
     <div class="col-md-9 col-sm-9" style="margin-top: 195px;">
 
-<div class="padded">
-<% if @user_ads.any? %>
+<div class="padded margin-panel">
+<% if @user_flight.any? %>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title" style="color: #469AE0;">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols à venir (<%= @ads_time.count %>)
+         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols à venir (<%= @user_flight.count %>)
          <i class="glyphicon glyphicon-menu-down pull-right"></i>
         </a>
       </h4>

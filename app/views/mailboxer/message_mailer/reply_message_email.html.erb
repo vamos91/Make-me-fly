@@ -431,7 +431,7 @@
               <td class="content-cell">
                 <p>De <%= @message.sender.name.capitalize %> le <%= @message.created_at.strftime("%d/%m/%y à %l:%M %p") %></p>
                 <p class="sub"><a href="http//:www.makemefly.fr/conversation/<%= @message.conversation_id %>">Voir le commentaire</a> ou <a href="{{notifications_url}}">Manage notifications</a></p>
-                 Visit <%= link_to root_url, root_url %> and go to your inbox for more info.
+                 Rendez-vous sur <%= link_to root_url, root_url %> et allez dans votre messagerie pour plus d'informations.
               </td>
             </tr>
           </table>

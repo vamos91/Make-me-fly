@@ -22,10 +22,11 @@ skip_before_action :authenticate_user!
  end
 
  def show
+   find_user
    @ads_time = Ad.where("flight_date >= ?", DateTime.now)
+   @user_flight = Ad.where(["flight_date >= ? and user_id = ?", DateTime.now, @user])
    @ads = policy_scope(@ads_time)
    authorize @ads
-   find_user
    @post = Post.new
    #affiche le nombre de vol du current_user
    @user_ads = Ad.where(user_id: @user)
