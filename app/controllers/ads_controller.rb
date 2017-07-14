@@ -14,7 +14,7 @@ class AdsController < ApplicationController
 
  def show
    find_ad
-   @ads = Ad.where(user_id: @ad.user)
+   @ads = Ad.where(["flight_date >= ? and user_id = ?", DateTime.now, @ad.user])
    @markers = Gmaps4rails.build_markers(@ad) do |ad, marker|
       marker.lat ad.latitude
       marker.lng ad.longitude
@@ -29,26 +29,29 @@ class AdsController < ApplicationController
    @daily_weather = @weather.daily.data.first(5)
  end
 
- def chat
-    find_ad
-    if user_signed_in?
-        @conversations = Conversation.where(ad_id: @ad.id, recipient_id: @ad.user.id, sender_id: current_user.id)
-    if @conversations.empty?
-      @conversation = Conversation.new(
-        ad_id: @ad.id,
-        recipient_id: @ad.user.id,
-        sender_id: current_user.id
-        )
-      if @conversation.save
-        redirect_to ad_conversation_messages_path(@ad, @conversation)
-      end
-    else
-      redirect_to ad_conversation_messages_path(@ad, @conversations.first)
-    end
-    else
-      redirect_to new_user_registration_path
-    end
+ def booked
+  #mettre booked a 1 lorque le user de l'ad clic sur "marquer comme reserver"
+  find_ad
+  @ad.booked = '1'
+  @ad.save
+  authorize @ad
+  if @ad.save
+    redirect_to ad_path(@ad), notice: 'Annonce marqué comme reservé'
+  else
+    redirect_to ad_path(@ad), notice: 'Annonce marqué comme reservé a échoué'
+  end
+ end
 
+ def unbooked
+  find_ad
+  @ad.booked = '0'
+  @ad.save
+  authorize @ad
+  if @ad.save
+    redirect_to ad_path(@ad), notice: 'Annonce marqué comme disponible'
+  else
+    redirect_to ad_path(@ad), notice: 'Annonce marqué comme disponible a échoué'
+  end
  end
 
  def new
@@ -62,9 +65,6 @@ class AdsController < ApplicationController
   end
 
   def create
-    # @ad = Ad.new(ad_params)
-    # @ad.user = current_user
-    # @user = User.all
     @ad = current_user.ads.build(ad_params)
     #@ad.price = (@ad.price*1.1)
     authorize @ad

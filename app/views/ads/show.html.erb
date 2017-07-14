@@ -36,24 +36,31 @@
 
       <div class="col-xs-12 col-sm-4">
         <%= form_tag orders_path do %>
-        <!-- <p style="font-size: 90px;"><%= @ad.price %>€</p> -->
         <% if @ad.user != current_user  %>
             <% if @ad.booked != '1'%>
-            <p style="font-size: 90px;"><%= @ad.price %>€</p>
+            <p style="font-size: 4em;"><%= @ad.price %>€</p>
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
  -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
                 <% if user_signed_in? %>
-              <p><%= link_to "Contacter #{@ad.user.name}", chat_ad_path(@ad), class: "btn-lg btn-primary btn-gradient" %></p>
+              <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: "btn-lg btn-primary btn-gradient" %></p>
                 <% else %>
-                <p><%= link_to "Contacter #{@ad.user.name}", chat_ad_path(@ad), class: "btn-lg btn-primary disabled btn-gradient" %></p>
+                <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: "btn-lg btn-primary disabled btn-gradient" %></p>
             <% end %>
 <!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
  -->            <% end %>
+              <p>Ce vol est réservé !</p>
         <% end %>
+
               <% if policy(@ad).update? %>
-              <p style="font-size: 90px;"><%= @ad.price %>€</p>
+              <p style="font-size: 4em;"><%= @ad.price %>€</p>
+              <% if @ad.booked == '0' %>
+              <%= link_to "Marquer comme reservé", booked_ad_path, class: "btn btn-warning btn-block btn-gradient" %>
+              <% else %>
+                <%= link_to "Marquer comme disponible", unbooked_ad_path, class: "btn btn-warning btn-block btn-gradient" %>
+              <% end %>
                <div style="margin-top: 15px">
+
                 <%= link_to "Modifier mon annonce", edit_ad_path(@ad), :class => "btn btn-warning btn-block btn-gradient" %>
                </div>
                 <% end %>

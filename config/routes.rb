@@ -40,7 +40,8 @@ Rails.application.routes.draw do
 
   resources :ads  do
     member do
-      get :chat
+      get :booked
+      get :unbooked
       get :forecast
     end
     collection do

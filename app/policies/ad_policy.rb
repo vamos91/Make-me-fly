@@ -28,8 +28,12 @@ class AdPolicy < ApplicationPolicy
     true
   end
 
-  def chat?
-    is_user?
+  def booked?
+    true
+  end
+
+  def unbooked?
+    true
   end
 
   def search?
