@@ -29,6 +29,14 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def upvote?
+    true
+  end
+
+  def downvote?
+    true
+  end
+
   private
 
   # def user_is_owner?

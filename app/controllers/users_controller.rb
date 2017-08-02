@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 skip_before_action :authenticate_user!
+before_action :find_user, only: [:upvote, :downvote]
 
  def index
   @userPilotes = User.where(pilote: true)
@@ -60,9 +61,18 @@ skip_before_action :authenticate_user!
     else
     render :edit
    end
+ end
 
+ def upvote
+  @user.upvote_from current_user
+  authorize @user
+  redirect_to user_path(@user)
+ end
 
-
+ def downvote
+  @user.downvote_from current_user
+  authorize @user
+  redirect_to user_path(@user)
  end
    private
   def user_param

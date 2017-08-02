@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   #validates :hometown, presence: true
   #validates :name, presence: true
 
-
+  acts_as_votable
+  acts_as_voter
   geocoded_by :hometown
   after_validation :geocode, if: :hometown_changed?
 

@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
     authorize @ad
     # @articles.each do |article|
     #   user_num = article.user_id
-    #   @user_name = User.find(51)
+    #   @user = User.find(user_num)
     # end
   end
 

@@ -57,8 +57,9 @@ end
 
   resources :users, only: [:index, :show, :new, :create, :edit, :update] do
     member do
+      put "like" => "users#upvote"
+      put "unlike" => "users#downvote"
       get :user_ads
-      get :chat_user
     end
     end
 
