@@ -9,6 +9,10 @@ class ArticlesController < ApplicationController
     authorize @article
     @ad = current_user.ads.build
     authorize @ad
+    # @articles.each do |article|
+    #   user_num = article.user_id
+    #   @user_name = User.find(51)
+    # end
   end
 
   def show
