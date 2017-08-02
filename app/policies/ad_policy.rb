@@ -11,7 +11,6 @@ class AdPolicy < ApplicationPolicy
     true
   end
 
-
   def new?
     true
   end
@@ -41,6 +40,10 @@ class AdPolicy < ApplicationPolicy
   end
 
   def ads?
+    true
+  end
+
+  def booking_message?
     true
   end
 

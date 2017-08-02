@@ -54,6 +54,17 @@ class AdsController < ApplicationController
   end
  end
 
+ def booking_message
+   find_ad
+   booking_sender = current_user
+   user = @ad.user
+   date = @ad.flight_date
+   place = @ad.address
+   price = @ad.price_cents
+   FlightBooking.booking(user, booking_sender, date, place, price).deliver_now
+   redirect_to ad_path(@ad)
+ end
+
  def new
       #si le user est un pilote il peut faire une annonce sinon il doit s'identifier comme pilote et remplir son profil
     if user_signed_in? && current_user.pilote?

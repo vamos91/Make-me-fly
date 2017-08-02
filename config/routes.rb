@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get :booked
       get :unbooked
       get :forecast
+      get :booking_message
     end
     collection do
       get 'search', to: "ads#search"    # collection => no ads id in URL
