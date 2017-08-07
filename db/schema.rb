@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710003716) do
+ActiveRecord::Schema.define(version: 20170807185125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20170710003716) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "ads", force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.text     "description"
     t.date     "flight_date"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20170710003716) do
     t.integer  "flight_time"
     t.string   "photo"
     t.string   "category"
-    t.integer  "price_cents", default: 0, null: false
-    t.string   "booked"
+    t.integer  "price_cents", default: 0,   null: false
+    t.string   "booked",      default: "0"
   end
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree

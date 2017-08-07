@@ -1,0 +1,361 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: supergroup_bold;
+	src:
+		local('HelveticaNeue-Bold'),
+		local('Helvetica Neue Bold'),
+		url('../fonts/HelveticaNeueW01-75Bold.woff') format('woff'),
+		url('../fonts/HelveticaNeueW01-75Bold.ttf') format('truetype'),
+		url('../fonts/HelveticaNeueW01-75Bold.svg') format('svg'),
+		url('../fonts/HelveticaNeueW01-75Bold.eot'),
+		url('../fonts/HelveticaNeueW01-75Bold.eot#iefix') format('embedded-opentype');
+}
+
+@font-face {
+	font-family: supergroup_med;
+	src:
+		local('HelveticaNeue-Medium'),
+		local('Helvetica Neue Medium'),
+		url('../fonts/HelveticaNeueW01-65Medi.woff') format('woff'),
+		url('../fonts/HelveticaNeueW01-65Medi.ttf') format('truetype'),
+		url('../fonts/HelveticaNeueW01-65Medi.svg') format('svg'),
+		url('../fonts/HelveticaNeueW01-65Medi.eot'),
+		url('../fonts/HelveticaNeueW01-65Medi.eot#iefix') format('embedded-opentype');
+}
+
+@font-face {
+	font-family: supergroup_std;
+	src:
+		local('HelveticaNeue'),
+		local('Helvetica Neue'),
+		url('../fonts/HelveticaNeueW01-55Roma.woff') format('woff'),
+		url('../fonts/HelveticaNeueW01-55Roma.ttf') format('truetype'),
+		url('../fonts/HelveticaNeueW01-55Roma.svg') format('svg'),
+		url('../fonts/HelveticaNeueW01-55Roma.eot'),
+		url('../fonts/HelveticaNeueW01-55Roma.eot#iefix') format('embedded-opentype');
+}
+
+@font-face {
+	font-family: supergroup_lt;
+	src:
+		local('HelveticaNeue-Light'),
+		local('Helvetica Neue Light'),
+		url('../fonts/HelveticaNeueW01-45Ligh.woff') format('woff'),
+		url('../fonts/HelveticaNeueW01-45Ligh.ttf') format('truetype'),
+		url('../fonts/HelveticaNeueW01-45Ligh.svg') format('svg'),
+		url('../fonts/HelveticaNeueW01-45Ligh.eot'),
+		url('../fonts/HelveticaNeueW01-45Ligh.eot#iefix') format('embedded-opentype');
+}
+
+/*@font-face {
+	
+  font-family: supergroup_thin;
+  src: url('../fonts/HelveticaNeueLTStd-Th.otf');
+}*/
+
+/** ---- supergroup_std ---- **/
+
+/*html,*/body,input,/*div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,
+td,*/#homepage-text p.additional,#homepage-text p.additional a,
+#homepage-text h1,#homepage-text h1 a,
+form#checkout_form div#payment_method label.card-number,
+/* div.content > .wrapper .notreg_wrapper h2, */
+/*form#checkout_form div#payment_method label.holder-name,*/
+#holdernewin .s_menu a,
+p.pr-review-author-name span, p.pr-review-author-affinities span,
+.product-detail label span#product-colour,div.lsColour,
+.account form.billing li.vm_marketing label, .account form.register li.vm_marketing label,
+span.mb_productinf a,#minicart_total_saved,
+/*div.ff_right a, div.ff_right span,*/
+
+.font_std,
+
+#reviews .pr-review-author-location span,#featured-links a, #basket_json_ip h3, #category-info,
+#holdermens div.s_menu ul li a, #holderwomens div.s_menu ul li a,
+.prices .price s, .idris-menu ul li ul li ul li a,
+
+/* This is THE class to make things regular. Don't add any more classes here. */
+.font_regular,
+
+/* Checkout */
+#checkout_form #payment-methods label, span.blurb
+{
+	font-family:supergroup_std, Arial, "Lucida Grande", "宋体", SimSun, "华文细黑", STXihei, sans-serif;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+/** ---- supergroup_bold ---- **/
+p.byline .number, p.phone-number .number,
+#minibag span.mb_price,#minicart_total,/*.choose_country,*/
+/*.share_us,*/
+/*h2,*/
+div.grid input,
+.orange-button,.small-orange-button,
+/*.product-detail .price,*/
+div.content > .wrapper.browse h1,
+/*.category-body-hydra ul a,*/
+/*.product-detail h1 span.fn,*/
+#featured-links h3,div.competition-main form label,
+.competition-main label span, .competition-main .label,
+p.item-code span.label,
+.product-detail label,
+#gift-card-add .gc-row .currency-symbol,
+p.pr-review-author-affinities,
+p.pr-review-author-name,
+#product-detail-tabs h3,
+#delivery_method li span.price,.popup .lightfaceMessageBox h3,
+div.pr-review-rating p.pr-review-rating-headline,
+.competition-main .complete em,
+.competition-main .enter_details,
+#minibag .no-items .blurb span,form#checkout_form .gender span,
+#check_voucher,
+.account form label, .confirmation form label,
+#coupon_form label,.basket-table th,.br-price,.br-subtotal,
+dl.prices dt,.savedcard_code_element .cvv_label,
+div.gender_c_title,
+.pr-snapshot-rating .pr-rating,
+/*div.content > .wrapper h1,*/
+div.gender_title,
+dl.prices dt span,
+dl.prices dd,table.wishlist th,
+.collectstore_plus_address_blurb .item_step div span.step,
+.prices .price span, li.hproduct .info .price,
+.account-page p.message, .account-page p.error,
+.competition form li.question p,
+.campaign .info span.price, div.account-table ul li span p,
+.gc-button .button, .gc-button h3,
+
+/* Template - footer */
+.ff_right .separator,
+
+/* General classes */
+.page-title,
+.button.large,
+.accordion .toggle,
+
+/* Checkout */
+
+p.byline,p.user, p.phone-number ,
+#reviews .pr-snapshot-title ,#reviews .pr-review-wrap .pr-rating,
+#minibag .no-items .blurb span,div.content > .wrapper h1#page-title ,
+div#store-info .opening-hours .day,div#store-info h2,
+
+/* Store Locator*/
+#store-locator h1,
+#store-locator .telephone,
+#nearest-stores h2,
+#nearest-stores .distance,
+
+p.pr-snapshot-consensus-value, p.pr-snapshot-consensus-text,
+#reviews .pr-review-bottom-line, #reviews .pr-comments-header,
+#reviews .pr-other-attributes-list li.pr-other-attribute-label,
+#reviews .pr-review-author-location,
+#information .infoscroller ul a > b, #information .infoscroller ul li > b,
+#product-detail-tabs h4,
+.delivery-returns .subheading td,
+#reviews .pr-comments-header em, #page-title,
+span.number_item,
+
+/* This is THE class to make things bold. Don't add any specific elements, other than ones we don't control. */
+.font_bold,
+
+/* HTML that we don't control. */
+.text-banner h1
+
+{
+	font-family: supergroup_bold,Arial,"Lucida Grande", "宋体", SimSun, "华文细黑", STXihei, sans-serif;
+	font-weight:normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+.font_heavy {
+	font-family: supergroup_bold, Arial, "Lucida Grande", "宋体", SimSun, "华文细黑", STXihei, sans-serif;
+	font-weight:bold;
+	-webkit-font-smoothing: antialiased;
+}
+
+/** ---- supergroup_thin ---- **/
+/*#viewcart_price,*/
+/*.page-information p a,*/
+div.grid,
+.page-information label,
+.page-information .js_dropdown,
+/*.pagination a,*/
+.pagination span ,.styled-select select,
+
+.user-address,
+.delivery-address-display,
+dl.attributes dt, dl.attributes dd span,dl.attributes dd,
+p.field-notes,
+.js_dropdown,#js_dropdown_product_id > span,#js_dropdown_product_id ul span,.font_thin,
+.js_dropdown > span, .js_dropdown li,
+
+/* This is the ONLY class to use for light fonts. */
+.font_thin
+{
+	font-family: supergroup_lt,Arial,"Lucida Grande", "宋体", SimSun, "华文细黑", STXihei, sans-serif;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+/** ---- supergroup_med ---- **/
+#homepage-text p,#savedlist-count,
+#homepage-text a.read-more,
+#homepage-text a.read-less,
+#newsletter_men_submit, 
+#newsletter_women_submit,
+.l_foot_cc span.sdry,
+
+#minibag span .mb_qty,
+#minibag span .mb_size,
+#minibag_saved span .mb_size,
+#minicart_paynow span,
+#minicart_viewbag span,
+#minibag_delivery,#minibag_delivery_saved,
+
+input.checkout_btn, a.checkout_btn,
+#add-to-bag .orange-button,
+div.gender_footer a,
+a#load-video span,
+a#load-zoom span,
+.new-grad-button input,
+
+#minibag .shopping_bag a,
+
+.button,
+
+.popup .phone span, .product-detail .warranty-btn, .product-detail #promobutton, .promobutton_cat,
+span.promo-basket-item,
+
+/* Checkout */
+.number_title,
+
+/* Wishlist */
+.orange-button.wishlist, .small-orange-button,
+
+/* This is the ONLY class to use for medium fonts. */
+.font_med
+{
+	font-family: supergroup_med, Arial, "Lucida Grande", "宋体", SimSun, "华文细黑", STXihei, sans-serif;
+	font-weight:normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+/** ---- Regular ---- **/
+/** ---- supergroup_lt ---- **/
+/*#site_select_msdd #site_select_child ul .ddlabel,*/
+/*ul#headerbar-menu li span,*/
+/*div.wrapper div.signin_register span,
+div.wrapper div.signin_register a,
+div.wrapper div.signin_register,
+a.store_locator,*/
+a.dark-grey-button.my-account,
+.breadcrumbs a, .breadcrumbs a span, .breadcrumbs span,
+/*#cart-summary a,*/
+#savedlist_pos a,
+/*#holdermens div.s_menu ul li a,*/
+
+/* This is the ONLY class to use for light fonts. */
+.font_lt,
+
+#reviews .pr-attribute-label-pros,
+#reviews .pr-attribute-label-cons,
+#reviews .pr-attribute-label-bestuses
+{
+	font-family: supergroup_lt,Arial,"Lucida Grande", "宋体", SimSun, "华文细黑", STXihei, sans-serif;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+/** ---- Black Text ---- **/
+
+.lookup-container a#address-manual,
+#information .infoscroller ul a,
+.colorblack,
+.page-information p a.pagination-limit,
+/*div.content > .wrapper h1,*/
+li.hproduct .info .price,
+li.hproduct .info .fn/*,
+div.content > .wrapper h2*/
+{color: #151515;}
+
+
+/** ---- Orange Text ---- **/
+.colororange,
+/*div.main-menu ul.menu li a:hover,*/
+/*ul#menshop span.separator:hover,*/
+/*ul#womenshop span.separator:hover,*/
+/*ul#menshop li ul li a:hover,*/
+/*ul#womenshop li ul li a:hover,*/
+/*ul#menshop li ul li.active a,*/
+/*ul#womenshop li ul li.active a,*/
+.arrow-button-left a,
+.arrow-button-right a,
+p.required strong,
+.account form label strong,
+#minibag_saved span .mb_price,
+div.footer ul.menu li a:hover,
+div.footer ul.menu li.active a,
+.checkout-steps a.active,
+#checkout-step strong,
+p.error,
+#information .active,
+#information h3:hover,div.footer_new li.position-1 span.separator,
+div.floatingfooter li.position-1 span.separator,
+.con_checkout-step strong,p.error,
+/*.unreg_requiredrght span,*/
+/*.unreg_required span,*/
+.pr-snippet .pr-snippet-write-first-review a.pr-snippet-link,.pr-snippet .pr-snippet-write-review a.pr-snippet-link,#holdermens .s_menu .active a,#holderwomens .s_menu .active a,#holdernewin .s_menu .active a,.search-panel div.s_menu a:hover,
+.non_javascript div.s_menu a:hover
+{color:#ff5e00}
+/** ---- White Text ---- **/
+.colorwhite,
+#newsletter-form label
+{color:#fff}
+
+
+/** ---- SuperGroup Sizes ---- **/
+
+.font11,#sizing-guide {font-size:11px}
+
+.breadcrumbs a, .breadcrumbs a span, .breadcrumbs span,
+.font12/*,#searchword,
+div.wrapper*/
+{font-size:12px}
+
+.font13,
+p.byline,
+p.phone-number ,
+.page-information p a.pagination-limit span,
+/*div.wrapper div.signin_register span,
+div.wrapper div.signin_register a,
+div.wrapper div.signin_register,
+a.store_locator,*/
+
+#category-info/*,
+#cart-summary a,#savedlist_pos a*/ {font-size:13px}
+
+
+/*.pagination a, .pagination span,*/
+/*.page-information p span,*/
+/*li.hproduct .info .fn,*/
+/*.font14,*/
+/*.page-information,*/
+/*#refine-search label,*/
+/*.page-information label*/
+/*{font-size:14px}*/
+
+.font15,
+#featured-links h3 {font-size:15px}
+
+.font16 {font-size:16px}
+
+.font-xxxl { font-size:20px; line-height:1.3em; }
+
+.txt-uppercase { text-transform:uppercase; }
+
