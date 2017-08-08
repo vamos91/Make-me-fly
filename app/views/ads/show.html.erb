@@ -1,5 +1,10 @@
 <div class="banner-show" style="height: 50vh;">
   <%= cl_image_tag @ad.photo, crop: :fill %>
+  <% if @ad.booked == '1' %>
+  <div class="booking_message">
+    <h1>Vol réservé.</h1>
+  </div>
+  <% end %>
 </div>
 <div class="header-flat">
   <div class="container">
