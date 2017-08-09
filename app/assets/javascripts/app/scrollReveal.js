@@ -1,5 +1,6 @@
 window.sr = ScrollReveal()
 sr.reveal('h1');
+sr.reveal('h2');
 //sr.reveal('.banner.h1', { delay: 600, reset:false });
 sr.reveal('.reveal .card', { origin:"bottom",
   distance : '100px' , duration: 1000, reset:false });
