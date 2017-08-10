@@ -23,7 +23,7 @@
       </div>
         <div class="liste padded">
           <% @ads.each do |ad| %>
-          <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="col-xs-12 col-sm-12 col-md-12">
             <% if ad.flight_date >= DateTime.now %>
               <%= render ad %>
             <% end %>

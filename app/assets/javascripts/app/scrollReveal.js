@@ -1,6 +1,6 @@
 window.sr = ScrollReveal()
 sr.reveal('h1');
-sr.reveal('h2');
+sr.reveal('.booking_message', { origin:"bottom", distance: '50px', duration: 2000, reset:false });
 //sr.reveal('.banner.h1', { delay: 600, reset:false });
 sr.reveal('.reveal .card', { origin:"bottom",
   distance : '100px' , duration: 1000, reset:false });

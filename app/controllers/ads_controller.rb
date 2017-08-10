@@ -118,13 +118,19 @@ class AdsController < ApplicationController
 
   def search
     @city = params[:q]
-    if @city.nil?
+    @plane = params[:multiple]
+    if @city.blank?
       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
     else
-      @ads = Ad.near(@city, 100, :units => :km)
+      if @plane == ["Aéronef"]
+        @ads = Ad.near(@city, 100, :units => :km)
+      else
+      @ads_category = Ad.where("flight_date >= ? and category = ?", DateTime.now, @plane).order(created_at: :desc)
+      @ads = @ads_category.near(@city, 100, :units => :km)
       if @ads.empty?
         redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
       end
+    end
     end
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|
