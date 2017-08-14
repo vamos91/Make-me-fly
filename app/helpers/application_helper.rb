@@ -24,7 +24,15 @@ module ApplicationHelper
   end
 
   def gravatar_for(user, size = 30, title = user.name)
-    image_tag gravatar_image_url(user.email, size: size), title: title, class: 'img-rounded'
+    #image_tag gravatar_image_url(user.email, size: size), title: title, class: 'img-rounded'
+    if user.picture?
+      cl_image_tag user.picture, class: "avatar"
+      elsif user.facebook_picture_url?
+        image_tag @user.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment"
+      else
+        image_tag "pilot.png", class: "avatar"
+   end
+
   end
 
 

@@ -24,7 +24,7 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
       <%= link_to conversations_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
-        <i class="fa fa-comments"></i> Mes conversations
+        <i class="fa fa-comments"></i> Mes messages <span class="badge badge-blue"><%= @messages.count %></span>
       <% end %>
     <%= link_to pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
       <i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord

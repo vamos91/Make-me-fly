@@ -31,6 +31,26 @@ before_action :authenticate_user!
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :pilote, :picture, :hometown) }
   end
 
+  def index
+     if @box.eql? "inbox"
+      @conversations = @mailbox.inbox
+      @active = :inbox
+      authorize @conversations
+    elsif @box.eql? "sent"
+      @conversations = @mailbox.sentbox
+      @active = :sent
+      authorize @conversations
+    else
+      @conversations = @mailbox.trash
+      @active = :trash
+      authorize @conversations
+    end
+    @messages = current_user.mailbox.inbox({:read => false})
+    @conversations = policy_scope(@conversations).paginate(page: params[:page], per_page: 10)
+    authorize @conversations
+
+  end
+
 
   private
 
