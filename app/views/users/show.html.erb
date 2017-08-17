@@ -1,13 +1,26 @@
 <div class="wrapper-profile-dashboard top-spacing">
 <% if @user == current_user && current_user.pilote != nil %>
   <%= render 'shared/subnavbar' %>
-  <div class="btn btn-primary" style="position: absolute; left: 370px; top: 280px;">
+  <div class="btn btn-primary" style="position: absolute; left: 370px; top: 280px; z-index: 10;">
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center"></span>
             <span class="badge"><%= @user.get_upvotes.size %></span>
         </div>
-        <div class="btn btn-primary" style="position: absolute; left: 450px; top: 280px;">
+        <div class="btn btn-primary" style="position: absolute; left: 450px; top: 280px; z-index: 10;">
             <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center"></span>
             <span class="badge"><%= @user.get_downvotes.size %></span>
+        </div>
+        <% else %>
+        <div style="position: absolute; left: 370px; top: 240px; z-index: 10;">
+          <%= link_to like_user_path(@user), class: "btn btn-success", method: :put do %>
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center"></span>
+            <span class="badge"><%= @user.get_upvotes.size %></span>
+          <% end %>
+        </div>
+        <div style="position: absolute; left: 450px; top: 240px; z-index: 10;">
+          <%= link_to unlike_user_path(@user), class: "btn btn-success", method: :put do %>
+            <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center"></span>
+            <span class="badge"><%= @user.get_downvotes.size %></span>
+          <% end %>
         </div>
 <% end %>
 <% if @user.picture_ulm_user? %>
@@ -19,20 +32,6 @@
     <div class="banner-show banner-user-profile">
     <% if @user == current_user %>
       <h3>Insérez votre photo de bannière</h3>
-
-      <% else %>
-      <div style="position: absolute; left: 370px; top: 240px;">
-          <%= link_to like_user_path(@user), class: "btn btn-success", method: :put do %>
-            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center"></span>
-            <span class="badge"><%= @user.get_upvotes.size %></span>
-          <% end %>
-        </div>
-        <div style="position: absolute; left: 450px; top: 240px;">
-          <%= link_to unlike_user_path(@user), class: "btn btn-success", method: :put do %>
-            <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center"></span>
-            <span class="badge"><%= @user.get_downvotes.size %></span>
-          <% end %>
-        </div>
     <% end %>
     </div>
   <% end %>
