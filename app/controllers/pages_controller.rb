@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   skip_before_action :authenticate_user!
   skip_after_action :verify_authorized
+  before_action :index
 
   def home
     @users_pilote = User.where(pilote: true).order(id: :desc).limit(3)
@@ -29,6 +30,22 @@ class PagesController < ApplicationController
     authorize @ad
   end
 
+  def index
+     if @box.eql? "inbox"
+      @conversations = @mailbox.inbox
+      @active = :inbox
+      authorize @conversations
+    elsif @box.eql? "sent"
+      @conversations = @mailbox.sentbox
+      @active = :sent
+      authorize @conversations
+    else
+      # @conversations = @mailbox.trash
+      # @active = :trash
+      # authorize @conversations
+    end
+    @messages = current_user.mailbox.inbox({:read => false})
+  end
 
 
 end

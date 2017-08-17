@@ -14,5 +14,13 @@ module ActiveAdmin
         false
       end
     end
+
+    def index?
+      true
+    end
+
+    def home?
+      true
+    end
   end
 end
