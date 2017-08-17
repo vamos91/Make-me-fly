@@ -28,7 +28,7 @@ module ApplicationHelper
     if user.picture?
       cl_image_tag user.picture, class: "avatar"
       elsif user.facebook_picture_url?
-        image_tag @user.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment"
+        image_tag user.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment"
       else
         image_tag "pilot.png", class: "avatar"
    end
