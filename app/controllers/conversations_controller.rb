@@ -27,15 +27,8 @@ class ConversationsController < ApplicationController
 
   def show
     @messages = current_user.mailbox.inbox({:read => false})
-    # @conversation ||= @mailbox.conversations.find(params[:id])
-    # authorize @conversation
-    #flash[:success] = "Message envoyé avec succes."
   end
 
-  # def new
-  #   @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
-  #   authorize @chosen_recipient
-  # end
 
   def destroy
     @conversation.move_to_trash(current_user)

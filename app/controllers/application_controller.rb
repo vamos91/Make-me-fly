@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-    before_filter :configure_permitted_parameters, if: :devise_controller?
-  protect_from_forgery with: :exception
   before_action :message_navbar
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
 
 
 before_action :authenticate_user!
@@ -32,7 +32,7 @@ before_action :authenticate_user!
   end
 
   def message_navbar
-     if @box.eql? "inbox"
+    if @box.eql? "inbox"
       @conversations = @mailbox.inbox
       @active = :inbox
       authorize @conversations
@@ -41,11 +41,11 @@ before_action :authenticate_user!
       @active = :sent
       authorize @conversations
     else
-      # @conversations = @mailbox.trash
-      # @active = :trash
-      # authorize @conversations
+
     end
-    @messages = current_user.mailbox.inbox({:read => false})
+    if user_signed_in?
+      @messages = current_user.mailbox.inbox({:read => false})
+    end
   end
 
   private
