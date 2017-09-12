@@ -8,19 +8,10 @@
     <p>Il y a <%= @cityCounter %> vol(s) aux alentours de <%= @city %></p>
 </div> -->
 <div class="wrapper-search" style="margin-top: 50px;">
-  <div class="container-temp" style="margin-right: 15px;">
+  <div class="container-temp" style="margin-right: 0px;">
+  <%= render 'shared/formulaire' %>
     <div class="row">
       <div class="col-xs-12 col-md-6">
-        <div class="form-header" style="margin-left: 15px; margin-bottom: 10px;">
-         <form action="<%= search_ads_path %>" class="formulaire form-inline" id="form-navbar">
-            <div class="input-group" style="margin-top: 40px;">
-              <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="width: 330px; height: 48px;">
-              <span class="input-group-btn">
-                <button class="btn btn-primary btn-lg" type="button">Rechercher</button>
-              </span>
-            </div>
-        </form>
-      </div>
         <div class="liste padded">
           <% @ads.each do |ad| %>
           <div class="col-xs-12 col-sm-12 col-md-12">
@@ -31,7 +22,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-xs-12 col-md-6 marged">
+      <div class="col-xs-12 col-md-6">
        <div id="carte">
         <div id="map"></div>
        </div>

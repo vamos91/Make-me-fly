@@ -20,10 +20,9 @@
             <%= image_tag "pilot.png", class: "img-circle", width: "80", height: "80" %>
           <% end %>
             <p><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default" %></p>
-
           </div>
           <div class="header-flat-name">
-          <%= @ad.user.first_name || @ad.user.name.capitalize %>
+          <p>Votre pilote : <%= @ad.user.first_name || @ad.user.name.capitalize %></p>
             <p><h1>Pilote de <%= @ad.category %></h1></p>
             <p><%= @ad.address.capitalize %></p>
             <i class="fa fa-star" style="color: #ffb400"></i>
@@ -38,12 +37,13 @@
       <div class="col-xs-12 col-sm-4">
         <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
+        <p style="font-size: 30px;">Balade en <%= @ad.category %> avec  <%= @ad.user.name %></p>
             <% if @ad.booked != '1'%>
             <p style="font-size: 4em;"><%= @ad.price %>€</p>
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
  -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
-                <p><%= link_to "Reserver ce vol avec #{@ad.user.name}", booking_message_ad_path, class: "btn btn-primary btn-gradient" %></p>
+                <p><%= link_to "Envoyer une demande à #{@ad.user.name}", booking_message_ad_path, class: "btn btn-primary btn-gradient" %></p>
               <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: " btn btn-primary btn-gradient" %></p>
 <!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
  -->            <% else %>
@@ -84,8 +84,9 @@
         <hr>
         <div class="row" id="flat-data">
           <div class="col-xs-12 col-sm-2">
+          <div class="title-flat">
           <%= image_tag "flight_param.png", width: "30" %>
-            Paramètre de vol
+            Paramètre de vol</div>
           </div>
           <div class="col-xs-12 col-sm-4">
             <ul class="list-unstyled">
@@ -104,8 +105,9 @@
         <hr>
         <div class="row" id="flat-data">
           <div class="col-xs-12 col-sm-2">
+          <div class="title-flat">
           <%= image_tag "meteo.png", width: "30" %>
-            Météo
+            Météo</div>
           </div>
           <div class="col-xs-12 col-sm-4">
             <ul class="list-unstyled">

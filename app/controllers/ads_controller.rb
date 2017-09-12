@@ -62,7 +62,7 @@ class AdsController < ApplicationController
    place = @ad.address
    price = @ad.price_cents
    FlightBooking.booking(user, booking_sender, date, place, price).deliver_now
-   redirect_to ad_path(@ad)
+   redirect_to ad_path(@ad), notice: "Un message a été envoyé à #{@ad.user.name}"
  end
 
  def new

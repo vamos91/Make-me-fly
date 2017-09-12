@@ -30,6 +30,10 @@
   width: 100%;
 }
 
+.title-flat{
+  font-weight: bold;
+  font-size: 17px;
+}
 
 #flat-description {
   width: 100%;
@@ -40,12 +44,17 @@
   color: $gray;
 }
 #flat-description h2 {
-  font-size: 18px;
+  font-size: 22px;
   color: $gray-dark;
+  font-weight: bold;
+}
+
+#flat-description p{
+  font-size: 20px;
 }
 #flat-data {
   font-weight: normal;
-  font-size: 12px;
+  font-size: 15px;
   color: #797373;
 }
 #flat-data strong {

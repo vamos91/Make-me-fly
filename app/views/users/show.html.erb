@@ -1,11 +1,11 @@
 <div class="wrapper-profile-dashboard top-spacing">
 <% if @user == current_user && current_user.pilote != nil %>
   <%= render 'shared/subnavbar' %>
-  <div class="btn btn-primary" style="position: absolute; left: 370px; top: 280px; z-index: 10;">
+  <div class="btn btn-primary" style="position: absolute; left: 370px; top: 230px; z-index: 10;">
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center"></span>
             <span class="badge"><%= @user.get_upvotes.size %></span>
         </div>
-        <div class="btn btn-primary" style="position: absolute; left: 450px; top: 280px; z-index: 10;">
+        <div class="btn btn-primary" style="position: absolute; left: 450px; top: 230px; z-index: 10;">
             <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center"></span>
             <span class="badge"><%= @user.get_downvotes.size %></span>
         </div>
