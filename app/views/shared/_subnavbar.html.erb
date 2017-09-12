@@ -1,16 +1,7 @@
 <div class="subnavbar navbar">
   <div class="navbar-wagon-right hidden-xs">
     <%= link_to "Fil d'actualité", articles_path, :class => "navbar-wagon-item" %>
-    <%= link_to "Tableau de bord", pages_dashboard_path, :class => "navbar-wagon-item" %>
-    <%= link_to "Voir mon profil", user_path(current_user), class: "navbar-wagon-item" %>
-    <%= link_to "Compléter mon profil", edit_user_path(current_user), class: "navbar-wagon-item" %>
     <% if current_user.pilote? %>
-    <%= link_to "Voir tous mes vols", user_ads_user_path(current_user), class: "navbar-wagon-item" %>
-    <% end %>
-    <% if current_user.pilote? %>
-      <button type="button" class="navbar-wagon-item btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
-            Planifiez un vol
-          </button>
     <% end %>
       </div>
 </div>

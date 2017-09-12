@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:show, :search]
 
  def index
   #   authorize @ads

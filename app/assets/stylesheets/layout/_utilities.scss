@@ -68,7 +68,7 @@ body{
 }
 
 .spacing {
-  letter-spacing: 2px;
+  //letter-spacing: 2px;
   line-height : 22px;
 }
 
@@ -100,9 +100,9 @@ body{
 }
 
 .form-control{
-  //border-radius: 16px;
-  height: 48px;
-  font-size: 20px;
+  // border-radius: 16px;
+  // height: 48px;
+   //font-size: 20px;
 }
 
 
@@ -127,3 +127,10 @@ body{
 .button-booking{
   display: inline-block;
 }
+
+
+.form-header{
+  //opacity: 0.8;
+  //z-index: 10;
+}
+

@@ -91,6 +91,36 @@ a:hover{
   //border: 2px solid $red;
   transition: border-color 0.4s ease;
 }
+
+.navbar-wagon-button {
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 1em;
+  line-height: 40px;
+  //background-color: $clear-blue;
+  color: white;
+  font-size: 14px;
+  //border: 2px solid $red;
+  transition: border-color 0.4s ease;
+}
+
+.cta{
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 1em;
+  line-height: 40px;
+  background-color: #C81232;
+  color: white;
+  font-size: 17px;
+  //border: 2px solid $red;
+  transition: border-color 0.4s ease;
+  text-decoration: none;
+}
+
+.cta:hover{
+  color: white;
+}
+
 .navbar-wagon-button:hover {
   color: white;
   //opacity: 0.5;

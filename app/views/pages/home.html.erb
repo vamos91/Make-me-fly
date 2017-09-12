@@ -2,79 +2,27 @@
   <div class="banner-content">
     <h1>Besoin de sensations et de challenges.</h1>
     <h1 class="title-banner">Volez avec des passionnés !</h1>
-
-
-<!--
-    <div class="avatar-pilote">
-    <div class="container" style="padding: 20px 256px;">
-       <div class="row">
-       <% @pilote.each do |pilote| %>
-
-          <div class="col-xs-12 col-sm-6 col-md-4">
-           <% if pilote.picture? %>
-            <%= cl_image_tag pilote.picture,class: "img-circle", width: "60" %>
-            <% elsif pilote.facebook_picture_url? %>
-              <%= image_tag pilote.facebook_picture_url.split("=")[0] << "=large", class: "img-circle", width: "60" %>
-            <% else %>
-              <%= image_tag "pilot.png", class: "img-circle", width: "60" %>
-          <% end %>
-            </div>
-
-
-         <% end %>
-         </div>
-            </div>
-    </div>
- -->
-
-
     <h2 class ="text-center" style="font-weight: lighter; color: white;">Le premier site de reservation de vol loisir entre particuliers.</h2>
-      <div class="form-header">
-       <form action="<%= search_ads_path %>" class="formulaire form-inline text-center" id="form-navbar">
-          <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <div class="input-group" style="margin-top: 100px; display: flex;">
-
-            <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="width: 330px; height: 48px;">
-            <span class="input-group-btn">
-               <div class="form-group input-group-lg">
-              <select name="multiple[]" class="form-control selectpicker">
-              <option>Aéronef</option>
-               <optgroup label="ULM">
-                <option>Pendulaire</option>
-                <option>Multiaxe</option>
-                <option>Paramoteur</option>
-                <option>Autogire</option>
-              </optgroup>
-              <optgroup label="Vol libre">
-                <option>Parapente</option>
-                <option>Planeur</option>
-              </optgroup>
-
-              </select>
-            </div>
-              <button class="btn btn-primary btn-lg btn-gradient" type="button">Rechercher</button>
-            </span>
-          </div>
-        </div>
-      </form>
-
-
-
-
-
-
-
-
-
-      </div>
-
+     <%= render 'shared/formulaire' %>
   </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <% if user_signed_in? %>
-
 <% else %>
   <!-- <div class="banner-user-disconnect" id="banner-user-disconnect">
   <button type="button" onclick="close_banner()" class="btn btn-link" id="close-button">Fermer</button>
@@ -83,6 +31,15 @@
   </p>
   </div> -->
 <% end %>
+
+
+
+
+
+
+
+
+
 
 <div class="text-center">
     <div class="title_flight">
@@ -114,33 +71,26 @@
   <div class="container spacing" style="padding: 40px 0px 40px;">
   <br>
     <div class="row" style="font-size: 10px;">
-      <div class="col-xs-6 col-sm-6 col-md-3 text-center">
+      <div class="col-xs-6 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
-          <i class="fa fa-search-plus"></i>
+          <i class="fa fa-search-plus" style="font-size: 115px"></i>
         </div>
-        <h4 class="text-center">SIMPLE</h4>
-        <p class="text-center" >Trouvez un vol facilement et discutez avec les pilotes ULM de votre région</p>
+        <h4 class="text-center">PASSAGER</h4>
+        <p class="text-center" >Trouvez un vol facilement et volez pas chère avec un pilote de votre région.</p>
       </div>
-      <div class="col-xs-6 col-sm-6 col-md-3 text-center">
+      <div class="col-xs-6 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
-          <i class="fa fa-lock"></i>
+          <i class="fa fa-lock" style="font-size: 115px"></i>
         </div>
-        <h4 class="text-center">SECURISE</h4>
-        <p class="text-center">Réservez en ligne facilement et rapidement avec un pilote de votre région</p>
+        <h4 class="text-center">PILOTE</h4>
+        <p class="text-center">Réduisez vos frais en partageant votre passion.</p>
       </div>
-       <div class="col-xs-6 col-sm-6 col-md-3 text-center">
+       <div class="col-xs-6 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
-          <i class="fa fa-clock-o"></i>
+          <i class="fa fa-clock-o" style="font-size: 115px"></i>
         </div>
         <h4 class="text-center">FIABLE</h4>
         <p class="text-center">Recevez une confirmation rapide et organisez votre vol avec votre pilote grâce à la messagerie de MakeMeFly</p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-3 text-center">
-        <div class="feature-size">
-          <i class="fa fa-paper-plane"></i>
-        </div>
-        <h4 class="text-center">CONVIVIAL</h4>
-        <p class="text-center">Rencontrez, discutez, et partagez avec un passionné du vol en ULM et volez !</p>
       </div>
     </div>
   </div>
