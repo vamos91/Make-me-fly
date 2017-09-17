@@ -14,17 +14,34 @@
 .booking_message{
   position:absolute;
   top:50%;
-  left:40%;
-  background-color: $lapis-lazuli;
+  left:0%;
+  background-color: #C81232;
   padding: 4px 41px 11px;
   border-radius: 25px;
 }
 
 .booking_message h2{
+  color: white;
+  font-size: 20px;
+
+}
+
+
+.place_libre{
+  position:absolute;
+  top:50%;
+  left:0%;
+  background-color: $lapis-lazuli;
+  padding: 4px 41px 11px;
+  border-radius: 25px;
+}
+
+.place_libre h2{
   //font-weight: lighter;
   font-size: 20px;
 
 }
+
 
 .banner-show img{
   width: 100%;
