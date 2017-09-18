@@ -3,16 +3,12 @@
   <head>
     <title>Make me fly : Baptême de l'air en ULM : Survolez les plus beaux lieux !</title>
     <meta name="description" content="Makemefly, Premier site de reservation de vol en ULM entre particuliers, Baptême de l'air en ULM, autogire, pendulaire, multiaxe, paramoteur, pilote ulm" />
-
     <%= csrf_meta_tags %>
-
     <%= favicon_link_tag 'favicon.png' %>
     <meta property="og:title" content="MakeMeFly">
     <meta property="og:image" content="makemefly.fr/">
     <meta property="og:description" content="Je trouve mon pilote. Je vole pas cher ! MakeMeFly est une plate-forme qui se propose de vous faire rencontrer votre pilote ULM. Découvrez la passion de pilote et volez en quelques clics à bord d'un pendulaire, multiaxe ou paramoteur">
     <meta property="og:url" content="makemefly.fr">
-
-
     <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
     <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,8 +17,10 @@
 <!--     <script src="js/bootstrap.min.js"></script>
  -->    <script src="//code.jquery.com/jquery-1.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.0.9/scrollreveal.min.js"></script>
+
   </head>
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.js"></script>
     <%= render 'shared/signin_modal' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>

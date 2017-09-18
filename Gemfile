@@ -32,6 +32,8 @@ gem 'gravatar_image_tag'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 
 gem "coffee-rails"
