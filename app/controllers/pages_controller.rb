@@ -6,12 +6,20 @@ class PagesController < ApplicationController
   def home
     @users_pilote = User.where(pilote: true).order(id: :desc).limit(3)
     @pilote = User.where(pilote: true)
+
+    @pendulaires = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Pendulaire")
+    @multiaxe = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Multiaxe")
+    @paramoteur = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Paramoteur")
+    @autogire = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Autogire")
+    @planeur = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Planeur")
+    @parapente = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Parapente")
+
+
     if user_signed_in?
       @ads_hometown = Ad.near(current_user.hometown, 150, :unit => :km)
     end
     @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
   end
-
 
   def dashboard
     if params[:pilote] == 'true'

@@ -116,10 +116,19 @@ class AdsController < ApplicationController
     redirect_to ads_path, notice: 'Annonce effacée avec succès'
   end
 
+
+
   def search
     @city = params[:q]
     @plane = params[:multiple]
     @date = params[:date]
+    @category = params[:category]
+    if @category.present?
+      @ads = Ad.where("flight_date >= ? and category = ?", DateTime.now, @category).order(created_at: :desc)
+      if @ads.count == 0
+        flash[:notice] = "Aucun vol en #{@category} pour le moment."
+      end
+    else
     if @city.blank?
       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
     else
@@ -143,6 +152,7 @@ class AdsController < ApplicationController
       marker.lng ad.longitude
     end
   end
+end
 end
 
 #--------------------------------------------------------
