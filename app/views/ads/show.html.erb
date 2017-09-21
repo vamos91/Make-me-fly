@@ -48,8 +48,8 @@
  -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
                 <p><%= link_to "Envoyer une demande à #{@ad.user.name}", booking_message_ad_path, class: "btn btn-primary btn-gradient" %></p>
-              <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: " btn btn-primary btn-gradient" %></p>
-<!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
+<!--               <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: " btn btn-primary btn-gradient" %></p>
+ --><!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
  -->            <% else %>
               <p>Ce vol est réservé !</p>
               <% end %>

@@ -1,28 +1,4 @@
 <div class="wrapper-profile-dashboard top-spacing">
-<% if @user == current_user && current_user.pilote != nil %>
-  <%= render 'shared/subnavbar' %>
-  <div class="btn btn-primary" style="position: absolute; left: 370px; top: 230px; z-index: 10;">
-            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center"></span>
-            <span class="badge"><%= @user.get_upvotes.size %></span>
-        </div>
-        <div class="btn btn-primary" style="position: absolute; left: 450px; top: 230px; z-index: 10;">
-            <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center"></span>
-            <span class="badge"><%= @user.get_downvotes.size %></span>
-        </div>
-        <% else %>
-        <div style="position: absolute; left: 370px; top: 240px; z-index: 10;">
-          <%= link_to like_user_path(@user), class: "btn btn-success", method: :put do %>
-            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center"></span>
-            <span class="badge"><%= @user.get_upvotes.size %></span>
-          <% end %>
-        </div>
-        <div style="position: absolute; left: 450px; top: 240px; z-index: 10;">
-          <%= link_to unlike_user_path(@user), class: "btn btn-success", method: :put do %>
-            <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center"></span>
-            <span class="badge"><%= @user.get_downvotes.size %></span>
-          <% end %>
-        </div>
-<% end %>
 <% if @user.picture_ulm_user? %>
   <div class="banner-show">
    <%= cl_image_tag @user.picture_ulm_user %>
@@ -42,16 +18,16 @@
      <% if @user.pilote == true %>
       <div class="vertical-align info-item">
         <p>Vols publiés</p>
-        <p><strong class="badge"><%= @user_ads.count %></strong></p>
+        <p><strong class="badge" style="padding: 4px;"><%= @user_ads.count %></strong></p>
       </div>
       <% end %>
        <div class="vertical-align info-item">
         <p>J'aime</p>
-        <p><strong class="badge">O</strong></p>
+        <p><strong class="badge" style="padding: 4px;">O</strong></p>
       </div>
        <div class="vertical-align info-item">
         <p>Articles</p>
-        <p><strong class="badge"><%= @articles.count %></strong></p>
+        <p><strong class="badge" style="padding: 4px;"><%= @articles.count %></strong></p>
       </div>
 
       <% if @user == current_user %>
@@ -60,7 +36,8 @@
             Publiez un article
           </button>
           </div>
-          <% if current_user.pilote? %>
+
+     <!--      <% if current_user.pilote? %>
         <% if current_user.pilotevalidation? %>
           <div class="button-ad-profile">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -74,15 +51,29 @@
           </button>
           </div>
         <% end %>
-      <% end %>
+      <% end %> -->
         <% else %>
       <div class="button-ad-profile">
         <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %>
       </div>
       <% end %>
-    </div>
+      <% if @user == current_user && current_user.pilote != nil %>
+          <div class="btn btn-primary button-like-owner">
+                    <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-primary"></span>J'aime
+                    <span class="badge"><%= @user.get_upvotes.size %></span>
+                </div>
+                <% else %>
+                <div>
+                  <%= link_to like_user_path(@user), class: "btn btn-success button-like", method: :put do %>
+                    <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-success"></span>J'aime
+                    <span class="badge"><%= @user.get_upvotes.size %></span>
+                  <% end %>
+                </div>
+        <% end %>
+  </div>
 </div>
 </div>
+<div class="wrapper">
   <div class="container padded" style="margin-top: -220px;">
   <div class="col-md-3 col-sm-3">
     <div class="row">
@@ -112,10 +103,14 @@
     <% if @user.pilote == true %>
       <div class="row">
          <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading text-center">
+            <% if @user == current_user %>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#pilotenotvalidate">
-            Informations non vérifiées
+            Mettre à jour
           </button>
+          <% else %>
+            Informations pilote
+          <% end %>
           </div>
            <div class="welcome">
            <%= render 'shared/user_doc' %>
