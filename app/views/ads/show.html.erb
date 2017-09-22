@@ -1,3 +1,5 @@
+<div class="bd-color">
+
 <div class="banner-show" style="height: 50vh;">
   <%= cl_image_tag @ad.photo, crop: :fill %>
   <% if @ad.booked == '1' %>
@@ -10,46 +12,119 @@
     </div>
   <% end %>
 </div>
+
+
+
+
+
+
 <div class="header-flat">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-        <div class="header-flat-details">
-          <div class="header-flat-owner  text-center">
-          <% if @ad.user.picture? %>
-            <p><%= cl_image_tag @ad.user.picture, class: "img-circle", width: "160", height: "160" %></p>
-            <% elsif @ad.user.facebook_picture_url? %>
-            <p><%= image_tag @ad.user.facebook_picture_url, class: "img-circle", width: "80", height: "80" %></p>
-            <% else %>
-            <%= image_tag "pilot.png", class: "img-circle", width: "80", height: "80" %>
-          <% end %>
-            <p><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default" %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+
+     <div id="flat-description">
+        <h2>A propos de ce vol</h2>
+        <p><%= @ad.description %></p>
+        <hr>
+        <div class="row">
+          <div class="col-md-5">
+            <div id="flat-data">
+          <div class="title-flat">
+          <%= image_tag "flight_param.png", width: "30" %>
+            Paramètre de vol</div>
+            <ul class="list-unstyled">
+              <li>Date du vol:  <strong><%= I18n.l(@ad.flight_date, format: :long)  %></strong></li>
+              <li>Lieu du vol: <strong><%= @ad.address.capitalize %></strong></li>
+
+            </ul>
+            <ul class="list-unstyled">
+              <li>Type d'ULM: <strong><%= @ad.category%></strong></li>
+              <li>Temps de vol approximatif:  <strong><%= @ad.flight_time %>mn</strong></li>
+            </ul>
+        </div>
           </div>
-          <div class="header-flat-name">
-          <p>Votre pilote : <%= @ad.user.first_name || @ad.user.name.capitalize %></p>
-            <p><h1>Pilote de <%= @ad.category %></h1></p>
-            <p><%= @ad.address.capitalize %></p>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #cacccd"></i>
-          </div>
+          <div class="col-md-5">
+            <div id="flat-data">
+          <div class="title-flat">
+          <%= image_tag "flight_param.png", width: "30" %>
+            Fiche de l'appareil</div>
+            <ul class="list-unstyled">
+              <li>Type:  </strong></li>
+              <li>Motorisation: </li>
+
+            </ul>
+            <ul class="list-unstyled">
+              <li>Couleur: <strong><%= @ad.category%></strong></li>
+              <li>Année de construction:  </li>
+              <li>Année de la dernière révision:</li>
+            </ul>
+        </div>
           </div>
         </div>
+        <hr>
+</div>
 
-      <div class="col-xs-12 col-sm-4">
-        <%= form_tag orders_path do %>
+
+
+
+
+<div id="mycarousel" class="carousel slide" data-ride="carousel" style="width: 100%;">
+  <ol class="carousel-indicators">
+    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#mycarousel" data-slide-to="1"></li>
+    <li data-target="#mycarousel" data-slide-to="2"></li>
+    <li data-target="#mycarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+   <div class="carousel-inner" role="listbox">
+    <div class="item">
+        <%= image_tag "paramoteur.jpg" %>
+    </div>
+    <div class="item">
+        <%= image_tag "pendulaire.jpg" %>
+    </div>
+    <div class="item">
+        <%= image_tag "autogire-feature.jpg" %>
+    </div>
+    <div class="item">
+        <%= image_tag "multiaxe.jpg" %>
+    </div>
+  </div>
+
+  <!-- Controls -->
+   <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+
+
+    </div>
+    <div class="col-xs-12 col-sm-4">
+   <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
+        <div class="text-center">
         <p style="font-size: 30px;">Balade en <%= @ad.category %> avec  <%= @ad.user.name %></p>
             <% if @ad.booked != '1'%>
-            <p style="font-size: 4em;"><%= @ad.price %>€</p>
+            <p style="font-size: 4em; color: #2A628F;"><%= @ad.price %>€</p>
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
  -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
                 <p><%= link_to "Envoyer une demande à #{@ad.user.name}", booking_message_ad_path, class: "btn btn-primary btn-gradient" %></p>
+        </div>
 <!--               <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: " btn btn-primary btn-gradient" %></p>
- --><!--               <%= submit_tag 'Réservez dès maintenant', :class => "btn btn-success btn-block"%>
  -->            <% else %>
               <p>Ce vol est réservé !</p>
               <% end %>
@@ -73,13 +148,40 @@
               </div>
             <% end %>
             <% end %>
-          </div>
+
+<div class="thumbnail">
+      <% if @ad.user.picture? %>
+            <p><%= cl_image_tag @ad.user.picture %></p>
+            <% elsif @ad.user.facebook_picture_url? %>
+            <p><%= image_tag @ad.user.facebook_picture_url %></p>
+            <% else %>
+            <%= image_tag "pilot.png" %>
+          <% end %>
+      <div class="caption">
+        <div class="text-center">
+          <h3>Votre pilote</h3>
+          <p><%= @ad.user.first_name || @ad.user.name.capitalize %></p>
+          <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #cacccd"></i>
+        </div>
+            <p><h1>Pilote de <%= @ad.category %></h1></p>
+
+            <p>Vols publiés: <%= Ad.where(user_id: @ad.user).count %></p>
+            <p><%= render 'shared/user_doc', user: @ad.user %></p>
+        <p class="text-center"><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default text-center" %></p>
       </div>
+    </div>
     </div>
   </div>
 </div>
 
-<div id="flat-description">
+</div>
+
+
+<!-- <div id="flat-description">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -122,15 +224,17 @@
             <ul class="list-unstyled">
             <% @daily_weather.each do |day| %>
               <li><%= Time.at(day.time).strftime('%d-%b-%Y') %><strong><%= day.summary %></strong></li>
-<!--               <li>Température Max: <strong><%= day.apparentTemperatureMax.round %> degres</strong></li>
- -->            <% end %>
+              <li>Température Max: <strong><%= day.apparentTemperatureMax.round %> degres</strong></li>
+            <% end %>
             </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
 <div class="card-show">
   <div id="map" style="width: 100%; height: 400px; pointer-events:none; border: 1px solid #dce0e0;"></div>
 </div>
@@ -150,13 +254,7 @@
       </div>
     </div>
 </div>
-
-
-
-
-
-
-
+</div>
 
 
 

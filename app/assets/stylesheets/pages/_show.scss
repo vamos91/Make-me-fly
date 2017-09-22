@@ -52,11 +52,14 @@
   font-size: 17px;
 }
 
+.bd-color{
+  background: #F5F5F5;
+}
+
 #flat-description {
   width: 100%;
-  background: #F5F5F5;
   padding: 50px 0;
-  padding-bottom: 100px;
+  padding-bottom: 10px;
   font-size: 14px;
   color: $gray;
 }
@@ -131,10 +134,10 @@
 .header-flat form {
   margin: 20px 0;
   margin-right: 0;
-  //background: $space-cadet;
+  background: white;
   padding: 30px;
-  border-radius: 5px;
-  border: 1px solid #E6E6E6;
+  //border-radius: 5px;
+  //border: 1px solid #E6E6E6;
  // box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 1);
 }
 
