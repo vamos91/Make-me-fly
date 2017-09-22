@@ -13,11 +13,10 @@
 
 .booking_message{
   position:absolute;
-  top:50%;
+  bottom: 0;
   left:3%;
   background-color: #C81232;
   padding: 4px 41px 11px;
-  border-radius: 25px;
 }
 
 .booking_message h2{
@@ -26,14 +25,20 @@
 
 }
 
+// .banner-show p{
+//   position: absolute;
+//   top: 41%;
+//   left: 10%;
+//   font-size: 50px;
+//   background: rgba(42,98,143,0.7); padding: 15px; margin-top: 20px;
+// }
 
 .place_libre{
   position:absolute;
-  top:50%;
+  bottom: 0;
   left:3%;
   background-color: $lapis-lazuli;
   padding: 4px 41px 11px;
-  border-radius: 25px;
 }
 
 .place_libre h2{

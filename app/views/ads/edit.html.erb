@@ -1,22 +1,24 @@
 <% if user_signed_in? %>
-<div class="banner-show banner-new-ad" style="height: 200px; font-weight: lighter;">
+<div class="banner-show banner-new-ad" style="height: 200px; font-weight: bold; font-size: 40px;">
 <p>Je modifie mon annonce</p>
 </div>
-  <div class="container">
+  <div class="container padded">
     <div class="row">
-      <div class="col-xs-12">
-        <div class="wrapper-registration">
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="wrapper-registration well">
           <%= simple_form_for(@ad) do |f| %>
           <div class="form-group">
-            <%= f.select :category, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire'], {} ,class: "form-control" %>
+          <%= f.input :titre, label: false, placeholder: "Ex: Vol au dessus des calanques en paramoteur", label: "Titre de l'annonce", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+
+            <%= f.select :category, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire'], {} ,class: "form-control", label: "Type d'appareil" %>
           </div>
-          <%= f.input :price, label: false, placeholder: "Prix" %>
-          <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire, nous décollerons de l'aérodrome de Poitier" %>
-          <%= f.input :flight_date, label: false, placeholder: "Date du vol"  %>
-          <%= f.input :photo, label: false, placeholder: "Photo de votre ULM" %>
+          <%= f.input :price, label: false, placeholder: "Prix", label: 'Tarif'  %>
+          <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire, nous décollerons de l'aérodrome de Poitier",:input_html => {:rows => 10}, label: 'Description' %>
+          <%= f.input :flight_date, label: false, label: "Date du vol"  %>
+          <%= f.input :photo, label: false, label: "Photo de votre appareil" %>
           <%= f.input :photo_cache, as: :hidden %>
-          <%= f.input :flight_time, label: false, placeholder: "Durée du vol" %>
-          <%= f.input :address, label: false, placeholder: "Nous décollerons de..."  %>
+          <%= f.input :flight_time, label: false, label: "Durée du vol" %>
+          <%= f.input :address, label: false, label: "Nous décollerons de..."  %>
           <%= f.button :submit, value: "Qui m'aime me suive..." %>
           <% end %>
         </div>

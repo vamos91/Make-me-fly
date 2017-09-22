@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807185125) do
+ActiveRecord::Schema.define(version: 20170922195646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,26 @@ ActiveRecord::Schema.define(version: 20170807185125) do
     t.string   "category"
     t.integer  "price_cents", default: 0,   null: false
     t.string   "booked",      default: "0"
+    t.string   "titre"
   end
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
+
+  create_table "aeronefs", force: :cascade do |t|
+    t.string   "type"
+    t.string   "nom"
+    t.string   "cylindre"
+    t.string   "annee"
+    t.string   "vitesse"
+    t.text     "equipement"
+    t.string   "autonomie"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "photos",     default: [],              array: true
+  end
+
+  add_index "aeronefs", ["user_id"], name: "index_aeronefs_on_user_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -199,6 +216,7 @@ ActiveRecord::Schema.define(version: 20170807185125) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "ads", "users"
+  add_foreign_key "aeronefs", "users"
   add_foreign_key "articles", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"

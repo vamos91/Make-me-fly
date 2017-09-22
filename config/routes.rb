@@ -61,6 +61,7 @@ end
       put "like" => "users#upvote"
       put "unlike" => "users#downvote"
       get :user_ads
+      get :aeronef
     end
     end
 

@@ -12,12 +12,6 @@
     </div>
   <% end %>
 </div>
-
-
-
-
-
-
 <div class="header-flat">
 <div class="container">
   <div class="row">
@@ -25,7 +19,7 @@
 
 
      <div id="flat-description">
-        <h2>A propos de ce vol</h2>
+        <h2><%= @ad.titre.capitalize %></h2>
         <p><%= @ad.description %></p>
         <hr>
         <div class="row">

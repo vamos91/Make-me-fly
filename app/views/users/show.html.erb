@@ -31,11 +31,15 @@
       </div>
 
       <% if @user == current_user %>
+      <div class="">
+            <%= link_to "Ajouter un appareil", %>
+          </div>
         <div class="button-article-profile">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalForm">
             Publiez un article
           </button>
           </div>
+
 
      <!--      <% if current_user.pilote? %>
         <% if current_user.pilotevalidation? %>
@@ -56,6 +60,7 @@
       <div class="button-ad-profile">
         <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %>
       </div>
+
       <% end %>
       <% if @user == current_user && current_user.pilote != nil %>
           <div class="btn btn-primary button-like-owner">
