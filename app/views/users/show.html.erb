@@ -14,70 +14,32 @@
 <% end %>
 <div class="bar-profile ">
   <div class="info-bar-profile navbar text-center">
-    <div class="navbar-wagon-right hidden-xs">
-     <% if @user.pilote == true %>
-      <div class="vertical-align info-item">
-        <p>Vols publiés</p>
-        <p><strong class="badge" style="padding: 4px;"><%= @user_ads.count %></strong></p>
-      </div>
-      <% end %>
-       <div class="vertical-align info-item">
-        <p>J'aime</p>
-        <p><strong class="badge" style="padding: 4px;">O</strong></p>
-      </div>
-       <div class="vertical-align info-item">
-        <p>Articles</p>
-        <p><strong class="badge" style="padding: 4px;"><%= @articles.count %></strong></p>
-      </div>
-
+    <div class="navbar-wagon-right hidden-xs col-md-6 margin-panel">
       <% if @user == current_user %>
       <div class="">
-            <%= link_to "Ajouter un appareil", %>
+         <div class="btn btn-primary">
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-primary"></span>J'aime
+            <span class="badge"><%= @user.get_upvotes.size %></span>
           </div>
-        <div class="button-article-profile">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalForm">
-            Publiez un article
-          </button>
+            <%= link_to "Ajouter un appareil", new_aeronef_path, class: "btn btn-primary" %>
           </div>
-
-
-     <!--      <% if current_user.pilote? %>
-        <% if current_user.pilotevalidation? %>
-          <div class="button-ad-profile">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Planifiez un vol
-          </button>
-          </div>
-        <% else %>
-          <div class="button-ad-profile">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Planifiez un vol
-          </button>
-          </div>
-        <% end %>
-      <% end %> -->
         <% else %>
       <div class="button-ad-profile">
         <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %>
-      </div>
-
-      <% end %>
-      <% if @user == current_user && current_user.pilote != nil %>
-          <div class="btn btn-primary button-like-owner">
-                    <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-primary"></span>J'aime
-                    <span class="badge"><%= @user.get_upvotes.size %></span>
-                </div>
-                <% else %>
-                <div>
+         <div>
                   <%= link_to like_user_path(@user), class: "btn btn-success button-like", method: :put do %>
                     <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-success"></span>J'aime
                     <span class="badge"><%= @user.get_upvotes.size %></span>
                   <% end %>
                 </div>
-        <% end %>
+      </div>
+
+      <% end %>
+
   </div>
 </div>
 </div>
+
 <div class="wrapper">
   <div class="container padded" style="margin-top: -220px;">
   <div class="col-md-3 col-sm-3">
@@ -161,6 +123,34 @@
   </div>
 <% end %>
 </div>
+
+      <div class="margin-panel">
+      <% @aeronefs.each do |aeronef| %>
+       <div id="flat-data">
+          <div class="title-flat">
+          <%= image_tag "flight_param.png", width: "30" %>
+            Fiche de l'appareil</div>
+            <ul class="list-unstyled">
+              <li>Type:  <strong><%= aeronef.aeronef_category %></strong></li>
+              <li>Marque:  <strong><%= aeronef.marque %></strong></li>
+              <li>Modèle:  <strong><%= aeronef.modele %></strong></li>
+
+            </ul>
+            <ul class="list-unstyled">
+              <li>Motorisation: <strong><%= aeronef.cylindre %></strong></li>
+              <li>Année de construction: <strong><%= aeronef.annee %></strong> </li>
+            </ul>
+             <ul class="list-unstyled">
+              <li>Autonomie: <strong><%= aeronef.autonomie %></strong></li>
+              <li>Vitesse: <strong><%= aeronef.vitesse %></strong></li>
+            </ul>
+            <ul class="list-unstyled">
+              <p>Equipements:</p>
+              <li><strong><%= aeronef.equipement %></strong></li>
+            </ul>
+        </div>
+      <% end %>
+      </div>
 
 
         <div class="row">

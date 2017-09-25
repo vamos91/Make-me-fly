@@ -154,7 +154,7 @@
       <div class="caption">
         <div class="text-center">
           <h3>Votre pilote</h3>
-          <p><%= @ad.user.first_name || @ad.user.name.capitalize %></p>
+          <p class="text-center"><%= link_to @ad.user.first_name || @ad.user.name.capitalize, user_path(@ad.user), class: "btn btn-default text-center" %></p>
           <i class="fa fa-star" style="color: #ffb400"></i>
             <i class="fa fa-star" style="color: #ffb400"></i>
             <i class="fa fa-star" style="color: #ffb400"></i>
@@ -165,7 +165,7 @@
 
             <p>Vols publiés: <%= Ad.where(user_id: @ad.user).count %></p>
             <p><%= render 'shared/user_doc', user: @ad.user %></p>
-        <p class="text-center"><%= link_to "Voir son profil", user_path(@ad.user), class: "btn btn-default text-center" %></p>
+            <p style="text-align: justify; padding: 20px;"><%= @ad.user.description %></p>
       </div>
     </div>
     </div>

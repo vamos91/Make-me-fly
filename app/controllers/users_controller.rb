@@ -45,6 +45,8 @@ before_action :find_user, only: [:upvote, :downvote]
    @ad = current_user.ads.build
    authorize @ad
 
+   @aeronefs = Aeronef.where(user_id: @user.id)
+
  end
 
  def edit

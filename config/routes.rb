@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     end
   end
 
+resources :aeronefs, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 resources :articles, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
   resources :posts, only: [:create]
@@ -61,7 +62,6 @@ end
       put "like" => "users#upvote"
       put "unlike" => "users#downvote"
       get :user_ads
-      get :aeronef
     end
     end
 

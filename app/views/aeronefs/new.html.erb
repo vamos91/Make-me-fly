@@ -7,14 +7,13 @@
         <div class="wrapper-registration well">
           <%= simple_form_for(@aeronef) do |f| %>
           <div class="form-group">
-          <%= f.input :nom, label: false, placeholder: "Ex: Vol au dessus des calanques en paramoteur", label: "Titre de l'annonce", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
-
-            <%= f.select :type, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire', 'Planeur', 'parapente'], {} ,class: "form-control", label: "Type d'appareil" %>
+            <%= f.select :aeronef_category, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire', 'Planeur', 'parapente'], {} ,class: "form-control", label: "Type d'appareil" %>
           </div>
-          <%= f.input :cylindre, label: false, placeholder: "Cylindré", label: 'Cylindré'  %>
-          <%= f.input :equipement, label: 'Equipement', placeholder: "Décrivez votre appareil ainsi que les équipements. Ajouter les petits plus qui personnalise votre aéronef. ",:input_html => {:rows => 10}, label: 'Equipement' %>
-          <%= f.input :photo, label: false, label: "Photo de votre appareil" %>
-          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :marque, label: 'Marque', placeholder: "Ex: ULTRAL'AIR" %>
+          <%= f.input :modele, label: 'Modele', placeholder: 'Ex: WEEDHOPPER AX3 -16' %>
+          <%= f.input :cylindre, label: false, placeholder: "Ex: 50ch", label: 'Cylindré'  %>
+          <%= f.input :equipement, label: 'Equipement', placeholder: "Décrivez votre appareil ainsi que les équipements. Ajouter les petits plus qui personnalisent votre aéronef. ",:input_html => {:rows => 10}, label: 'Equipement' %>
+          <%= f.input :photos, label: false, label: "Photo de votre appareil" %>
           <%= f.input :annee, label: false, label: "Année de construction" %>
           <%= f.input :vitesse, label: false, label: "Vitesse de pointe",placeholder: 'Ex: 250 km/h'  %>
           <%= f.input :autonomie, label: false, label: "Autonomie", placeholder: 'Ex: 2h30'  %>
