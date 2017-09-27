@@ -55,7 +55,7 @@
                       <div class="user-form">
                         <p>Donnez envie à votre passager de voler avec vous. Sortez votre appareil photo et montrez nous vos ULM !</p>
 
-                        <%= f.input :photo, label: false, placeholder: "Photo de votre ULM", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+                        <%= f.input :photo, label: false, placeholder: "Photo de votre appareil", label: "Photo de votre appareil", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
                         <%= f.input :photo_cache, as: :hidden %>
                         <p style="color: red;">Pour que votre annonce soit visible de tous, vous DEVEZ nous faire parvenir vos papiers <%= link_to "Complétez votre profil", edit_user_path(current_user), class: "title-welcome" %>
                           (brevet de pilote, licence en cours de validité, assurrance responsabilité civil).
