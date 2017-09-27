@@ -58,7 +58,9 @@
          <div class="reveal">
             <% @ads.each do |ad| %>
               <div class="col-xs-12 col-sm-12 col-md-4">
+                <% if ad.user.pilotevalidation == true %>
                 <%= render ad %>
+                <% end %>
               </div>
             <% end %>
           </div>

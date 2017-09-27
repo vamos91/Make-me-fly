@@ -26,9 +26,9 @@
       <% end %> -->
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-    <%= link_to articles_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
+  <!--   <%= link_to articles_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
         <i class="fa fa-comments-o" aria-hidden="true"></i> Fil d'actualité
-      <% end %>
+      <% end %> -->
       <%= link_to conversations_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
         <i class="fa fa-comments"></i> Mes messages <span class="label label-primary"><%= @messages.count %></span>
       <% end %>

@@ -18,7 +18,7 @@
         <div class="liste padded">
           <% @ads.each do |ad| %>
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <% if ad.flight_date >= DateTime.now %>
+            <% if ad.user.pilotevalidation = true %>
               <%= render ad %>
             <% end %>
             </div>

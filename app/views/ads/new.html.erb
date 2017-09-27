@@ -1,9 +1,32 @@
 <% if user_signed_in? %>
-<div class="banner-show banner-new-ad" style="height: 200px; font-weight: lighter;">
+<div class="banner-show banner-new-ad" style="height: 0px; font-weight: lighter;">
 <p>Publiez une nouvelle annonce</p>
 </div>
 <div class="wrapper-profile-dashboard top-spacing">
   <div class="container">
+    <div class="row margin-panel">
+       <% @aeronefs.each do |aeronef|%>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= cl_image_tag aeronef.photos %>
+      <div class="caption">
+        <h3><%= aeronef.marque %></h3>
+        <p><%= aeronef.modele %></p>
+        <p><%= link_to 'Modifier', edit_aeronef_path(aeronef), class: 'btn btn-primary' %></a>
+          <%= link_to 'Effacer', aeronef, method: :delete, class: 'btn btn-default' %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="col-sm-6 col-md-4">
+     <div class="thumbnail">
+      <%= link_to new_aeronef_path do %>
+      <i class="fa fa-plus-square vertical-center" style="font-size: 333px;" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
     <div class="col-md-8">
       <div class="row">
             <%= simple_form_for(@ad) do |f| %>
@@ -18,7 +41,7 @@
  Remplissez les détails de votre vol</div>
                  <div class="user-form">
                  <div class="form-group">
-                    <%= f.select :category, ['Multiaxe', 'Paramoteur', 'Pendulaire', 'Autogire'], {} ,class: "form-control", label: "Entrez votre catogorie d'ULM", wrapper: :horizontal_form, :style => "margin-bottom: 15px;" %>
+                    <%= f.select :category, options_for_select(@aeronefs.map{ |c| [c.marque, c.modele, {'data-currency_code'=>c.vitesse}] }), {} ,class: "form-control", label: "Entrez votre catogorie d'ULM", wrapper: :horizontal_form, :style => "margin-bottom: 15px;" %>
                     <%= f.input :flight_date, wrapper: :horizontal_form, label: false, placeholder: "Date du vol", label: "Quand comptez vous voler" %>
                     <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire, nous décollerons de l'aérodrome de Poitier",:input_html => {:rows => 10}, label: "Soyez créatif", wrapper: :horizontal_form %>
                     <%= f.input :address, label: false, placeholder: "Ex: Antibes", label: "Nous décollerons de...", wrapper: :horizontal_form %>
@@ -31,9 +54,17 @@
                     <div class="panel-heading">Fortemment recommandé</div>
                       <div class="user-form">
                         <p>Donnez envie à votre passager de voler avec vous. Sortez votre appareil photo et montrez nous vos ULM !</p>
+
                         <%= f.input :photo, label: false, placeholder: "Photo de votre ULM", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
                         <%= f.input :photo_cache, as: :hidden %>
+                        <p style="color: red;">Pour que votre annonce soit visible de tous, vous DEVEZ nous faire parvenir vos papiers <%= link_to "Complétez votre profil", edit_user_path(current_user), class: "title-welcome" %>
+                          (brevet de pilote, licence en cours de validité, assurrance responsabilité civil).
+                        </p>
+                        <% if @aeronefs.empty? %>
+                        <%= link_to "Veuillez ajouter un appareil", new_aeronef_path, class: "btn btn-default pull-right" %>
+                        <% else %>
                         <%= f.button :submit, value: "Qui m'aime me suive...", class: "pull-right" %>
+                        <% end %>
                       </div>
                     </div>
                 <% end %>

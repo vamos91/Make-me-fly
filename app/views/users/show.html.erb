@@ -1,4 +1,6 @@
-<div class="wrapper-profile-dashboard top-spacing">
+<div class="wrapper-profile-dashboard top-spacing bd-color">
+  <div class="text-center">
+    </div>
 <% if @user.picture_ulm_user? %>
   <div class="banner-show">
    <%= cl_image_tag @user.picture_ulm_user %>
@@ -14,25 +16,26 @@
 <% end %>
 <div class="bar-profile ">
   <div class="info-bar-profile navbar text-center">
-    <div class="navbar-wagon-right hidden-xs col-md-6 margin-panel">
-      <% if @user == current_user %>
-      <div class="">
+    <div class="hidden-xs col-md-6 margin-panel">
+      <% if @user == current_user && current_user.pilote? %>
+      <div class="pull-left">
          <div class="btn btn-primary">
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-primary"></span>J'aime
             <span class="badge"><%= @user.get_upvotes.size %></span>
           </div>
             <%= link_to "Ajouter un appareil", new_aeronef_path, class: "btn btn-primary" %>
           </div>
+
         <% else %>
-      <div class="button-ad-profile">
-        <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %>
-         <div>
-                  <%= link_to like_user_path(@user), class: "btn btn-success button-like", method: :put do %>
-                    <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-success"></span>J'aime
-                    <span class="badge"><%= @user.get_upvotes.size %></span>
-                  <% end %>
-                </div>
-      </div>
+        <% unless params[:ad].blank? %>
+          <%= link_to "Revenir vers l'annonce", ad_path(params[:ad]), class: "btn btn-primary" %>
+          <%= link_to "Envoyer une demande", booking_message_ad_path(params[:ad]), class: "btn btn-primary" %>
+        <% end %>
+       <!--  <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %> -->
+            <%= link_to like_user_path(@user), class: "btn btn-success pull-left", method: :put do %>
+            <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-success"></span>J'aime
+            <span class="badge"><%= @user.get_upvotes.size %></span>
+          <% end %>
 
       <% end %>
 
@@ -128,29 +131,81 @@
       <% @aeronefs.each do |aeronef| %>
        <div id="flat-data">
           <div class="title-flat">
-          <%= image_tag "flight_param.png", width: "30" %>
-            Fiche de l'appareil</div>
+
+            <strong>Mon appareil:</strong>
+            <%= aeronef.marque %>, <%= aeronef.modele %>
+          </div>
+             <%= cl_image_tag aeronef.photos, width: "80%" %>
+            <% if policy(aeronef).update? %>
+              <div class="dropdown">
+              <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-sort-desc"></span>
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><%= link_to "Mettre à jour", edit_aeronef_path(aeronef) %></li>
+                <li><%= link_to "Effacer", aeronef, method: :delete %></li>
+              </ul>
+            </div>
+            <% end %>
+
+<div class="row">
+  <div class="title-flat">
+            <%= image_tag "flight_param.png", width: "30" %>
+            Fiche de l'appareil
+          </div>
+          <div class="col-md-5">
+            <div id="flat-data">
             <ul class="list-unstyled">
               <li>Type:  <strong><%= aeronef.aeronef_category %></strong></li>
               <li>Marque:  <strong><%= aeronef.marque %></strong></li>
               <li>Modèle:  <strong><%= aeronef.modele %></strong></li>
+            </ul>
+            <ul class="list-unstyled">
 
+            </ul>
+        </div>
+          </div>
+          <div class="col-md-5">
+            <div id="flat-data">
+          <div class="title-flat">
+            </div>
+            <ul class="list-unstyled">
+              <li>Autonomie: <strong><%= aeronef.autonomie %></strong></li>
+              <li>Vitesse: <strong><%= aeronef.vitesse %></strong></li>
             </ul>
             <ul class="list-unstyled">
               <li>Motorisation: <strong><%= aeronef.cylindre %></strong></li>
               <li>Année de construction: <strong><%= aeronef.annee %></strong> </li>
             </ul>
-             <ul class="list-unstyled">
-              <li>Autonomie: <strong><%= aeronef.autonomie %></strong></li>
-              <li>Vitesse: <strong><%= aeronef.vitesse %></strong></li>
+        </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="flat-data">
+               <div class="title-flat">
+                Equipement:
+            </div>
+               <ul class="list-unstyled" style="padding-left: 20px; text-align: justify;">
+              <li><%= aeronef.equipement %></li>
             </ul>
-            <ul class="list-unstyled">
-              <p>Equipements:</p>
-              <li><strong><%= aeronef.equipement %></strong></li>
-            </ul>
+            </div>
+
+          </div>
+        </div>
         </div>
       <% end %>
-      </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
         <div class="row">
@@ -220,7 +275,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-3">
-            <div class="panel panel-default">
+           <!--  <div class="panel panel-default">
               <div class="panel-heading"><strong>Contacts proches de
               <% if @user == current_user %>
                 moi
@@ -252,14 +307,13 @@
                 </div>
               <% end %>
               <% end %>
-            </div>
+            </div> -->
         </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
 

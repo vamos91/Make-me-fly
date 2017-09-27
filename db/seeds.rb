@@ -34,9 +34,9 @@
 #   end
 # end
 
-5.times do
-  Aeronef.create!(type: 'toto', nom: 'estive', cylindre: '40CV', annee: '1999', equipement: 'plein de truc', vitesse: '200km/h')
-end
+# 5.times do
+#   Aeronef.create!(type: 'toto', nom: 'estive', cylindre: '40CV', annee: '1999', equipement: 'plein de truc', vitesse: '200km/h')
+# end
 
 
 # puts "#{User.count} user, #{Ad.count} et #{Article.count} annonces crées !"
