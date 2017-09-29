@@ -5,8 +5,10 @@
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restaurer', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <%= link_to 'Envoyer à la corbeille', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
+      <%= link_to conversation_path(conversation), class: 'btn btn-lg btn-danger', method: :delete, data: {confirm: 'Are you sure?'} do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+
       <% if conversation.is_unread?(current_user) %>
         <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation),
         class: 'btn btn-xs btn-info', method: :post %>

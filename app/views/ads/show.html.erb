@@ -34,8 +34,8 @@
 
             </ul>
             <ul class="list-unstyled">
-              <li>Type d'ULM: <strong><%= @ad.category%></strong></li>
-              <li>Temps de vol approximatif:  <strong><%= @ad.flight_time %>mn</strong></li>
+              <li>Type d'aéronef: <strong></strong></li>
+              <li>Marque: </li>
             </ul>
         </div>
           </div>
@@ -52,7 +52,6 @@
             <ul class="list-unstyled">
               <li>Couleur: <strong><%= @ad.category%></strong></li>
               <li>Année de construction:  </li>
-              <li>Année de la dernière révision:</li>
             </ul>
         </div>
           </div>
@@ -106,7 +105,8 @@
 
 
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-4 padded">
+      <div class="thumbnail">
    <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
         <div class="text-center">
@@ -143,7 +143,7 @@
               </div>
             <% end %>
             <% end %>
-
+</div>
 <div class="thumbnail">
       <% if @ad.user.picture? %>
             <p><%= cl_image_tag @ad.user.picture %></p>

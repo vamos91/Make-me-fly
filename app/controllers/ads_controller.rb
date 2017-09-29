@@ -14,6 +14,8 @@ class AdsController < ApplicationController
 
  def show
    find_ad
+   # user_ad = User.where(id: @ad.user_id)
+   # @aeronefs = Aeronef.find_by_id(user_ad.id)
    @ads = Ad.where(["flight_date >= ? and user_id = ?", DateTime.now, @ad.user])
    @markers = Gmaps4rails.build_markers(@ad) do |ad, marker|
       marker.lat ad.latitude
@@ -67,8 +69,8 @@ class AdsController < ApplicationController
 
  def new
     @aeronefs = Aeronef.where(user_id: current_user.id)
+
    # @user = ad_user.user_id
-      #si le user est un pilote il peut faire une annonce sinon il doit s'identifier comme pilote et remplir son profil
     if user_signed_in? && current_user.pilote?
       @ad = current_user.ads.build
       authorize @ad
@@ -81,6 +83,10 @@ class AdsController < ApplicationController
     @ad = current_user.ads.build(ad_params)
     #@ad.price = (@ad.price*1.1)
     authorize @ad
+    # aeronef = Aeronef.where(params[:aeronef.id])
+    # @ad.aeronef_id = aeronef.id
+
+
 
     if @ad.save
       AdMailer.creation_confirmation(@ad).deliver_now
@@ -161,7 +167,7 @@ end
   private
 # # update et create
   def ad_params
-    params.require(:ad).permit(:description, :date, :price, :flight_date, :flight_time, :address, :photo, :photo_cache, :category, :titre)
+    params.require(:ad).permit(:aeronef_id, :description, :date, :price, :flight_date, :flight_time, :address, :photo, :photo_cache, :category, :titre)
   end
 
   def find_ad

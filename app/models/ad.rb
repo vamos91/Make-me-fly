@@ -7,7 +7,7 @@ class Ad < ActiveRecord::Base
   validates :user, presence: true
 
   belongs_to :user
-
+  belongs_to :aeronef
   mount_uploader :photo, PhotoUploader
   monetize :price_cents
 

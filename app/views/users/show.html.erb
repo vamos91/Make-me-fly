@@ -138,8 +138,8 @@
              <%= cl_image_tag aeronef.photos, width: "80%" %>
             <% if policy(aeronef).update? %>
               <div class="dropdown">
-              <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="fa fa-sort-desc"></span>
+              <div class="dropdown-toggle btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-bars" aria-hidden="true"></i>
               </div>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li><%= link_to "Mettre à jour", edit_aeronef_path(aeronef) %></li>
