@@ -128,9 +128,15 @@ class AdsController < ApplicationController
 
   def search
     @city = params[:q]
-    @plane = params[:multiple]
+    @planes = params[:multiple]
     @date = params[:date]
     @category = params[:category]
+    @all_flight = params[:all_flight]
+    if @all_flight == 'all_flight'
+      @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
+
+    else
+
     if @category.present?
       @ads = Ad.where("flight_date >= ? and category = ?", DateTime.now, @category).order(created_at: :desc)
       if @ads.count == 0
@@ -140,27 +146,32 @@ class AdsController < ApplicationController
     if @city.blank?
       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
     else
-      if @plane == ["Aéronef"]
-        @ads = Ad.near(@city, 100, :units => :km)
+      if @planes == ["Aéronef"]
+        @ads = Ad.near(@city, 200, :units => :km)
       else
         if @date.blank?
-          @ads_category = Ad.where("flight_date >= ? and category = ?", DateTime.now, @plane).order(created_at: :desc)
-          @ads = @ads_category.near(@city, 100, :units => :km)
+          @ads_category = Ad.where("flight_date >= ? and category = ?", DateTime.now, @planes).order(created_at: :desc)
+          @ads = @ads_category.near(@city, 200, :units => :km)
         else
-          @ads_category = Ad.where("flight_date = ? and category = ?", @date, @plane).order(created_at: :desc)
-          @ads = @ads_category.near(@city, 100, :units => :km)
+           @ads = Ad.where("flight_date = ? and category = ?", @date, @planes).order(created_at: :desc)
+          @ads = @ads_category.near(@city, 200, :units => :km)
           if @ads.empty?
             redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
           end
         end
     end
     # Let's DYNAMICALLY build the markers for the view.
-    @markers = Gmaps4rails.build_markers(@ads) do |ad, marker|
+
+  end
+end
+end
+
+
+
+@markers = Gmaps4rails.build_markers(@ads) do |ad, marker|
       marker.lat ad.latitude
       marker.lng ad.longitude
     end
-  end
-end
 end
 
 #--------------------------------------------------------
