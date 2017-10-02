@@ -22,6 +22,8 @@ class AdsController < ApplicationController
       marker.lng ad.longitude
     end
 
+    @aeronef = Aeronef.where(id: @ad.aeronef)
+
    @forecast = Forecast.new(
     lat: @ad.latitude,
     lng: @ad.longitude
@@ -69,7 +71,7 @@ class AdsController < ApplicationController
 
  def new
     @aeronefs = Aeronef.where(user_id: current_user.id)
-
+    authorize @aeronefs
    # @user = ad_user.user_id
     if user_signed_in? && current_user.pilote?
       @ad = current_user.ads.build
@@ -86,7 +88,8 @@ class AdsController < ApplicationController
     # aeronef = Aeronef.where(params[:aeronef.id])
     # @ad.aeronef_id = aeronef.id
 
-
+    aeronef = params[:ad][:category]
+    @ad.aeronef_id = aeronef
 
     if @ad.save
       AdMailer.creation_confirmation(@ad).deliver_now
