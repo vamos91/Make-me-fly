@@ -41,7 +41,7 @@
           <div class="col-md-6">
             <div id="flat-data">
           <div class="title-flat">
-          <%= image_tag "flight_param.png", width: "30" %>
+          <%= image_tag "checklist.png", width: "30" %>
             Fiche de l'appareil</div>
             <ul class="list-unstyled">
               <li>Type d'aéronef: <strong><%= @ad.aeronef.aeronef_category %></strong></li>
@@ -59,8 +59,9 @@
         <hr>
 </div>
 
-
-<%= cl_image_tag @ad.aeronef.photos, width: "100%" %>
+<div class="padded">
+  <%= cl_image_tag @ad.aeronef.photos, width: "100%" %>
+</div>
 
 
 <div class="title-flat">Equipements:</div>
