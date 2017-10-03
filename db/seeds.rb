@@ -39,6 +39,9 @@
 # end
 
 
+Review.create!(reviewer_id: 7, reviewed_id: 5, description: 'Lorem upsum', user_id: 5)
+
+
 # puts "#{User.count} user, #{Ad.count} et #{Article.count} annonces crées !"
 # password = Faker::Internet.password(8)
 #   user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password, pilote: true)

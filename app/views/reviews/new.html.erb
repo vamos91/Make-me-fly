@@ -1,0 +1,21 @@
+<div class="banner-show banner-new-ad" style="height: 200px; font-weight: bold; font-size: 40px;">
+  <% user = User.find(params[:reviewed]) %>
+<p>Donnez un commentaire à <%= user.name %></p>
+
+</div>
+  <div class="container padded" style="height: 100vh;">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="wrapper-registration well">
+          <%= simple_form_for(@review) do |f| %>
+          <%= f.hidden_field :reviewed_id, :value =>params[:reviewed] %>
+          <%= f.input :description, label: 'Votre commentaire', placeholder: "Votre commentaire ",:input_html => {:rows => 10}, label: 'Commentaire' %>
+          <%= f.button :submit, value: "Ajouter ce commentaire" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

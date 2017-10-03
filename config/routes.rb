@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  # get 'reviews/index'
+
+  # get 'reviews/new'
+
+  # get 'reviews/create'
+
+  # get 'reviews/show'
+
+  # get 'reviews/update'
+
+  # get 'reviews/destroy'
+
   get 'messages/new'
 
   get 'messages/create'
@@ -66,6 +78,7 @@ end
     end
 
   resources :users, only: [:index]
+  resources :reviews, only: [:index, :new, :create]
 
   # authenticated :user do
   #   root :to => 'articles#index', as: :authenticated_root

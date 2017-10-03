@@ -27,6 +27,7 @@
           </div>
 
         <% else %>
+
         <% unless params[:ad].blank? %>
           <%= link_to "Revenir vers l'annonce", ad_path(params[:ad]), class: "btn btn-primary" %>
           <%= link_to "Envoyer une demande", booking_message_ad_path(params[:ad]), class: "btn btn-primary" %>
@@ -36,7 +37,7 @@
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-success"></span>J'aime
             <span class="badge"><%= @user.get_upvotes.size %></span>
           <% end %>
-
+        <%= link_to "donner un avis", new_review_path(:reviewed => @user.id), class: "btn btn-primary" %>
       <% end %>
 
   </div>
@@ -86,6 +87,20 @@
            <%= render 'shared/user_doc' %>
            </div>
         </div>
+      </div>
+       <div class="row">
+
+        <div class="row">
+         <div class="panel panel-default">
+          <div class="panel-heading text-center">
+
+          </div>
+           <div class="welcome">
+           <h1>Commentaires</h1>
+           </div>
+        </div>
+      </div>
+
       </div>
     <% end %>
     </div>
