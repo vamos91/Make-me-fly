@@ -31,6 +31,9 @@ class AdsController < ApplicationController
    @weather = @forecast.get_weather_data
    @current_weather = @weather.currently
    @daily_weather = @weather.daily.data.first(5)
+
+   @reviews = Review.where(reviewed_id: @ad.user)
+
  end
 
  def booked

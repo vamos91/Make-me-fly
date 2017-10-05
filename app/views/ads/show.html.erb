@@ -173,6 +173,14 @@
             <p style="text-align: justify; padding: 20px;"><%= @ad.user.description %></p>
       </div>
     </div>
+    <% unless @reviews.empty? %>
+      <div class="thumbnail">
+      <% @reviews.each do |review| %>
+        <p><%= review.description %></p>
+     <% end %>
+    </div>
+    <% end %>
+
     </div>
   </div>
 </div>

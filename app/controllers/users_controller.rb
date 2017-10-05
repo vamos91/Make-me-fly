@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
 #skip_before_action :authenticate_user!
 before_action :find_user, only: [:upvote, :downvote]
@@ -46,6 +47,8 @@ before_action :find_user, only: [:upvote, :downvote]
    authorize @ad
 
    @aeronefs = Aeronef.where(user_id: @user.id)
+   @reviews = Review.where(reviewed_id: @user.id)
+
 
  end
 
