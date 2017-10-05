@@ -90,18 +90,6 @@
       </div>
        <div class="row">
 
-        <div class="row">
-         <div class="panel panel-default">
-          <div class="panel-heading text-center">
-            <%= link_to "donner un avis", new_review_path(:reviewed => @user.id), class: "btn btn-primary" %>
-          </div>
-           <div class="welcome">
-           <% @reviews.each do |review| %>
-            <p><%= review.description %></p>
-           <% end %>
-           </div>
-        </div>
-      </div>
 
       </div>
     <% end %>
@@ -207,7 +195,6 @@
               <li><%= aeronef.equipement %></li>
             </ul>
             </div>
-
           </div>
         </div>
         </div>
@@ -215,10 +202,18 @@
 
 
 
-
-
-
-
+      <div class="row padded">
+        <div class="col-sm-12">
+          <div class="panel-heading text-center">Commentaires:
+            <% unless @user == current_user %>
+            <%= link_to "donner un avis", new_review_path(:reviewed => @user.id), class: "btn btn-primary" %>
+          <% end %>
+          </div>
+           <div class="welcome">
+          <%= render 'reviews/review' %>
+           </div>
+        </div>
+      </div>
 
 
 

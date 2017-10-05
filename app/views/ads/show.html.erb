@@ -67,6 +67,7 @@
 <div class="title-flat">Equipements:</div>
 <p style="text-align: justify;"><%= @ad.aeronef.equipement %></p>
 
+
 <!-- <div id="mycarousel" class="carousel slide" data-ride="carousel" style="width: 100%;">
   <ol class="carousel-indicators">
     <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
@@ -174,10 +175,9 @@
       </div>
     </div>
     <% unless @reviews.empty? %>
+    <%= @reviews.count %> commentaires:
       <div class="thumbnail">
-      <% @reviews.each do |review| %>
-        <p><%= review.description %></p>
-     <% end %>
+      <%= render 'reviews/review', ad: "ad" %>
     </div>
     <% end %>
 
@@ -245,6 +245,14 @@
 <div class="card-show">
   <div id="map" style="width: 100%; height: 400px; pointer-events:none; border: 1px solid #dce0e0;"></div>
 </div>
+
+
+
+
+
+
+
+
 <div class="wrapper-card padded">
 <div style="font-weight: lighter; text-align: center;">
   <h4>Les autres vols proposés par <strong><%= @ad.user.first_name || @ad.user.name.capitalize %></strong></h4>

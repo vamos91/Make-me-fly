@@ -1,6 +1,6 @@
 
  <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
-    <div class="card-category"><%= ad.category %></div>
+    <div class="card-category"><%= ad.aeronef.try(:aeronef_category) %></div>
     <div style="position: absolute; left: 10px; top: 22px;">
     <% if ad.booked == '1' %>
       <p style="color: #C81232;">Vol réservé !</p>

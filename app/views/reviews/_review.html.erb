@@ -1,0 +1,16 @@
+ <% @reviews.each do |review| %>
+ <% user = User.find(review.user_id) %>
+    <div class="media" style="border-top: 2px solid white; padding: 15px;">
+      <div class="media-left">
+          <% if current_page?(ad_path) %>
+          <%= render 'shared/reviews_photo_small', user: user %>
+          <% else %>
+           <%= render 'shared/reviews_photo', user: user %>
+          <% end %>
+            </div>
+            <div class="media-body" style="padding-left: 15px; border-left: 3px solid lightgrey">
+              <h4 class="media-heading" style="font-size: 25px;"><%= User.find(review.user_id).name %></h4>
+              <p style="font-size: 15px;"><%= review.description %></p>
+            </div>
+          </div>
+           <% end %>
