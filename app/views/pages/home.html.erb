@@ -287,6 +287,7 @@
       <div class="row">
           <% @users_pilote.each do |pilote| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
+          <% if pilote.description.present? %>
            <% if pilote.picture? %>
             <%= cl_image_tag pilote.picture,class: "img-circle", width: "180", height: "180" %>
             <% elsif pilote.facebook_picture_url? %>
@@ -294,18 +295,17 @@
             <% else %>
               <%= image_tag "pilot.png", class: "img-circle", width: "180", height: "180" %>
           <% end %>
+
           <h4><%= pilote.name || pilote.first_name %></h4>
-           <h4>Inscrit le <%= pilote.message_time_user %></h4>
-           <h4><% description = pilote.description %></h4>
-           <h4><%= description || description.split %></h4>
+           <% description = pilote.description %>
+           <% description = description.split.first(10) %>
+          <h4><i><%= description.to_sentence.gsub(',', '')+ ' ' +'[...]' %></i></h4>
+          <% end %>
             </div>
          <% end %>
       </div>
     </div>
   </div>
-
-
-
 <% end %>
 
 
