@@ -9,7 +9,7 @@
         <div class="wrapper-registration well">
           <%= simple_form_for(@review) do |f| %>
           <%= f.hidden_field :reviewed_id, :value =>params[:reviewed] %>
-          <%= f.input :description, label: 'Votre commentaire', placeholder: "Votre commentaire ",:input_html => {:rows => 10}, label: 'Commentaire' %>
+          <%= f.input :description, label: 'Votre commentaire', placeholder: "Votre commentaire ",:input_html => {:rows => 10}, label: false %>
           <%= f.button :submit, value: "Ajouter ce commentaire" %>
           <% end %>
         </div>

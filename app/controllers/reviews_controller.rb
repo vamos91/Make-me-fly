@@ -14,9 +14,9 @@ class ReviewsController < ApplicationController
      @review = current_user.reviews.build(review_params)
      authorize @review
      @review.reviewed_id = params[:review][:reviewed_id]
-     #@review.user_id = params[:review][:reviewed_id]
+     @user = @review.reviewed_id
     if @review.save
-      redirect_to root_path, notice: 'commentaire ajouté.'
+      redirect_to user_path(@user), notice: 'commentaire ajouté.'
     end
   end
 

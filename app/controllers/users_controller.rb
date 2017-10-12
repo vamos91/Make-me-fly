@@ -49,6 +49,9 @@ before_action :find_user, only: [:upvote, :downvote]
    @aeronefs = Aeronef.where(user_id: @user.id)
    @reviews = Review.where(reviewed_id: @user.id)
 
+   @review = current_user.reviews.build
+   #authorize @review
+
 
  end
 

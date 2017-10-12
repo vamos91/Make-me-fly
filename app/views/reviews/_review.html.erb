@@ -1,16 +1,49 @@
  <% @reviews.each do |review| %>
  <% user = User.find(review.user_id) %>
-    <div class="media" style="border-top: 2px solid white; padding: 15px;">
+    <div class="media" style="border-top: 2px solid lightgrey; padding: 15px; background-color: white">
       <div class="media-left">
           <% if current_page?(ad_path) %>
-          <%= render 'shared/reviews_photo_small', user: user %>
+          <%= render 'shared/reviews_photo', user: user %>
           <% else %>
            <%= render 'shared/reviews_photo', user: user %>
           <% end %>
             </div>
             <div class="media-body" style="padding-left: 15px; border-left: 3px solid lightgrey">
-              <h4 class="media-heading" style="font-size: 25px;"><%= User.find(review.user_id).name %></h4>
+              <h4 class="media-heading" style="font-size: 25px;"><%= link_to User.find(review.user_id).name, user_path(user) %></h4>
               <p style="font-size: 15px;"><%= review.description %></p>
             </div>
           </div>
            <% end %>
+      <% if current_page?(user_path) && current_user != @user %>
+        <div class="media" style="border-top: 2px solid lightgrey; padding: 15px; background-color: white">
+         <div class="media-left">
+           <%= render 'shared/reviews_photo', user: current_user %>
+            </div>
+            <div class="media-body" style="padding-left: 15px; border-left: 3px solid lightgrey">
+              <h4 class="media-heading" style="font-size: 25px;"><%= current_user.name %></h4>
+              <p style="font-size: 15px;">
+                 <%= simple_form_for(@review) do |f| %>
+              <%= f.hidden_field :reviewed_id, :value => user_id %>
+              <div class="form-group-review" style="padding: 20px; padding-top: 0; height: 50px;">
+              <%= f.input :description, label: false, placeholder: "Votre commentaire ",:input_html => {:rows => 10}, label: false %>
+              </div>
+              <%= f.button :submit, value: "Ajouter ce commentaire" %>
+              <% end %>
+                </p>
+            </div>
+          </div>
+      <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

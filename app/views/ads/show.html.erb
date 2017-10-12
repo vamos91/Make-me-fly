@@ -67,6 +67,19 @@
 <div class="title-flat">Equipements:</div>
 <p style="text-align: justify;"><%= @ad.aeronef.equipement %></p>
 
+ <div class="row padded">
+        <div class="col-sm-12">
+          <div class="panel-heading">
+            <% unless @reviews.count == 0 %>
+            <%= @reviews.count %> Commentaires:
+            <% end %>
+          </div>
+           <div class="welcome">
+          <%= render 'reviews/review', user_id: @ad.user_id %>
+           </div>
+        </div>
+      </div>
+
 
 <!-- <div id="mycarousel" class="carousel slide" data-ride="carousel" style="width: 100%;">
   <ol class="carousel-indicators">
@@ -115,7 +128,7 @@
    <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
         <div class="text-center">
-        <p style="font-size: 30px;">Balade en <%= @ad.category %> avec  <%= @ad.user.name %></p>
+        <p style="font-size: 30px;">Balade en <%= @ad.aeronef.aeronef_category %> avec  <%= @ad.user.name %></p>
             <% if @ad.booked != '1'%>
             <p style="font-size: 4em; color: #2A628F;"><%= @ad.price %>€</p>
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
@@ -174,12 +187,7 @@
             <p style="text-align: justify; padding: 20px;"><%= @ad.user.description %></p>
       </div>
     </div>
-    <% unless @reviews.empty? %>
-    <%= @reviews.count %> commentaires:
-      <div class="thumbnail">
-      <%= render 'reviews/review', ad: "ad" %>
-    </div>
-    <% end %>
+
 
     </div>
   </div>

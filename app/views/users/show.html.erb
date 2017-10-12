@@ -204,13 +204,16 @@
 
       <div class="row padded">
         <div class="col-sm-12">
-          <div class="panel-heading text-center">Commentaires:
-            <% unless @user == current_user %>
+          <div class="panel-heading">
+            <% unless @reviews.count == 0 %>
+            <%= @reviews.count %> Commentaires:
+            <% end %>
+  <!--           <% unless @user == current_user %>
             <%= link_to "donner un avis", new_review_path(:reviewed => @user.id), class: "btn btn-primary" %>
-          <% end %>
+          <% end %> -->
           </div>
            <div class="welcome">
-          <%= render 'reviews/review' %>
+          <%= render 'reviews/review', user_id: @user.id %>
            </div>
         </div>
       </div>

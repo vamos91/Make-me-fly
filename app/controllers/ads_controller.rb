@@ -12,6 +12,7 @@ class AdsController < ApplicationController
    authorize @total_ads
  end
 
+
  def show
    find_ad
    # user_ad = User.where(id: @ad.user_id)

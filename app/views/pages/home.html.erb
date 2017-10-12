@@ -296,6 +296,8 @@
           <% end %>
           <h4><%= pilote.name || pilote.first_name %></h4>
            <h4>Inscrit le <%= pilote.message_time_user %></h4>
+           <h4><% description = pilote.description %></h4>
+           <h4><%= description || description.split %></h4>
             </div>
          <% end %>
       </div>

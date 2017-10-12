@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   skip_after_action :verify_authorized
 
+ def get_count(description)
+    description.split.count
+ end
+
   def home
     @users_pilote = User.where(pilote: true).order(id: :desc).limit(3)
     @pilote = User.where(pilote: true)
@@ -20,6 +24,8 @@ class PagesController < ApplicationController
     end
     @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
   end
+
+
 
   def dashboard
     if params[:pilote] == 'true'
