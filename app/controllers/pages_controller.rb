@@ -11,12 +11,13 @@ class PagesController < ApplicationController
     @users_pilote = User.where(pilote: true).order(id: :desc).limit(3)
     @pilote = User.where(pilote: true)
 
-    @pendulaires = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Pendulaire")
-    @multiaxe = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Multiaxe")
-    @paramoteur = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Paramoteur")
-    @autogire = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Autogire")
-    @planeur = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Planeur")
-    @parapente = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Parapente")
+   # @pendulaires = Ad.where("flight_date >= ? and category = ?", DateTime.now, "Pendulaire")
+    @pendulaires = Aeronef.where("aeronef_category = ?", "Pendulaire").joins(:ads).where("flight_date >= ?", DateTime.now)
+    @multiaxe = Aeronef.where("aeronef_category = ?", "Multiaxe").joins(:ads).where("flight_date >= ?", DateTime.now)
+    @paramoteur = Aeronef.where("aeronef_category = ?", "Paramoteur").joins(:ads).where("flight_date >= ?", DateTime.now)
+    @autogire = Aeronef.where("aeronef_category = ?", "Autogire").joins(:ads).where("flight_date >= ?", DateTime.now)
+    @planeur = Aeronef.where("aeronef_category = ?", "Planeur").joins(:ads).where("flight_date >= ?", DateTime.now)
+    @parapente = Aeronef.where("aeronef_category = ?", "Parapente").joins(:ads).where("flight_date >= ?", DateTime.now)
 
 
     if user_signed_in?

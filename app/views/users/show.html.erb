@@ -141,7 +141,8 @@
             <%= aeronef.marque %>, <%= aeronef.modele %>
           </div>
              <%= cl_image_tag aeronef.photos, width: "80%" %>
-            <% if policy(aeronef).update? %>
+            <% if @user == current_user %>
+            <% if policy(@aeronef).update? %>
               <div class="dropdown">
               <div class="dropdown-toggle btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fa fa-bars" aria-hidden="true"></i>
@@ -152,11 +153,12 @@
               </ul>
             </div>
             <% end %>
+            <% end %>
 
 <div class="row">
   <div class="title-flat">
-            <%= image_tag "checklist.png", width: "30" %>
-            Fiche de l'appareil
+            <p></p>
+            <%= image_tag "checklist.png", width: "30" %>Fiche de l'appareil
           </div>
           <div class="col-md-5">
             <div id="flat-data">

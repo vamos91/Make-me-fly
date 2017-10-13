@@ -221,7 +221,9 @@ margin-top: 10px;
   font-size: 40px;
   font-weight: bold;
   color: white;
-  padding: 40px;
+  padding: 55px;
+  background-color: #3E92CC;
+  height: 500px;
 }
 
 //--------------------------------------------------------
@@ -249,7 +251,7 @@ margin-top: 10px;
     font-size: 15px;
   }
   .banner p {
-    font-size: 15px;
+    font-size: 21px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 20px;
@@ -259,16 +261,23 @@ margin-top: 10px;
     display: none;
   }
 
+  .pilote-wrapper{
+    height: 700px;
+  }
+
   .pilote-wrapper p{
-    font-size: 12px;
+    font-size: 22px;
   }
 
   .pilote-wrapper h4{
     display: none;
   }
   .pilote-wrapper .img-circle{
-    width: 127px;
-    padding: 11px;
+    // width: 127px;
+    // padding: 11px;
+    width: 70px;
+    height: 70px;
+    margin: 22px;
   }
 
   .input-lg {

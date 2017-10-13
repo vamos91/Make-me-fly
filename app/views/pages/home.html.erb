@@ -73,21 +73,21 @@
   <div class="container spacing" style="padding: 40px 0px 40px;">
   <br>
     <div class="row" style="font-size: 10px;">
-      <div class="col-xs-6 col-sm-6 col-md-4 text-center">
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
           <%= image_tag "passenger.png" %>
         </div>
         <h4 class="text-center">PASSAGER</h4>
         <p class="text-center" >Trouvez un vol facilement et volez pas chère avec un pilote de votre région.</p>
       </div>
-      <div class="col-xs-6 col-sm-6 col-md-4 text-center">
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
          <%= image_tag "pilot-feature.png" %>
         </div>
         <h4 class="text-center">PILOTE</h4>
         <p class="text-center">Réduisez vos frais en partageant votre passion.</p>
       </div>
-       <div class="col-xs-6 col-sm-6 col-md-4 text-center">
+       <div class="col-xs-12 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
           <%= image_tag "policy.png" %>
         </div>
@@ -106,7 +106,7 @@
 
 
 <div class="wrapper marged">
-  <p class="text-center padded" style="font-size: 30px; padding: 0px 340px 50px 340px;">Que vous soyez chevronné ou débutant, rencontrez et volez avec nos pilotes.</p>
+  <p class="text-center padded title-feature">Que vous soyez chevronné ou débutant, rencontrez et volez avec nos pilotes.</p>
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
@@ -115,7 +115,9 @@
           <%= image_tag 'pendulaire.jpg', width: "150%"%>
           <% end %>
           <p>PENDULAIRE</p>
-          <div class="bandeau"></div>
+          <div class="bandeau">
+
+          </div>
           <p style="top: 150px;"><%= @pendulaires.count %> vol(s).</p>
         </div>
       </div>
@@ -281,7 +283,7 @@
   </div>
 </div>
 <% else %>
-  <div class="wrapper pilote-wrapper" style="padding: 55px; background-color: #3E92CC; height: 500px;">
+  <div class="wrapper pilote-wrapper" style="">
   <p class="text-center">Des pilotes partagent leur passion. Venez les rencontrer !</p>
     <div class="container text-center">
       <div class="row">
