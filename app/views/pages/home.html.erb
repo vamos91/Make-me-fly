@@ -116,7 +116,15 @@
           <% end %>
           <p>PENDULAIRE</p>
           <div class="bandeau">
-
+          <% @pilote_pendulaire.uniq.each do |pilote_pendulaire| %>
+            <% if pilote_pendulaire.picture? %>
+              <%= cl_image_tag pilote_pendulaire.picture, class: "avatar-comment" %>
+              <% elsif pilote_pendulaire.facebook_picture_url? %>
+                <%= image_tag pilote_pendulaire.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment" %>
+              <% else %>
+                <%= image_tag "pilot.png", class: "avatar" %>
+            <% end %>
+          <% end %>
           </div>
           <p style="top: 150px;"><%= @pendulaires.count %> vol(s).</p>
         </div>
