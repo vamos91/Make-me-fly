@@ -86,6 +86,7 @@ class AdsController < ApplicationController
   end
 
   def create
+    @aeronefs = Aeronef.where(user_id: current_user.id)
     @ad = current_user.ads.build(ad_params)
     #@ad.price = (@ad.price*1.1)
     authorize @ad

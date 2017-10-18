@@ -8,7 +8,9 @@
        <% @aeronefs.each do |aeronef|%>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <%= cl_image_tag aeronef.photos %>
+      <div class="img-size">
+        <%= cl_image_tag aeronef.photos %>
+      </div>
       <div class="caption">
         <h3><%= aeronef.marque %></h3>
         <p><%= aeronef.modele %></p>

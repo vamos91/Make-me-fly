@@ -135,7 +135,17 @@
           <%= image_tag 'parapente.jpg', width: "150%"%>
           <% end %>
           <p>PARAPENTE</p>
-          <div class="bandeau"></div>
+          <div class="bandeau">
+            <% @pilote_parapente.uniq.each do |pilote_parapente| %>
+            <% if pilote_parapente.picture? %>
+              <%= cl_image_tag pilote_parapente.picture, class: "avatar-comment" %>
+              <% elsif pilote_parapente.facebook_picture_url? %>
+                <%= image_tag pilote_parapente.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment" %>
+              <% else %>
+                <%= image_tag "pilot.png", class: "avatar" %>
+            <% end %>
+          <% end %>
+          </div>
           <p style="top: 150px;"><%= @parapente.count %> vol(s).</p>
         </div>
       </div>
@@ -145,7 +155,17 @@
           <%= image_tag 'multiaxe-feature.jpg', width: "150%"%>
           <% end %>
           <p>MULTIAXE</p>
-          <div class="bandeau"></div>
+          <div class="bandeau">
+            <% @pilote_multiaxe.uniq.each do |pilote_multiaxe| %>
+            <% if pilote_multiaxe.picture? %>
+              <%= cl_image_tag pilote_multiaxe.picture, class: "avatar-comment" %>
+              <% elsif pilote_multiaxe.facebook_picture_url? %>
+                <%= image_tag pilote_multiaxe.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment" %>
+              <% else %>
+                <%= image_tag "pilot.png", class: "avatar" %>
+            <% end %>
+          <% end %>
+          </div>
           <p style="top: 150px;"><%= @multiaxe.count %> vol(s).</p>
         </div>
       </div>
@@ -157,7 +177,17 @@
           <%= image_tag 'autogire-feature.jpg', width: "150%", style: 'margin: 0px 0px 0px -82px;' %>
           <% end %>
           <p>AUTOGIRE</p>
-          <div class="bandeau"></div>
+          <div class="bandeau">
+            <% @pilote_autogire.uniq.each do |pilote_autogire| %>
+            <% if pilote_autogire.picture? %>
+              <%= cl_image_tag pilote_autogire.picture, class: "avatar-comment" %>
+              <% elsif pilote_autogire.facebook_picture_url? %>
+                <%= image_tag pilote_autogire.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment" %>
+              <% else %>
+                <%= image_tag "pilot.png", class: "avatar" %>
+            <% end %>
+          <% end %>
+          </div>
           <p style="top: 150px;"><%= @autogire.count %> vol(s).</p>
         </div>
       </div>
@@ -167,7 +197,17 @@
           <%= image_tag 'planeur.jpg', width: "150%" , style: 'margin: 0px 0px 0px -82px;'%>
            <% end %>
           <p>PLANEUR</p>
-          <div class="bandeau"></div>
+          <div class="bandeau">
+            <% @pilote_planeur.uniq.each do |pilote_planeur| %>
+            <% if pilote_planeur.picture? %>
+              <%= cl_image_tag pilote_planeur.picture, class: "avatar-comment" %>
+              <% elsif pilote_planeur.facebook_picture_url? %>
+                <%= image_tag pilote_planeur.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment" %>
+              <% else %>
+                <%= image_tag "pilot.png", class: "avatar" %>
+            <% end %>
+          <% end %>
+          </div>
           <p style="top: 150px;"><%= @planeur.count %> vol(s).</p>
         </div>
       </div>
@@ -177,7 +217,17 @@
           <%= image_tag 'paramoteur.jpg', width: "100%" %>
           <% end %>
           <p>PARAMOTEUR</p>
-          <div class="bandeau"></div>
+          <div class="bandeau">
+            <% @pilote_paramoteur.uniq.each do |pilote_paramoteur| %>
+            <% if pilote_paramoteur.picture? %>
+              <%= cl_image_tag pilote_paramoteur.picture, class: "avatar-comment" %>
+              <% elsif pilote_paramoteur.facebook_picture_url? %>
+                <%= image_tag pilote_paramoteur.facebook_picture_url.split("=")[0] << "=large", class: "avatar-comment" %>
+              <% else %>
+                <%= image_tag "pilot.png", class: "avatar" %>
+            <% end %>
+          <% end %>
+          </div>
           <p style="top: 150px;"><%= @paramoteur.count %> vol(s).</p>
         </div>
       </div>
