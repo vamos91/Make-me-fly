@@ -49,7 +49,7 @@ a:hover{
   margin-top: 0px;
   padding-left: 0px;
   font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
+  //font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -202,10 +202,9 @@ a:hover{
   height:85px;
   .navbar-wagon-brand {
    padding: 10px 15px;
-  span{
+  .logo{
     font-size: 35px;
     color: gray;
-    //height: auto;
   }
 }
 .navbar-wagon-button{
