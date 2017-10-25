@@ -179,8 +179,56 @@
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
   }
 
-
-
-
-
 }
+
+
+
+
+//------------------------card bis--------------------------
+
+
+
+.card-ad{
+  position: relative;
+  cursor: pointer;
+  height: auto;
+  background-color: white;
+}
+
+.media-left img{
+  width: 300px;
+}
+
+.ad-titre{
+  padding-right: 90px;
+  color: #3693C7;
+  font-size: 20px;
+}
+
+.ad-photo{
+  position: absolute;
+  top: 7px;
+  right: 10px;
+}
+
+.ad-avis{
+  position: absolute;
+  right: 230px;
+  bottom: 12px;
+}
+
+.ad-photo{
+  position: absolute;
+  right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
