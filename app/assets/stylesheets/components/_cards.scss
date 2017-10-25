@@ -179,6 +179,10 @@
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
   }
 
+  .card-ad{
+    display: none;
+  }
+
 }
 
 
@@ -193,10 +197,17 @@
   cursor: pointer;
   height: auto;
   background-color: white;
+  //border: 1px solid grey;
+  //box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
 }
+
+.card-ad:hover{
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 1);
+  }
 
 .media-left img{
   width: 300px;
+  height: 200px;
 }
 
 .ad-titre{
@@ -207,7 +218,7 @@
 
 .ad-photo{
   position: absolute;
-  top: 7px;
+  top: 10px;
   right: 10px;
 }
 
@@ -215,11 +226,6 @@
   position: absolute;
   right: 230px;
   bottom: 12px;
-}
-
-.ad-photo{
-  position: absolute;
-  right: 0px;
 }
 
 

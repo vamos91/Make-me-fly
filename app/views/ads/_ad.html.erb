@@ -2,7 +2,9 @@
 
 
 <% if current_page?(search_ads_path) %>
-<p><div class="media card-ad">
+<%= link_to ad_path(ad) do %>
+<p>
+  <div class="media card-ad" data-url="<%= ad_path ad %>">
   <div class="media-left">
       <%= image_tag ad.photo %>
   </div>
@@ -31,7 +33,9 @@
     <% end %>
     </div>
   </div>
-</div></p>
+</div>
+<% end %>
+</p>
 <% else %>
 <div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
     <div class="card-category"><%= ad.aeronef.try(:aeronef_category) %></div>
