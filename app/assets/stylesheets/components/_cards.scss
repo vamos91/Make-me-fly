@@ -169,6 +169,7 @@
 
 
 @media (max-width:450px) {
+
   .card{
     height: 110px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -183,6 +184,8 @@
     display: none;
   }
 
+
+
 }
 
 
@@ -190,6 +193,14 @@
 
 //------------------------card bis--------------------------
 
+
+.active-card{
+  display: block;
+}
+
+.hide-card{
+  display: none;
+}
 
 
 .card-ad{
