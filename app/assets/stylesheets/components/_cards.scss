@@ -67,7 +67,7 @@
 .card-price {
   position: absolute;
   right: 5px;
-  bottom: 5px;
+  bottom: 0px;
 
 }
 
@@ -235,11 +235,25 @@
 
 .ad-avis{
   position: absolute;
-  right: 230px;
-  bottom: 12px;
+  right: 190px;
+  bottom: 21px;
 }
 
+.statut-ad-booked {
+  background-color: #C81232;
 
+}
+
+.statut-ad-free {
+  background-color: #25638B;
+}
+
+.statut {
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
 
 

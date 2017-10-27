@@ -14,12 +14,12 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-8">
-        <button onclick="small_card()">Click me</button>
-        <button onclick="big_card()">Click me</button>
+        <!-- <button onclick="small_card()">Click me</button>
+        <button onclick="big_card()">Click me</button> -->
         <div class="liste padded">
           <% @ads.each do |ad| %>
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <% if ad.user.pilotevalidation = true %>
+            <% if ad.user.pilotevalidation == true %>
               <%= render ad %>
             <% end %>
             </div>

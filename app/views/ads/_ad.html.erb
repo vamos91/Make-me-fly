@@ -16,9 +16,9 @@
     </div>
     <div style="position: absolute; left: 312px; bottom: 0px;">
     <% if ad.booked == '1' %>
-      <p style="color: #C81232;">Vol réservé !</p>
+      <p class="statut-ad-booked statut">Vol réservé !</p>
       <% else %>
-      <p style="color: #25638B; font-weight: bold;">1 place disponible</p>
+      <p class="statut-ad-free statut">1 place disponible</p>
     <% end %>
     </div>
     <div class="ad-avis" style="color: grey;"><i class="fa fa-star" style="color: #ffb400"></i> <%= ad.user.reviews.count %> avis</div>
@@ -35,10 +35,9 @@
   </div>
 </div>
 <% end %>
+<% else %>
 </p>
-
-
-<div class="card card-padded hide-card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
+<div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
     <div class="card-category"><%= ad.aeronef.try(:aeronef_category) %></div>
     <div style="position: absolute; left: 10px; top: 22px;">
     <% if ad.booked == '1' %>
