@@ -11,4 +11,9 @@ function close_banner(){
 };
 
 
-
+setTimeout(alert, 4000);
+function alert(){
+  $('.alert-info').fadeOut();
+  $('.alert-warning').fadeOut();
+  $('.alert-notice').fadeOut();
+};

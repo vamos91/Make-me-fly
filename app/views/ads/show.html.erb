@@ -139,6 +139,7 @@
 <!--               <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: " btn btn-primary btn-gradient" %></p>
  -->            <% else %>
               <p>Ce vol est réservé !</p>
+            </div>
               <% end %>
         <% end %>
 
@@ -162,17 +163,25 @@
             <% end %>
             <% end %>
 </div>
+
 <div class="thumbnail">
-      <% if @ad.user.picture? %>
-            <p><%= cl_image_tag @ad.user.picture %></p>
-            <% elsif @ad.user.facebook_picture_url? %>
-            <p><%= image_tag @ad.user.facebook_picture_url %></p>
-            <% else %>
-            <%= image_tag "pilot.png" %>
-          <% end %>
+  <div class="backgroud-photo" style="position: relative; margin-bottom: 75px;">
+  <%= cl_image_tag @ad.photo, crop: :fill %>
+    <div class="show-photo" style="position: absolute; width: 40%; height: 40%; top: 70%; left:30%;">
+        <% if @ad.user.picture? %>
+              <p><%= cl_image_tag @ad.user.picture %></p>
+              <% elsif @ad.user.facebook_picture_url? %>
+              <p><%= image_tag @ad.user.facebook_picture_url %></p>
+              <% else %>
+              <%= image_tag "pilot.png" %>
+        <% end %>
+    </div>
+  </div>
       <div class="caption">
         <div class="text-center">
-          <h3>Votre pilote</h3>
+         <!--  <div class="feature-size" style="width: 30%;">
+           <%= image_tag "pilot-feature.png" %>
+          </div> -->
           <p class="text-center"><%= link_to @ad.user.first_name || @ad.user.name.capitalize, user_path(@ad.user, ad: @ad.id), class: "btn btn-default text-center" %></p>
           <i class="fa fa-star" style="color: #ffb400"></i>
             <i class="fa fa-star" style="color: #ffb400"></i>

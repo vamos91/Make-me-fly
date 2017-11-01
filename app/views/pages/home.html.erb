@@ -8,39 +8,6 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<% if user_signed_in? %>
-<% else %>
-  <!-- <div class="banner-user-disconnect" id="banner-user-disconnect">
-  <button type="button" onclick="close_banner()" class="btn btn-link" id="close-button">Fermer</button>
-    <p>Connectez-vous pour profiter pleinement de MakeMeFly</p>
-    <p><%= link_to t(".top_call_to_action", default: "Je m'inscris"), new_user_registration_path, class: "btn-lg btn-primary" %>
-  </p>
-  </div> -->
-<% end %>
-
-
-
-
-
-
-
-
-
-
 <div class="text-center">
     <div class="title_flight">
    <p>
@@ -69,6 +36,30 @@
     </div>
     <!-- FEATURES 2-->
 
+
+<div class="text-center" style="background-color: #2A628F; font-size: 25px; color: white; padding: 30px;">
+<% if user_signed_in? %>
+Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
+<% else %>
+  <%= link_to new_user_session_path, class: "btn btn-primary" do %>
+      <i class="fa fa-sign-in"></i> Connexion
+    <% end %>
+      <%= link_to new_user_registration_path, class: "btn btn-primary" do %>
+      <i class="fa fa-user-plus" aria-hidden="true"></i> Inscription
+      <% end %>
+  <!-- <div class="banner-user-disconnect" id="banner-user-disconnect">
+  <button type="button" onclick="close_banner()" class="btn btn-link" id="close-button">Fermer</button>
+    <p>Connectez-vous pour profiter pleinement de MakeMeFly</p>
+    <p><%= link_to t(".top_call_to_action", default: "Je m'inscris"), new_user_registration_path, class: "btn-lg btn-primary" %>
+  </p>
+  </div> -->
+<% end %>
+<p>Partagez vos vols et volez en toute sécurité entre particuliers sur MakeMeFly</p>
+</div>
+
+
+
+
 <div class="padded" style="background-color: #F8F8F8;">
   <div class="container spacing" style="padding: 40px 0px 40px;">
   <br>
@@ -79,13 +70,15 @@
         </div>
         <h4 class="text-center">PASSAGER</h4>
         <p class="text-center" >Trouvez un vol facilement et volez pas chère avec un pilote de votre région.</p>
+        <%= link_to 'Voir les vols', search_ads_path(all_flight: 'all_flight'), class: "btn btn-default" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
          <%= image_tag "pilot-feature.png" %>
         </div>
         <h4 class="text-center">PILOTE</h4>
-        <p class="text-center">Réduisez vos frais en partageant votre passion.</p>
+        <p class="text-center">Publiez gratuitement vos annonces, réduisez vos frais en partageant votre passion.
+        <p><%= link_to "Proposer un vol",new_ad_path, :class => "btn btn-default" %></p></p>
       </div>
        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
         <div class="feature-size">
