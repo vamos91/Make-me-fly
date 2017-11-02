@@ -40,12 +40,11 @@
 <div class="text-center" style="background-color: #2A628F; font-size: 25px; color: white; padding: 30px;">
 <% if user_signed_in? %>
 Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
+<p>Partagez vos vols et volez en toute sécurité entre particuliers sur MakeMeFly</p>
 <% else %>
-  <%= link_to new_user_session_path, class: "btn btn-primary" do %>
-      <i class="fa fa-sign-in"></i> Connexion
-    <% end %>
-      <%= link_to new_user_registration_path, class: "btn btn-primary" do %>
-      <i class="fa fa-user-plus" aria-hidden="true"></i> Inscription
+<p>Partagez vos vols et volez en toute sécurité entre particuliers sur MakeMeFly</p>
+      <%= link_to new_user_registration_path, class: "btn-lg btn-primary" do %>
+      <i class="fa fa-user-plus" aria-hidden="true"></i> Ca commence ici
       <% end %>
   <!-- <div class="banner-user-disconnect" id="banner-user-disconnect">
   <button type="button" onclick="close_banner()" class="btn btn-link" id="close-button">Fermer</button>
@@ -54,7 +53,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
   </p>
   </div> -->
 <% end %>
-<p>Partagez vos vols et volez en toute sécurité entre particuliers sur MakeMeFly</p>
+
 </div>
 
 
@@ -334,7 +333,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
   </div>
 </div>
 <% else %>
-  <div class="wrapper pilote-wrapper" style="">
+<!--   <div class="wrapper pilote-wrapper" style="">
   <p class="text-center">Des pilotes partagent leur passion. Venez les rencontrer !</p>
     <div class="container text-center">
       <div class="row">
@@ -358,7 +357,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
          <% end %>
       </div>
     </div>
-  </div>
+  </div> -->
 <% end %>
 
 
@@ -369,8 +368,29 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
 <div class="banner banner-parallax1" style="background-attachment: fixed;
     background-size: cover !important;">
   <div class="banner-content-parallax" style="text-align: left;">
-    <p>Vous êtes pilote ULM ?</p>
-    <p>Vous voulez partager votre passion ?</p>
+    <!-- <p class="text-center">Des pilotes partagent leur passion. Venez les rencontrer !</p> -->
+    <div class="container text-center">
+      <div class="row">
+          <% @users_pilote.each do |pilote| %>
+          <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top: 70px;">
+          <% if pilote.description.present? %>
+           <% if pilote.picture? %>
+            <%= cl_image_tag pilote.picture,class: "img-circle", width: "180", height: "180" %>
+            <% elsif pilote.facebook_picture_url? %>
+              <%= image_tag pilote.facebook_picture_url.split("=")[0] << "=large", class: "img-circle", width: "180", height: "180" %>
+            <% else %>
+              <%= image_tag "pilot.png", class: "img-circle", width: "180", height: "180" %>
+          <% end %>
+
+          <h4><%= pilote.name || pilote.first_name %></h4>
+           <% description = pilote.description %>
+           <% description = description.split.first(10) %>
+          <h4><i><%= description.to_sentence.gsub(',', '')+ ' ' +'[...]' %></i></h4>
+          <% end %>
+            </div>
+         <% end %>
+      </div>
+    </div>
     <div class="padded text-center">
     <p class="button-home-banner"><%= link_to t(".top_call_to_action", default: "Ca commence ici"), new_user_registration_path, class: "btn-lg btn-primary" %></p>
 </div>

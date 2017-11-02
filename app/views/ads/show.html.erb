@@ -191,7 +191,10 @@
         </div>
             <p><h1>Pilote de <%= @ad.aeronef.aeronef_category %></h1></p>
 
-            <p>Vols publiés: <%= Ad.where(user_id: @ad.user).count %></p>
+            <p><h1>Vols publiés: <%= Ad.where(user_id: @ad.user).count %></h1></p>
+            <% if @reviews.count != 0 %>
+            <p><h1>Avis sur <%=  @ad.user.first_name || @ad.user.name.capitalize %>: <%= @reviews.count %></h1></p>
+            <% end %>
             <p><%= render 'shared/user_doc', user: @ad.user %></p>
             <p style="text-align: justify; padding: 20px;"><%= @ad.user.description %></p>
       </div>

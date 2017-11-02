@@ -194,6 +194,10 @@ a:hover{
 }
 
 
+.navbar-wagon-item .fa-envelope-o{
+ font-size: 40px;
+ color: white;
+}
 
 
 .nav--sticky {
@@ -210,9 +214,22 @@ a:hover{
 .navbar-wagon-button{
   color: gray;
 }
+.navbar-wagon-item .fa-envelope-o{
+  color: gray;
+}
+
 .navbar-wagon-button:hover {
   border-color: gray;
 }
+
+.navbar-wagon-item .label-primary{
+  color: white;
+}
+
+.navbar-wagon-brand span{
+  color: $lapis-lazuli;
+}
+
 .navbar-wagon-right{
   span{
     color: gray;
