@@ -51,6 +51,7 @@
     <div class="thumbnail">
       <%= render "shared/user_profile_photo" %>
       <div class="caption text-center">
+
         <h4><%= @user.first_name || @user.name %></h4>
         <%= render 'shared/user_status' %>
         <p>Membre depuis <%= @user.message_time_user %></p>

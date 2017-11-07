@@ -1,6 +1,6 @@
  <% @reviews.each do |review| %>
  <% user = User.find(review.user_id) %>
-    <div class="media" style="border-top: 2px solid lightgrey; padding: 15px; background-color: white">
+    <div class="media" style="border-top: 1px solid lightgrey; padding: 15px; background-color: white">
       <div class="media-left">
           <% if current_page?(ad_path) %>
           <%= render 'shared/reviews_photo', user: user %>
@@ -10,51 +10,31 @@
            <p class="text-center"><%= link_to User.find(review.user_id).name, user_path(user) %></p>
           <% end %>
             </div>
-            <div class="media-body" style="padding-left: 15px; border-left: 3px solid lightgrey">
-              <h4 class="media-heading" style="font-size: 25px;"><%= review.rating %></h4>
-              <p><%= I18n.l(review.created_at, format: :short) %></p>
-              <p style="font-size: 15px;"><%= review.description %></p>
+            <div class="media-body" style="padding-left: 15px; border-left: 1px solid lightgrey">
+              <h4 class="media-heading" style="font-size: 25px;">
+               <%= render 'reviews/rating', stars: review.rating %>
+              </h4>
+              <p>Le <%= I18n.l(review.created_at, format: :short) %></p>
+              <p style="font-size: 15px; color: gray;"><%= review.description %></p>
             </div>
           </div>
            <% end %>
       <% if current_page?(user_path) && current_user != @user %>
-        <div class="media" style="border-top: 2px solid lightgrey; padding: 15px; background-color: white">
+        <div class="media" style="border-top: 1px solid lightgrey; padding: 15px; background-color: white">
          <div class="media-left">
            <%= render 'shared/reviews_photo', user: current_user %>
            <p class="text-center"><%= current_user.name %></p>
             </div>
-            <div class="media-body well" style="padding-left: 15px; border-left: 3px solid lightgrey">
+            <div class="media-body well" style="padding-left: 15px; border-left: 1px solid lightgrey">
 
               <p style="font-size: 15px;">
                  <%= simple_form_for(@review) do |f| %>
-              <h4 class="media-heading">
-
-              <div class="row lead evaluation">
-                  <div id="colorstar" class="starrr ratable" ></div>
-                  <span id="count">0</span> étoile(s) - <span id="meaning"> </span>
-                  <span id="count">0</span>
-                  <%= f.hidden_field :rating, :value => "$('count').innerHTML;" %>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              <h4 class="media-heading" style="padding: 20px; padding-top: 0; height: 50px;">
+              <%= f.input :rating, label: false, placeholder: "Donnez un note de 1 à 5" %>
               </h4>
               <%= f.hidden_field :reviewed_id, :value => user_id %>
               <div class="form-group-review" style="padding: 20px; padding-top: 0; height: 50px;">
-              <%= f.input :description, label: false, placeholder: "Votre commentaire ",:input_html => {:rows => 10}, label: false %>
+              <%= f.input :description, label: false, placeholder: "Votre commentaire ",:input_html => {:rows => 10} %>
               </div>
               <%= f.button :submit, value: "Ajouter ce commentaire" %>
               <% end %>

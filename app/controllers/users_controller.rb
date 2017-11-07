@@ -53,7 +53,6 @@ before_action :find_user, only: [:upvote, :downvote]
    @review = current_user.reviews.build
    #authorize @review
 
-
  end
 
  def edit
