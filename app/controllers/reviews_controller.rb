@@ -15,6 +15,9 @@ class ReviewsController < ApplicationController
      authorize @review
      @review.reviewed_id = params[:review][:reviewed_id]
      @user = @review.reviewed_id
+     @test = @review.rating
+     @star_rating = @test[0]
+     @review.rating = @star_rating
     if @review.save
       redirect_to user_path(@user), notice: 'commentaire ajouté.'
     end
