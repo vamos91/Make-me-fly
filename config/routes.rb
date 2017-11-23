@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
 
-  # get 'reviews/index'
-
-  # get 'reviews/new'
-
-  # get 'reviews/create'
-
-  # get 'reviews/show'
-
-  # get 'reviews/update'
-
-  # get 'reviews/destroy'
-
   get 'messages/new'
 
   get 'messages/create'

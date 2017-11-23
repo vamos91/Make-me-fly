@@ -50,7 +50,7 @@
           <% if user_signed_in?%>
            <li><%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" do %><i class="fa fa-user" aria-hidden="true"></i> Mon profil<% end %></li>
            <li><%= link_to pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
-            <i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord
+            <i class="fa fa-tachometer" aria-hidden="true"></i> Informations
           <% end %></li>
            <li><%= link_to user_ads_user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" do %><i class="fa fa-paper-plane"></i>  Voir tous mes vols<% end %></li>
            <li><%= link_to destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-button btn" do %>
@@ -97,7 +97,7 @@
         <li><%= link_to "Accueil", root_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li>
           <% if user_signed_in?%>
            <li><%= link_to "Mon profil", user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %></li>
-           <li><%= link_to "Tableau de bord", pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn" %></li>
+           <li><%= link_to "Informations", pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn" %></li>
             <%= link_to conversations_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
             <li>Mes messages <span class="label label-primary"><%= @messages.count %></span>
           <% end %></li>
