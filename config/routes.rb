@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get 'pages/politique'
 
+  get 'pages/valide_email'
+
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :orders, only: [:show, :create] do
