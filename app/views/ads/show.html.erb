@@ -183,19 +183,15 @@
            <%= image_tag "pilot-feature.png" %>
           </div> -->
           <p class="text-center"><%= link_to @ad.user.first_name || @ad.user.name.capitalize, user_path(@ad.user, ad: @ad.id), class: "btn btn-default text-center" %></p>
-         <!--  <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #ffb400"></i>
-            <i class="fa fa-star" style="color: #cacccd"></i> -->
         </div>
-            <p><h1>Pilote de <%= @ad.aeronef.aeronef_category %></h1></p>
-
+        <hr>
+           <!--  <p><h1>Pilote de <%= @ad.aeronef.aeronef_category %></h1></p>
             <p><h1>Vols publiés: <%= Ad.where(user_id: @ad.user).count %></h1></p>
             <% if @reviews.count != 0 %>
             <p><h1>Avis sur <%=  @ad.user.first_name || @ad.user.name.capitalize %>: <%= @reviews.count %></h1></p>
-            <% end %>
+            <% end %> -->
             <p><%= render 'shared/user_doc', user: @ad.user %></p>
+            <hr>
             <p style="text-align: justify; padding: 20px;"><%= @ad.user.description %></p>
       </div>
     </div>
