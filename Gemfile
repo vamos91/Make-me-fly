@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.2'
+ruby '2.3.1'
 
 gem 'rails', '4.2.5.1'
 gem 'puma'
@@ -9,11 +9,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'forecast_io'
 
-gem 'sass-rails'
+#gem 'sass-rails'
+gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 gem 'jquery-rails'
 gem 'uglifier'
+gem 'bootstrap-sass'
 #gem 'bootstrap-sass'
-gem 'bootstrap-sass', '3.2.0.2'
+#gem 'bootstrap-sass', '3.2.0.2'
 gem 'font-awesome-sass'
 gem 'simple_form', '3.1.0.rc2'
 gem 'autoprefixer-rails'
@@ -34,9 +36,8 @@ gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'momentjs-rails', '>= 2.9.0'
-#gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+#gem 'mdbootstrap-rails', '~> 0.1.1'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
 
 gem "coffee-rails"

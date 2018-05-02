@@ -22,6 +22,9 @@
         <h2><%= @ad.titre %></h2>
         <p style="text-align: justify;"><%= @ad.description %></p>
         <hr>
+        <div class="padded">
+          <%= cl_image_tag @ad.aeronef.photos, width: "100%" %>
+        </div>
         <div class="row">
           <div class="col-md-5">
             <div id="flat-data">
@@ -59,9 +62,7 @@
         <hr>
 </div>
 
-<div class="padded">
-  <%= cl_image_tag @ad.aeronef.photos, width: "100%" %>
-</div>
+
 
 
 <div class="title-flat">Equipements:</div>
@@ -128,9 +129,9 @@
    <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
         <div class="text-center">
-        <p style="font-size: 30px;">Balade en <%= @ad.aeronef.aeronef_category %> avec  <%= @ad.user.name %></p>
+        <p style="font-size: 20px;">Balade en <%= @ad.aeronef.aeronef_category %> avec  <%= @ad.user.name %></p>
             <% if @ad.booked != '1'%>
-            <p style="font-size: 4em; color: #2A628F;"><%= @ad.price %>€</p>
+            <p style="font-size: 2em; color: #2A628F;"><%= @ad.price %>€</p>
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
  -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
@@ -298,50 +299,71 @@
       provider: {
         styles : [
     {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#444444"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.country",
+        "featureType": "landscape.man_made",
         "elementType": "geometry",
         "stylers": [
             {
-                "saturation": "4"
+                "color": "#f7f1df"
             }
         ]
     },
     {
-        "featureType": "landscape",
-        "elementType": "all",
+        "featureType": "landscape.natural",
+        "elementType": "geometry",
         "stylers": [
             {
-                "color": "#f2f2f2"
+                "color": "#d0e3b4"
             }
         ]
     },
     {
         "featureType": "landscape.natural.terrain",
-        "elementType": "labels.icon",
+        "elementType": "geometry",
         "stylers": [
             {
-                "visibility": "on"
-            },
-            {
-                "gamma": "1.76"
-            },
-            {
-                "lightness": "20"
+                "visibility": "off"
             }
         ]
     },
     {
         "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
         "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#fbd3da"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#bde6ab"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
         "stylers": [
             {
                 "visibility": "off"
@@ -350,52 +372,64 @@
     },
     {
         "featureType": "road",
-        "elementType": "all",
+        "elementType": "labels",
         "stylers": [
             {
-                "saturation": -100
-            },
-            {
-                "lightness": 45
+                "visibility": "off"
             }
         ]
     },
     {
         "featureType": "road.highway",
-        "elementType": "all",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "visibility": "simplified"
+                "color": "#ffe15f"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#efd151"
             }
         ]
     },
     {
         "featureType": "road.arterial",
-        "elementType": "labels.icon",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "visibility": "off"
+                "color": "#ffffff"
             }
         ]
     },
     {
-        "featureType": "transit",
-        "elementType": "all",
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "visibility": "off"
+                "color": "black"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station.airport",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#cfb2db"
             }
         ]
     },
     {
         "featureType": "water",
-        "elementType": "all",
+        "elementType": "geometry",
         "stylers": [
             {
-                "color": "#8c9092"
-            },
-            {
-                "visibility": "on"
+                "color": "#a2daf2"
             }
         ]
     }
