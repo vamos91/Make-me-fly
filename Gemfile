@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.5.0'
 
-gem 'rails', '4.2.5.1'
+#gem 'rails', '4.2.5.1'
+gem 'rails', '5.2.0'
 gem 'puma'
 gem 'pg', '0.20.0'
 gem 'figaro'
@@ -17,7 +18,7 @@ gem 'bootstrap-sass'
 #gem 'bootstrap-sass'
 #gem 'bootstrap-sass', '3.2.0.2'
 gem 'font-awesome-sass'
-gem 'simple_form', '3.1.0.rc2'
+gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem "geocoder"
@@ -58,7 +59,7 @@ end
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'quiet_assets'
+  #gem 'quiet_assets'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'

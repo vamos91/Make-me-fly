@@ -1,15 +1,14 @@
 
 <div class="wrapper">
   <% if current_page?(root_path) %>
-  <div class="container" style="background: rgba(42,98,143,0.7); padding: 12px; margin-top: 60px; width: 73%;">
+  <div class="container" style="width: 80%;">
     <% else %>
   <div class="container" style="background: #3E92CC; padding: 15px; margin-top: 20px; width: 100%;">
    <% end %>
-<form action="<%= search_ads_path %>" class="formulaire form-inline" id="form-navbar">
+<form action="<%= search_ads_path %>" class="formulaire form-inline" id="form-navbar" style="padding: 20px;">
   <div class="form-group">
     <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span>  </div>
-      <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="height: 48px; font-size: 20px; width: 400px;">
+      <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="height: 48px; font-size: 20px; width: 400px; border-radius: 20px;">
     </div>
   </div>
 <!--   <div class="input-group date" data-provide="datepicker">
@@ -19,6 +18,7 @@
     <input type="text" name="date" class="form-control" placeholder="Date du vol" style="height: 48px; font-size: 20px;">
 
 </div> -->
+<%unless current_page?(root_path)%>
    <div class="form-group input-group-lg">
               <select name="multiple[]" class="form-control selectpicker" style="width: 250px; height: 48px;">
               <option>Aéronef</option>
@@ -34,7 +34,8 @@
               </optgroup>
               </select>
             </div>
-  <button class="btn btn-primary btn-lg btn-gradient" type="submit">RECHERCHER</button>
+<%end%>
+  <button class="btn btn-primary btn-lg btn-gradient" style="border-radius: 20px;" type="submit">RECHERCHER</button>
 </form>
    </div>
  </div>

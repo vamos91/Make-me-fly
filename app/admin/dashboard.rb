@@ -1,7 +1,7 @@
 ActiveAdmin.register_page "Dashboard" do
 
 controller do
-    before_filter :authorize_index, only: :index
+    before_action :authorize_index, only: :index
     def authorize_index
       policy_scope(User)
     end

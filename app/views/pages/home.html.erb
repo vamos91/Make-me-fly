@@ -1,7 +1,7 @@
 <div class="banner img-responsive">
   <div class="banner-content">
-    <h1>Je trouve mon pilote</h1>
-    <p>Des pilotes proposent de partager leur passion. Venez à leur rencontre. Simple. Economique. Fiable.</p>
+    <h1>MAKEMEFLY</h1>
+    <h2>Découvrez le monde comme un oiseau.</h2>
     <h2 class ="text-center" style="font-weight: lighter; color: white;">Le premier site de reservation de vol loisir entre particuliers.</h2>
     <%= render 'shared/formulaire' %>
   </div>
@@ -76,7 +76,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
          <%= image_tag "pilot-feature.png" %>
         </div>
         <h4 class="text-center">PILOTE</h4>
-        <p class="text-center">Publiez gratuitement vos annonces, réduisez vos frais en partageant votre passion.
+        <p class="text-center">Publiez gratuitement vos annonces, réduisez vos frais en partageant votre passion.</p>
         <!-- <p><%= link_to "Proposer un vol",new_ad_path, :class => "btn btn-default" %></p></p> -->
       </div>
        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
@@ -89,6 +89,46 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+<div class="wrapper padded">
+  <div class="container">
+    <div class="row padded">
+      <div class="col-xs-12 col-sm-6">
+        <%= image_tag 'pilote.jpg', width: "100%"%>
+      </div>
+       <div class="col-xs-12 col-sm-6">
+      <h3>Je suis pilote</h3>
+      <div class="feature-size">
+         <%= image_tag "pilot-feature.png" %>
+        </div>
+        <p class="">Publiez gratuitement vos annonces</p>
+      <div class="feature-size">
+         <%= image_tag "pilot-feature.png" %>
+        </div>
+        <p class="">Réduisez vos frais en partageant votre passion.</p>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-xs-12 col-sm-6">
+      <h3>Je suis passager</h3>
+      </div>
+       <div class="col-xs-12 col-sm-6">
+        <%= image_tag 'passager.jpg', width: "100%"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -118,7 +158,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
             <% end %>
           <% end %>
           </div>
-          <p style="top: 150px;"><%= @pendulaires.count %> vol(s).</p>
+          <!-- <p style="top: 150px;"><%= @pendulaires.count %> vol(s).</p> -->
         </div>
       </div>
        <div class="col-sm-3">
@@ -138,7 +178,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
             <% end %>
           <% end %>
           </div>
-          <p style="top: 150px;"><%= @parapente.count %> vol(s).</p>
+          <!-- <p style="top: 150px;"><%= @parapente.count %> vol(s).</p> -->
         </div>
       </div>
        <div class="col-sm-3">
@@ -158,7 +198,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
             <% end %>
           <% end %>
           </div>
-          <p style="top: 150px;"><%= @multiaxe.count %> vol(s).</p>
+          <!-- <p style="top: 150px;"><%= @multiaxe.count %> vol(s).</p> -->
         </div>
       </div>
     </div>
@@ -180,7 +220,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
             <% end %>
           <% end %>
           </div>
-          <p style="top: 150px;"><%= @autogire.count %> vol(s).</p>
+          <!-- <p style="top: 150px;"><%= @autogire.count %> vol(s).</p> -->
         </div>
       </div>
        <div class="col-sm-3">
@@ -200,7 +240,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
             <% end %>
           <% end %>
           </div>
-          <p style="top: 150px;"><%= @planeur.count %> vol(s).</p>
+          <!-- <p style="top: 150px;"><%= @planeur.count %> vol(s).</p> -->
         </div>
       </div>
        <div class="col-sm-6">
@@ -220,7 +260,7 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
             <% end %>
           <% end %>
           </div>
-          <p style="top: 150px;"><%= @paramoteur.count %> vol(s).</p>
+           <!-- <p style="top: 150px;"><%= @paramoteur.count %> vol(s).</p> -->
         </div>
       </div>
     </div>

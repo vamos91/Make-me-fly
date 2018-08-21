@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     return user
   end
 
-  after_create :subscribe_to_newsletter
+  #after_create :subscribe_to_newsletter
 
   mount_uploader :picture, PhotoUploader
   mount_uploader :brevet_pilote, PhotoUploader

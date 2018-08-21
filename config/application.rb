@@ -44,7 +44,7 @@ module AirbnbClone
     config.action_mailer.delivery_method = :postmark
     #config.action_mailer.postmark_settings = { :api_token => "bbb4a61d-12f7-4a9f-bf67-9b59a3647a93" }
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    #config.active_record.raise_in_transactional_callbacks = true
     config.i18n.default_locale = :fr
   end
 end
