@@ -98,26 +98,28 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
 
 
 <div class="wrapper padded">
+  <h2 class="text-center">Comment ça marche</h2>
   <div class="container">
     <div class="row padded">
       <div class="col-xs-12 col-sm-6">
         <%= image_tag 'pilote.jpg', width: "100%"%>
       </div>
        <div class="col-xs-12 col-sm-6">
-      <h3>Je suis pilote</h3>
-      <div class="feature-size">
-         <%= image_tag "pilot-feature.png" %>
-        </div>
-        <p class="">Publiez gratuitement vos annonces</p>
-      <div class="feature-size">
-         <%= image_tag "pilot-feature.png" %>
-        </div>
-        <p class="">Réduisez vos frais en partageant votre passion.</p>
+      <h3><%= image_tag "pilot-feature.png", width: "10%" %> Vous êtes pilote</h3>
+        <p class="">Publiez gratuitement vos annonces.</p>
+        <p>Organisez votre balade avec votre passager.</p>
+        <p class="">Soyez payé et réduisez vos frais en partageant votre passion.</p>
+        <p>Créez votre profile (carnet de vol)</p>
       </div>
     </div>
      <div class="row">
       <div class="col-xs-12 col-sm-6">
-      <h3>Je suis passager</h3>
+      <h3><%= image_tag "passenger.png", width: "10%" %> Vous êtes passager</h3>
+      <p>Trouvez une balade facilement</p>
+      <p>Contactez votre pilote de votre région</p>
+      <p>Récevez une confirmation rapide</p>
+      <p>Organisez votre balade avec votre pilote.</p>
+
       </div>
        <div class="col-xs-12 col-sm-6">
         <%= image_tag 'passager.jpg', width: "100%"%>
