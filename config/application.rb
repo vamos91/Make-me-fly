@@ -42,6 +42,8 @@ module AirbnbClone
     # config.i18n.default_locale = :de
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.action_mailer.delivery_method = :postmark
+   # config.action_controller.default_protect_from_forgery = false
+
     #config.action_mailer.postmark_settings = { :api_token => "bbb4a61d-12f7-4a9f-bf67-9b59a3647a93" }
     # Do not swallow errors in after_commit/after_rollback callbacks.
     #config.active_record.raise_in_transactional_callbacks = true

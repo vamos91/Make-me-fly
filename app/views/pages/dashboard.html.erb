@@ -1,43 +1,7 @@
 <!-- <div class="marged"></div> -->
 
 <% if current_user.pilote == nil %>
-<div class="wrapper-profile-dashboard top-spacing" style="height: 85vh;">
-   <div class="container padded">
-  <div class="col-md-3 col-sm-3">
-    <div class="row">
-    <div class="thumbnail">
-      <%= render "shared/current_user_profile_photo" %>
-      <div class="caption text-center">
-        <h4><%= current_user.first_name || current_user.name %></h4>
-      </div>
-     </div>
-    </div>
-    </div>
-    <div class="col-md-9 col-sm-9">
-        <div class="row">
-           <div class="panel panel-default margin-panel">
-            <div class="panel-heading">Cher <%= current_user.first_name || current_user.name %>, bienvenue sur MakeMeFly</div>
-             <div class="welcome">
-              <p><strong>Bonjour et bienvenue sur le premier site de réservation de vol en ULM entre particuliers.</strong></p>
-              <p>MakeMeFly vous permet :
-              <ul>
-                <li>D'effectuer des réservations de vol en ULM avec des pilotes expérimentés.</li>
-                <li>De proposer des vols avec votre ULM.</li>
-                <li>De compléter et alimenter votre compte en publiant des articles, vidéos et récits de vos vols avec la communauté. Votre compte est comme un carnet de vol virtuel.</li>
-                <li>D'envoyer des messages aux autres utilisateurs de la communauté.</li>
-              </ul>
-             </p>
-             </div>
-             <div class="button text-center padded">
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalStatusUser">
-                Je commence
-              </button>
-              </div>
-              </div>
-          </div>
-    </div>
-  </div>
-</div>
+
 <% elsif current_user.pilote == true %>
 <div class="wrapper-profile-dashboard top-spacing">
   <%= render 'shared/subnavbar' %>
@@ -190,36 +154,6 @@
 <% end %>
 
 
-<!-- Modal -->
-          <div class="modal fade" id="ModalStatusUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel"><%= current_user.name || current_user.first_name %>, choisis ton camp !</h4>
-                </div>
-                <div class="modal-body text-center padded">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="thumbnail pilote-modal">
-                       <h3>Je suis pilote ULM</h3>
-                     <%= link_to t(".top_call_to_action", default: "Je continue"), pages_dashboard_path(:pilote => true),class: "button-feature" %>
-                  </div>
-                    </div>
-                    <div class="col-sm-6">
-                    <div class="thumbnail passager-modal">
-                      <h3>Je suis passager</h3>
-                         <%= link_to t(".top_call_to_action", default: "Je continue"), pages_dashboard_path(:pilote => false), class: "button-feature" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                </div>
-              </div>
-            </div>
-          </div>
 
 
 

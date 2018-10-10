@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'pages/dashboard'
 
+  get 'pages/status_choice'
+
   get 'payments/new'
 
   get 'orders/show'

@@ -20,16 +20,11 @@
   <%= link_to new_ad_path, :class => "navbar-wagon-item navbar-wagon-button cta btn"  do %>
         <i class="fa fa-paper-plane"></i> Devenir partenaire
       <% end %>
-       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-button btn" do %>
-      <i class="far fa-question-circle"></i></i> Comment ça marche
+       <%= link_to root_path(anchor:"how") , class: "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="far fa-question-circle"></i> Comment ça marche
     <% end %>
 <% end %>
- <!--  <%= link_to search_ads_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
-        <i class="fa fa-paper-plane"></i> Tous les vols
-      <% end %>
-      <%= link_to users_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
-        <i class="fa fa-users"></i> Les pilotes
-      <% end %> -->
+
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
     <% if current_user.pilote == true %>
@@ -37,7 +32,7 @@
         <i class="fa fa-paper-plane"></i> Proposer un vol
       <% end %>
       <% else %>
-      <%= link_to new_user_registration_path, :class => "navbar-wagon-item navbar-wagon-button cta btn"  do %>
+      <%= link_to pages_status_choice_path, :class => "navbar-wagon-item navbar-wagon-button cta btn"  do %>
         <i class="fa fa-paper-plane"></i> Devenir partenaire
       <% end %>
     <% end %>
@@ -48,7 +43,7 @@
       <%= link_to conversations_path, :class => "navbar-wagon-item navbar-wagon-right btn"  do %>
         <i class="far fa-envelope"></i><span class="label label-primary" style="right: 10px; top: 13px;"><%= @messages.count %></span>
       <% end %>
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-button btn" do %>
+      <%= link_to root_path(anchor:"how"), class: "navbar-wagon-item navbar-wagon-button btn" do %>
       <i class="far fa-question-circle"></i></i> Comment ça marche
     <% end %>
       <%= link_to pages_dashboard_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
