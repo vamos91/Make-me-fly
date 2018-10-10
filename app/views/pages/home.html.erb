@@ -106,19 +106,19 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
       </div>
        <div class="col-xs-12 col-sm-6">
       <h3><%= image_tag "pilot-feature.png", width: "10%" %> Vous êtes pilote</h3>
-        <p class="">Publiez gratuitement vos annonces.</p>
-        <p>Organisez votre balade avec votre passager.</p>
-        <p class="">Soyez payé et réduisez vos frais en partageant votre passion.</p>
-        <p>Créez votre profile (carnet de vol)</p>
+        <p class=""><i class="fas fa-sign-in-alt"></i> Publiez gratuitement vos annonces.</p>
+        <p><i class="fas fa-sign-in-alt"></i> Organisez votre balade avec votre passager.</p>
+        <p class=""> <i class="fas fa-sign-in-alt"></i> Réduisez vos frais en partageant votre passion.</p>
+        <p> <i class="fas fa-sign-in-alt"></i> Créez votre profile (carnet de vol)</p>
       </div>
     </div>
      <div class="row">
       <div class="col-xs-12 col-sm-6">
       <h3><%= image_tag "passenger.png", width: "10%" %> Vous êtes passager</h3>
-      <p>Trouvez une balade facilement</p>
-      <p>Contactez votre pilote de votre région</p>
-      <p>Récevez une confirmation rapide</p>
-      <p>Organisez votre balade avec votre pilote.</p>
+      <p><i class="fas fa-sign-in-alt"></i> Trouvez une balade facilement</p>
+      <p><i class="fas fa-sign-in-alt"></i> Contactez votre pilote de votre région</p>
+      <p><i class="fas fa-sign-in-alt"></i> Récevez une confirmation rapide</p>
+      <p><i class="fas fa-sign-in-alt"></i> Organisez votre balade avec votre pilote.</p>
 
       </div>
        <div class="col-xs-12 col-sm-6">
@@ -407,10 +407,9 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
 
 
 
-<div class="banner banner-parallax1" style="background-attachment: fixed;
+<!-- <div class="banner banner-parallax1" style="background-attachment: fixed;
     background-size: cover !important;">
   <div class="banner-content-parallax" style="text-align: left;">
-    <!-- <p class="text-center">Des pilotes partagent leur passion. Venez les rencontrer !</p> -->
     <div class="container text-center">
       <div class="row">
           <% @users_pilote.each do |pilote| %>
@@ -437,4 +436,4 @@ Bienvenue <%=  current_user.first_name || current_user.name.capitalize %>
     <p class="button-home-banner"><%= link_to t(".top_call_to_action", default: "Ca commence ici"), new_user_registration_path, class: "btn-lg btn-primary" %></p>
 </div>
   </div>
-</div>
+</div> -->

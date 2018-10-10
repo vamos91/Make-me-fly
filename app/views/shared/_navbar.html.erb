@@ -16,13 +16,14 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs">
-  <%= link_to new_ad_path, :class => "navbar-wagon-item cta btn"  do %>
-        <i class="fa fa-paper-plane"></i> Proposer un vol
+    <%unless user_signed_in? %>
+  <%= link_to new_ad_path, :class => "navbar-wagon-item navbar-wagon-button cta btn"  do %>
+        <i class="fa fa-paper-plane"></i> Devenir partenaire
       <% end %>
        <%= link_to "#", class: "navbar-wagon-item navbar-wagon-button btn" do %>
-      <i class="fas fa-sign-in"></i> Comment ça marche
+      <i class="far fa-question-circle"></i></i> Comment ça marche
     <% end %>
-
+<% end %>
  <!--  <%= link_to search_ads_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
         <i class="fa fa-paper-plane"></i> Tous les vols
       <% end %>
@@ -31,12 +32,28 @@
       <% end %> -->
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
+    <% if current_user.pilote == true %>
+      <%= link_to new_ad_path, :class => "navbar-wagon-item navbar-wagon-button cta btn"  do %>
+        <i class="fa fa-paper-plane"></i> Proposer un vol
+      <% end %>
+      <% else %>
+      <%= link_to new_user_registration_path, :class => "navbar-wagon-item navbar-wagon-button cta btn"  do %>
+        <i class="fa fa-paper-plane"></i> Devenir partenaire
+      <% end %>
+    <% end %>
+
   <!--   <%= link_to articles_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
         <i class="fa fa-comments-o" aria-hidden="true"></i> Fil d'actualité
       <% end %> -->
       <%= link_to conversations_path, :class => "navbar-wagon-item navbar-wagon-right btn"  do %>
-        <i class="fa fa-envelope-o" aria-hidden="true"></i><span class="label label-primary" style="right: 10px; top: 13px;"><%= @messages.count %></span>
+        <i class="far fa-envelope"></i><span class="label label-primary" style="right: 10px; top: 13px;"><%= @messages.count %></span>
       <% end %>
+      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-button btn" do %>
+      <i class="far fa-question-circle"></i></i> Comment ça marche
+    <% end %>
+      <%= link_to pages_dashboard_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
+     <i class="fa fa-info-circle" aria-hidden="true"></i> Confiance et sécurité
+    <% end %>
        <div class="navbar-wagon-item navbar-wagon-right">
 <%= link_to user_path(current_user) do %>
        <% if current_user.picture? %>
@@ -53,12 +70,9 @@
         <!-- <li><%= link_to "Accueil", root_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li> -->
           <% if user_signed_in?%>
            <li><%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" do %><i class="fa fa-user" aria-hidden="true"></i> Mon profil<% end %></li>
-           <li><%= link_to pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
-            <i class="fa fa-tachometer" aria-hidden="true"></i> Informations
-          <% end %></li>
            <li><%= link_to user_ads_user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" do %><i class="fa fa-paper-plane"></i>  Voir tous mes vols<% end %></li>
            <li><%= link_to destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-button btn" do %>
-           <i class="fa fa-sign-out"></i>Déconnexion<% end %></li>
+           <i class="fas fa-sign-out-alt"></i>Déconnexion<% end %></li>
           <% else %>
           <li><%= link_to "Connexion", new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li>
           <li><%= link_to t(".top_call_to_action", default: "Inscription"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li>
@@ -68,7 +82,7 @@
   </div>
     <% else %>
       <%= link_to new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
-      <i class="fa fa-sign-in"></i> Connexion
+      <i class="fas fa-sign-in-alt"></i> Connexion
     <% end %>
       <%= link_to new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
       <i class="fa fa-user-plus" aria-hidden="true"></i> Inscription
@@ -101,7 +115,7 @@
         <li><%= link_to "Accueil", root_path, class: "navbar-wagon-item navbar-wagon-button btn" %></li>
           <% if user_signed_in?%>
            <li><%= link_to "Mon profil", user_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %></li>
-           <li><%= link_to "Informations", pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn" %></li>
+           <li><%= link_to "Confiance et sécurité", pages_dashboard_path, :class => "navbar-wagon-item navbar-wagon-button btn" %></li>
             <%= link_to conversations_path, :class => "navbar-wagon-item navbar-wagon-button btn"  do %>
             <li>Mes messages <span class="label label-primary"><%= @messages.count %></span>
           <% end %></li>

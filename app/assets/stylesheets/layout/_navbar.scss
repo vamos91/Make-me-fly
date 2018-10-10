@@ -184,7 +184,7 @@ a:hover{
   content: ' ';
   height: 10px;
   width: 10px;
-  position: absolute;
+  //position: absolute;
   right: 10px;
   top: -6px;
   background-color: white;
@@ -193,8 +193,11 @@ a:hover{
   border-top: 1px solid #E6E6E6;
 }
 
+.dropdown-menu > li > a{
+  text-align: left;
+}
 
-.navbar-wagon-item .fa-envelope-o{
+.navbar-wagon-item .fa-envelope{
  font-size: 40px;
  color: white;
 }
@@ -214,8 +217,9 @@ a:hover{
 .navbar-wagon-button{
   color: gray;
 }
-.navbar-wagon-item .fa-envelope-o{
-  color: gray;
+
+.cta{
+  color: white;
 }
 
 .navbar-wagon-button:hover {
@@ -234,6 +238,11 @@ a:hover{
   span{
     color: gray;
   }
+}
+
+.navbar-wagon-item .fa-envelope{
+ font-size: 40px;
+ color: gray;
 }
 }
 
