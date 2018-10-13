@@ -12,16 +12,16 @@
     </div>
   <% end %>
 <% end %>
-<div class="bar-profile">
+<!-- <div class="bar-profile">
   <div class="info-bar-profile navbar text-center">
     <div class="hidden-xs margin-panel">
       <% if @user == current_user && current_user.pilote? %>
       <div class="pull-right">
-        <!--  <div class="btn btn-primary">
+        <div class="btn btn-primary">
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-primary"></span>J'aime
             <span class="badge"><%= @user.get_upvotes.size %></span>
           </div> -->
-           <!--  <%= link_to "Ajouter un appareil", new_aeronef_path, class: "btn btn-primary" %> -->
+          <!--  <%= link_to "Ajouter un appareil", new_aeronef_path, class: "btn btn-primary" %>
           </div>
 
         <% else %>
@@ -30,17 +30,17 @@
           <%= link_to "Revenir vers l'annonce", ad_path(params[:ad]), class: "btn btn-primary" %>
           <%= link_to "Envoyer une demande", booking_message_ad_path(params[:ad]), class: "btn btn-primary" %>
         <% end %>
-       <!--  <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %> -->
+       <%= link_to "Avis sur #{@user.name || @user.first_name}", user_path(current_user), class: "btn btn-primary disabled" %>
             <%= link_to like_user_path(@user), class: "btn btn-success pull-left", method: :put do %>
             <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center btn-success"></span>J'aime
             <span class="badge"><%= @user.get_upvotes.size %></span>
           <% end %>
 
-      <% end %>
+      <% end %> -->
 
-  </div>
+<!--   </div>
 </div>
-</div>
+</div> -->
 
 
 

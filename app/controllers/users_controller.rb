@@ -56,6 +56,14 @@ before_action :find_user, only: [:upvote, :downvote]
  end
 
  def edit
+  if params[:pilote] == 'true'
+      current_user.pilote = true
+    elsif params[:pilote] == 'false'
+      current_user.pilote = false
+    else
+      #current_user.pilote = nil
+    end
+    current_user.save
    @user = User.find(params[:id])
    authorize @user
  end
