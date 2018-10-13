@@ -1,7 +1,7 @@
 <div class="wrapper-profile-dashboard top-spacing bd-color">
 <% if @user.picture_ulm_user? %>
   <div class="banner-show">
-   <%= cl_image_tag @user.picture_ulm_user %>
+   <%= cl_image_tag @user.picture_ulm_user, class: "blur" %>
   </div>
 <% else %>
   <%= link_to edit_user_path(current_user) do  %>
