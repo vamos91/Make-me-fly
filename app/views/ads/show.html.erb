@@ -19,12 +19,13 @@
 
 
      <div id="flat-description">
-        <h2><%= @ad.titre %></h2>
-        <p style="text-align: justify;"><%= @ad.description %></p>
-        <hr>
+        <h2><%= @ad.titre.capitalize %></h2>
         <div class="padded">
           <%= cl_image_tag @ad.aeronef.photos, width: "100%" %>
         </div>
+        <p style="text-align: justify;"><%= @ad.description %></p>
+        <hr>
+
         <div class="row">
           <div class="col-md-5">
             <div id="flat-data">
@@ -60,12 +61,8 @@
           </div>
         </div>
         <hr>
-</div>
-
-
-
-
-<div class="title-flat">Equipements:</div>
+ <div id="flat-data">
+<div class="title-flat"><i class="fas fa-toolbox"></i> Equipements:</div>
 <p style="text-align: justify;"><%= @ad.aeronef.equipement %></p>
 
  <div class="row padded">
@@ -80,6 +77,11 @@
            </div>
         </div>
       </div>
+</div>
+</div>
+
+
+
 
 
 <!-- <div id="mycarousel" class="carousel slide" data-ride="carousel" style="width: 100%;">
@@ -125,17 +127,120 @@
 
     </div>
     <div class="col-xs-12 col-sm-4 padded">
-      <div class="thumbnail">
+      <div class="thumbnail" style="margin-top: -200px;">
    <%= form_tag orders_path do %>
         <% if @ad.user != current_user  %>
         <div class="text-center">
-        <p style="font-size: 20px;">Balade en <%= @ad.aeronef.aeronef_category %> avec  <%= @ad.user.name %></p>
-            <% if @ad.booked != '1'%>
-            <p style="font-size: 2em; color: #2A628F;"><%= @ad.price %>€</p>
+          <p style="font-size: 1.5em; color: #2A628F;">A partir de <%= @ad.price %>€</p>
+
+
+
+
+<!--
+
+<hr>
+
+
+
+
+
+    <div class="row">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+
+date<%= content_tag(:input, "Hello world!")%>
+
+
+
+
+<hr> -->
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row" style="">
+          <p style="text-align: left;">Date de votre vol</p>
+               <div style="overflow:hidden;">
+                  <div class="form-group">
+                      <div class="row">
+                          <div class="" style="padding: 15px;">
+                              <div id="datetimepicker12">
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <script type="text/javascript">
+                      $(function () {
+
+                          $('#datetimepicker12').datetimepicker({
+                              format: 'DD-MM-YYYY',
+                              inline: true,
+                              sideBySide: false,
+                              disabledDates: [
+                              moment("17/10/2018"),
+                              new Date(2018, 10 - 1, 21),
+                                ""
+                            ]
+                          });
+                          var $date = $("#datetimepicker12").data("DateTimePicker").date();
+
+                      });
+
+
+                  </script>
+              </div>
+            <p style="text-align: left;">Nombre de personne</p>
+            <div class="form-group">
+                <div class='input-group' id="nb_personne">
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                </div>
+                <script>
+                  var $nb_personne = $("#nb_personne").val();
+                </script>
+            </div>
+    </div>
+
+
+<hr>
+
+
+
+
+      <!--   <p style="font-size: 20px;">Balade en <%= @ad.aeronef.aeronef_category %> avec  <%= @ad.user.name %></p>
+            <% if @ad.booked != '1'%> -->
+            <!-- <div style="text-align: left;">
+              <p style="font-size: 1em;">Pilote: <%= @ad.user.name.capitalize %></p>
+              <p style="font-size: 1em;">ULM: <%= @ad.aeronef.aeronef_category %></p>
+            </div> -->
+
 <!--               <%= humanized_money_with_symbol(@ad.price) %>
  -->              <!-- <h4>Je reserve ce vol avec <%= @ad.user.first_name || @ad.user.name.capitalize %></h4> -->
               <%= hidden_field_tag 'ad_id', @ad.id %>
-                <p><%= link_to "Envoyer une demande", booking_message_ad_path, class: "btn btn-primary btn-gradient" %></p>
+                <p><%= link_to "Envoyer une demande", booking_message_ad_path(), class: "btn btn-primary btn-gradient btn-send-request" %></p>
+                <p><strong>SANS ENGAGEMENT</strong></p>
         </div>
 <!--               <p><%= link_to "Contacter #{@ad.user.name}", new_message_path(to: @ad.user.id), class: " btn btn-primary btn-gradient" %></p>
  -->            <% else %>
@@ -193,6 +298,9 @@
             <% end %> -->
             <p><%= render 'shared/user_doc', user: @ad.user %></p>
             <hr>
+
+
+            <hr>
             <p style="text-align: justify; padding: 20px;"><%= @ad.user.description %></p>
       </div>
     </div>
@@ -205,58 +313,7 @@
 </div>
 
 
-<!-- <div id="flat-description">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <h2>A propos de ce vol</h2>
-        <p><%= @ad.description %></p>
-        <hr>
-        <div class="row" id="flat-data">
-          <div class="col-xs-12 col-sm-2">
-          <div class="title-flat">
-          <%= image_tag "flight_param.png", width: "30" %>
-            Paramètre de vol</div>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <ul class="list-unstyled">
-              <li>Date du vol:  <strong><%= I18n.l(@ad.flight_date, format: :long)  %></strong></li>
-              <li>Lieu du vol: <strong><%= @ad.address.capitalize %></strong></li>
 
-            </ul>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <ul class="list-unstyled">
-              <li>Type d'ULM: <strong><%= @ad.category%></strong></li>
-              <li>Temps de vol approximatif:  <strong><%= @ad.flight_time %>mn</strong></li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-        <div class="row" id="flat-data">
-          <div class="col-xs-12 col-sm-2">
-          <div class="title-flat">
-          <%= image_tag "meteo.png", width: "30" %>
-            Météo</div>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <ul class="list-unstyled">
-              <li>Météo du jour: <strong><%= @weather.currently.summary %></strong></li>
-            </ul>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <ul class="list-unstyled">
-            <% @daily_weather.each do |day| %>
-              <li><%= Time.at(day.time).strftime('%d-%b-%Y') %><strong><%= day.summary %></strong></li>
-              <li>Température Max: <strong><%= day.apparentTemperatureMax.round %> degres</strong></li>
-            <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 
 <div class="card-show">

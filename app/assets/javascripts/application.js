@@ -8,7 +8,9 @@
 //= require jquery.turbolinks
 //= require chosen-jquery
 //= require messages
-
+//= require moment
+//= require bootstrap-datetimepicker
+//= require daterangepicker
 
 
 $(function () {
@@ -16,3 +18,4 @@ $(function () {
 })
 
 
+$("input.date_picker").datepicker();

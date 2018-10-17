@@ -41,6 +41,11 @@ gem 'momentjs-rails', '>= 2.9.0'
 #gem 'mdbootstrap-rails', '~> 0.1.1'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
 
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'bootstrap-daterangepicker-rails'
+
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'devise-i18n'

@@ -25,13 +25,7 @@ class AdsController < ApplicationController
 
     @aeronef = Aeronef.where(id: @ad.aeronef)
 
-   @forecast = Forecast.new(
-    lat: @ad.latitude,
-    lng: @ad.longitude
-    )
-   @weather = @forecast.get_weather_data
-   @current_weather = @weather.currently
-   @daily_weather = @weather.daily.data.first(5)
+
 
    @reviews = Review.where(reviewed_id: @ad.user)
 
