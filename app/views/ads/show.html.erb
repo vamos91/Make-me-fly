@@ -136,7 +136,7 @@
 
 
 
-<!--
+
 
 <hr>
 
@@ -147,7 +147,7 @@
     <div class="row">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                  <%= text_field :date_vol, name: "vol", :id => "date", :type => "text", class: "form-control" %>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -155,17 +155,16 @@
             </div>
         <script type="text/javascript">
             $(function () {
-                $('#datetimepicker1').datetimepicker();
+              $('#datetimepicker1').datetimepicker();
+              $('#date').val();
             });
         </script>
     </div>
 
-date<%= content_tag(:input, "Hello world!")%>
 
 
 
-
-<hr> -->
+<hr>
 
 
 
@@ -195,12 +194,8 @@ date<%= content_tag(:input, "Hello world!")%>
                           $('#datetimepicker12').datetimepicker({
                               format: 'DD-MM-YYYY',
                               inline: true,
-                              sideBySide: false,
-                              disabledDates: [
-                              moment("17/10/2018"),
-                              new Date(2018, 10 - 1, 21),
-                                ""
-                            ]
+                              sideBySide: false
+
                           });
                           var $date = $("#datetimepicker12").data("DateTimePicker").date();
 
