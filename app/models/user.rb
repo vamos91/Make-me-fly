@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :aeronefs, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :contacts
   after_create :send_welcome_email
 
 

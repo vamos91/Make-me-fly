@@ -23,11 +23,10 @@ class AdsController < ApplicationController
       marker.lng ad.longitude
     end
 
-    @aeronef = Aeronef.where(id: @ad.aeronef)
-
-
-
+   @aeronef = Aeronef.where(id: @ad.aeronef)
    @reviews = Review.where(reviewed_id: @ad.user)
+
+   @contact = Contact.new
 
  end
 

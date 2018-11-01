@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Welcome to [<%= root_url %>], <%= @user.name %>!</title>
+    <title>Welcome to [<%= root_url %>], <%= @contact.user %>!</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--
@@ -413,9 +413,9 @@
                   <!-- Body content -->
                   <tr>
                     <td class="content-cell">
-                      <h1>Bonjour, <%= @user.name.capitalize %>!</h1>
-                      <p>Un membre de la communauté MakeMeFly est interessé par l'un de vos vols. Nous sommes heureux de vous annoncer qu'il désire reserver le vol du <%= @date%> à <%= @place.capitalize%>.</p>
-                      <p>Pour contacter <%= @user.name.capitalize %> [<%= root_url %>] :</p>
+                      <h1>Bonjour <%= @contact.user %>!</h1>
+                      <p><strong><%= @contact.user_name.capitalize %></strong> de la communauté MakeMeFly est interessé par l'un de vos vols. Nous sommes heureux de vous annoncer qu'il désire reserver un vol pour <%= @contact.nb_pax %> passagers, le <%= @contact.booking_date%> à <%= @contact.location.capitalize %> (<%= @contact.price%> €).</p>
+                      <p>Pour contacter <strong><%= @contact.user_name.capitalize %></strong> [<%= root_url %>] :</p>
                       <!-- Action -->
                       <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
                         <tr>
@@ -428,7 +428,7 @@
                                   <table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                       <td>
-                                        <%= link_to @user.name.capitalize, "http://localhost:3000/users/#{@user.id}", class: "btn btn-primary" %>
+                                        <%= link_to @contact.user, "http://localhost:3000/users/#{@contact.id}", class: "btn btn-primary" %>
                                       </td>
                                     </tr>
                                   </table>
@@ -438,36 +438,7 @@
                           </td>
                         </tr>
                       </table>
-                      <p>Pour mémoire, voici vos paramètres de connexion:</p>
-                      <table class="attributes" width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td class="attributes_content">
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td class="attributes_item"><strong>Page de connexion:</strong> <%= link_to @user.name, "http://www.makemefly.fr/users/#{@user.id}" %></td>
-                              </tr>
-                              <tr>
-                                <td class="attributes_item"><strong>Mot de passe:</strong> <%= @user.password %></td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                      <p>Vous allez crée un compte sur MakeMeFly. Afin de vous fournir un meilleur service de proximité, <strong>merci d'indiquer votre localité (ville)</strong> dans votre profile si ce n'est pas déjà fait.</p>
-                      <!-- <table class="attributes" width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td class="attributes_content">
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td class="attributes_item"><strong>Trial Start Date:</strong> {{trial_start_date}}</td>
-                              </tr>
-                              <tr>
-                                <td class="attributes_item"><strong>Trial End Date:</strong> {{trial_end_date}}</td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table> -->
+
                       <p>Si vous avez des questions, n'hésiter pas à nous envoyer un mail à notre servive clientèle à contact@skypicture.fr. (Nous répondons rapidement.) Nous laissons egalement la possibilité de nous appeler au 06.61.56.81.40
                       <p>Merci,
                         <br>ACARD Nicolas et le service technique de MakeMeFly</p>
