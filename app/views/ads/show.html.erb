@@ -159,7 +159,11 @@
                     <script type="text/javascript">
                         $(function () {
                           $('#datetimepicker1').datetimepicker({
-                            format: 'DD/MM/YYYY'
+                            format: 'DD/MM/YYYY',
+                            disabledDates: [
+                        new Date(2018, 11 - 1, 21),
+                        "11/11/2018"
+                    ]
                           });
                         });
                     </script>
@@ -226,7 +230,7 @@
             <p><h1>Avis sur <%=  @ad.user.first_name || @ad.user.name.capitalize %>: <%= @reviews.count %></h1></p>
             <% end %> -->
             <p><%= render 'shared/user_doc', user: @ad.user %></p>
-            <hr>
+
 
 
             <hr>
