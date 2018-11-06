@@ -11,7 +11,7 @@
           <% end %>
             </div>
             <div class="media-body" style="padding-left: 15px; border-left: 1px solid lightgrey">
-              <h4 class="media-heading" style="font-size: 25px;">
+              <h4 class="media-heading" style="font-size: 13px;">
                <%= render 'reviews/rating', stars: review.rating %>
               </h4>
               <p>Le <%= I18n.l(review.created_at, format: :short) %></p>

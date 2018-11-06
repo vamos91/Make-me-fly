@@ -49,7 +49,7 @@ class AeronefsController < ApplicationController
   private
 
   def aeronef_params
-    params.require(:aeronef).permit(:aeronef_category, :cylindre, :annee, :vitesse, :equipement, :autonomie, :marque, :modele, :photos)
+    params.require(:aeronef).permit(:aeronef_category, :cylindre, :annee, :vitesse, :equipement, :autonomie, :marque, :modele, :photos, :image_1, :image_2, :image_3, :image_4)
   end
 
   def find_aeronef

@@ -3,7 +3,7 @@
 </div>
   <div class="container padded">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
         <div class="wrapper-registration well">
           <%= simple_form_for(@aeronef, :html => { multipart: true }) do |f| %>
           <div class="form-group">
@@ -13,7 +13,11 @@
           <%= f.input :modele, label: 'Modele', placeholder: 'Ex: WEEDHOPPER AX3 -16' %>
           <%= f.input :cylindre, label: false, placeholder: "Ex: 50ch", label: 'Cylindré'  %>
           <%= f.input :equipement, label: 'Equipement', placeholder: "Décrivez votre appareil ainsi que les équipements. Ajouter les petits plus qui personnalisent votre aéronef. ",:input_html => {:rows => 10}, label: 'Equipement' %>
-          <%= f.input :photos, label: false, placeholder: "Photo de votre ULM", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+          <%= f.input :photos, label: false, placeholder: "Photo de votre ULM (Photo en paysage)", label: "Photo de votre ULM", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+          <%= f.input :image_1, label: false, placeholder: "Photo 2 de votre ULM (Photo en paysage)", label: "Photo de votre ULM (Photo en paysage)", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+          <%= f.input :image_2, label: false, placeholder: "Photo 3 de votre ULM (Photo en paysage)", label: "Photo de votre ULM (Photo en paysage)", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+          <%= f.input :image_3, label: false, placeholder: "Photo 4 de votre ULM (Photo en paysage)", label: "Photo de votre ULM (Photo en paysage)", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
+          <%= f.input :image_4, label: false, placeholder: "Photo 5 de votre ULM (Photo en paysage)", label: "Photo de votre ULM (Photo en paysage)", :input_html => { class: 'hide-profile-field'}, wrapper: :horizontal_form %>
           <%= f.input :annee, label: false, label: "Année de construction" %>
           <%= f.input :vitesse, label: false, label: "Vitesse de pointe",placeholder: 'Ex: 250 km/h'  %>
           <%= f.input :autonomie, label: false, label: "Autonomie", placeholder: 'Ex: 2h30'  %>
