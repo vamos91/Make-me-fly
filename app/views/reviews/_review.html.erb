@@ -1,6 +1,6 @@
  <% @reviews.each do |review| %>
  <% user = User.find(review.user_id) %>
-    <div class="media" style="border-top: 1px solid lightgrey; padding: 15px; background-color: white">
+    <div class="media top-bar-reviews hidden-xs">
       <div class="media-left">
           <% if current_page?(ad_path) %>
           <%= render 'shared/reviews_photo', user: user %>
@@ -10,14 +10,47 @@
            <p class="text-center"><%= link_to User.find(review.user_id).name, user_path(user) %></p>
           <% end %>
             </div>
-            <div class="media-body" style="padding-left: 15px; border-left: 1px solid lightgrey">
+            <div class="media-body reviews-text-design" style="">
               <h4 class="media-heading" style="font-size: 13px;">
                <%= render 'reviews/rating', stars: review.rating %>
               </h4>
               <p>Le <%= I18n.l(review.created_at, format: :short) %></p>
-              <p style="font-size: 15px; color: gray;"><%= review.description %></p>
+              <p class="review-description"><%= review.description %></p>
             </div>
           </div>
+
+
+
+    <div class="media top-bar-reviews hidden-md hidden-sm hidden-lg">
+          <% if current_page?(ad_path) %>
+          <%= render 'shared/reviews_photo', user: user %>
+           <span class="text-center"><%= link_to User.find(review.user_id).name, user_path(user) %></span>
+          <% else %>
+           <%= render 'shared/reviews_photo', user: user %>
+           <span class="text-center"><%= link_to User.find(review.user_id).name, user_path(user) %></span>
+          <% end %>
+            <div class="reviews-text-design">
+              <p>Le <%= I18n.l(review.created_at, format: :short) %>
+              <span style="font-size: 10px;">
+               <%= render 'reviews/rating', stars: review.rating %>
+              </span></p>
+              <p class="review-description"><%= review.description %></p>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
            <% end %>
       <% if current_page?(user_path) && current_user != @user %>
         <div class="media" style="border-top: 1px solid lightgrey; padding: 15px; background-color: white">

@@ -11,6 +11,7 @@
   overflow: hidden;
 }
 
+
 .booking_message{
   position:absolute;
   bottom: 0;
@@ -147,7 +148,7 @@
   margin: 20px 0;
   margin-right: 0;
   background: white;
-  padding: 30px;
+  padding: 20px;
   //border-radius: 5px;
   //border: 1px solid #E6E6E6;
  // box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 1);
@@ -165,7 +166,7 @@
 }
 
 .main-photo img{
-  height: 528px;
+  height: 448px;
 }
 
 .roll-over-effect img{
@@ -183,15 +184,104 @@
 }
 
 .thumbnail-aeronef img{
-  height: 264px;
+  height: 224px;
+}
+
+.header-xs{
+  display: none;
+}
+
+.col1{
+padding-right: 100px;
+}
+
+.reviews-text-design{
+padding-left: 15px;
+//border-left: 1px solid $gray-lighter;
+}
+
+.top-bar-reviews{
+  border-top: 1px solid $gray-lighter;
+  padding: 15px;
+  background-color: white;
+}
+
+.review-description{
+  font-size: 15px;
+  color: gray;
+  text-align: justify;
+}
+
+.xs-bouton-demande{
+  display: none;
+  border-top: 1px solid gray;
+  background-color: #F5F8FA;
+  margin-left: -15px;
+  margin-right: -15px;
+  position: fixed; bottom: 0px;
+  z-index: 10;
+  width: 100%;
+}
+
+
+.open-form{
+  height: 100%;
+}
+
+//------------
+
+
+//------------mobile setting-------------
+
+
+@media (max-width:450px) {
+
+.header-xs{
+  display: block;
+}
+
+.main-photo img{
+  height: auto;
+}
+
+#flat-description p{
+  font-size: 14px;
+}
+
+.col1{
+  padding-right: 15px;
+}
+
+#flat-description h2 {
+  font-size: 18px;
+}
+
+.review-description{
+  font-size: 13px; color: gray;
+  text-align: justify;
+}
+
+.xs-bouton-demande{
+  display: block;
+}
+
+.header-flat form{
+  background-color: #F5F8FA;
+}
+
+.bouton-xs .btn{
+    margin-top: 25px;
+    font-size: 20px;
+    padding: 5px 69px;
+}
+
 }
 
 
 
 
 
-//------------
 
 
-
+//---------------------------------------
 

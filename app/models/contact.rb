@@ -1,6 +1,7 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
 
+  validates :nb_pax, :date_vol, presence: true
   after_create :booking_message
 
   def booking_message

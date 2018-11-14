@@ -40,7 +40,7 @@
                     </div>
               <div class="panel panel-primary margin-panel">
                 <div class="panel-heading">
- Remplissez les détails de votre vol</div>
+                  Remplissez les détails de votre vol</div>
                  <div class="user-form">
                  <div class="form-group">
                     <%= f.select :category, @aeronefs.map{ |c| [c.aeronef_category, c.id]}, {} ,class: "form-control", label: "Entrez votre catogorie d'ULM", wrapper: :horizontal_form, :style => "margin-bottom: 15px;" %>

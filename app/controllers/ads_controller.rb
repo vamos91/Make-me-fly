@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :search]
+  skip_before_action :authenticate_user!, only: [:search]
 
  def index
   #   authorize @ads
@@ -25,7 +25,6 @@ class AdsController < ApplicationController
 
    @aeronef = Aeronef.where(id: @ad.aeronef)
    @reviews = Review.where(reviewed_id: @ad.user)
-
    @contact = Contact.new
 
  end
