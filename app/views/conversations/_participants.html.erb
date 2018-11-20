@@ -1,7 +1,7 @@
 <% conversation.participants.each do |participant| %>
   <% unless participant == current_user %>
-    <%= gravatar_for participant %>
-    <%= link_to user_path(participant) do %>
+<!--     <%= gravatar_for participant %>
+ -->    <%= link_to user_path(participant) do %>
       <%= participant.name.capitalize %>
     <% end %>
   <% end %>

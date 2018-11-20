@@ -1,24 +1,25 @@
 <li class="list-group-item clearfix">
-  <%= link_to conversation.subject, conversation_path(conversation) %>
+  <span class="glyphicon glyphicon-star-empty"></span>
+  <%= render 'conversations/participants', conversation: conversation %>
+  <span style="margin-left: 30px;"><%= link_to conversation.subject.capitalize, conversation_path(conversation) %></span>
+  <small><span class="text-muted pull-right" style="margin-left: 30px; font-size: 10px;"><%= conversation.last_message.created_at.strftime("%-d %B") %></span></small>
 
-  <div class="btn-group-vertical pull-right">
+  <div class="btn-group-vertical pull-right button-inbox">
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restaurer', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <%= link_to conversation_path(conversation), class: 'btn btn-lg btn-danger', method: :delete, data: {confirm: 'Are you sure?'} do %>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% if conversation.is_unread?(current_user) %>
+        <span><%= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: "btn btn-primary",
+         method: :post %></span>
       <% end %>
-
-      <% if conversation.is_unread?(current_user) %>
-        <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation),
-        class: 'btn btn-xs btn-info', method: :post %>
-      <% end %>
+      <span><%= link_to conversation_path(conversation), class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %></span>
     <% end %>
   </div>
 
-  <p><%= render 'conversations/participants', conversation: conversation %></p>
-
-  <p><%= conversation.last_message.body %>
-    <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+  <p>
+<!--     <%= conversation.last_message.body %>
+ -->    </p>
 </li>
 
