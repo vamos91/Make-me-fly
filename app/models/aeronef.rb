@@ -9,10 +9,10 @@ class Aeronef < ActiveRecord::Base
   validates :photos, presence: true
   validates :marque, presence: true
   validates :modele, presence: true
-  validates :image_1, presence: true
-  validates :image_2, presence: true
-  validates :image_3, presence: true
-  validates :image_4, presence: true
+  # validates :image_1, presence: true
+  # validates :image_2, presence: true
+  # validates :image_3, presence: true
+  # validates :image_4, presence: true
   mount_uploader :photos, PhotoUploader
   mount_uploader :image_1, PhotoUploader
   mount_uploader :image_2, PhotoUploader
