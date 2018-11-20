@@ -24,7 +24,7 @@
     <div class="ad-avis" style="color: grey;"><i class="fa fa-star" style="color: #ffb400"></i>
       <% reviews = Review.where(reviewed_id: ad.user) %>
       <%= reviews.count %> avis</div>
-    <div class="card-price" style="color: white"><p><%= ad.price %>€</p></div>
+    <div class="card-price" style="color: white"><p><%= ad.price %>€/vol</p></div>
     <div class="ad-photo">
      <% if ad.user.picture? %>
       <%= cl_image_tag ad.user.picture, class: "avatar" %>

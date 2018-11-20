@@ -1,6 +1,6 @@
 <div class="wrapper-profile-dashboard top-spacing bd-color">
 <% if @user.picture_ulm_user? %>
-  <div class="banner-show">
+  <div class="banner-show" style="height: 50vh;">
    <%= cl_image_tag @user.picture_ulm_user, class: "blur" %>
   </div>
 <% else %>
@@ -102,20 +102,15 @@
     </div>
     <div class="col-md-9 col-sm-9" style="margin-top: 195px;">
 
-<div class="padded margin-panel">
-<% if @user_flight.any? %>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title" style="color: #469AE0;">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols à venir (<%= @user_flight.count %>)
-         <i class="glyphicon glyphicon-menu-down pull-right"></i>
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
+
+
+
+
+
+
+
+
+<div class="panel-body">
          <div class="row padded margin-panel">
            <% if @user == current_user %>
             <% @ads.each do |ad| %>
@@ -132,11 +127,43 @@
           <% end %>
          </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="padded margin-panel">
+<% if @user_flight.any? %>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title" style="color: #469AE0;">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols à venir (<%= @user_flight.count %>)
+         <i class="glyphicon glyphicon-menu-down pull-right"></i>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+
+
+
+
+
     </div>
   </div>
   </div>
 <% end %>
-</div>
+</div> -->
 
       <div class="margin-panel">
       <% @aeronefs.each do |aeronef| %>

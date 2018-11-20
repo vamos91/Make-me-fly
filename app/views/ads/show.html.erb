@@ -151,7 +151,6 @@
             <% end %>
           </p>
             <hr>
-
   <%= simple_form_for @contact do |f|%>
              <div class="row">
                         <div class="form-group">
@@ -181,11 +180,9 @@
                     <script type="text/javascript">
                         $(function () {
                           $('#datetimepicker1').datetimepicker({
-                            format: 'DD/MM/YYYY',
-                            disabledDates: [
-                        new Date(2018, 11 - 1, 21),
-                        "11/11/2018"
-                    ]
+                            date: new Date("<%= @ad.flight_date.strftime('%m/%d/%Y') %>"),
+                            minDate:moment(),
+                            format: 'DD/MM/YYYY'
                           });
                         });
                     </script>
@@ -233,7 +230,8 @@
              font-size: 1.5em; color: black; text-align: left;"><%= @ad.price %> €
              <button type="button" onclick="open_form()" id="close-button" class="btn btn-primary btn-gradient pull-right"><span aria-hidden="true">Envoyer une demande</span></button>
               <% unless @reviews.count == 0 %>
-                <div style="font-weight: lighter; font-size: 12px; text-decoration: underline;"><%= @reviews.count %> avis.</div>
+                <div style="font-weight: lighter; font-size: 12px; text-decoration: underline;"><%= @reviews.count %> avis.</div>             <p>Vol Prévus le <%= @ad.flight_date.strftime('%d/%m/%Y') %></p>
+
               <% end %>
             <% end %>
             </span>
@@ -270,11 +268,9 @@
                                 <script type="text/javascript">
                                     $(function () {
                                       $('#datetimepicker2').datetimepicker({
+                                        date: new Date("<%= @ad.flight_date.strftime('%m/%d/%Y') %>"),
                                         format: 'DD/MM/YYYY',
-                                        disabledDates: [
-                                    new Date(2018, 11 - 1, 21),
-                                    "11/11/2018"
-                                ]
+                                        minDate:moment()
                                       });
                                     });
                                 </script>

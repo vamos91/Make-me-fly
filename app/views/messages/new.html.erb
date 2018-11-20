@@ -4,7 +4,7 @@
 <div class="well" style="height: 100vh;">
   <% page_header "Start Conversation" %>
 <% @chosen_recipient = User.find_by(id: params[:to].to_i) %>
-<p><%= link_to 'Démarrer une conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p>
+<!-- <p><%= link_to 'Démarrer une conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p> -->
 <div class="row">
   <div class="col-sm-4">
     <div class="panel panel-default">
@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-    <div class="col-sm-8">
+    <div class="col-sm-4">
       <%= form_tag messages_path, method: :post do %>
     <div class="form-group">
       <%= label_tag 'recipients', 'Envoyer un message à' %>

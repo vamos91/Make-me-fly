@@ -14,7 +14,7 @@ class AeronefsController < ApplicationController
     @aeronef = current_user.aeronefs.build(aeronef_params)
     authorize @aeronef
     if @aeronef.save
-      redirect_to root_path, notice: '#{@aeronef.marque}appareil ajouté.'
+      redirect_to user_path(current_user), notice: 'appareil ajouté.'
     end
   end
 
@@ -33,7 +33,7 @@ class AeronefsController < ApplicationController
     authorize @aeronef
     @aeronef.update(aeronef_params)
     if @aeronef.save
-      redirect_to root_path, notice: 'Appareil modifié avec succès'
+      redirect_to user_path(current_user), notice: 'Appareil modifié avec succès'
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class AeronefsController < ApplicationController
   private
 
   def aeronef_params
-    params.require(:aeronef).permit(:aeronef_category, :cylindre, :annee, :vitesse, :equipement, :autonomie, :marque, :modele, :photos, :image_1, :image_2, :image_3, :image_4)
+    params.require(:aeronef).permit(:aeronef_category, :cylindre, :annee, :vitesse, :equipement, :autonomie, :marque, :modele, :photos, :image_1, :image_2, :image_3, :image_4,:photos_cache, :image_1_cache, :image_2_cache, :image_3_cache, :image_4_cache)
   end
 
   def find_aeronef
