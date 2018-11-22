@@ -1,34 +1,39 @@
 <div class="top-spacing">
-  <%= render 'shared/subnavbar' %>
 </div>
-<div class="well" style="height: 87vh;">
-  <% page_header "Conversation" %>
 
+<div class="wrapper">
+  <div class="container" style="height: 100vh; margin-top: 100px;">
+    <div class="row">
 
-<p><%= link_to 'Démarrer un conversation', new_message_path, class: 'btn btn-lg btn-primary btn-gradient' %></p>
-<div class="row">
-  <div class="col-sm-4">
-  <div class="panel panel-default">
-  <div class="panel-body">
-    <%=  render 'conversations/conversation_panel' %>
+        <div class="col-sm-9 col-md-10 inbox-banner">
+           <% if current_user.picture? %>
+            <% user_picture = current_user.picture %>
+            <% elsif current_user.facebook_picture_url? %>
+              <% user_picture = current_user.facebook_picture_url.split("=")[0] << "=large" %>
+            <% else %>
+              <% user_picture = "pilot.png" %>
+          <% end %>
+          <span><%= cl_image_tag user_picture, class: 'avatar-square-xxl' %>
+           <span class="titre-inbox pull-right"> Messagerie </span> </span>
+           <span class="info-user">
+             <%= current_user.name.capitalize || current_user.first_name.capitalize || current_user.last_name.capitalize %> -
+           <%= current_user.hometown.capitalize %>
+           </span>
+        </div>
     </div>
-    </div>
-    <%= form_tag reply_conversation_path(@conversation), method: :post do %>
-  <div class="form-group">
-    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
-  </div>
-  <%= submit_tag "Send Message", class: 'btn btn-primary' %>
-<% end %>
-  </div>
-  <div class="col-sm-8">
-    <p>Conversation avec
-  <%= render 'conversations/participants', conversation: @conversation %>
-</p>
-<div class="panel panel-default">
-  <div class="panel-heading"><%= @conversation.subject %></div>
-
-  <div class="panel-body" style="height: 300px; overflow-y: scroll;">
-    <div class="messages">
+    <hr />
+    <div class="row">
+        <div class="col-sm-3 col-md-2">
+          <%= link_to 'Nouveau message', new_message_path, class: 'btn btn-danger btn-sm btn-block' %>
+            <hr />
+            <ul class="nav nav-pills nav-stacked">
+               <%=  render 'conversations/conversation_panel' %>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-10">
+        Conversation avec <%= render 'conversations/participants', conversation: @conversation %>
+          <p><%= @conversation.subject %></p>
+          <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
         <div class="media">
           <% message = receipt.message %>
@@ -38,23 +43,22 @@
 
           <div class="media-body">
             <h6 class="media-heading"><%= message.sender.name.capitalize %>
-              says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></h6>
+              a dit le <%= message.created_at.strftime("%-d %b") %></h6>
             <%= message.body %>
           </div>
         </div>
       <% end %>
     </div>
+    <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+  <div class="form-group" style="margin-top: 60px;">
+    <%= text_area_tag 'body', nil, rows: 10, class: 'form-control', placeholder: 'Votre réponse', required: true %>
   </div>
+  <%= submit_tag "Envoyer le message", class: 'btn btn-primary' %>
+<% end %>
+        </div>
+    </div>
 </div>
 
-
-
 </div>
-  </div>
-</div>
-
-
-
-
 
 

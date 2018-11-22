@@ -2,7 +2,7 @@
   <span class="glyphicon glyphicon-star-empty"></span>
   <%= render 'conversations/participants', conversation: conversation %>
   <span style="margin-left: 30px;"><%= link_to conversation.subject.capitalize, conversation_path(conversation) %></span>
-  <small><span class="text-muted pull-right" style="margin-left: 30px; font-size: 10px;"><%= conversation.last_message.created_at.strftime("%-d %B") %></span></small>
+  <small><span class="text-muted pull-right" style="margin-left: 30px; font-size: 10px;"><%= conversation.last_message.created_at.strftime("%-d %b") %></span></small>
 
   <div class="btn-group-vertical pull-right button-inbox">
     <% if conversation.is_trashed?(current_user) %>

@@ -10,8 +10,20 @@
   <div class="container" style="height: 100vh; margin-top: 100px;">
     <div class="row">
 
-        <div class="col-sm-9 col-md-10">
-            <!-- Split button -->
+        <div class="col-sm-9 col-md-10 inbox-banner">
+           <% if current_user.picture? %>
+            <% user_picture = current_user.picture %>
+            <% elsif current_user.facebook_picture_url? %>
+              <% user_picture = current_user.facebook_picture_url.split("=")[0] << "=large" %>
+            <% else %>
+              <% user_picture = "pilot.png" %>
+          <% end %>
+          <span><%= cl_image_tag user_picture, class: 'avatar-square-xxl' %>
+           <span class="titre-inbox pull-right"> Messagerie </span> </span>
+           <span class="info-user">
+             <%= current_user.name.capitalize || current_user.first_name.capitalize || current_user.last_name.capitalize %> -
+           <%= current_user.hometown.capitalize %>
+           </span>
         </div>
     </div>
     <hr />
@@ -27,7 +39,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
-                </span>Message</a></li>
+                </span><%= @conversations.count %> Messages</a></li>
                <!--  <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>
                     Social</a></li>
                 <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>

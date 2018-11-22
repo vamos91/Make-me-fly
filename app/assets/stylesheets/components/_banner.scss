@@ -248,6 +248,26 @@ margin-top: 10px;
   height: 500px;
 }
 
+.inbox-banner{
+  background-color: $celestial-blue;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px;
+}
+
+.inbox-banner .titre-inbox{
+  color: white;
+  padding: 30px;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.inbox-banner .info-user{
+  color: white;
+}
+
+
 //--------------------------------------------------------
 //
 //
@@ -259,19 +279,25 @@ margin-top: 10px;
   }
 
   #form-navbar{
-    display: none;
+    //display: none;
+    padding: 30px;
   }
 
   .banner h1{
-    font-size: 20px;
+    font-size: 40px;
     font-weight: lighter;
-    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
     padding: 0px 20px;
+    text-align: center;
   }
 
   .banner h2{
     font-size: 15px;
   }
+
+  .titre_form{
+    text-align: center;
+  }
+
   .banner p {
     font-size: 21px;
     font-weight: lighter;
@@ -314,9 +340,7 @@ margin-top: 10px;
   }
 
   form .btn {
-    margin-top: 25px;
-    font-size: 10px;
-    padding: 5px 16px;
+    width: 100%;
   }
 
   .banner-content-parallax span{
