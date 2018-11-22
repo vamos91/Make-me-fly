@@ -39,7 +39,10 @@
 <% end %>
 <% else %>
 </p>
-<div class="card card-padded" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ad.photo %>');" data-url="<%= ad_path ad %>">
+<div class="card card-padded">
+  <%= link_to ad_path(ad) do %>
+  <%= cl_image_tag ad.photo, class: "card_photo_design" %>
+  <% end %>
     <div class="card-category"><%= ad.aeronef.try(:aeronef_category) %></div>
     <div style="position: absolute; left: 10px; top: 22px;">
     <% if ad.booked == '1' %>
