@@ -4,7 +4,7 @@
 <% if current_page?(:search_ads) %>
 <%= link_to ad_path(ad) do %>
 <p>
-  <div class="media card-ad" data-url="<%= ad_path ad %>">
+  <!-- <div class="media card-ad" data-url="<%= ad_path ad %>">
   <div class="media-left card-photo">
       <%= cl_image_tag ad.photo %>
   </div>
@@ -35,7 +35,24 @@
     <% end %>
     </div>
   </div>
-</div>
+</div> -->
+
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <%= render 'shared/card_test', ad: ad %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <%= render 'shared/card_test', ad: ad %>
+      </div>
+
+    </div>
+
+
+
+
+
 <% end %>
 <% else %>
 </p>
@@ -76,5 +93,6 @@
 <% end %>
     </div>
   </div>
+</div>
 <% end %>
 

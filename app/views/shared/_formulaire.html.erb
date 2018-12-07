@@ -2,14 +2,13 @@
 <div class="wrapper">
   <% if current_page?(root_path) %>
   <div class="container" style="width: 100%;">
-    <div class="titre_form">Je trouve un vol rapidement.</div>
     <% else %>
-  <div class="container" style="background: #3E92CC; padding: 15px; margin-top: 20px; width: 100%;">
+  <div class="container" style="background: #3E92CC; padding: 0px; margin-top: 20px; width: 100%;">
    <% end %>
-<form action="<%= search_ads_path %>" class="formulaire form-inline" id="form-navbar" style="padding: 20px; <%unless current_page?(root_path)%> text-align: left;<%end%>">
+<form action="<%= search_ads_path %>" class="formulaire form-inline" id="form-navbar" style="padding: 20px; <%unless current_page?(root_path)%> text-align: center;<%end%>">
   <div class="form-group">
     <div class="input-group">
-      <input name="q" type="text" class="form-control" placeholder="Ex: Marseille" style="height: 48px; font-size: 20px; width: 400px; border-radius: 20px;">
+      <input name="q" type="text" class="form-control" placeholder="Je trouve un vol rapidement. Ex: Marseille" style="height: 70px; font-size: 20px; width: 700px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; text-align: center;"><span class="input-group-addon" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;"><i class="glyphicon glyphicon-search"> RECHERCHER</i></span>
     </div>
   </div>
 <!--   <div class="input-group date" data-provide="datepicker">
@@ -36,7 +35,7 @@
               </select>
             </div> -->
 <%end%>
-  <button class="btn btn-primary btn-lg btn-gradient" style="border-radius: 20px;" type="submit">RECHERCHER</button>
+  <!-- <button class="btn btn-primary btn-lg btn-gradient" style="border-radius: 20px;" type="submit">RECHERCHER</button> -->
 </form>
    </div>
  </div>

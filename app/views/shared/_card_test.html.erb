@@ -1,0 +1,37 @@
+
+        <div class="card-test" style="box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);border-radius: 20px;">
+          <div class="card-image">
+            <%= image_tag "multiaxe.jpg", width: "100%" %>
+          </div>
+          <div class="card-informations" style="background-color: white; height: 200px; position: relative; color: gray; border-bottom-left-radius: 20px; border-radius: 20px;">
+          <div class="" style="position: absolute; left: 10px; top: 10px; font-weight: bold;"><%= ad.titre.capitalize %>
+            <p><span class="glyphicon glyphicon-map-marker"></span> <%= ad.address.upcase %> le <%= I18n.l(ad.flight_date, format: :short) %></p>
+          </div>
+          <div class="" style="position: absolute; right: 10px; top: 55px; color: black; font-size: 12px;"><i class="fa fa-star" style="color: #ffb400;"></i>
+            <% reviews = Review.where(reviewed_id: ad.user) %>
+            <%= reviews.count %> avis
+          </div>
+          <% if ad.user.pilotevalidation == true %>
+            <div class="card-user"><%= ad.user.name.capitalize || ad.user.first_name.capitalize %>
+            <% else %>
+            <div class="card-user"><%= ad.user.name.capitalize || ad.user.first_name.capitalize %>
+          <% end %>
+             <% if ad.user.picture? %>
+          <%= image_tag "pilot.png", class: "avatar" %>
+          <% elsif ad.user.facebook_picture_url? %>
+            <%= image_tag ad.user.facebook_picture_url.split("=")[0] << "=large", class: "avatar" %>
+          <% else %>
+            <%= image_tag "pilot.png", class: "avatar" %>
+        <% end %>
+            </div>
+          <div class="card-price" style="position: absolute; bottom: 10px; right: 25px; color: white;"><p><%= ad.price %>€/vol</p></div>
+          <div style="position: absolute; left: 25px; bottom: 10px;">
+          <% if ad.booked == '1' %>
+            <p class="statut-ad-booked statut">Vol réservé !</p>
+            <% else %>
+            <p class="statut-ad-free statut">1 place disponible</p>
+          <% end %>
+          </div>
+        </div>
+      </div>
+

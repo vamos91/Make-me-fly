@@ -9,7 +9,7 @@
       <%= link_to 'Restaurer', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
     <% if conversation.is_unread?(current_user) %>
-        <span><%= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: "btn btn-primary",
+        <span><%= link_to 'Marquer comme lu', mark_as_read_conversation_path(conversation), class: "btn btn-primary",
          method: :post %></span>
       <% end %>
       <span><%= link_to conversation_path(conversation), class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} do %>
