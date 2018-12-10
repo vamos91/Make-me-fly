@@ -135,35 +135,38 @@ class AdsController < ApplicationController
     if @all_flight == 'all_flight'
       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
 
-    else
+     else
 
-    if @category.present?
-      @ads = Ad.where("flight_date >= ? and category = ?", DateTime.now, @category).order(created_at: :desc)
-      if @ads.count == 0
-        flash[:notice] = "Aucun vol en #{@category} pour le moment."
-      end
-    else
-    if @city.blank?
-      @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
-    else
-      if @planes == ["Aéronef"]
-        @ads = Ad.near(@city, 200, :units => :km)
-      else
-        if @date.blank?
-          @ads_category = Ad.where("flight_date >= ? and category = ?", DateTime.now, @planes).order(created_at: :desc)
-          @ads = @ads_category.near(@city, 200, :units => :km)
-        else
-           @ads = Ad.where("flight_date = ? and category = ?", @date, @planes).order(created_at: :desc)
-          @ads = @ads_category.near(@city, 200, :units => :km)
-          if @ads.empty?
-            redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
-          end
-        end
-    end
-    # Let's DYNAMICALLY build the markers for the view.
+       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
+       @ads = Ad.near(@city, 200, :units => :km)
 
-  end
-end
+#     if @category.present?
+#       @ads = Ad.where("flight_date >= ? and category = ?", DateTime.now, @category).order(created_at: :desc)
+#       if @ads.count == 0
+#         flash[:notice] = "Aucun vol en #{@category} pour le moment."
+#       end
+#     else
+#     if @city.blank?
+#       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
+#     else
+#       if @planes == ["Aéronef"]
+#         @ads = Ad.near(@city, 200, :units => :km)
+#       else
+#         if @date.blank?
+#           @ads_category = Ad.where("flight_date >= ? and category = ?", DateTime.now, @planes).order(created_at: :desc)
+#           @ads = @ads_category.near(@city, 200, :units => :km)
+#         else
+#            @ads = Ad.where("flight_date = ? and category = ?", @date, @planes).order(created_at: :desc)
+#           @ads = @ads_category.near(@city, 200, :units => :km)
+#           if @ads.empty?
+#             redirect_to root_path, notice: "IL N'Y A AUCUN VOL AUX ALENTOURS DE #{@city.upcase}"
+#           end
+#         end
+#     end
+#     # Let's DYNAMICALLY build the markers for the view.
+
+#   end
+# end
 end
 
 
