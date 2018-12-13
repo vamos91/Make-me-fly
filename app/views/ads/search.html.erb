@@ -17,6 +17,7 @@
         <!-- <button onclick="small_card()">Click me</button>
         <button onclick="big_card()">Click me</button> -->
         <div class="liste padded">
+        <% unless @ads.blank? %>
           <% @ads.each do |ad| %>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <% if ad.user.pilotevalidation == true %>
@@ -24,6 +25,7 @@
             <% end %>
             </div>
           <% end %>
+        <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-md-5">
