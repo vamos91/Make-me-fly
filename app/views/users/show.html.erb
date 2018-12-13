@@ -4,13 +4,14 @@
    <%= cl_image_tag @user.picture_ulm_user, class: "blur" %>
   </div>
 <% else %>
-  <%= link_to edit_user_path(current_user) do  %>
     <div class="banner-show banner-user-profile">
     <% if @user == current_user %>
+    <%= link_to edit_user_path(current_user) do  %>
       <h3>Insérez votre photo de bannière</h3>
     <% end %>
+    <% end %>
     </div>
-  <% end %>
+
 <% end %>
 <!-- <div class="bar-profile">
   <div class="info-bar-profile navbar text-center">
@@ -63,7 +64,7 @@
         <p><%= link_to "Compléter mon profil", edit_user_path(current_user), :style=>'color: red; font-size: 12px;' %></p>
         <p><%= link_to "Ajouter un appareil", new_aeronef_path, :style=>'color: red; font-size: 12px;' %></p>
         <% else %>
-          <p><i class="fa fa-commenting" aria-hidden="true" style="color: gray;"></i> <%= link_to t(".top_call_to_action", default: "Envoyer un message"), new_message_path(to: @user.id) %></p>
+          <p><i class="fa fa-commenting" aria-hidden="true" style="color: gray;"></i> <%= link_to t(".top_call_to_action", default: "Envoyer un message"), new_message_path(to: @user.id), class: 'btn btn-primary' %></p>
         <% end %>
       </div>
      </div>
@@ -101,16 +102,7 @@
     <% end %>
     </div>
     <div class="col-md-9 col-sm-9" style="margin-top: 195px;">
-
-
-
-
-
-
-
-
-
-<div class="panel-body">
+    <div class="panel-body">
          <div class="row padded margin-panel">
            <% if @user == current_user %>
             <% @ads.each do |ad| %>
@@ -127,43 +119,6 @@
           <% end %>
          </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<div class="padded margin-panel">
-<% if @user_flight.any? %>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title" style="color: #469AE0;">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         <i class="fa fa-plane" aria-hidden="true"></i> Mes vols à venir (<%= @user_flight.count %>)
-         <i class="glyphicon glyphicon-menu-down pull-right"></i>
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-
-
-
-
-
-    </div>
-  </div>
-  </div>
-<% end %>
-</div> -->
 
       <div class="margin-panel">
       <% @aeronefs.each do |aeronef| %>
@@ -188,8 +143,8 @@
             <% end %>
             <% end %>
 
-<div class="row">
-  <div class="title-flat">
+       <div class="row">
+          <div class="title-flat">
             <p></p>
             <%= image_tag "checklist.png", width: "30" %>Fiche de l'appareil
           </div>
@@ -232,7 +187,7 @@
             </div>
           </div>
         </div>
-        </div>
+      </div>
       <% end %>
 
 
@@ -258,7 +213,7 @@
 
 
 
-        <div class="row">
+        <!-- <div class="row">
         <div class="col-md-9 col-sm-9">
           <div class="margin-panel">
               <% @articles.each do |article| %>
@@ -316,16 +271,16 @@
                           </div>
                         <% end %>
                         </div>
-<!--                           <%= render 'shared/small_current_user_profile_photo' %>
- -->                          <%= render 'form_post', article: article, post: @post %>
+                           <%= render 'shared/small_current_user_profile_photo' %>
+                          <%= render 'form_post', article: article, post: @post %>
                    </div>
                   </div>
               </div>
               <% end %>
             </div>
           </div>
-          <div class="col-md-3 col-sm-3">
-           <!--  <div class="panel panel-default">
+           <div class="col-md-3 col-sm-3">
+             <div class="panel panel-default">
               <div class="panel-heading"><strong>Contacts proches de
               <% if @user == current_user %>
                 moi
@@ -357,13 +312,14 @@
                 </div>
               <% end %>
               <% end %>
-            </div> -->
+            </div>
         </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </div>
+
 
 
 

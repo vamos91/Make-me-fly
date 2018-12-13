@@ -4,58 +4,11 @@
 <% if current_page?(:search_ads) %>
 <%= link_to ad_path(ad) do %>
 <p>
-  <!-- <div class="media card-ad" data-url="<%= ad_path ad %>">
-  <div class="media-left card-photo">
-      <%= cl_image_tag ad.photo %>
-  </div>
-  <div class="media-body">
-    <div class="media-heading" style="position: absolute; top: 7px;">
-     <div class="ad-titre"><%= ad.titre %></div>
-     <p style="color: grey;"><%= ad.aeronef.try(:aeronef_category) %> - <%= ad.aeronef.try(:modele) %></p>
-    <p><span class="glyphicon glyphicon-map-marker"></span> <%= ad.address.upcase %> le <%= I18n.l(ad.flight_date, format: :short) %></p>
-    </div>
-    <div style="position: absolute; left: 312px; bottom: 0px;">
-    <% if ad.booked == '1' %>
-      <p class="statut-ad-booked statut">Vol réservé !</p>
-      <% else %>
-      <p class="statut-ad-free statut">1 place disponible</p>
-    <% end %>
-    </div>
-    <div class="ad-avis" style="color: grey;"><i class="fa fa-star" style="color: #ffb400"></i>
-      <% reviews = Review.where(reviewed_id: ad.user) %>
-      <%= reviews.count %> avis</div>
-    <div class="card-price" style="color: white"><p><%= ad.price %>€/vol</p></div>
-    <div class="ad-photo">
-     <% if ad.user.picture? %>
-      <%= cl_image_tag ad.user.picture, class: "avatar" %>
-      <% elsif ad.user.facebook_picture_url? %>
-        <%= image_tag ad.user.facebook_picture_url.split("=")[0] << "=large", class: "avatar" %>
-      <% else %>
-        <%= image_tag "pilot.png", class: "avatar" %>
-    <% end %>
-    </div>
-  </div>
-</div> -->
-
-
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <%= render 'shared/card_test', ad: ad %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <%= render 'shared/card_test', ad: ad %>
-      </div>
-
-    </div>
-
-
-
-
-
+<%= render 'shared/card_test', ad: ad %>
+</p>
 <% end %>
 <% else %>
-</p>
+
 <div class="card card-padded">
   <%= link_to ad_path(ad) do %>
   <%= cl_image_tag ad.photo, class: "card_photo_design" %>
@@ -83,6 +36,7 @@
     <div class="grade" data-toggle="tooltip" data-placement="bottom" title="Pilote non vérifié">
       <%= image_tag "unchecked-pilot.png", class: "avatar-large" %>
     </div>
+
     <% end %>
      <% if ad.user.picture? %>
   <%= cl_image_tag ad.user.picture, class: "avatar" %>
@@ -92,7 +46,6 @@
     <%= image_tag "pilot.png", class: "avatar" %>
 <% end %>
     </div>
-  </div>
 </div>
 <% end %>
 
