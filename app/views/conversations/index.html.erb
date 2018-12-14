@@ -12,13 +12,14 @@
 
         <div class="col-sm-9 col-md-10 inbox-banner">
            <% if current_user.picture? %>
-            <% user_picture = current_user.picture %>
+            <%= cl_image_tag current_user.picture, class: 'avatar-square-xxl' %>
             <% elsif current_user.facebook_picture_url? %>
-              <% user_picture = current_user.facebook_picture_url.split("=")[0] << "=large" %>
+              <% cl_image_tag current_user.facebook_picture_url.split("=")[0] << "=large", class: 'avatar-square-xxl' %>
             <% else %>
               <% user_picture = "pilot.png" %>
+              <%= image_tag user_picture, class: 'avatar-square-xxl' %>
           <% end %>
-          <span><%= cl_image_tag user_picture, class: 'avatar-square-xxl' %>
+          <!-- <span><%= cl_image_tag user_picture, class: 'avatar-square-xxl' %> -->
            <span class="titre-inbox pull-right"> Messagerie </span> </span>
            <span class="info-user">
              <%= current_user.name.capitalize || current_user.first_name.capitalize || current_user.last_name.capitalize %> -

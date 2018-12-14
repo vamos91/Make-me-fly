@@ -12,8 +12,6 @@ before_action :find_user, only: [:upvote, :downvote]
   @articles = Article.all
  end
 
-
-
  def user_ads
    find_user
    @user_ads = Ad.where(user_id: @user)

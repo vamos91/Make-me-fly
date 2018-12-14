@@ -132,13 +132,13 @@ class AdsController < ApplicationController
     @date = params[:date]
     @category = params[:category]
     @all_flight = params[:all_flight]
-    if @all_flight == 'all_flight'
+    if @all_flight == 'all_flight' || @city.blank?
       @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
-
      else
-
        @ads = Ad.where("flight_date >= ?", DateTime.now).order(created_at: :desc)
        @ads = Ad.near(@city, 200, :units => :km)
+    end
+
 
 #     if @category.present?
 #       @ads = Ad.where("flight_date >= ? and category = ?", DateTime.now, @category).order(created_at: :desc)
@@ -167,7 +167,7 @@ class AdsController < ApplicationController
 
 #   end
 # end
-end
+
 
 
 

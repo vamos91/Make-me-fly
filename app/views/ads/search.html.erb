@@ -19,11 +19,11 @@
         <div class="liste padded">
         <% unless @ads.blank? %>
           <% @ads.each do |ad| %>
+          <% if ad.user.pilotevalidation == true %>
           <div class="col-xs-12 col-sm-6 col-md-6">
-            <% if ad.user.pilotevalidation == true %>
               <%= render ad %>
+              </div>
             <% end %>
-            </div>
           <% end %>
         <% end %>
         </div>
