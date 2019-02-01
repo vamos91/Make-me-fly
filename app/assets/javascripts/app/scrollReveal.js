@@ -14,4 +14,3 @@
 // sr.reveal('.title-banner', {origin:"bottom", distance: '50px', duration: 1000, reset: false})
 // //sr.reveal('#search p', {origin:'left', distance: '50px', duration: 1000, reset: false})
 // sr.reveal('.call-to-action', {origin:'left', distance: '50px', duration: 3000, reset: false})
-
