@@ -29,7 +29,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       @ads_hometown = Ad.near(current_user.hometown, 150, :unit => :km)
     end
-    @ads = Ad.where("flight_date >= ?", DateTime.now).order(id: :desc).limit(9)
+    @ads = Ad.order(id: :desc).limit(9)
   end
 
 
